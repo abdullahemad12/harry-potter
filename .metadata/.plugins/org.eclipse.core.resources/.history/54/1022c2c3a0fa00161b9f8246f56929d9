@@ -1,0 +1,9 @@
+package harrypotter.model.character;
+
+public class SlytherinWizard {
+
+	public SlytherinWizard(String name) {
+		super(name);
+	}
+
+}

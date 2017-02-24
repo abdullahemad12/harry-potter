@@ -1,0 +1,12 @@
+package harrypotter.model.world;
+
+public class PhysicalObstacle extends Obstacle {
+
+	private int damage;
+	
+	public PhysicalObstacle(int damage){
+	
+		this.damage = damage;
+	}
+	
+}

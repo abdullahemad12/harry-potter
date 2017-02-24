@@ -1,0 +1,10 @@
+package harrypotter.model.character;
+
+public class SlytherinWizard extends Wizard {
+	Direction traitDirection; //represents the direction of the move resulting from activating their trait.
+	public SlytherinWizard(String name) {
+		super(name);
+	}
+	
+
+}

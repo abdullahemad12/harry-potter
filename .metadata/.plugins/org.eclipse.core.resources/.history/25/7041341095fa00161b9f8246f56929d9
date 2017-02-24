@@ -1,0 +1,18 @@
+package harrypotter.model.world;
+
+/*
+ * represents cells that are currently have a champion positioned in them
+ */
+public class ChampionCell extends Cell {
+	Champion champ;
+	
+	/*
+	 * Creates object of champion cell
+	 */
+	public ChampionCell(champion champ){
+		this.champ = champ;
+	}
+	
+	
+
+}

@@ -1,0 +1,9 @@
+package harrypotter.model.character;
+
+/*
+ * Interface containing the methods available to wizards who participate in the tournament
+ * i.e. champions.
+ */
+public interface Champion {
+	void useTrait();
+}

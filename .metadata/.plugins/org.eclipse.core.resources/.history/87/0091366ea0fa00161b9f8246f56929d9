@@ -1,0 +1,11 @@
+package harrypotter.model.character;
+
+public class GryffindorWizard extends Wizard {
+	
+	public GryffindorWizard(String name)
+	{		
+		super(name);
+		this.defaultHp = 900;
+		this.defaultIp = 500;
+	}
+}

@@ -1,0 +1,13 @@
+package harrypotter.model.world;
+
+protected abstract class Obstacle {
+	// Health points 
+	int hp; 
+	
+	protected Obstacle{
+		
+		
+	}
+	
+
+}

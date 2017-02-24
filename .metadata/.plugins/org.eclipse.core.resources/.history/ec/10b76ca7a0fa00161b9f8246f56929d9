@@ -1,0 +1,9 @@
+package harrypotter.model.character;
+
+public class RavenclawWizard {
+
+	public RavenclawWizard() {
+		super(name);
+	}
+
+}

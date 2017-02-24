@@ -1,0 +1,8 @@
+package harrypotter.model.character;
+
+/*
+ * A class representing a wizard character
+ */
+public class Wizard {
+
+}

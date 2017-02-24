@@ -1,0 +1,20 @@
+package harrypotter.model.world;
+
+public class PhysicalObstacle extends Obstacle {
+
+	private int damage;
+	
+	public PhysicalObstacle(int hp, int damage){
+	
+		super(hp);
+		this.damage = damage;
+	}
+	public int getDamage()
+	{
+		return this.damage;
+	}
+	public int getHp()
+	{
+		return this.hp;
+	}
+}

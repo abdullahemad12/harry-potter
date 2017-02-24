@@ -1,0 +1,22 @@
+package harrypotter.model.world;
+
+abstract class Obstacle {
+	// Health points 
+	private int hp; 
+	
+	Obstacle(){
+		hp = 0;
+
+	}
+	
+	Obstacle(int hp)
+	{
+		this.hp = hp;
+	}
+	public int getHp()
+	{
+		return this.hp;
+	}
+	
+
+}

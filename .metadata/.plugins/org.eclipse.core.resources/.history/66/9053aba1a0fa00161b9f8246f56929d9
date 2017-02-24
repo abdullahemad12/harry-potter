@@ -1,0 +1,9 @@
+package harrypotter.model.character;
+
+public class RavenclawWizard {
+
+	public RavenclawWizard() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
