@@ -80,7 +80,7 @@ public abstract class Task {
 		this.allowedMoves=allowedMoves;
 	}
 	
-	public boolean isTraitActivated(){
+	public boolean isTaitActivated(){
 		return traitActivated;
 	}
 	

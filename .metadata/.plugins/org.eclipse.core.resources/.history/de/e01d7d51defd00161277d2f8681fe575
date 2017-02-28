@@ -52,7 +52,7 @@ public abstract class Task {
 		allowedMoves=1;
 		traitActivated= false;
 		map = new Cell[10][10];
-		loadPotions("Potions.csv");
+		//loadPotions("Potions.csv");
 		generateMap();
 	}
 	
@@ -80,7 +80,7 @@ public abstract class Task {
 		this.allowedMoves=allowedMoves;
 	}
 	
-	public boolean isTraitActivated(){
+	public boolean isTaitActivated(){
 		return traitActivated;
 	}
 	
