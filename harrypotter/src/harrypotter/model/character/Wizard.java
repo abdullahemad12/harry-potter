@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /*
  * A class representing a wizard character
  */
-abstract public class Wizard {
+abstract public class Wizard implements Champion  {
 	private String name; //The wizards name
 	
 	private int defaultHp; // The default health points of the wizard
@@ -35,6 +35,8 @@ abstract public class Wizard {
 		this.name = "unknow";
 		hp = defaultHp;
 		ip = defaultIp;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
 	}
 	/*
 	 * Constructor that initializes a Wizard object.
@@ -67,6 +69,8 @@ abstract public class Wizard {
 		hp = defaultHp;
 		ip = defaultIp;
 		this.traitCooldown = 0;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
 	}
 	
 	public String getName(){
@@ -117,6 +121,10 @@ abstract public class Wizard {
 	}
 	public void setTraitCooldown(int traitCooldown){
 		this.traitCooldown=traitCooldown;
+	}
+	
+	public void useTrait(){
+		
 	}
 
 

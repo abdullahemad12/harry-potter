@@ -7,9 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class SecondTask extends Task {
-	public SecondTask(ArrayList<Champion> champions) throws IOException{
+	public SecondTask(ArrayList<Champion> champions)throws IOException{
 		super(shuffleHelper(champions));
-		generateMap();
 	}
 	
 	private static ArrayList<Champion> shuffleHelper(ArrayList<Champion> champions){

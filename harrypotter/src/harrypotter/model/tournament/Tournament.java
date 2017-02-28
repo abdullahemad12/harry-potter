@@ -1,6 +1,8 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.GryffindorWizard;
+import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.DamagingSpell;
 import harrypotter.model.magic.HealingSpell;
 import harrypotter.model.magic.Potion;
@@ -30,7 +32,7 @@ public class Tournament {
 	private ThirdTask thirdTask;
 	//The third task of the tournament.
 	
-	public Tournament() throws IOException{
+	public Tournament() throws Exception{
 		champions =new ArrayList<Champion>();
 		loadSpells("Spells.csv");
 		firstTask = new FirstTask(champions);
@@ -68,6 +70,9 @@ public class Tournament {
 		return thirdTask;
 	}
 	
-	
+	public ArrayList<Spell> getSpells(){
+		return spells;
+				
+	}
 
 }

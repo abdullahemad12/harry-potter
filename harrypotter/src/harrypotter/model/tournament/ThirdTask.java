@@ -8,9 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ThirdTask extends Task {
-	public ThirdTask(ArrayList<Champion> champions)  throws IOException{
+	public ThirdTask(ArrayList<Champion> champions) throws IOException{
 		super(champions);
-		generateMap();
 	}
 	static String[][] readMap(String filePath) throws IOException{
 		String currentLine = "";

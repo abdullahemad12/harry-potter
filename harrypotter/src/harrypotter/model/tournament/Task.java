@@ -47,12 +47,13 @@ public abstract class Task {
 	private ArrayList<Potion> potions;
 	//List of potions available to be distributed in the maps of the three tasks.
 	
-	public Task(ArrayList<Champion> champions) throws IOException{
+	public Task(ArrayList<Champion> champions)  throws IOException{
 		this.champions=champions;
 		allowedMoves=1;
 		traitActivated= false;
 		map = new Cell[10][10];
-		this.loadPotions("Potions.csv");
+		loadPotions("Potions.csv");
+		generateMap();
 	}
 	
 	public ArrayList<Champion> getChampions(){
@@ -98,7 +99,7 @@ public abstract class Task {
 		BufferedReader br = new BufferedReader(fileReader);
 		while ((currentLine = br.readLine()) != null) {
 			String [] potion= currentLine.split(",");
-			this.potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
+			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
 
 	}
@@ -123,15 +124,15 @@ public abstract class Task {
 
 	//adding potions method.
 	void addingpotions(){
-		for (int j=0; j<10;j++){
+		for (int i=0; i<10;i++){
 			randomGenerator = new Random();
-			int xx=randomGenerator.nextInt(10);
-			int yy=randomGenerator.nextInt(10);
-			if (this.map[xx][yy]!=null||(xx==4&&yy==4))
-				j--;
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null||(x==4&&y==4))
+				i--;
 			else{
 				int index =randomGenerator.nextInt(potions.size());
-				map[xx][yy]= new CollectibleCell(potions.get(index));
+				map[x][y]= new CollectibleCell(potions.get(index));
 			}
 		
 		}
@@ -226,4 +227,5 @@ public abstract class Task {
 		   }
 	
 	}
+	public abstract void generateMap() throws IOException;
 }

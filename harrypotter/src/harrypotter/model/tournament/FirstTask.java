@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class FirstTask extends Task {
 	public FirstTask(ArrayList<Champion> champions) throws IOException{
 		super(shuffleHelper(champions));
-		generateMap();
+		
 	}
 	
 	//helper that shuffles the champions.
