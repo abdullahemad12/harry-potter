@@ -178,15 +178,14 @@ public abstract class Task {
 	void task2(){
 
 		
-		for (int i=0;i<champions.size();i++){
-			randomGenerator = new Random();
-			int x=randomGenerator.nextInt(10);
-			int y=randomGenerator.nextInt(10);
-			if (this.map[x][y]!=null)
-				i--;
-			else{
-				map[x][y]= new TreasureCell(champions.get(i));
-			}
+	for (int i=0;i<champions.size();i++){
+		randomGenerator = new Random();
+		int x=randomGenerator.nextInt(10);
+		int y=randomGenerator.nextInt(10);
+		if (this.map[x][y]!=null)
+			i--;
+		else{
+			map[x][y]= new TreasureCell(champions.get(i));
 		}
 		for (int i=0; i<40;i++){
 			randomGenerator = new Random();

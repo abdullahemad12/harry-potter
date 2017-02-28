@@ -176,9 +176,12 @@ public abstract class Task {
 	
 	//properties of task 2.
 	void task2(){
-
-		
+<<<<<<< HEAD
+		for (int i=0; i< champions.size() ;i++)
+		{
+=======
 		for (int i=0;i<champions.size();i++){
+>>>>>>> 3cab552ef35710b114a59d68ea5bbe27fb62eca9
 			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
