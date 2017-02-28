@@ -41,7 +41,7 @@ abstract public class Wizard implements Champion  {
 	/*
 	 * Constructor that initializes a Wizard object.
 	 */
-	public Wizard(String name){
+		public Wizard(String name){
 		
 		// checks for which type of wizard is this and assigns the correct default HP and IP
 		if(this instanceof GryffindorWizard)
@@ -72,6 +72,21 @@ abstract public class Wizard implements Champion  {
 		inventory = new ArrayList<Collectible>();
 		spells = new ArrayList<Spell>();
 	}
+	
+	public Wizard(String name, int defaultHp, int defaultIp)
+	{
+		this.defaultIp = defaultIp;
+		this .defaultHp = defaultHp;
+		hp = defaultHp;
+		ip = defaultIp;
+		this.traitCooldown = 0;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
+		this.name = name;
+
+		
+	}
+	
 	
 	public String getName(){
 		return name;

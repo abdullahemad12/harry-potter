@@ -20,6 +20,9 @@ public class SlytherinWizard extends Wizard {
 	public void useTrait(){
 		
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 555f87d8ed6747a6c76ff72b5865eb8541c013e8
 
 }

@@ -17,4 +17,12 @@ public class ObstacleCell extends Cell{
 		return obstacle;
 	}
 
+	public static void main(String[] args)
+	{
+		Obstacle  ob = new PhysicalObstacle(200);
+		System.out.println(ob.getHp());
+		ObstacleCell c = new ObstacleCell(ob);
+		System.out.println(c.getObstacle().getHp());
+	}
 }
+
