@@ -1,8 +1,11 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.GryffindorWizard;
+import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.DamagingSpell;
 import harrypotter.model.magic.HealingSpell;
+import harrypotter.model.magic.Potion;
 import harrypotter.model.magic.RelocatingSpell;
 import harrypotter.model.magic.Spell;
 
@@ -51,7 +54,6 @@ public class Tournament {
 				else
 					this.spells.add(new RelocatingSpell(spell[1], Integer.parseInt(spell[2]), Integer.parseInt(spell[4]), Integer.parseInt(spell[3])));
 		}
-		br.close();
 	}
 	
 	

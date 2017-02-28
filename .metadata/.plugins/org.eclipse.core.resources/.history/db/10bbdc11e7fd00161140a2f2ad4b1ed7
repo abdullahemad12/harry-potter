@@ -101,7 +101,6 @@ public abstract class Task {
 			String [] potion= currentLine.split(",");
 			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
-		br.close();
 
 	}
 	

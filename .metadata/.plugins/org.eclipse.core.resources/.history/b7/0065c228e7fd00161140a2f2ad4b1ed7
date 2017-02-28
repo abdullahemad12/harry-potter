@@ -22,9 +22,7 @@ public class ThirdTask extends Task {
 		num[i]= line;
 		i++;
 		}
-		br.close();
 		return num;
-		
 	}
 	public void generateMap() throws IOException {
 		super.task3();

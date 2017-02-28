@@ -13,7 +13,6 @@ public class ReadingCSVFile {
 		System.out.println(currentLine);
 		// Parsing the currentLine String
 		}
-		br.close();
 
 	}
 	public static void main(String[] args) throws IOException{
