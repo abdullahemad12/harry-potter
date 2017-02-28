@@ -47,12 +47,14 @@ public abstract class Task {
 	private ArrayList<Potion> potions;
 	//List of potions available to be distributed in the maps of the three tasks.
 	
-	public Task(ArrayList<Champion> champions) throws IOException{
+	public Task(ArrayList<Champion> champions)  throws IOException{
 		this.champions=champions;
 		allowedMoves=1;
 		traitActivated= false;
 		map = new Cell[10][10];
-		this.loadPotions("Potions.csv");
+		this.potions = new ArrayList <Potion>();
+		loadPotions("Potions.csv");
+		generateMap();
 	}
 	
 	public ArrayList<Champion> getChampions(){
@@ -79,7 +81,7 @@ public abstract class Task {
 		this.allowedMoves=allowedMoves;
 	}
 	
-	public boolean isTaitActivated(){
+	public boolean isTraitActivated(){
 		return traitActivated;
 	}
 	
@@ -98,24 +100,28 @@ public abstract class Task {
 		BufferedReader br = new BufferedReader(fileReader);
 		while ((currentLine = br.readLine()) != null) {
 			String [] potion= currentLine.split(",");
-			this.potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
+			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
+		br.close();
+//<<<<<<< HEAD
 
+//=======
+//>>>>>>> 54476cd20ba49ccb233c1c3cc72e90f406531693
 	}
 	
-	public void generateMap(){
+	//public void generateMap(){
 		
-	}
+	//}
 	
 
 	// adding players.
 	void addplayers(){
 		if (champions.size()>0)
-			map[0][9]= new ChampionCell(this.champions.get(0));
+			map[9][0]= new ChampionCell(this.champions.get(0));
 		if (champions.size()>1)
 			map[9][9]= new ChampionCell(this.champions.get(1));
 		if (champions.size()>2)
-			map[9][0]= new ChampionCell(this.champions.get(2));
+			map[0][9]= new ChampionCell(this.champions.get(2));
 		if (champions.size()>3)
 			map[0][0]= new ChampionCell(this.champions.get(3));
 		
@@ -123,15 +129,15 @@ public abstract class Task {
 
 	//adding potions method.
 	void addingpotions(){
-		for (int j=0; j<10;j++){
+		for (int i=0; i<10;i++){
 			randomGenerator = new Random();
-			int xx=randomGenerator.nextInt(10);
-			int yy=randomGenerator.nextInt(10);
-			if (this.map[xx][yy]!=null||(xx==4&&yy==4))
-				j--;
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null)
+				i--;
 			else{
 				int index =randomGenerator.nextInt(potions.size());
-				map[xx][yy]= new CollectibleCell(potions.get(index));
+				map[x][y]= new CollectibleCell(potions.get(index));
 			}
 		
 		}
@@ -139,8 +145,8 @@ public abstract class Task {
 	
 	//properties of task 1.
 	void task1(){
+		randomGenerator = new Random();
 		for (int i=0; i<10;i++){
-			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
 			if (this.map[x][y]!=null||(x==4&&y==4))
@@ -152,7 +158,6 @@ public abstract class Task {
 		
 		}
 		for (int i=0; i<40;i++){
-			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
 			if (this.map[x][y]!=null||(x==4&&y==4))
@@ -167,7 +172,7 @@ public abstract class Task {
 	
 	//properties of task 2.
 	void task2(){
-		for (int i=0; i<4;i++){
+		for (int i=0;i<champions.size();i++){
 			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
@@ -189,6 +194,7 @@ public abstract class Task {
 			}
 		
 		}
+		addingpotions();
 		
 	}
 	
@@ -199,6 +205,7 @@ public abstract class Task {
 		   {
 			for (int j = 0; j < 10; j++)
 		      {
+				randomGenerator = new Random();
 		    	int x=Integer.parseInt(mapn[i][j]);  
 				switch (x){
 				case 0: map[i][j]= new EmptyCell(); break; 
@@ -224,6 +231,19 @@ public abstract class Task {
 				}
 		      }	
 		   }
+		int k=0;
+		while (k<10){
+			randomGenerator = new Random();
+			int i= randomGenerator.nextInt(10);
+			int j= randomGenerator.nextInt(10);
+			int x=Integer.parseInt(mapn[i][j]);
+			if (x==0||(x==1&&champions.size()<1)||(x==2&&champions.size()<2)||(x==3&&champions.size()<3)||(x==4&&champions.size()<4)){
+				int index =randomGenerator.nextInt(potions.size());
+				map[i][j]= new CollectibleCell(potions.get(index));
+				k++;
+			}
+		}
 	
 	}
+	public abstract void generateMap() throws IOException;
 }

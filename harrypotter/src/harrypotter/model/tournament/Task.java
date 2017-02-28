@@ -201,11 +201,11 @@ public abstract class Task {
 	//properties of task 3.
 	void task3() throws IOException{
 		String[][] mapn = ThirdTask.readMap("task3map.csv"); 
+		randomGenerator = new Random();
 		for (int i = 0; i < 10; i++)
 		   {
 			for (int j = 0; j < 10; j++)
 		      {
-				randomGenerator = new Random();
 		    	int x=Integer.parseInt(mapn[i][j]);  
 				switch (x){
 				case 0: map[i][j]= new EmptyCell(); break; 
@@ -233,7 +233,6 @@ public abstract class Task {
 		   }
 		int k=0;
 		while (k<10){
-			randomGenerator = new Random();
 			int i= randomGenerator.nextInt(10);
 			int j= randomGenerator.nextInt(10);
 			int x=Integer.parseInt(mapn[i][j]);

@@ -12,14 +12,12 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.CollectibleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.WallCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ObstacleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Obstacle"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
@@ -28,4 +26,6 @@
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Collectible"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 </qualifiedTypeNameHistroy>

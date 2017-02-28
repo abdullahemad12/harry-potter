@@ -7,8 +7,4 @@ public class HufflepuffWizard extends Wizard{
 		super(name);
 		
 	}
-	public void useTrait(){
-		
-	}
-
 }
