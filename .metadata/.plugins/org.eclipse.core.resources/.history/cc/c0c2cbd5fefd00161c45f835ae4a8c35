@@ -46,8 +46,10 @@ public abstract class Task {
 	
 	private ArrayList<Potion> potions;
 	//List of potions available to be distributed in the maps of the three tasks.
+	private String[][] mapn;
 	
 	public Task(ArrayList<Champion> champions)  throws IOException{
+		mapn=new String [10][10];
 		this.champions=champions;
 		allowedMoves=1;
 		traitActivated= false;
@@ -117,11 +119,11 @@ public abstract class Task {
 	// adding players.
 	void addplayers(){
 		if (champions.size()>0)
-			map[9][0]= new ChampionCell(this.champions.get(0));
+			map[0][9]= new ChampionCell(this.champions.get(0));
 		if (champions.size()>1)
 			map[9][9]= new ChampionCell(this.champions.get(1));
 		if (champions.size()>2)
-			map[0][9]= new ChampionCell(this.champions.get(2));
+			map[9][0]= new ChampionCell(this.champions.get(2));
 		if (champions.size()>3)
 			map[0][0]= new ChampionCell(this.champions.get(3));
 		
@@ -200,12 +202,11 @@ public abstract class Task {
 	
 	//properties of task 3.
 	void task3() throws IOException{
-		String[][] mapn = ThirdTask.readMap("task3map.csv"); 
+		mapn = ThirdTask.readMap("task3map.csv"); 
 		for (int i = 0; i < 10; i++)
 		   {
 			for (int j = 0; j < 10; j++)
 		      {
-				randomGenerator = new Random();
 		    	int x=Integer.parseInt(mapn[i][j]);  
 				switch (x){
 				case 0: map[i][j]= new EmptyCell(); break; 
@@ -231,18 +232,7 @@ public abstract class Task {
 				}
 		      }	
 		   }
-		int k=0;
-		while (k<10){
-			randomGenerator = new Random();
-			int i= randomGenerator.nextInt(10);
-			int j= randomGenerator.nextInt(10);
-			int x=Integer.parseInt(mapn[i][j]);
-			if (x==0||(x==1&&champions.size()<1)||(x==2&&champions.size()<2)||(x==3&&champions.size()<3)||(x==4&&champions.size()<4)){
-				int index =randomGenerator.nextInt(potions.size());
-				map[i][j]= new CollectibleCell(potions.get(index));
-				k++;
-			}
-		}
+		addingpotions();
 	
 	}
 	public abstract void generateMap() throws IOException;

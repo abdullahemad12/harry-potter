@@ -232,7 +232,7 @@ public abstract class Task {
 		      }	
 		   }
 		int k=0;
-		while (k<10){
+		while ( k<10){
 			randomGenerator = new Random();
 			int i= randomGenerator.nextInt(10);
 			int j= randomGenerator.nextInt(10);
