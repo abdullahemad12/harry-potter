@@ -10,5 +10,5 @@ public interface Champion{
 	 * Method for activating the special traits available to champions of each house
      * during the tasks.
 	 */
-	void useTrait();
+	public void useTrait();
 }

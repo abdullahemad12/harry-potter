@@ -13,6 +13,8 @@ public class ObstacleCell extends Cell{
 		this.obstacle = obstacle;
 	}
 
-	
+	public Obstacle getObstacle(){
+		return obstacle;
+	}
 
 }

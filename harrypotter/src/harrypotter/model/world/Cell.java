@@ -3,7 +3,8 @@ package harrypotter.model.world;
 /*
  * A superclass representing a single cell in the map that any character can pass through
  */
-abstract class Cell {
+public abstract class Cell {
+	
 	
 	
 

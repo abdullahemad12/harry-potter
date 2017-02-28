@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javafx.scene.control.Cell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.ReadingCSVFile"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Collectible"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.PhysicalObstacle"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.CollectibleCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.WallCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.ObstacleCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Obstacle"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
+</qualifiedTypeNameHistroy>
