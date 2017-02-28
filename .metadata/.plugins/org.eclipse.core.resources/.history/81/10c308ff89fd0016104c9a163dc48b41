@@ -1,0 +1,27 @@
+package harrypotter.model.tournament;
+
+import harrypotter.model.character.Champion;
+import harrypotter.model.magic.Spell;
+
+import java.util.ArrayList;
+
+//Class representing the whole game play i.e. the Triwizard Tournament.
+
+public class Tournament {
+	private ArrayList<Champion> champions;
+	//Represents the champions competing in the tournament.
+	
+	private ArrayList<Spell> spells;
+	//List of spells available for champions to choose from throughout the whole tournament.
+	
+	private FirstTask firstTask;
+	//The rst task of the tournament.
+	
+	private SecondTask secondTask;
+	//The second task of the tournament.
+	
+	private ThirdTask thirdTask;
+	//The third task of the tournament.
+	
+
+}

@@ -1,27 +1,31 @@
 package harrypotter.model.character;
+import harrypotter.model.magic.Collectible;
+import harrypotter.model.magic.Spell;
+
 import java.awt.*;
+import java.util.ArrayList;
 
 /*
  * A class representing a wizard character
  */
 abstract public class Wizard {
-	public String name; //The wizards name
+	private String name; //The wizards name
 	
-	public int defaultHp; // The default health points of the wizard
+	private int defaultHp; // The default health points of the wizard
 	
-	public int defaultIp; // The default intelligence points of the wizard
+	private int defaultIp; // The default intelligence points of the wizard
 	
-	public int hp; // the actual health points of the wizard
+	private int hp; // the actual health points of the wizard
 	
-	public int ip; // Intelligence points of the wizard
+	private int ip; // Intelligence points of the wizard
 	
-	private Spell[] spells; // the list of the Wizard's currently chosen spells
+	private ArrayList<Spell> spells; // the list of the Wizard's currently chosen spells
 	
-	private Collectible[] inventory; // The list of the wizard’s belongings that he gathers
+	private ArrayList<Collectible> inventory; // The list of the wizard’s belongings that he gathers
 	
-	Point location; //A point representing the wizard’s location in the map.
+	private Point location; //A point representing the wizard’s location in the map.
 	
-	int traitCooldown; //The amount of turns the champion needs to wait before activating his house trait again.
+	private int traitCooldown; //The amount of turns the champion needs to wait before activating his house trait again.
 	
 	/*
 	 * default constructor
@@ -63,6 +67,56 @@ abstract public class Wizard {
 		hp = defaultHp;
 		ip = defaultIp;
 		this.traitCooldown = 0;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void setName(String name){
+		this.name=name;
+	}
+	public int getDefaultHp(){
+		return defaultHp;
+	}
+	public void setDefaultHp(int defaultHp){
+		this.defaultHp=defaultHp;
+	}
+	public int getDefaultIp(){
+		return defaultIp;
+	}
+	public void setDefaultIp(int defaultIp){
+		this.defaultIp=defaultIp;
+	}
+	public int getHp(){
+		return hp;
+	}
+	public void setHp(int hp){
+		this.hp=hp;
+	}
+	public int getIp(){
+		return ip;
+	}
+	public void setIp(int ip){
+		this.ip=ip;
+	}
+	public ArrayList<Spell> getSpells(){
+		return spells;
+	}
+	public ArrayList<Collectible> getInventory(){
+		return inventory;
+	}
+	public Point getLocation(){
+		return location;
+	}
+	public void setLocation(Point location){
+		this.location=location;
+	}
+	public int getTraitCooldown(){
+		return traitCooldown;
+	}
+	public void setTraitCooldown(int traitCooldown){
+		this.traitCooldown=traitCooldown;
 	}
 
 

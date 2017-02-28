@@ -1,0 +1,32 @@
+package harrypotter.model.tournament;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadingCSVFile {
+	static String[][] readMap(String filePath) throws IOException{
+		String currentLine = "";
+		FileReader fileReader= new FileReader(filePath);
+		BufferedReader br = new BufferedReader(fileReader);
+		String[][] num = new String[10][];
+		int i=0;
+		while ((currentLine = br.readLine()) != null) {
+		String [] line= currentLine.split(",");
+		num[i]= line;
+		i++;
+		}
+		return num;
+	}
+	public static void main(String[] args) throws IOException{
+		String[][] num=readMap("task3map.csv");
+		 for(int i = 0; i < 10; i++)
+		   {
+		      for(int j = 0; j < 10; j++)
+		      {
+		         System.out.print(num[i][j]);
+		      }
+		      System.out.println();
+		   }
+
+}

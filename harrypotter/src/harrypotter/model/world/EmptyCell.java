@@ -1,5 +1,5 @@
 package harrypotter.model.world;
 
-public class EmptyCell {
+public class EmptyCell extends Cell{
 
 }

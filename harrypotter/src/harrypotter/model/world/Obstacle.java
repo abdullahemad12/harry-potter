@@ -3,7 +3,7 @@ package harrypotter.model.world;
 /*
  * abstract super class representing all kinds of obstacles in general
  */
-abstract class Obstacle {
+public abstract class Obstacle {
 	
 	// health points
 	private int hp; 
