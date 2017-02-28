@@ -8,6 +8,7 @@ import harrypotter.model.world.CollectibleCell;
 import harrypotter.model.world.CupCell;
 import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
+import harrypotter.model.world.Obstacle;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
@@ -56,7 +57,10 @@ public abstract class Task {
 		loadPotions("Potions.csv");
 		generateMap();
 	}
-	
+	public void setTraitActivated(boolean traitActivated)
+	{
+		this.traitActivated = traitActivated;
+	}
 	public ArrayList<Champion> getChampions(){
 		return champions;
 	}
@@ -168,7 +172,8 @@ public abstract class Task {
 	
 	//properties of task 2.
 	void task2(){
-		for (int i=0; i<4;i++){
+		for (int i=0; i< champions.size() ;i++)
+		{
 			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
@@ -177,7 +182,6 @@ public abstract class Task {
 			else{
 				map[x][y]= new TreasureCell(champions.get(i));
 			}
-		
 		}
 		for (int i=0; i<40;i++){
 			randomGenerator = new Random();
@@ -221,7 +225,14 @@ public abstract class Task {
 						else
 							map[i][j]= new EmptyCell(); break;
 				case 5: map[i][j]= new WallCell(); break; 			
-				case 6: map[i][j]= new ObstacleCell(new PhysicalObstacle(randomGenerator.nextInt(101)+200)); break;	
+				case 6: 
+				{
+					randomGenerator = new Random();
+					Obstacle  ob = new PhysicalObstacle(randomGenerator.nextInt(101)+200);
+					map[i][j]= new ObstacleCell(ob); 
+					
+					break;	
+				}
 				default: map[i][j]= new CupCell(); break;
 				}
 		      }	
@@ -230,4 +241,6 @@ public abstract class Task {
 	
 	}
 	public abstract void generateMap() throws IOException;
+	
+	
 }

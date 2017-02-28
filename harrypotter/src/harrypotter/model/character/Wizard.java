@@ -73,6 +73,21 @@ abstract public class Wizard implements Champion  {
 		spells = new ArrayList<Spell>();
 	}
 	
+	Wizard(String name, int defaultHp, int defaultIp)
+	{
+		this.defaultIp = defaultIp;
+		this .defaultHp = defaultHp;
+		hp = defaultHp;
+		ip = defaultIp;
+		this.traitCooldown = 0;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
+		this.name = name;
+
+		
+	}
+	
+	
 	public String getName(){
 		return name;
 	}

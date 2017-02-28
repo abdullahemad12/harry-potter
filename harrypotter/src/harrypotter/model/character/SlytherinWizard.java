@@ -17,5 +17,8 @@ public class SlytherinWizard extends Wizard {
 	public void setTraitDirection(Direction traitDirection){
 		this.traitDirection=traitDirection;
 	}
+	public void useTrait(){
+		
+	}
 
 }
