@@ -1,6 +1,6 @@
 package harrypotter.model.world;
 
-import harrypotter.model.magic.*;
+import harrypotter.model.magic;
 
 /*
  * Collectible cells have collectible items of type Collectible in them.

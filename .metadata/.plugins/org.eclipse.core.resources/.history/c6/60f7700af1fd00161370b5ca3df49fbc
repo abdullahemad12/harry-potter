@@ -52,7 +52,7 @@ public abstract class Task {
 		allowedMoves=1;
 		traitActivated= false;
 		map = new Cell[10][10];
-		this.potions = new ArrayList <Potion>();
+		//this.potions = new ArrayList <Potion>();
 		loadPotions("Potions.csv");
 		generateMap();
 	}
@@ -103,10 +103,6 @@ public abstract class Task {
 			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
 		br.close();
-<<<<<<< HEAD
-
-=======
->>>>>>> 54476cd20ba49ccb233c1c3cc72e90f406531693
 	}
 	
 	//public void generateMap(){

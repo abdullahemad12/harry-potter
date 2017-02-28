@@ -665,7 +665,7 @@ public class M1PublicTests {
 	@Test(timeout = 5000)
 	public void testFirstTaskMapObstacleHPRange() throws Exception {
 		ArrayList<Integer> hpValues = new ArrayList<Integer>();
-		
+
 		for (int c = 0; c < 10000; c++) {
 			GryffindorWizard c1 = new GryffindorWizard("1");
 			HufflepuffWizard c2 = new HufflepuffWizard("2");
