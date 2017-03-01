@@ -3,6 +3,7 @@
 <fullyQualifiedTypeName name="javafx.scene.control.Cell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.ReadingCSVFile"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Collectible"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
@@ -14,6 +15,7 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.WallCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ObstacleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Obstacle"/>
@@ -24,8 +26,4 @@
 <fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.Collectible"/>
 </qualifiedTypeNameHistroy>
