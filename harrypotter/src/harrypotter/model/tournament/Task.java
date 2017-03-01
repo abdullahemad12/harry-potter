@@ -5,14 +5,10 @@ import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.CollectibleCell;
-import harrypotter.model.world.CupCell;
-import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
-import harrypotter.model.world.Obstacle;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
-import harrypotter.model.world.WallCell;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -107,15 +103,8 @@ public abstract class Task {
 			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
 		br.close();
-//<<<<<<< HEAD
 
-//=======
-//>>>>>>> 54476cd20ba49ccb233c1c3cc72e90f406531693
 	}
-	
-	//public void generateMap(){
-		
-	//}
 	
 
 	// adding players.
@@ -203,59 +192,7 @@ public abstract class Task {
 		
 	}
 	
-	//properties of task 3.
-	void task3() throws IOException{
-		String[][] mapn = ThirdTask.readMap("task3map.csv"); 
-		randomGenerator = new Random();
-		for (int i = 0; i < 10; i++)
-		   {
-			for (int j = 0; j < 10; j++)
-		      {
-		    	int x=Integer.parseInt(mapn[i][j]);  
-				switch (x){
-				case 0: map[i][j]= new EmptyCell(); break; 
-				case 1: if (champions.size()>0) 
-							map[i][j]=new ChampionCell(champions.get(0));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 2: if (champions.size()>1) 
-							map[i][j]=new ChampionCell(champions.get(1));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 3: if (champions.size()>2) 
-							map[i][j]=new ChampionCell(champions.get(2));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 4: if (champions.size()>3) 
-							map[i][j]=new ChampionCell(champions.get(3));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 5: map[i][j]= new WallCell(); break; 			
-				case 6: 
-				{
-					randomGenerator = new Random();
-					Obstacle  ob = new PhysicalObstacle(randomGenerator.nextInt(101)+200);
-					map[i][j]= new ObstacleCell(ob); 
-					
-					break;	
-				}
-				default: map[i][j]= new CupCell(); break;
-				}
-		      }	
-		   }
-		int k=0;
-		while (k<10){
-			int i= randomGenerator.nextInt(10);
-			int j= randomGenerator.nextInt(10);
-			int x=Integer.parseInt(mapn[i][j]);
-			if (x==0||(x==1&&champions.size()<1)||(x==2&&champions.size()<2)||(x==3&&champions.size()<3)||(x==4&&champions.size()<4)){
-				int index =randomGenerator.nextInt(potions.size());
-				map[i][j]= new CollectibleCell(potions.get(index));
-				k++;
-			}
-		}
 	
-	}
 	public abstract void generateMap() throws IOException;
 	
 	

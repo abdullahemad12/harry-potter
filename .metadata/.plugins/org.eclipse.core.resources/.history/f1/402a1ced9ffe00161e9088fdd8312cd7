@@ -1,0 +1,93 @@
+package harrypotter.model.tournament;
+
+import harrypotter.model.character.Champion;
+import harrypotter.model.world.Cell;
+import harrypotter.model.world.ChampionCell;
+import harrypotter.model.world.CollectibleCell;
+import harrypotter.model.world.CupCell;
+import harrypotter.model.world.EmptyCell;
+import harrypotter.model.world.Obstacle;
+import harrypotter.model.world.ObstacleCell;
+import harrypotter.model.world.PhysicalObstacle;
+import harrypotter.model.world.WallCell;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class ThirdTask extends Task {
+	private Random randomGenerator;
+	public ThirdTask(ArrayList<Champion> champions) throws IOException{
+		super(champions);
+	}
+	public static String[][] readMap(String filePath) throws IOException{
+		String currentLine = "";
+		FileReader fileReader= new FileReader(filePath);
+		BufferedReader br = new BufferedReader(fileReader);
+		String[][] num = new String[10][];
+		int k=0;
+		while ((currentLine = br.readLine()) != null) {
+		String [] line= currentLine.split(",");
+		num[k]= line;
+		k++;
+		}
+		br.close();
+		return num;
+		Cell[][] mapx= new Cell[10][10];
+		randomGenerator = new Random();
+		for (int i = 0; i < 10; i++)
+		   {
+			for (int j = 0; j < 10; j++)
+		      {
+		    	int x=Integer.parseInt(mapn[i][j]);  
+				switch (x){
+				case 0: mapx[i][j]= new EmptyCell(); break; 
+				case 1: if (champions.size()>0) 
+							mapx[i][j]=new ChampionCell(champions.get(0));
+						else
+							mapx[i][j]= new EmptyCell(); break;
+				case 2: if (champions.size()>1) 
+							mapx[i][j]=new ChampionCell(champions.get(1));
+						else
+							mapx[i][j]= new EmptyCell(); break;
+				case 3: if (champions.size()>2) 
+							mapx[i][j]=new ChampionCell(champions.get(2));
+						else
+							mapx[i][j]= new EmptyCell(); break;
+				case 4: if (champions.size()>3) 
+							mapx[i][j]=new ChampionCell(champions.get(3));
+						else
+							mapx[i][j]= new EmptyCell(); break;
+				case 5: mapx[i][j]= new WallCell(); break; 			
+				case 6: 
+				{
+					randomGenerator = new Random();
+					Obstacle  ob = new PhysicalObstacle(randomGenerator.nextInt(101)+200);
+					mapx[i][j]= new ObstacleCell(ob); 
+					
+					break;	
+				}
+				default: mapx[i][j]= new CupCell(); break;
+				}
+		      }	
+		   }
+		
+	for (int k=0;k<10;k++){
+			int i= randomGenerator.nextInt(10);
+			int j= randomGenerator.nextInt(10);
+			if (mapx[i][j] instanceof EmptyCell){
+				int index =randomGenerator.nextInt(potions.size());
+				mapx[i][j]= new CollectibleCell(potions.get(index));
+			}
+			else
+				k--;
+		}
+	
+	}
+	public void generateMap() throws IOException {
+		super.task3();
+		
+	}
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="20" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
 <window height="873" maximized="true" width="721" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -12,13 +12,15 @@
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="144" y="30"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="38" y="30"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="296" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="82" y="30"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="82" y="30"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="116" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="214" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditorNoSource" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -30,128 +32,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
-<part id="13"/>
-<part id="14"/>
-<part id="15"/>
-<part id="16"/>
-<part id="17"/>
-<part id="18"/>
-<part id="19"/>
-<part id="20"/>
-<part id="21"/>
-<part id="22"/>
-<part id="23"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GryffindorWizard.java" partName="GryffindorWizard.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/character/GryffindorWizard.java" title="GryffindorWizard.java" tooltip="harrypotter/src/harrypotter/model/character/GryffindorWizard.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/GryffindorWizard.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HufflepuffWizard.java" partName="HufflepuffWizard.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java" title="HufflepuffWizard.java" tooltip="harrypotter/src/harrypotter/model/character/HufflepuffWizard.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RavenclawWizard.java" partName="RavenclawWizard.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/character/RavenclawWizard.java" title="RavenclawWizard.java" tooltip="harrypotter/src/harrypotter/model/character/RavenclawWizard.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/RavenclawWizard.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SlytherinWizard.java" partName="SlytherinWizard.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/character/SlytherinWizard.java" title="SlytherinWizard.java" tooltip="harrypotter/src/harrypotter/model/character/SlytherinWizard.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/SlytherinWizard.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Wizard.java" partName="Wizard.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/character/Wizard.java" title="Wizard.java" tooltip="harrypotter/src/harrypotter/model/character/Wizard.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1391"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Collectible.java" partName="Collectible.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/magic/Collectible.java" title="Collectible.java" tooltip="harrypotter/src/harrypotter/model/magic/Collectible.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/magic/Collectible.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DamagingSpell.java" partName="DamagingSpell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/magic/DamagingSpell.java" title="DamagingSpell.java" tooltip="harrypotter/src/harrypotter/model/magic/DamagingSpell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/magic/DamagingSpell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTask.java" partName="FirstTask.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/FirstTask.java" title="FirstTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/FirstTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/FirstTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ReadingCSVFile.java" partName="ReadingCSVFile.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/ReadingCSVFile.java" title="ReadingCSVFile.java" tooltip="harrypotter/src/harrypotter/model/tournament/ReadingCSVFile.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/ReadingCSVFile.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTask.java" partName="SecondTask.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/SecondTask.java" title="SecondTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/SecondTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/SecondTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" partName="Task.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Task.java" title="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" partName="Task.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Task.java" title="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2737"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThirdTask.java" partName="ThirdTask.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/ThirdTask.java" title="ThirdTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/ThirdTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/ThirdTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" partName="Tournament.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Tournament.java" title="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="904"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cell.java" partName="Cell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/Cell.java" title="Cell.java" tooltip="harrypotter/src/harrypotter/model/world/Cell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/Cell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChampionCell.java" partName="ChampionCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/ChampionCell.java" title="ChampionCell.java" tooltip="harrypotter/src/harrypotter/model/world/ChampionCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/ChampionCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CollectibleCell.java" partName="CollectibleCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/CollectibleCell.java" title="CollectibleCell.java" tooltip="harrypotter/src/harrypotter/model/world/CollectibleCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/CollectibleCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CupCell.java" partName="CupCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/CupCell.java" title="CupCell.java" tooltip="harrypotter/src/harrypotter/model/world/CupCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/CupCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Direction.java" partName="Direction.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/Direction.java" title="Direction.java" tooltip="harrypotter/src/harrypotter/model/world/Direction.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/Direction.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmptyCell.java" partName="EmptyCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/EmptyCell.java" title="EmptyCell.java" tooltip="harrypotter/src/harrypotter/model/world/EmptyCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/EmptyCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Merperson.java" partName="Merperson.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/Merperson.java" title="Merperson.java" tooltip="harrypotter/src/harrypotter/model/world/Merperson.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/Merperson.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="7"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Obstacle.java" partName="Obstacle.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/Obstacle.java" title="Obstacle.java" tooltip="harrypotter/src/harrypotter/model/world/Obstacle.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/Obstacle.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="67"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ObstacleCell.java" partName="ObstacleCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/ObstacleCell.java" title="ObstacleCell.java" tooltip="harrypotter/src/harrypotter/model/world/ObstacleCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/ObstacleCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PhysicalObstacle.java" partName="PhysicalObstacle.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/PhysicalObstacle.java" title="PhysicalObstacle.java" tooltip="harrypotter/src/harrypotter/model/world/PhysicalObstacle.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/PhysicalObstacle.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WallCell.java" partName="WallCell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/world/WallCell.java" title="WallCell.java" tooltip="harrypotter/src/harrypotter/model/world/WallCell.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/world/WallCell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5051" selectionTopPixel="2133"/>
 </editor>
 </editors>
 <views>
@@ -186,18 +73,28 @@
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
-<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
 <category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="766"/>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1473"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+<DESCENDING_FIELDS IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 </viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
+<viewState failuresOnly="false" layout="1" orientation="2" ratio="500" scroll="false" time="true"/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
 </view>
 <view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy">
 <viewState search_scope_type="1"/>
@@ -206,9 +103,12 @@
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
-<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="490" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="756" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
@@ -221,8 +121,11 @@
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="1" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
 </views>
-<perspectives activePart="org.eclipse.ui.views.ProblemView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.junit.ResultView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -303,6 +206,7 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -337,23 +241,27 @@
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.jdt.callhierarchy.view"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.jdt.junit.ResultView" appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
@@ -364,15 +272,16 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.16655004" ratioLeft="238" ratioRight="1191" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.2043387" ratioLeft="292" ratioRight="1137" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74864864" ratioLeft="554" ratioRight="186" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
 <page content="org.eclipse.jdt.callhierarchy.view" label="Call Hierarchy"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -380,6 +289,8 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -396,189 +307,271 @@
 </mainWindow>
 </layout>
 </perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7945946" ratioLeft="588" ratioRight="152" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
+<page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.47521368" ratioLeft="278" ratioRight="307" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
 </perspectives>
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/Cell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/ChampionCell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/CollectibleCell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/CupCell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/ObstacleCell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Collectible.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/DamagingSpell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/HealingSpell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Potion.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/SlytherinWizard.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/Champion.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/GryffindorWizard.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/RavenclawWizard.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/RelocatingSpell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/FirstTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/ReadingCSVFile.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/SecondTask.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/ThirdTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/tests/M1PublicTests.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/SlytherinWizard.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/RavenclawWizard.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/GryffindorWizard.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/Direction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/EmptyCell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/Merperson.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/Obstacle.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/ThirdTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" org.eclipse.jdt.ui.ClassFileIdentifier="=harrypotter/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.lang(Thread.class"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/PhysicalObstacle.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/world/WallCell.java"/>
 </editors>
-<item historyLabel="CollectibleCell.java" index="2">
-<position info="not_deleted" x="66" y="0"/>
+<item historyLabel="GryffindorWizard.java" index="5">
+<position info="not_deleted" x="102" y="0"/>
 </item>
-<item historyLabel="CupCell.java" index="3">
+<item historyLabel="RavenclawWizard.java" index="4">
+<position info="not_deleted" x="143" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="612" y="72"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="2197" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="612" y="72"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="45656" y="108"/>
+</item>
+<item historyLabel="Tournament.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ObstacleCell.java" index="4">
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="1880" y="0"/>
+</item>
+<item historyLabel="ThirdTask.java" index="7">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="Tournament.java" index="6">
+<position info="not_deleted" x="991" y="0"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4750" y="1"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4843" y="0"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4846" y="1"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4750" y="1"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4738" y="0"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5069" y="1"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="4483" y="0"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="65584" y="18"/>
+</item>
+<item historyLabel="ThirdTask.java" index="7">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="61124" y="61"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
+</item>
+<item historyLabel="ThirdTask.java" index="7">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="ThirdTask.java" index="7">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="1911" y="0"/>
+</item>
+<item historyLabel="SlytherinWizard.java" index="2">
+<position info="not_deleted" x="308" y="12"/>
+</item>
+<item historyLabel="RavenclawWizard.java" index="4">
+<position info="not_deleted" x="126" y="12"/>
+</item>
+<item historyLabel="HufflepuffWizard.java" index="8">
+<position info="not_deleted" x="149" y="12"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="1222" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="1222" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="1922" y="0"/>
+</item>
+<item historyLabel="M1PublicTests.java" index="1">
+<position info="not_deleted" x="49972" y="47"/>
+</item>
+<item historyLabel="Wizard.java" index="3">
+<position info="not_deleted" x="1922" y="0"/>
+</item>
+<item historyLabel="HufflepuffWizard.java" index="8">
+<position info="not_deleted" x="149" y="12"/>
+</item>
+<item historyLabel="RavenclawWizard.java" index="4">
+<position info="not_deleted" x="126" y="12"/>
+</item>
+<item historyLabel="SlytherinWizard.java" index="2">
+<position info="not_deleted" x="308" y="12"/>
+</item>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
+</item>
+<item historyLabel="GryffindorWizard.java" index="5">
+<position info="not_deleted" x="102" y="0"/>
+</item>
+<item historyLabel="Thread.class" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Collectible.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
 </item>
-<item historyLabel="ObstacleCell.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="PhysicalObstacle.java" index="10">
+<position info="not_deleted" x="373" y="0"/>
 </item>
-<item historyLabel="SlytherinWizard.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
 </item>
-<item historyLabel="ObstacleCell.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ThirdTask.java" index="7">
+<position info="not_deleted" x="688" y="0"/>
 </item>
-<item historyLabel="Potion.java" index="8">
-<position/>
-</item>
-<item historyLabel="HealingSpell.java" index="7">
-<position/>
-</item>
-<item historyLabel="Potion.java" index="8">
-<position/>
-</item>
-<item historyLabel="ObstacleCell.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DamagingSpell.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Champion.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DamagingSpell.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ObstacleCell.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DamagingSpell.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="GryffindorWizard.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HufflepuffWizard.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RavenclawWizard.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="SlytherinWizard.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Wizard.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Collectible.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DamagingSpell.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HealingSpell.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Potion.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RelocatingSpell.java" index="15">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Spell.java" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RelocatingSpell.java" index="15">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Potion.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HealingSpell.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DamagingSpell.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FirstTask.java" index="17">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ReadingCSVFile.java" index="18">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="SecondTask.java" index="19">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Task.java" index="20">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ThirdTask.java" index="21">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Tournament.java" index="22">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Cell.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ChampionCell.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="CollectibleCell.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="CupCell.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Direction.java" index="23">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="EmptyCell.java" index="24">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Merperson.java" index="25">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Obstacle.java" index="26">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Merperson.java" index="25">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Obstacle.java" index="26">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ObstacleCell.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="PhysicalObstacle.java" index="27">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item active="true" historyLabel="WallCell.java" index="28">
-<position info="not_deleted" x="0" y="0"/>
+<item active="true" historyLabel="Task.java" index="0">
+<position info="not_deleted" x="5051" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -590,6 +583,10 @@
 <trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<trimItem IMemento.internal.id="org.eclipse.debug.internal.ui.OutlineFolderView"/>
 <trimItem IMemento.internal.id="right"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
@@ -604,50 +601,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WallCell.java" tooltip="harrypotter/src/harrypotter/model/world/WallCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/WallCell.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java">
+<persistable path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PhysicalObstacle.java" tooltip="harrypotter/src/harrypotter/model/world/PhysicalObstacle.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/PhysicalObstacle.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GryffindorWizard.java" tooltip="harrypotter/src/harrypotter/model/character/GryffindorWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/GryffindorWizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RavenclawWizard.java" tooltip="harrypotter/src/harrypotter/model/character/RavenclawWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/RavenclawWizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HufflepuffWizard.java" tooltip="harrypotter/src/harrypotter/model/character/HufflepuffWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TreasureCell.java" tooltip="harrypotter/src/harrypotter/model/world/TreasureCell.java">
+<persistable path="/harrypotter/src/harrypotter/model/world/TreasureCell.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Wizard.java" tooltip="harrypotter/src/harrypotter/model/character/Wizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SlytherinWizard.java" tooltip="harrypotter/src/harrypotter/model/character/SlytherinWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/SlytherinWizard.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" name="Thread.class" tooltip="java.lang.Thread">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=harrypotter/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.lang(Thread.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" name="FutureTask.class" tooltip="java.util.concurrent.FutureTask">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=harrypotter/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.util.concurrent(FutureTask.class"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ObstacleCell.java" tooltip="harrypotter/src/harrypotter/model/world/ObstacleCell.java">
 <persistable path="/harrypotter/src/harrypotter/model/world/ObstacleCell.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Obstacle.java" tooltip="harrypotter/src/harrypotter/model/world/Obstacle.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/Obstacle.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Merperson.java" tooltip="harrypotter/src/harrypotter/model/world/Merperson.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/Merperson.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmptyCell.java" tooltip="harrypotter/src/harrypotter/model/world/EmptyCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/EmptyCell.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Direction.java" tooltip="harrypotter/src/harrypotter/model/world/Direction.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/Direction.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CupCell.java" tooltip="harrypotter/src/harrypotter/model/world/CupCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/CupCell.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CollectibleCell.java" tooltip="harrypotter/src/harrypotter/model/world/CollectibleCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/CollectibleCell.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChampionCell.java" tooltip="harrypotter/src/harrypotter/model/world/ChampionCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/ChampionCell.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Cell.java" tooltip="harrypotter/src/harrypotter/model/world/Cell.java">
 <persistable path="/harrypotter/src/harrypotter/model/world/Cell.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PhysicalObstacle.java" tooltip="harrypotter/src/harrypotter/model/world/PhysicalObstacle.java">
+<persistable path="/harrypotter/src/harrypotter/model/world/PhysicalObstacle.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Obstacle.java" tooltip="harrypotter/src/harrypotter/model/world/Obstacle.java">
+<persistable path="/harrypotter/src/harrypotter/model/world/Obstacle.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThirdTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/ThirdTask.java">
 <persistable path="/harrypotter/src/harrypotter/model/tournament/ThirdTask.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/SecondTask.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/SecondTask.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M1PublicTests.java" tooltip="harrypotter/src/harrypotter/tests/M1PublicTests.java">
+<persistable path="/harrypotter/src/harrypotter/tests/M1PublicTests.java"/>
 </file>
 </mruList>
 </workbench>
