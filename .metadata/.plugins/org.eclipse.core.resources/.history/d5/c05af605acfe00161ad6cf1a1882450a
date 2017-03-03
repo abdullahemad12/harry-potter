@@ -5,13 +5,10 @@ import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.CollectibleCell;
-import harrypotter.model.world.CupCell;
-import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
-import harrypotter.model.world.WallCell;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,10 +49,14 @@ public abstract class Task {
 		allowedMoves=1;
 		traitActivated= false;
 		map = new Cell[10][10];
+		this.potions = new ArrayList <Potion>();
 		loadPotions("Potions.csv");
 		generateMap();
 	}
-	
+	public void setTraitActivated(boolean traitActivated)
+	{
+		this.traitActivated = traitActivated;
+	}
 	public ArrayList<Champion> getChampions(){
 		return champions;
 	}
@@ -80,7 +81,7 @@ public abstract class Task {
 		this.allowedMoves=allowedMoves;
 	}
 	
-	public boolean isTaitActivated(){
+	public boolean isTraitActivated(){
 		return traitActivated;
 	}
 	
@@ -97,26 +98,23 @@ public abstract class Task {
 		String currentLine = "";
 		FileReader fileReader= new FileReader(filePath);
 		BufferedReader br = new BufferedReader(fileReader);
-		//while ((currentLine = br.readLine()) != null) {
-			//String [] potion= currentLine.split(",");
-			//potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
+		while ((currentLine = br.readLine()) != null) {
+			String [] potion= currentLine.split(",");
+			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
 		}
+		br.close();
 
 	}
-	
-	//public void generateMap(){
-		
-	//}
 	
 
 	// adding players.
 	void addplayers(){
 		if (champions.size()>0)
-			map[0][9]= new ChampionCell(this.champions.get(0));
+			map[9][0]= new ChampionCell(this.champions.get(0));
 		if (champions.size()>1)
 			map[9][9]= new ChampionCell(this.champions.get(1));
 		if (champions.size()>2)
-			map[9][0]= new ChampionCell(this.champions.get(2));
+			map[0][9]= new ChampionCell(this.champions.get(2));
 		if (champions.size()>3)
 			map[0][0]= new ChampionCell(this.champions.get(3));
 		
@@ -128,7 +126,7 @@ public abstract class Task {
 			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
-			if (this.map[x][y]!=null||(x==4&&y==4))
+			if (this.map[x][y]!=null)
 				i--;
 			else{
 				int index =randomGenerator.nextInt(potions.size());
@@ -140,8 +138,8 @@ public abstract class Task {
 	
 	//properties of task 1.
 	void task1(){
+		randomGenerator = new Random();
 		for (int i=0; i<10;i++){
-			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
 			if (this.map[x][y]!=null||(x==4&&y==4))
@@ -153,7 +151,6 @@ public abstract class Task {
 		
 		}
 		for (int i=0; i<40;i++){
-			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
 			if (this.map[x][y]!=null||(x==4&&y==4))
@@ -168,7 +165,9 @@ public abstract class Task {
 	
 	//properties of task 2.
 	void task2(){
-		for (int i=0; i<4;i++){
+
+		
+		for (int i=0;i<champions.size();i++){
 			randomGenerator = new Random();
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
@@ -177,7 +176,6 @@ public abstract class Task {
 			else{
 				map[x][y]= new TreasureCell(champions.get(i));
 			}
-		
 		}
 		for (int i=0; i<40;i++){
 			randomGenerator = new Random();
@@ -190,42 +188,12 @@ public abstract class Task {
 			}
 		
 		}
+		addingpotions();
 		
 	}
 	
-	//properties of task 3.
-	void task3() throws IOException{
-		String[][] mapn = ThirdTask.readMap("task3map.csv"); 
-		for (int i = 0; i < 10; i++)
-		   {
-			for (int j = 0; j < 10; j++)
-		      {
-		    	int x=Integer.parseInt(mapn[i][j]);  
-				switch (x){
-				case 0: map[i][j]= new EmptyCell(); break; 
-				case 1: if (champions.size()>0) 
-							map[i][j]=new ChampionCell(champions.get(0));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 2: if (champions.size()>1) 
-							map[i][j]=new ChampionCell(champions.get(1));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 3: if (champions.size()>2) 
-							map[i][j]=new ChampionCell(champions.get(2));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 4: if (champions.size()>3) 
-							map[i][j]=new ChampionCell(champions.get(3));
-						else
-							map[i][j]= new EmptyCell(); break;
-				case 5: map[i][j]= new WallCell(); break; 			
-				case 6: map[i][j]= new ObstacleCell(new PhysicalObstacle(randomGenerator.nextInt(101)+200)); break;	
-				default: map[i][j]= new CupCell(); break;
-				}
-		      }	
-		   }
 	
-	}
 	public abstract void generateMap() throws IOException;
+	
+	
 }

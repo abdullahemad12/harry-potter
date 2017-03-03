@@ -5,6 +5,7 @@ import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.CollectibleCell;
+import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
@@ -139,6 +140,18 @@ public abstract class Task {
 	//properties of task 1.
 	void task1(){
 		randomGenerator = new Random();
+		
+		for (int i=0; i<40;i++){
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			this.map[4][4]=new EmptyCell();
+			if (this.map[x][y]!=null||(x==4&&y==4))
+				i--;
+			else{
+				map[x][y]= new ObstacleCell(new PhysicalObstacle(randomGenerator.nextInt(101)+200));
+			}
+		
+		}
 		for (int i=0; i<10;i++){
 			int x=randomGenerator.nextInt(10);
 			int y=randomGenerator.nextInt(10);
@@ -150,16 +163,14 @@ public abstract class Task {
 			}
 		
 		}
-		for (int i=0; i<40;i++){
-			int x=randomGenerator.nextInt(10);
-			int y=randomGenerator.nextInt(10);
-			if (this.map[x][y]!=null||(x==4&&y==4))
-				i--;
-			else{
-				map[x][y]= new ObstacleCell(new PhysicalObstacle(randomGenerator.nextInt(101)+200));
-			}
-		
-		}
+		for (int i = 0; i < 10; i++)
+		   {
+			for (int j = 0; j < 10; j++)
+		      { if (map[i][j]==null)
+		    	  map[i][j]=new EmptyCell();
+				
+		      }
+		   }	
 	
 	}
 	
@@ -188,7 +199,15 @@ public abstract class Task {
 			}
 		
 		}
-		addingpotions();
+		for (int i = 0; i < 10; i++)
+		   {
+			for (int j = 0; j < 10; j++)
+		      { if (map[i][j]==null)
+		    	  map[i][j]=new EmptyCell();
+				
+		      }
+		   }	
+	
 		
 	}
 	

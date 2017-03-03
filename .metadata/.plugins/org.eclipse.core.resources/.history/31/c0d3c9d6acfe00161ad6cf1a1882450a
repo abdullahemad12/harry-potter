@@ -12,8 +12,7 @@ public abstract class Obstacle {
 	/*
 	 * default constructor
 	 */
-	
-	public Obstacle(){
+	Obstacle(){
 		hp = 0;
 
 	}
@@ -21,7 +20,7 @@ public abstract class Obstacle {
 	/*
 	 * creates object of type Obstacle 
 	 */
-	public Obstacle(int hp)
+	Obstacle(int hp)
 	{
 		this.hp = hp;
 	}

@@ -1,6 +1,6 @@
 package harrypotter.model.character;
 
-public class RavenclawWizard extends Wizard implements Champion {
+public class RavenclawWizard extends Wizard {
 
 	public RavenclawWizard(String name)
 	{	
