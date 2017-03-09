@@ -1,8 +1,0 @@
-package harrypotter.model.world;
-
-public abstract class Obstacle {
-	// Health points 
-	int hp; 
-	
-
-}
