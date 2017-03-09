@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 //Class representing the whole game play i.e. the Triwizard Tournament.
 
-public class Tournament  implements TaskListener {
+public class Tournament {
 	private ArrayList<Champion> champions;
 	//Represents the champions competing in the tournament.
 	
@@ -33,6 +33,9 @@ public class Tournament  implements TaskListener {
 		champions =new ArrayList<Champion>();
 		spells= new ArrayList<Spell>();
 		loadSpells("Spells.csv");
+		firstTask = new FirstTask(champions);
+		secondTask = new SecondTask(champions);
+		thirdTask = new ThirdTask(champions);
 
 	}
 	private void loadSpells(String filePath) throws IOException{
@@ -70,11 +73,5 @@ public class Tournament  implements TaskListener {
 		return spells;
 				
 	}
-	public void beginTournament() throws IOException{
-		firstTask = new FirstTask(champions);
-	}
-	
-	public onFinishingSecondTask(ArrayList<Champion> winners) throws IOException{
-		thirdTask = new ThirdTask(winners);
-	}
+
 }
