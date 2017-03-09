@@ -17,7 +17,9 @@ public class SecondTask extends Task {
 	
 	private ArrayList<Champion> winners; // An array list containing the winners of this task
 	
-	
+	public SecondTask(ArrayList<Champion> champions)throws IOException{
+		super(shuffleHelper(champions));
+	}
 	public void encounterMerPerson()
 	{
 		// gets the location of the current champion
@@ -120,9 +122,7 @@ public class SecondTask extends Task {
 		this.winners = winners;
 	}
 
-	public SecondTask(ArrayList<Champion> champions)throws IOException{
-		super(shuffleHelper(champions));
-	}
+	
 	
 	private static ArrayList<Champion> shuffleHelper(ArrayList<Champion> champions){
 		Collections.shuffle(champions);
