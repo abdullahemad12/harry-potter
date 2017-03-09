@@ -1,6 +1,6 @@
 package harrypotter.model.character;
 
-
+<<<<<<< HEAD
 import java.util.EventListener;
 
 import harrypotter.model.world.Direction;
@@ -11,8 +11,8 @@ public interface WizardListener extends EventListener {
 	public void onSlytherinTrait(Direction d);
 	public void onHufflepuffTrait();
 	public Object onRavenclawTrait();
-
-
-
+=======
+public interface WizardListener {
+>>>>>>> 8ebf83d6f570cb31ad91d9f7920a6a22a3bd4a79
 
 }
