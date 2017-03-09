@@ -1,6 +1,7 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.Cell;
@@ -11,6 +12,7 @@ import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
 
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -110,14 +112,18 @@ public abstract class Task {
 
 	// adding players.
 	void addplayers(){
-		if (champions.size()>0)
+		if (champions.size()>0){
 			map[9][0]= new ChampionCell(this.champions.get(0));
-		if (champions.size()>1)
+			((Wizard) champions.get(0)).setLocation(new Point(9, 0));}
+		if (champions.size()>1){
 			map[9][9]= new ChampionCell(this.champions.get(1));
-		if (champions.size()>2)
+			((Wizard) champions.get(1)).setLocation(new Point(9, 9));}
+		if (champions.size()>2){
 			map[0][9]= new ChampionCell(this.champions.get(2));
-		if (champions.size()>3)
+			((Wizard) champions.get(2)).setLocation(new Point(0, 9));}
+		if (champions.size()>3){
 			map[0][0]= new ChampionCell(this.champions.get(3));
+			((Wizard) champions.get(3)).setLocation(new Point(0, 0));}
 		
 	}	
 

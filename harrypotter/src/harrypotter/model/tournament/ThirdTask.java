@@ -1,6 +1,7 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.Wizard;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.CollectibleCell;
@@ -11,6 +12,7 @@ import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.WallCell;
 
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -49,20 +51,24 @@ public class ThirdTask extends Task {
 		    	int x=Integer.parseInt(num[i][j]);  
 				switch (x){
 				case 0: getMap()[i][j]= new EmptyCell(); break; 
-				case 1: if (getChampions().size()>0) 
+				case 1: if (getChampions().size()>0){ 
 							mapx[i][j]=new ChampionCell(getChampions().get(0));
+							((Wizard) getChampions().get(0)).setLocation(new Point(i, j));}
 						else
 							getMap()[i][j]= new EmptyCell(); break;
-				case 2: if (getChampions().size()>1) 
+				case 2: if (getChampions().size()>1) {
 							getMap()[i][j]=new ChampionCell(getChampions().get(1));
+							((Wizard) getChampions().get(1)).setLocation(new Point(i, j));}
 						else
 							getMap()[i][j]= new EmptyCell(); break;
-				case 3: if (getChampions().size()>2) 
+				case 3: if (getChampions().size()>2){ 
 							getMap()[i][j]=new ChampionCell(getChampions().get(2));
+							((Wizard) getChampions().get(2)).setLocation(new Point(i, j));}
 						else
 							getMap()[i][j]= new EmptyCell(); break;
-				case 4: if (getChampions().size()>3) 
+				case 4: if (getChampions().size()>3){ 
 							getMap()[i][j]=new ChampionCell(getChampions().get(3));
+							((Wizard) getChampions().get(3)).setLocation(new Point(i, j));}
 						else
 							getMap()[i][j]= new EmptyCell(); break;
 				case 5: getMap()[i][j]= new WallCell(); break; 			

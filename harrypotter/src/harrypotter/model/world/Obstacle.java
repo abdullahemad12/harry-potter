@@ -33,6 +33,9 @@ public abstract class Obstacle {
 	{
 		return this.hp;
 	}
+	public void setHp(int hp){
+		this.hp=hp;
+	}
 	
 
 }
