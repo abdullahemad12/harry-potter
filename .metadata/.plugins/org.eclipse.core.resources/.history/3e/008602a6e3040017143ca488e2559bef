@@ -1,6 +1,7 @@
 package harrypotter.model.character;
 import harrypotter.model.magic.Collectible;
 import harrypotter.model.magic.Spell;
+import harrypotter.model.world.Direction;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ abstract public class Wizard implements Champion  {
 		ip = defaultIp;
 		inventory = new ArrayList<Collectible>();
 		spells = new ArrayList<Spell>();
+		//WizardListener listener= new WizardListener();
+		
 	}
 	/*
 	 * Constructor that initializes a Wizard object.

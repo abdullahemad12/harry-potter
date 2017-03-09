@@ -8,7 +8,7 @@ public class GryffindorWizard extends Wizard implements Champion {
 		
 	}
     public void useTrait(){
-		
+    	getListener().onGryffindorTrait();
 	}
 
 }

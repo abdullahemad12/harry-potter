@@ -2,7 +2,6 @@ package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
-import harrypotter.model.world.EmptyCell;
 
 import java.awt.Point;
 import java.io.IOException;
@@ -93,9 +92,6 @@ public class FirstTask extends Task {
 					((Wizard)getChampions().get(i)).setHp((((Wizard)getChampions().get(i)).getHp())-150);
 					// removing champs with hp<=0
 					if (((Wizard)getChampions().get(i)).getHp()<=0){
-						int x = (int) ((Wizard)getChampions().get(i)).getLocation().getX();
-						int y = (int) ((Wizard)getChampions().get(i)).getLocation().getY();
-						getMap()[x][y]= new EmptyCell();
 						getChampions().remove(j);
 						j--;
 					}

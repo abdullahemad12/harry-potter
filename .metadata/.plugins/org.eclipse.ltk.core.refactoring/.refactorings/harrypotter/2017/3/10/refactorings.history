@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;harrypotter.model.character.Wizard.listener&apos; in &apos;harrypotter.model.character.Wizard&apos;&#x0D;&#x0A;- Original project: &apos;harrypotter&apos;&#x0D;&#x0A;- Original element: &apos;harrypotter.model.character.Wizard.listener&apos;&#x0D;&#x0A;- Getter method name: &apos;getListener&apos;&#x0D;&#x0A;- Setter method name: &apos;setListener&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type&#x0D;&#x0A;- Generate method comments" comments="true" declaring="true" description="Encapsulate field &apos;listener&apos;" flags="589830" getter="getListener" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;harrypotter.model.character{Wizard.java[Wizard^listener" insertion="18" setter="setListener" stamp="1489075285308" version="1.0" visibility="1"/>
+</session>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="harrypotter.model.world.Cell"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="com.sun.javafx.scene.paint.GradientUtils.Point"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="java.util.EventListener"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.WizardListener"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 </qualifiedTypeNameHistroy>
