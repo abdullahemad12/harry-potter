@@ -19,4 +19,5 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
 </qualifiedTypeNameHistroy>

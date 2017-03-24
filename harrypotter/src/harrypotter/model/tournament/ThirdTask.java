@@ -128,7 +128,8 @@ public class ThirdTask extends Task {
 		}
 		//calling the listener 
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getListener().onFinishingThirdTask(getCurrentChamp());
+			if (getListener() != null)
+				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
 		finalizeAction();
@@ -150,7 +151,8 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getListener().onFinishingThirdTask(getCurrentChamp());
+			if (getListener() != null)
+				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
 		finalizeAction();
@@ -172,7 +174,8 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getListener().onFinishingThirdTask(getCurrentChamp());
+			if (getListener() != null)
+				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
 		finalizeAction();
@@ -194,7 +197,8 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getListener().onFinishingThirdTask(getCurrentChamp());
+			if (getListener() != null)
+				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
 		finalizeAction();

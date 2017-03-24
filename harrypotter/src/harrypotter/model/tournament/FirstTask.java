@@ -1,7 +1,6 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
-import harrypotter.model.character.HufflepuffWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
@@ -29,6 +28,7 @@ public class FirstTask extends Task {
 		super(shuffleHelper(champions));
 		markedCells = new ArrayList<Point>();
 		markCells();
+		winners = new ArrayList<Champion>();
 		
 	}
 	
@@ -61,25 +61,43 @@ public class FirstTask extends Task {
 	
 	//This method is responsible for getting the cells that a dragon will attack after the currentChamp performs an action.
 	public void markCells(){
+		markedCells = new ArrayList<Point>();
 		randomGenerator = new Random();
 		
 		// get location of champ
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
+		
+		//flags to prevent duplicates 
+		boolean f0=true;
+		boolean f1=true;
+		boolean f2=true;
+		boolean f3=true;
+		boolean f4=true;
 		
 		// set 2 locations.
 		for(int i=0;i<2;i++){
 			int x=randomGenerator.nextInt(5);
 			switch (x){
 			// fire in same cell
-			case 0: markedCells.add(p); break;
+			case 0:if(f0){ 
+						markedCells.add(p);f0=false; break;}
+					else{ i--; break;}
 			// fire left
-			case 1: Point p1= new Point(p); p1.translate(-1,0); markedCells.add(p1); break;
+			case 1: if (p.x>0&& f1){
+						Point p1= new Point(p); p1.translate(-1,0); markedCells.add(p1);f1=false; break;}
+					else{ i--; break;}
 			//fire right
-			case 2: Point p2= new Point(p); p2.translate(1,0); markedCells.add(p2); break;
+			case 2: if (p.x<9&& f2){
+						Point p2= new Point(p); p2.translate(1,0); markedCells.add(p2);f2=false; break;}
+					else{ i--; break;}
 			//fire up
-			case 3: Point p3= new Point(p); p3.translate(0,1); markedCells.add(p3); break;
+			case 3: if (p.y<9&& f3){
+					Point p3= new Point(p); p3.translate(0,1); markedCells.add(p3);f3=false; break;}
+				else{ i--; break;}
 			//fire down
-			case 4: Point p4= new Point(p); p4.translate(0,-1); markedCells.add(p4); break;
+			case 4: if (p.y<0&& f4){
+					Point p4= new Point(p); p4.translate(0,1); markedCells.add(p4);f4=false; break;}
+				else{ i--; break;}
 			default: break;
 			}
 			
@@ -95,8 +113,7 @@ public class FirstTask extends Task {
 			for(int j=0; j<getChampions().size();j++){
 				// checking if there is a champ in the cell
 				if (((Wizard)getChampions().get(i)).getLocation().equals(p)){
-					if(!(getChampions().get(i) instanceof HufflepuffWizard))
-						((Wizard)getChampions().get(i)).setHp((((Wizard)getChampions().get(i)).getHp())-150);
+					((Wizard)getChampions().get(i)).setHp((((Wizard)getChampions().get(i)).getHp())-150);
 					// removing champs with hp<=0
 					if (((Wizard)getChampions().get(i)).getHp()<=0){
 						int x = (int) ((Wizard)getChampions().get(i)).getLocation().getX();

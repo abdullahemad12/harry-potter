@@ -42,7 +42,7 @@ public class SecondTask extends Task {
 		Cell cell[][] = this.getMap();
 		
 		// Checks for the adjacent cell whether it contains a merperson
-		if(cell[x][y + 1] instanceof ObstacleCell)
+		if(y<9&& cell[x][y + 1] instanceof ObstacleCell)
 		{
 			// gets the mere person
 			Merperson merperson = (Merperson)((ObstacleCell)cell[x][y + 1]).getObstacle();
@@ -64,7 +64,7 @@ public class SecondTask extends Task {
 			
 		}
 		// does exactly the same but for another cell
-		if(cell[x + 1][y] instanceof ObstacleCell)
+		if(x<9&&cell[x + 1][y] instanceof ObstacleCell)
 		{
 			Merperson merperson = (Merperson)((ObstacleCell)cell[x + 1][y]).getObstacle();
 			int damage = merperson.getDamage();
@@ -81,7 +81,7 @@ public class SecondTask extends Task {
 			
 		}
 		
-		if(cell[x][y - 1] instanceof ObstacleCell)
+		if(y>0&&cell[x][y - 1] instanceof ObstacleCell)
 		{
 			Merperson merperson = (Merperson)((ObstacleCell)cell[x][y - 1]).getObstacle();
 			int damage = merperson.getDamage();
@@ -98,7 +98,7 @@ public class SecondTask extends Task {
 			
 		}
 
-		if(cell[x - 1][y] instanceof ObstacleCell)
+		if(x>0&&cell[x - 1][y] instanceof ObstacleCell)
 		{
 			Merperson merperson = (Merperson)((ObstacleCell)cell[x - 1][y]).getObstacle();
 			int damage = merperson.getDamage();
@@ -163,6 +163,7 @@ public class SecondTask extends Task {
 				//declaring winning champ as winner 
 				if (getMap()[p.x][p.y] instanceof TreasureCell){
 					winners.add(getCurrentChamp());
+					getChampions().remove(getCurrentChamp());
 				}
 				//changing map cell type
 				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
@@ -186,6 +187,7 @@ public class SecondTask extends Task {
 				}
 				if (getMap()[p.x][p.y] instanceof TreasureCell){
 					winners.add(getCurrentChamp());
+					getChampions().remove(getCurrentChamp());
 				}
 				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 				getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -207,6 +209,7 @@ public class SecondTask extends Task {
 				}
 				if (getMap()[p.x][p.y] instanceof TreasureCell){
 					winners.add(getCurrentChamp());
+					getChampions().remove(getCurrentChamp());
 				}
 				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 				getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -228,6 +231,7 @@ public class SecondTask extends Task {
 				}
 				if (getMap()[p.x][p.y] instanceof TreasureCell){
 					winners.add(getCurrentChamp());
+					getChampions().remove(getCurrentChamp());
 				}
 				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 				getMap()[oldP.x][oldP.y]= new EmptyCell();
