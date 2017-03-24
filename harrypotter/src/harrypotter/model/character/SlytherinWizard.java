@@ -1,4 +1,6 @@
 package harrypotter.model.character;
+import java.io.IOException;
+
 import harrypotter.model.world.*;
 
 public class SlytherinWizard extends Wizard implements Champion{
@@ -17,7 +19,7 @@ public class SlytherinWizard extends Wizard implements Champion{
 	public void setTraitDirection(Direction traitDirection){
 		this.traitDirection=traitDirection;
 	}
-	public void useTrait(){
+	public void useTrait()  throws IOException {
 		getListener().onSlytherinTrait(traitDirection);
 	}
 

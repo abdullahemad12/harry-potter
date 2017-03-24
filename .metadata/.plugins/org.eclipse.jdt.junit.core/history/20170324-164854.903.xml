@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="M2PublicTests" project="harrypotter" tests="94" started="94" failures="12" errors="57" ignored="0">
+  <testsuite name="harrypotter.tests.M2PublicTests" time="0.076">
+    <testcase name="testOnGryffindorTraitTaskScenario1" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario1(M2PublicTests.java:3412)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTraitTaskScenario4" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.character.GryffindorWizard.useTrait(GryffindorWizard.java:11)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario4(M2PublicTests.java:3536)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTraitTaskScenario6" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.character.GryffindorWizard.useTrait(GryffindorWizard.java:11)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario6(M2PublicTests.java:3643)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTraitTaskScenario7" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.character.GryffindorWizard.useTrait(GryffindorWizard.java:11)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario7(M2PublicTests.java:3794)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTraitTaskScenario8" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario8(M2PublicTests.java:3880)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTraitTaskScenario9" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.character.GryffindorWizard.useTrait(GryffindorWizard.java:11)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTraitTaskScenario9(M2PublicTests.java:4013)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodHealingSpellCallsUseSpell" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$23.&lt;init&gt;(M2PublicTests.java:2496)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodHealingSpellCallsUseSpell(M2PublicTests.java:2496)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMoveForwardToEggCellSecondTask" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <failure>java.lang.AssertionError: When a champion moves forward from a cell, it should be converted to an EmptyCell  expected:&lt;class harrypotter.model.world.EmptyCell&gt; but was:&lt;class harrypotter.model.world.ChampionCell&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToEggCellSecondTask(M2PublicTests.java:3084)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testOnSlytherinTraitFirstTaskSetsDirectionVariableInSlythWizard" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnSlytherinTraitFirstTaskSetsDirectionVariableInSlythWizard(M2PublicTests.java:4657)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testEncounterMerPeopleChampionDead" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <failure>java.lang.AssertionError: Hp of the champion should have reached zero expected:&lt;0&gt; but was:&lt;3&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:555)&#13;
+	at harrypotter.tests.M2PublicTests.testEncounterMerPeopleChampionDead(M2PublicTests.java:1004)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testEncounterOneMerPerson" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.ArrayIndexOutOfBoundsException: -1&#13;
+	at harrypotter.model.tournament.SecondTask.encounterMerPerson(SecondTask.java:84)&#13;
+	at harrypotter.tests.M2PublicTests.testEncounterOneMerPerson(M2PublicTests.java:1194)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testFinalizeActionMethodInClassTask" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testTaskListenerVariableSetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testMethodUsePotions1" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodUsePotions1(M2PublicTests.java:2593)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodUsePotions4" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodUsePotions4(M2PublicTests.java:2662)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testSecondTaskClassNotifiesListenerWhenTwoChampionsWin" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <failure>java.lang.AssertionError: Upon completion of the second task, the SecondTask notifies the Tournament class&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.assertTrue(Assert.java:41)&#13;
+	at harrypotter.tests.M2PublicTests.testSecondTaskClassNotifiesListenerWhenTwoChampionsWin(M2PublicTests.java:5148)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testTurnAfterBothChampionsDieByDragonFire" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testTurnAfterBothChampionsDieByDragonFire(M2PublicTests.java:5550)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnHufflepuffTraitFirstTaskClass1" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnHufflepuffTraitFirstTaskClass1(M2PublicTests.java:4175)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnHufflepuffTraitFirstTaskClass2" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnHufflepuffTraitFirstTaskClass2(M2PublicTests.java:4203)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodCastHealingSpell1" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$15.&lt;init&gt;(M2PublicTests.java:2183)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodCastHealingSpell1(M2PublicTests.java:2183)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testCurrentChampIsSetCorrectly" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testCurrentChampIsSetCorrectly(M2PublicTests.java:731)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTaskClassImplementsWizardListener" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testFirstTaskListenerIsSetCorrectly" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.model.tournament.Tournament.beginTournament(Tournament.java:55)&#13;
+	at harrypotter.tests.M2PublicTests.testFirstTaskListenerIsSetCorrectly(M2PublicTests.java:1600)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnSlytherinTraitInFirstTaskClass3" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnSlytherinTraitInFirstTaskClass3(M2PublicTests.java:4702)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMoveForwardToEggCellThirdTask" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <failure>java.lang.AssertionError: When a champion moves forward from a cell, it should be converted to an EmptyCell  expected:&lt;class harrypotter.model.world.EmptyCell&gt; but was:&lt;class harrypotter.model.world.ChampionCell&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToEggCellThirdTask(M2PublicTests.java:3120)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testMethodsInTaskListenerInterface" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testInstanceVariableMarkedCellsInFirstTaskClass" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testCastDamagingSpellOnObstacleCell1" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testCastDamagingSpellOnObstacleCell1(M2PublicTests.java:184)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTurnAfterCurrentChampionDieByMerPerson" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <failure>java.lang.AssertionError: The damage inflicted to the current champion is incorrect expected:&lt;850&gt; but was:&lt;300&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:555)&#13;
+	at harrypotter.tests.M2PublicTests.testTurnAfterCurrentChampionDieByMerPerson(M2PublicTests.java:5686)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testOnSlytherinTraitInSecondTaskClass3" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <failure>java.lang.AssertionError: In SecondTask, onSlytherinTrait method should end the turn and update the champion's traitCooldown expected:&lt;3&gt; but was:&lt;4&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:555)&#13;
+	at harrypotter.tests.M2PublicTests.testOnSlytherinTraitInSecondTaskClass3(M2PublicTests.java:4809)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testMethodFireIsCalledPerTurn1" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$19.&lt;init&gt;(M2PublicTests.java:2361)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodFireIsCalledPerTurn1(M2PublicTests.java:2361)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMarkCellsObstcles" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMarkCellsObstcles(M2PublicTests.java:1959)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testFireEffectOnOtherCellTypes" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testFireEffectOnOtherCellTypes(M2PublicTests.java:1278)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnRavenclawTraitInSecondTaskClass1" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <failure>java.lang.AssertionError: In SecondTask, onRavenclawTrait should return the directions to the treasure cell correctly&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.assertTrue(Assert.java:41)&#13;
+	at harrypotter.tests.M2PublicTests.testOnRavenclawTraitInSecondTaskClass1(M2PublicTests.java:4383)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testOnRavenclawTraitInSecondTaskClass2" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testCastRelocatingSpellOnObstacleCell" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testCastRelocatingSpellOnObstacleCell(M2PublicTests.java:430)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testChampionsLocationIsSetCorrectly" classname="harrypotter.tests.M2PublicTests" time="0.003">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testChampionsLocationIsSetCorrectly(M2PublicTests.java:524)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodUseSpell1" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$26.&lt;init&gt;(M2PublicTests.java:2739)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodUseSpell1(M2PublicTests.java:2739)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodsInWizardListenerInterface" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testDragonFireOnOtherChampionWhenChampionGoesToEggCell" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testDragonFireOnOtherChampionWhenChampionGoesToEggCell(M2PublicTests.java:869)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testWizardListenerVariableInWizardClass" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testOnRavenclawTraitInFirstTaskClass2" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnRavenclawTraitInFirstTaskClass2(M2PublicTests.java:4262)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnRavenclawTraitInFirstTaskClass3" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnRavenclawTraitInFirstTaskClass3(M2PublicTests.java:4291)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testBeginTournamentIntializesFirstTaskCorrectly" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.model.tournament.Tournament.beginTournament(Tournament.java:55)&#13;
+	at harrypotter.tests.M2PublicTests.testBeginTournamentIntializesFirstTaskCorrectly(M2PublicTests.java:42)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTraitCooldownIsDecrementedPerTurn" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testTraitCooldownIsDecrementedPerTurn(M2PublicTests.java:5488)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTaskListenerVariableInTaskClass" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testWizardListenerIsInterface" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testOnSlytherinTraitInThirdTaskClass1" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <failure>java.lang.AssertionError: In ThirdTask, onSlytherinTrait should allow the champion to move two cells in the map at a time&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at harrypotter.tests.M2PublicTests.testOnSlytherinTraitInThirdTaskClass1(M2PublicTests.java:4863)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testDragonFireDamageCurrentChamp" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testDragonFireDamageCurrentChamp(M2PublicTests.java:762)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testConstructorFirstTaskInitialization" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <error>java.lang.reflect.InvocationTargetException&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)&#13;
+	at harrypotter.tests.M2PublicTests.testConstructorFirstTaskInitialization(M2PublicTests.java:663)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+Caused by: java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	... 14 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMethodEncounterMerpersonIsCalledPerTurn2" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testTaskListenerIsInterface" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testOnGryffindorTraitSubClass" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testThirdTaskClassNotifiesListenerWhenAChampionWins" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <failure>java.lang.AssertionError: Upon completion of the the third task, the ThirdTask notifies the Tournament class&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.assertTrue(Assert.java:41)&#13;
+	at harrypotter.tests.M2PublicTests.testThirdTaskClassNotifiesListenerWhenAChampionWins(M2PublicTests.java:5392)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testInstanceVariableMarkedCellsInFirstTaskClassGetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testOnGryffindorTrait1" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTrait1(M2PublicTests.java:3227)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTrait2" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTrait2(M2PublicTests.java:3286)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnGryffindorTrait3" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnGryffindorTrait3(M2PublicTests.java:3345)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetTargetPoint" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testGetTargetPoint(M2PublicTests.java:1623)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMoveForwardToTreasureCell" classname="harrypotter.tests.M2PublicTests" time="0.003">
+      <failure>java.lang.AssertionError: When a champion moves to his/her treasure cell in the Second Task, he/she is considered a winner. Thus the champion should be added to the winners list &#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.assertTrue(Assert.java:41)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToTreasureCell(M2PublicTests.java:3194)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testCastRelocatingSpellCallsUseSpell" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$4.&lt;init&gt;(M2PublicTests.java:343)&#13;
+	at harrypotter.tests.M2PublicTests.testCastRelocatingSpellCallsUseSpell(M2PublicTests.java:343)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testInstanceVariableMarkedCellsInFirstTaskClassSetter" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testEncounterMerPersonNotCurrentChampion" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.ArrayIndexOutOfBoundsException: -1&#13;
+	at harrypotter.model.tournament.SecondTask.encounterMerPerson(SecondTask.java:101)&#13;
+	at harrypotter.tests.M2PublicTests.testEncounterMerPersonNotCurrentChampion(M2PublicTests.java:1136)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testCastDamagingSpellOnChampionCellThirdTaskHufflepuffWizard" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <failure>java.lang.AssertionError: In the Thirdtask, when the current champion casts a damaging spell on a Champion cell, the hp of the champion in the cell should be deducted by half the damage in case of HufflepuffWizard expected:&lt;850&gt; but was:&lt;1000&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:555)&#13;
+	at harrypotter.tests.M2PublicTests.testCastDamagingSpellOnChampionCellThirdTaskHufflepuffWizard(M2PublicTests.java:164)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testOnHuffelpuffTraitFirstTaskScenario" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testOnHuffelpuffTraitFirstTaskScenario(M2PublicTests.java:4109)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTraitActivatedPerTurn" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testTraitActivatedPerTurn(M2PublicTests.java:5418)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTurnAfterOtherChampionDieByDragonFire" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testTurnAfterOtherChampionDieByDragonFire(M2PublicTests.java:5730)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnSlytherinTraitThirdTaskSetsDirectionVariableInSlythWizard" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testCastRelocatingSpellCallsFinalizeAction" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$1.&lt;init&gt;(M2PublicTests.java:259)&#13;
+	at harrypotter.tests.M2PublicTests.testCastRelocatingSpellCallsFinalizeAction(M2PublicTests.java:259)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnRavenclawTraitInThirdTaskClass2" classname="harrypotter.tests.M2PublicTests" time="0.002"/>
+    <testcase name="testOnRavenclawTraitInThirdTaskClass3" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testThirdTaskClassHandlesNullListenerWhenAChampionWins" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testMarkCellsCount" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMarkCellsCount(M2PublicTests.java:1893)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMarkCellsRange" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMarkCellsRange(M2PublicTests.java:2054)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMoveForwardToEggCell" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToEggCell(M2PublicTests.java:3023)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testHufflepuffWizardNotifiesListener" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$12.&lt;init&gt;(M2PublicTests.java:1784)&#13;
+	at harrypotter.tests.M2PublicTests.testHufflepuffWizardNotifiesListener(M2PublicTests.java:1784)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMoveForwardToEmptyCell" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToEmptyCell(M2PublicTests.java:3139)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testCastDamagingSpellOnChampionCell1" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testCastDamagingSpellOnChampionCell1(M2PublicTests.java:75)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testFirstTaskClassNotifiesListenerWhenAllChampionsDie" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testFirstTaskClassNotifiesListenerWhenAllChampionsDie(M2PublicTests.java:1431)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testWizardListenerVariableGetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testGryffindorWizardNotifiesListener" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$9.&lt;init&gt;(M2PublicTests.java:1683)&#13;
+	at harrypotter.tests.M2PublicTests.testGryffindorWizardNotifiesListener(M2PublicTests.java:1683)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testSpellsCooldownIsDecrementedPerTurn" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testSpellsCooldownIsDecrementedPerTurn(M2PublicTests.java:5177)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testMerPersonDamageOnChampionInTreassureCell" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <failure>java.lang.AssertionError: The damage inflicted to the current champion is incorrect expected:&lt;200&gt; but was:&lt;271&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:743)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:118)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:555)&#13;
+	at harrypotter.tests.M2PublicTests.testMerPersonDamageOnChampionInTreassureCell(M2PublicTests.java:2153)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testOnSlytherinTraitSecondTaskSetsDirectionVariableInSlythWizard" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testWizardListenerVariableSetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testMoveForwardToCollectibeCell" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testMoveForwardToCollectibeCell(M2PublicTests.java:2982)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testFirstTaskClassHandlesNullListenerWhenFourChampionsWin" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testFirstTaskClassHandlesNullListenerWhenFourChampionsWin(M2PublicTests.java:1377)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testEncounterTwoMerPeople" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.ArrayIndexOutOfBoundsException: -1&#13;
+	at harrypotter.model.tournament.SecondTask.encounterMerPerson(SecondTask.java:84)&#13;
+	at harrypotter.tests.M2PublicTests.testEncounterTwoMerPeople(M2PublicTests.java:1251)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testOnHufflepuffTraitSecondTaskClass1" classname="harrypotter.tests.M2PublicTests" time="0.001"/>
+    <testcase name="testTournamentClassImplementsTaskListener" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testMethodHealingSpellCallsFinalizeAction" classname="harrypotter.tests.M2PublicTests" time="0.001">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests$20.&lt;init&gt;(M2PublicTests.java:2426)&#13;
+	at harrypotter.tests.M2PublicTests.testMethodHealingSpellCallsFinalizeAction(M2PublicTests.java:2426)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testTaskListenerVariableGetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+    <testcase name="testEncounterMerPeopleNotInRangeClose" classname="harrypotter.tests.M2PublicTests" time="0.002">
+      <error>java.lang.ArrayIndexOutOfBoundsException: -1&#13;
+	at harrypotter.model.tournament.SecondTask.encounterMerPerson(SecondTask.java:84)&#13;
+	at harrypotter.tests.M2PublicTests.testEncounterMerPeopleNotInRangeClose(M2PublicTests.java:1053)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testFirstTaskClassNotifiesListenerWhenFourChampionsWin" classname="harrypotter.tests.M2PublicTests" time="0.0">
+      <error>java.lang.NullPointerException&#13;
+	at harrypotter.model.tournament.FirstTask.markCells(FirstTask.java:67)&#13;
+	at harrypotter.model.tournament.FirstTask.&lt;init&gt;(FirstTask.java:31)&#13;
+	at harrypotter.tests.M2PublicTests.testFirstTaskClassNotifiesListenerWhenFourChampionsWin(M2PublicTests.java:1515)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:483)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

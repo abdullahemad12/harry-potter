@@ -1,6 +1,6 @@
 package harrypotter.model.tournament;
 
-<<<<<<< HEAD
+
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
@@ -16,11 +16,11 @@ import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
-=======
+
 import harrypotter.model.character.*;
 import harrypotter.model.magic.*;
-import harrypotter.model.world.*;
->>>>>>> db5c1dacd12ee833da8a4ab75cd432e4b675e7e5
+
+
 
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -259,7 +259,7 @@ public abstract class Task implements WizardListener {
 		((Wizard)getCurrentChamp()).setIp(newIp);
 	}
 	
-	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r){
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException{
 		// getting old location
 		Point ObsLoc= ((Wizard)getCurrentChamp()).getLocation();
 		if (d==Direction.FORWARD)
@@ -312,14 +312,15 @@ public abstract class Task implements WizardListener {
 	
 	public abstract void generateMap() throws IOException;
 	
-<<<<<<< HEAD
-	public abstract void moveForward();
-	public abstract void moveBackward();
-	public abstract void moveLeft();
-	public abstract void moveRight();
+
+	public abstract void moveForward() throws IOException ;
+	public abstract void moveBackward() throws IOException ;
+	public abstract void moveLeft() throws IOException ;
+	public abstract void moveRight() throws IOException ;
 	
 	
-	public void onSlytherinTrait(Direction d){
+	public void onSlytherinTrait(Direction d) throws IOException {
+		traitActivated = true;
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		getMap()[p.x][p.y]= new EmptyCell();
 		if (d==Direction.FORWARD)
@@ -333,16 +334,16 @@ public abstract class Task implements WizardListener {
 		((Wizard)currentChamp).setLocation(p);
 		getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 	}
-=======
+
 	/*
 	 * performs the steps needed for finalizing any action i.e. move performed by the currentChamp.
 	 */
-	public void finalizeAction()
+	public void finalizeAction()throws IOException
 	{
 		// the location of the current champion
 		Point p = ((Wizard) this.currentChamp).getLocation();
 		Wizard temp =(Wizard) currentChamp;
-		Cell current = map[p.y][p.x];
+		Cell current = map[p.x][p.y];
 		if(this instanceof FirstTask)
 		{
 			// we have a winner
@@ -409,7 +410,7 @@ public abstract class Task implements WizardListener {
 	/*
 	 * This method is responsible for returning the Point of the cell adjacent to the currentChamp’s location in the targeted direction d.
 	 */
-	Point getTargetPoint(Direction d)
+	public Point getTargetPoint(Direction d)
 	{
 		// the location of the current champ
 		Point p =((Wizard)this.currentChamp).getLocation();
@@ -448,7 +449,7 @@ public abstract class Task implements WizardListener {
 	/*
 	 * method is responsible for casting a DamagingSpell to the currentChamp’s adjacent cell in the target direction d
 	 */
-	public void castDamagingSpell(DamagingSpell s, Direction d)
+	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException
 	{
 		// gets the target of the damaging spell 
 		Point p = getTargetPoint(d);
@@ -479,12 +480,15 @@ public abstract class Task implements WizardListener {
 			((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
 
 		}
+		useSpell(s);
+		finalizeAction();
+		
 	}
 	
 	/*
 	 * This is responsible for casting a HealingSpell to restore the hp of the currentChamp with the healing amount of the spell.
 	 */
-	public void castHealingSpell(HealingSpell s)
+	public void castHealingSpell(HealingSpell s) throws IOException
 	{
 		// values
 		int hp = ((Wizard)this.currentChamp).getHp();
@@ -499,11 +503,13 @@ public abstract class Task implements WizardListener {
 		{
 			((Wizard)this.currentChamp).setHp(defaulthp);
 		}
+		useSpell(s);
+		finalizeAction();
 	}
 	/*
 	 * responsible for activating the Gryffindor trait.
 	 */
-	void onGryffindorTrait()
+	public void onGryffindorTrait()
 	{	
 		Wizard currentchamp = (Wizard) this.currentChamp;
 		
@@ -528,7 +534,7 @@ public abstract class Task implements WizardListener {
 	/*
 	 * responsible for activating the Hufflepuff trait.
 	 */
-	void onHufflepuffTrait()
+	public void onHufflepuffTrait()
 	{
 		Wizard currentchamp = (Wizard) this.currentChamp;
 		
@@ -553,7 +559,7 @@ public abstract class Task implements WizardListener {
 		}
 		
 		// no cool down for the third task
->>>>>>> db5c1dacd12ee833da8a4ab75cd432e4b675e7e5
+
 	
 		/*
 		 * not sure if I should use it in any other function

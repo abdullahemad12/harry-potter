@@ -12,7 +12,6 @@ import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Obstacle;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
-import harrypotter.model.world.TreasureCell;
 import harrypotter.model.world.WallCell;
 
 import java.awt.Point;
@@ -107,7 +106,7 @@ public class ThirdTask extends Task {
 	
 	}
 	//moving the currentChamp one cell up
-	public void moveForward(){
+	public void moveForward()  throws IOException {
 		//getting old point
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		// moving it up
@@ -136,7 +135,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell down
-	public void moveBackward(){
+	public void moveBackward() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		p.translate(0, -1);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -158,7 +157,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell left
-	public void moveLeft(){
+	public void moveLeft() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		p.translate(-1, 0);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -180,7 +179,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell right
-	public void moveRight(){
+	public void moveRight() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		p.translate(1, 0);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -201,7 +200,7 @@ public class ThirdTask extends Task {
 		finalizeAction();
 	}
 	
-	public void onSlytherinTrait(Direction d){
+	public void onSlytherinTrait(Direction d) throws IOException {
 		super.onSlytherinTrait(d);
 		((Wizard)getCurrentChamp()).setTraitCooldown(10);
 		finalizeAction();
