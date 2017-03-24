@@ -28,6 +28,9 @@ public class SecondTask extends Task {
 		super(shuffleHelper(champions));
 		winners = new ArrayList<Champion>();
 	}
+	/*
+	 * checks if the champion encounters a mereperson and does damage for him in this case
+	 */
 	public void encounterMerPerson()
 	{
 		// gets the location of the current champion

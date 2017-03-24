@@ -1,6 +1,7 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.HufflepuffWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.Potion;
 import harrypotter.model.world.ChampionCell;
@@ -94,7 +95,8 @@ public class FirstTask extends Task {
 			for(int j=0; j<getChampions().size();j++){
 				// checking if there is a champ in the cell
 				if (((Wizard)getChampions().get(i)).getLocation().equals(p)){
-					((Wizard)getChampions().get(i)).setHp((((Wizard)getChampions().get(i)).getHp())-150);
+					if(!(getChampions().get(i) instanceof HufflepuffWizard))
+						((Wizard)getChampions().get(i)).setHp((((Wizard)getChampions().get(i)).getHp())-150);
 					// removing champs with hp<=0
 					if (((Wizard)getChampions().get(i)).getHp()<=0){
 						int x = (int) ((Wizard)getChampions().get(i)).getLocation().getX();

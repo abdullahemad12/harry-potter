@@ -1,5 +1,6 @@
 package harrypotter.model.tournament;
 
+<<<<<<< HEAD
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
@@ -15,6 +16,11 @@ import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.TreasureCell;
+=======
+import harrypotter.model.character.*;
+import harrypotter.model.magic.*;
+import harrypotter.model.world.*;
+>>>>>>> db5c1dacd12ee833da8a4ab75cd432e4b675e7e5
 
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -62,6 +68,21 @@ public abstract class Task implements WizardListener {
 		this.potions = new ArrayList <Potion>();
 		loadPotions("Potions.csv");
 		generateMap();
+		
+		// resets the health points, intelligence points, traitcooldown, spells for the next Task
+		for(Champion champion: this.champions)
+		{
+			((Wizard)champion).setHp(((Wizard)champion).getDefaultHp());
+			((Wizard)champion).setIp(((Wizard)champion).getDefaultIp());
+			((Wizard)champion).setTraitCooldown(0);
+			ArrayList<Spell> spells = ((Wizard)champion).getSpells();
+			// sets all the spells for the champion
+			for(Spell spell : spells)
+			{
+				spell.setCoolDown(0);
+			}
+
+		}
 	}
 	public TaskListener getListener() {
 		return listener;
@@ -291,6 +312,7 @@ public abstract class Task implements WizardListener {
 	
 	public abstract void generateMap() throws IOException;
 	
+<<<<<<< HEAD
 	public abstract void moveForward();
 	public abstract void moveBackward();
 	public abstract void moveLeft();
@@ -311,5 +333,233 @@ public abstract class Task implements WizardListener {
 		((Wizard)currentChamp).setLocation(p);
 		getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 	}
+=======
+	/*
+	 * performs the steps needed for finalizing any action i.e. move performed by the currentChamp.
+	 */
+	public void finalizeAction()
+	{
+		// the location of the current champion
+		Point p = ((Wizard) this.currentChamp).getLocation();
+		Wizard temp =(Wizard) currentChamp;
+		Cell current = map[p.y][p.x];
+		if(this instanceof FirstTask)
+		{
+			// we have a winner
+			if(p.x == 4 && p.y == 4)
+			{
+				// removes the Champ from the cell and adds him to the winners list
+				map[4][4] = new EmptyCell();
+				ArrayList<Champion> win = ((FirstTask)this).getWinners();
+				win.add(temp);
+				((FirstTask)this).setWinners(win);
+				champions.remove(currentChamp);
+				// if all the players were removed than they must have winned or died
+				if(champions.isEmpty())
+				{
+					listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+				}
+
+			}
+			else
+			{
+				//does not fire a hifflepuffWizard whose trait has been activated
+				if(!(temp instanceof HufflepuffWizard) || !traitActivated)
+				{
+					((FirstTask)this).fire();
+				}
+			}
+			
+		}
+		else if(this instanceof SecondTask)
+		{
+			//does not fire a hifflepuffWizard whose trait has been activated
+			if(!(temp instanceof HufflepuffWizard) || !traitActivated)
+			{
+				((SecondTask)this).encounterMerPerson();
+			}
+			
+			// collects treasure
+			if(current instanceof TreasureCell)
+			{
+				// gets the owner to check whether the treasure belongs to the champion or not
+				Wizard owner =(Wizard) ((TreasureCell) current).getOwner();
+				// winner
+				if(owner == currentChamp)
+				{
+					// adds his to the list of winners 
+					ArrayList<Champion> win = ((SecondTask)this).getWinners();
+					win.add(temp);
+					((SecondTask)this).setWinners(win);
+					// removes him from champions
+					champions.remove(temp);
+					
+					// Task ends if the list is empty
+					
+					if(champions.isEmpty())
+					{
+						listener.onFinishingFirstTask(win);
+					}
+					
+				}
+			}
+		}
+	}
 	
+	/*
+	 * This method is responsible for returning the Point of the cell adjacent to the currentChamp’s location in the targeted direction d.
+	 */
+	Point getTargetPoint(Direction d)
+	{
+		// the location of the current champ
+		Point p =((Wizard)this.currentChamp).getLocation();
+		
+		// adds 1 to the Y-coord
+		if(d == Direction.FORWARD)
+		{
+			p.y = (int) (p.getY() + 1) ;
+			return p;
+		}
+		// removes 1 from the Y-coord
+		else if(d == Direction.BACKWARD)
+		{
+			p.y = (int) (p.getY() - 1) ; 
+			return p;
+		}
+		// adds 1 to the X-coord
+		else if(d == Direction.RIGHT)
+		{
+			p.x = (int) (p.getX() + 1) ; 
+			return p;
+		}
+		// removes 1 from the X-coord
+		else if(d == Direction.LEFT)
+		{
+			p.x = (int) (p.getX() - 1) ;
+			return p;
+		}
+		else
+		{
+			return p;
+		}
+			
+	}
+	
+	/*
+	 * method is responsible for casting a DamagingSpell to the currentChamp’s adjacent cell in the target direction d
+	 */
+	public void castDamagingSpell(DamagingSpell s, Direction d)
+	{
+		// gets the target of the damaging spell 
+		Point p = getTargetPoint(d);
+		
+		// the cell at which the attack was made
+		Cell targetedCell = map[p.x][p.y];
+		
+		// a player was standing in the attacked cell
+		if(targetedCell instanceof ChampionCell)
+		{
+			Champion target = ((ChampionCell) targetedCell).getChamp();
+			// the Champion was a HufflepuffWizard in the third task
+			if((this instanceof ThirdTask) && (target instanceof HufflepuffWizard))
+			{
+				((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount() / 2));
+			}
+			else
+			{
+				// otherwise
+				((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+			}
+		}
+		// an obstacle
+		else if(targetedCell instanceof ObstacleCell)
+		{
+			Champion target = ((ChampionCell) targetedCell).getChamp();
+			
+			((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+
+		}
+	}
+	
+	/*
+	 * This is responsible for casting a HealingSpell to restore the hp of the currentChamp with the healing amount of the spell.
+	 */
+	public void castHealingSpell(HealingSpell s)
+	{
+		// values
+		int hp = ((Wizard)this.currentChamp).getHp();
+		int defaulthp = ((Wizard)this.currentChamp).getDefaultHp();
+		int heal = s.getHealingAmount();
+		// The healing amount was less or equal to the defualthp
+		if(defaulthp >= hp + heal)
+		{
+			((Wizard)this.currentChamp).setHp(hp+heal);
+		}
+		else
+		{
+			((Wizard)this.currentChamp).setHp(defaulthp);
+		}
+	}
+	/*
+	 * responsible for activating the Gryffindor trait.
+	 */
+	void onGryffindorTrait()
+	{	
+		Wizard currentchamp = (Wizard) this.currentChamp;
+		
+		// makes sure the current Champion is a Hufflepuf Wizard
+		if(!(currentchamp instanceof GryffindorWizard))
+		{
+			return;
+		}
+		
+		// activates trait
+		traitActivated = true;
+
+		// sets the cool down according to the task
+		
+		currentchamp.setTraitCooldown(4);
+		 allowedMoves = 2;
+		
+		
+		
+	}
+	
+	/*
+	 * responsible for activating the Hufflepuff trait.
+	 */
+	void onHufflepuffTrait()
+	{
+		Wizard currentchamp = (Wizard) this.currentChamp;
+		
+		// makes sure the current Champion is a Hufflepuf Wizard
+		if(!(currentchamp instanceof HufflepuffWizard))
+		{
+			return;
+		}
+		
+		// activates trait
+		traitActivated = true;
+
+		// sets the cool down according to the task
+		
+		if(this instanceof FirstTask)
+		{
+			currentchamp.setTraitCooldown(3);
+		}
+		else if(this instanceof SecondTask)
+		{
+			currentchamp.setTraitCooldown(6);
+		}
+		
+		// no cool down for the third task
+>>>>>>> db5c1dacd12ee833da8a4ab75cd432e4b675e7e5
+	
+		/*
+		 * not sure if I should use it in any other function
+		 */
+		
+	}
 }
+
+

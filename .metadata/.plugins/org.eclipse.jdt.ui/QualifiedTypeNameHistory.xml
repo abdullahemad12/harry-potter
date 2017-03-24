@@ -10,13 +10,13 @@
 <fullyQualifiedTypeName name="harrypotter.model.character.WizardListener"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.CollectibleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 </qualifiedTypeNameHistroy>
