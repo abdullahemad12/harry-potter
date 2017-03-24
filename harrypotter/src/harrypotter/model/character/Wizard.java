@@ -3,6 +3,7 @@ import harrypotter.model.magic.Collectible;
 import harrypotter.model.magic.Spell;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /*
@@ -151,7 +152,7 @@ abstract public class Wizard implements Champion  {
 	public void setListener(WizardListener listener) {
 		this.listener = listener;
 	}
-	public void useTrait(){
+	public void useTrait() throws IOException {
 		
 	}
 
