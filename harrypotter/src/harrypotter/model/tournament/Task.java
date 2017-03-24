@@ -2,10 +2,14 @@ package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
+import harrypotter.model.character.WizardListener;
 import harrypotter.model.magic.Potion;
+import harrypotter.model.magic.RelocatingSpell;
+import harrypotter.model.magic.Spell;
 import harrypotter.model.world.ChampionCell;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.CollectibleCell;
+import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
@@ -26,7 +30,7 @@ import java.util.Random;
 
 //A class representing a tournament task. 
 
-public abstract class Task {
+public abstract class Task implements WizardListener {
 	private Random randomGenerator;
 	
 	private ArrayList<Champion> champions;
@@ -47,6 +51,9 @@ public abstract class Task {
 	private ArrayList<Potion> potions;
 	//List of potions available to be distributed in the maps of the three tasks.
 	
+	private TaskListener listener;
+	//This attribute represents the instance of the TaskListener added to the class.
+	
 	public Task(ArrayList<Champion> champions)  throws IOException{
 		this.champions=champions;
 		allowedMoves=1;
@@ -55,6 +62,12 @@ public abstract class Task {
 		this.potions = new ArrayList <Potion>();
 		loadPotions("Potions.csv");
 		generateMap();
+	}
+	public TaskListener getListener() {
+		return listener;
+	}
+	public void setListener(TaskListener listener) {
+		this.listener = listener;
 	}
 	public void setTraitActivated(boolean traitActivated)
 	{
@@ -217,8 +230,86 @@ public abstract class Task {
 		
 	}
 	
+	//This method is responsible for finalizing the action of casting a spell.
+	// This method should be called at the end of any spell casting method.
+	public void useSpell(Spell s){
+		s.setCoolDown(s.getDefaultCooldown());
+		int newIp = ((Wizard)getCurrentChamp()).getIp()-s.getCost();
+		((Wizard)getCurrentChamp()).setIp(newIp);
+	}
+	
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r){
+		// getting old location
+		Point ObsLoc= ((Wizard)getCurrentChamp()).getLocation();
+		if (d==Direction.FORWARD)
+			ObsLoc.translate(0, 1);
+		if (d==Direction.BACKWARD)
+			ObsLoc.translate(0, -1);
+		if (d==Direction.RIGHT)
+			ObsLoc.translate(1, 0);
+		if (d==Direction.LEFT)
+			ObsLoc.translate(-1, 0);
+		
+		//getting new location
+		Point newloc= ((Wizard)getCurrentChamp()).getLocation();
+		if (t==Direction.FORWARD)
+			newloc.translate(0, r);
+		if (t==Direction.BACKWARD)
+			newloc.translate(0, -r);
+		if (t==Direction.RIGHT)
+			newloc.translate(r, 0);
+		if (t==Direction.LEFT)
+			newloc.translate(-r, 0);
+		
+		//swapping cells
+		getMap()[newloc.x][newloc.y]=getMap()[ObsLoc.x][ObsLoc.y];
+		getMap()[ObsLoc.x][ObsLoc.y]= new EmptyCell();
+		useSpell(s);
+		finalizeAction();
+	}
+	
+	//This method is responsible for ending the turn of the currentChamp.
+	public void endTurn(){
+		//changing currentChamp.
+		champions.remove(currentChamp);
+		champions.add(champions.size()-1, currentChamp);
+		currentChamp= champions.get(0);
+	}
+	
+	//This method is responsible for increasing the currentChamp's ip
+	//based on the value gained from the potion p.
+	public void usePotion(Potion p){
+		// getting new ip
+		int newIp= p.getAmount() + ((Wizard)currentChamp).getIp();
+		//checking if ip<DefaultIp 
+		if (newIp>((Wizard)currentChamp).getDefaultIp())
+			newIp=((Wizard)currentChamp).getDefaultIp();
+		// setting new ip.
+		((Wizard)currentChamp).setIp(newIp);	
+		
+	}
 	
 	public abstract void generateMap() throws IOException;
 	
+	public abstract void moveForward();
+	public abstract void moveBackward();
+	public abstract void moveLeft();
+	public abstract void moveRight();
+	
+	
+	public void onSlytherinTrait(Direction d){
+		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		getMap()[p.x][p.y]= new EmptyCell();
+		if (d==Direction.FORWARD)
+			p.translate(0, 2);
+		if (d==Direction.BACKWARD)
+			p.translate(0, -2);
+		if (d==Direction.RIGHT)
+			p.translate(2, 0);
+		if (d==Direction.LEFT)
+			p.translate(-2, 0);
+		((Wizard)currentChamp).setLocation(p);
+		getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+	}
 	
 }

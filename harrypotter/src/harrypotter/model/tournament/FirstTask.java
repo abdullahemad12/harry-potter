@@ -2,6 +2,10 @@ package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
+import harrypotter.model.magic.Potion;
+import harrypotter.model.world.ChampionCell;
+import harrypotter.model.world.CollectibleCell;
+import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 
 import java.awt.Point;
@@ -68,9 +72,9 @@ public class FirstTask extends Task {
 			// fire in same cell
 			case 0: markedCells.add(p); break;
 			// fire left
-			case 1: Point p1= new Point(p); p1.translate(1,0); markedCells.add(p1); break;
+			case 1: Point p1= new Point(p); p1.translate(-1,0); markedCells.add(p1); break;
 			//fire right
-			case 2: Point p2= new Point(p); p2.translate(-1,0); markedCells.add(p2); break;
+			case 2: Point p2= new Point(p); p2.translate(1,0); markedCells.add(p2); break;
 			//fire up
 			case 3: Point p3= new Point(p); p3.translate(0,1); markedCells.add(p3); break;
 			//fire down
@@ -105,6 +109,95 @@ public class FirstTask extends Task {
 	}
 	
 	
+	//moving the currentChamp one cell up
+	public void moveForward(){
+		//getting old point
+		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		// moving it up
+		p.translate(0, 1);
+		//checking if it is possible to move
+		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+			//changing ip after collecting the collectible
+			if (getMap()[p.x][p.y] instanceof CollectibleCell){
+				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+				((Wizard)getCurrentChamp()).setIp(newIp);
+			}
+			//changing map cell type
+			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+			getMap()[oldP.x][oldP.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			//changing champs location
+			((Wizard)getCurrentChamp()).setLocation(p);
+		}
+		finalizeAction();
+	}
+	
+	//moving the currentChamp one cell down
+	public void moveBackward(){
+		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		p.translate(0, -1);
+		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+			if (getMap()[p.x][p.y] instanceof CollectibleCell){
+				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+				((Wizard)getCurrentChamp()).setIp(newIp);
+			}
+			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+			getMap()[oldP.x][oldP.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			((Wizard)getCurrentChamp()).setLocation(p);
+		}
+		finalizeAction();
+	}
+	
+	//moving the currentChamp one cell left
+	public void moveLeft(){
+		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		p.translate(-1, 0);
+		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+			if (getMap()[p.x][p.y] instanceof CollectibleCell){
+				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+				((Wizard)getCurrentChamp()).setIp(newIp);
+			}
+			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+			getMap()[oldP.x][oldP.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			((Wizard)getCurrentChamp()).setLocation(p);
+		}
+		finalizeAction();
+	}
+	
+	//moving the currentChamp one cell right
+	public void moveRight(){
+		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		p.translate(1, 0);
+		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+			if (getMap()[p.x][p.y] instanceof CollectibleCell){
+				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+				((Wizard)getCurrentChamp()).setIp(newIp);
+			}
+			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+			getMap()[oldP.x][oldP.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			((Wizard)getCurrentChamp()).setLocation(p);
+		}
+		finalizeAction();
+	}
+	
+	public void onSlytherinTrait(Direction d){
+		super.onSlytherinTrait(d);
+		((Wizard)getCurrentChamp()).setTraitCooldown(6);
+		finalizeAction();
+	}
+	
+	public Object onRavenclawTrait(){
+		((Wizard)getCurrentChamp()).setTraitCooldown(5);
+		setTaitActivated(true);
+		return markedCells;
+	}
 	
 
 }
