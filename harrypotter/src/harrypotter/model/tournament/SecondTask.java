@@ -20,6 +20,9 @@ public class SecondTask extends Task {
 	public SecondTask(ArrayList<Champion> champions)throws IOException{
 		super(shuffleHelper(champions));
 	}
+	/*
+	 * checks if the champion encounters a mereperson and does damage for him in this case
+	 */
 	public void encounterMerPerson()
 	{
 		// gets the location of the current champion
