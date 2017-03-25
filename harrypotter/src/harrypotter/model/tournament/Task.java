@@ -4,18 +4,10 @@ package harrypotter.model.tournament;
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
-import harrypotter.model.magic.Potion;
-import harrypotter.model.magic.RelocatingSpell;
-import harrypotter.model.magic.Spell;
-import harrypotter.model.world.ChampionCell;
-import harrypotter.model.world.Cell;
-import harrypotter.model.world.CollectibleCell;
-import harrypotter.model.world.Direction;
-import harrypotter.model.world.EmptyCell;
-import harrypotter.model.world.Merperson;
-import harrypotter.model.world.ObstacleCell;
-import harrypotter.model.world.PhysicalObstacle;
-import harrypotter.model.world.TreasureCell;
+
+
+import harrypotter.model.world.*;
+
 
 import harrypotter.model.character.*;
 import harrypotter.model.magic.*;
