@@ -110,7 +110,7 @@ public class ThirdTask extends Task {
 		//getting old point
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
 		// moving it up
-		p.translate(0, 1);
+		p.translate(-1, 0);
 		//checking if it is possible to move
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			//changing ip after collecting the collectible
@@ -118,6 +118,7 @@ public class ThirdTask extends Task {
 				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
 				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
 				((Wizard)getCurrentChamp()).setIp(newIp);
+				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 			}
 			//changing map cell type
 			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
@@ -138,12 +139,13 @@ public class ThirdTask extends Task {
 	//moving the currentChamp one cell down
 	public void moveBackward() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
-		p.translate(0, -1);
+		p.translate(1, 0);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){
 				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
 				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
 				((Wizard)getCurrentChamp()).setIp(newIp);
+				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 			}
 			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 			getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -161,12 +163,13 @@ public class ThirdTask extends Task {
 	//moving the currentChamp one cell left
 	public void moveLeft() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
-		p.translate(-1, 0);
+		p.translate(0, -1);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){
 				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
 				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
 				((Wizard)getCurrentChamp()).setIp(newIp);
+				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 			}
 			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 			getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -184,12 +187,13 @@ public class ThirdTask extends Task {
 	//moving the currentChamp one cell right
 	public void moveRight() throws IOException {
 		Point p= ((Wizard)getCurrentChamp()).getLocation();
-		p.translate(1, 0);
+		p.translate(0, 1);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){
 				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
 				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
 				((Wizard)getCurrentChamp()).setIp(newIp);
+				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 			}
 			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 			getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -206,40 +210,45 @@ public class ThirdTask extends Task {
 	
 	public void onSlytherinTrait(Direction d) throws IOException {
 		super.onSlytherinTrait(d);
-		((Wizard)getCurrentChamp()).setTraitCooldown(10);
-		finalizeAction();
+		if (!isTraitActivated()){
+			((Wizard)getCurrentChamp()).setTraitCooldown(10);
+			finalizeAction();
+		}
 	}
 	
 	public Object onRavenclawTrait(){
-		((Wizard)getCurrentChamp()).setTraitCooldown(7);
-		setTaitActivated(true);
-		//getting location of cup cell
-		Point treloc = new Point();
-		for (int i=0; i<10; i++){
-			for (int j=0; j<10; j++){
-				if (getMap()[i][j] instanceof CupCell){
-					treloc.setLocation(i, i);
-					break;
+		if (!isTraitActivated()){
+			((Wizard)getCurrentChamp()).setTraitCooldown(7);
+			setTaitActivated(true);
+			//getting location of cup cell
+			Point treloc = new Point();
+			for (int i=0; i<10; i++){
+				for (int j=0; j<10; j++){
+					if (getMap()[i][j] instanceof CupCell){
+						treloc.setLocation(i, i);
+						break;
+					}
+						
 				}
-					
 			}
-		}
-		ArrayList<Direction> location = new ArrayList<Direction>();
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
-		// checking the location of the treasure cell relative to the champions cell and adding it to the array location 
-		if (treloc.x-p.x>0)
-			location.add(Direction.RIGHT);
-		else
-			if (treloc.x-p.x<0)
-				location.add(Direction.LEFT);
-		
-		if (treloc.y-p.y>0)
-			location.add(Direction.FORWARD);
-		else
-			if (treloc.y-p.y<0)
+			ArrayList<Direction> location = new ArrayList<Direction>();
+			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			// checking the location of the treasure cell relative to the champions cell and adding it to the array location 
+			if (treloc.x-p.x>0)
 				location.add(Direction.BACKWARD);
+			else
+				if (treloc.x-p.x<0)
+					location.add(Direction.FORWARD);
+			
+			if (treloc.y-p.y>0)
+				location.add(Direction.RIGHT);
+			else
+				if (treloc.y-p.y<0)
+					location.add(Direction.LEFT);
+			return location;
+		}
+		return null;
 		
-		return location;
 	}	
 	
 	

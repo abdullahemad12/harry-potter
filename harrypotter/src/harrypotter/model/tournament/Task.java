@@ -264,24 +264,24 @@ public abstract class Task implements WizardListener {
 		// getting old location
 		Point ObsLoc= ((Wizard)getCurrentChamp()).getLocation();
 		if (d==Direction.FORWARD)
-			ObsLoc.translate(0, 1);
-		if (d==Direction.BACKWARD)
-			ObsLoc.translate(0, -1);
-		if (d==Direction.RIGHT)
-			ObsLoc.translate(1, 0);
-		if (d==Direction.LEFT)
 			ObsLoc.translate(-1, 0);
+		if (d==Direction.BACKWARD)
+			ObsLoc.translate(1, 0);
+		if (d==Direction.RIGHT)
+			ObsLoc.translate(0, 1);
+		if (d==Direction.LEFT)
+			ObsLoc.translate(0, -1);
 		
 		//getting new location
 		Point newloc= ((Wizard)getCurrentChamp()).getLocation();
 		if (t==Direction.FORWARD)
-			newloc.translate(0, r);
-		if (t==Direction.BACKWARD)
-			newloc.translate(0, -r);
-		if (t==Direction.RIGHT)
-			newloc.translate(r, 0);
-		if (t==Direction.LEFT)
 			newloc.translate(-r, 0);
+		if (t==Direction.BACKWARD)
+			newloc.translate(r, 0);
+		if (t==Direction.RIGHT)
+			newloc.translate(0, r);
+		if (t==Direction.LEFT)
+			newloc.translate(0, -r);
 		
 		//swapping cells
 		getMap()[newloc.x][newloc.y]=getMap()[ObsLoc.x][ObsLoc.y];
@@ -309,7 +309,7 @@ public abstract class Task implements WizardListener {
 			newIp=((Wizard)currentChamp).getDefaultIp();
 		// setting new ip.
 		((Wizard)currentChamp).setIp(newIp);	
-		
+		((Wizard)currentChamp).getInventory().remove(p);
 	}
 	
 	public abstract void generateMap() throws IOException;
@@ -322,19 +322,21 @@ public abstract class Task implements WizardListener {
 	
 	
 	public void onSlytherinTrait(Direction d) throws IOException {
-		traitActivated = true;
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
-		getMap()[p.x][p.y]= new EmptyCell();
-		if (d==Direction.FORWARD)
-			p.translate(0, 2);
-		if (d==Direction.BACKWARD)
-			p.translate(0, -2);
-		if (d==Direction.RIGHT)
-			p.translate(2, 0);
-		if (d==Direction.LEFT)
-			p.translate(-2, 0);
-		((Wizard)currentChamp).setLocation(p);
-		getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+		if (!traitActivated){
+			traitActivated = true;
+			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			getMap()[p.x][p.y]= new EmptyCell();
+			if (d==Direction.FORWARD)
+				p.translate(2, 0);
+			if (d==Direction.BACKWARD)
+				p.translate(-2, 0);
+			if (d==Direction.RIGHT)
+				p.translate(0, 2);
+			if (d==Direction.LEFT)
+				p.translate(0, -2);
+			((Wizard)currentChamp).setLocation(p);
+			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+		}	
 	}
 
 	/*
@@ -342,71 +344,81 @@ public abstract class Task implements WizardListener {
 	 */
 	public void finalizeAction()throws IOException
 	{
-		// the location of the current champion
-		Point p = ((Wizard) this.currentChamp).getLocation();
-		Wizard temp =(Wizard) currentChamp;
-		Cell current = map[p.x][p.y];
-		if(this instanceof FirstTask)
-		{
-			// we have a winner
-			if(p.x == 4 && p.y == 4)
+		allowedMoves--;
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+			Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			if (s.getCoolDown()>0)
+				s.setCoolDown(s.getCoolDown()-1);
+		}
+		if (allowedMoves==0){
+			
+			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
+			// the location of the current champion
+			Point p = ((Wizard) this.currentChamp).getLocation();
+			Wizard temp =(Wizard) currentChamp;
+			Cell current = map[p.x][p.y];
+			if(this instanceof FirstTask)
 			{
-				// removes the Champ from the cell and adds him to the winners list
-				map[4][4] = new EmptyCell();
-				ArrayList<Champion> win = ((FirstTask)this).getWinners();
-				win.add(temp);
-				((FirstTask)this).setWinners(win);
-				champions.remove(currentChamp);
-				// if all the players were removed than they must have winned or died
-				if(champions.isEmpty())
+				// we have a winner
+				if(p.x == 4 && p.y == 4)
 				{
-					listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					// removes the Champ from the cell and adds him to the winners list
+					map[4][4] = new EmptyCell();
+					ArrayList<Champion> win = ((FirstTask)this).getWinners();
+					win.add(temp);
+					((FirstTask)this).setWinners(win);
+					champions.remove(currentChamp);
+					// if all the players were removed than they must have winned or died
+					if(champions.isEmpty())
+					{
+						listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+	
 				}
-
+				else
+				{
+					//does not fire a hifflepuffWizard whose trait has been activated
+					if(!(temp instanceof HufflepuffWizard) || !traitActivated)
+					{
+						((FirstTask)this).fire();
+					}
+				}
+				
 			}
-			else
+			else if(this instanceof SecondTask)
 			{
 				//does not fire a hifflepuffWizard whose trait has been activated
 				if(!(temp instanceof HufflepuffWizard) || !traitActivated)
 				{
-					((FirstTask)this).fire();
+					((SecondTask)this).encounterMerPerson();
 				}
-			}
-			
-		}
-		else if(this instanceof SecondTask)
-		{
-			//does not fire a hifflepuffWizard whose trait has been activated
-			if(!(temp instanceof HufflepuffWizard) || !traitActivated)
-			{
-				((SecondTask)this).encounterMerPerson();
-			}
-			
-			// collects treasure
-			if(current instanceof TreasureCell)
-			{
-				// gets the owner to check whether the treasure belongs to the champion or not
-				Wizard owner =(Wizard) ((TreasureCell) current).getOwner();
-				// winner
-				if(owner == currentChamp)
+				
+				// collects treasure
+				if(current instanceof TreasureCell)
 				{
-					// adds his to the list of winners 
-					ArrayList<Champion> win = ((SecondTask)this).getWinners();
-					win.add(temp);
-					((SecondTask)this).setWinners(win);
-					// removes him from champions
-					champions.remove(temp);
-					
-					// Task ends if the list is empty
-					
-					if(champions.isEmpty())
+					// gets the owner to check whether the treasure belongs to the champion or not
+					Wizard owner =(Wizard) ((TreasureCell) current).getOwner();
+					// winner
+					if(owner == currentChamp)
 					{
-						listener.onFinishingFirstTask(win);
+						// adds his to the list of winners 
+						ArrayList<Champion> win = ((SecondTask)this).getWinners();
+						win.add(temp);
+						((SecondTask)this).setWinners(win);
+						// removes him from champions
+						champions.remove(temp);
+						
+						// Task ends if the list is empty
+						
+						if(champions.isEmpty())
+						{
+							listener.onFinishingFirstTask(win);
+						}
+						
 					}
-					
 				}
 			}
-		}
+		}	
 	}
 	
 	/*
@@ -420,25 +432,25 @@ public abstract class Task implements WizardListener {
 		// adds 1 to the Y-coord
 		if(d == Direction.FORWARD)
 		{
-			p.y = (int) (p.getY() + 1) ;
+			p.x = (int) (p.getX() - 1) ;
 			return p;
 		}
 		// removes 1 from the Y-coord
 		else if(d == Direction.BACKWARD)
 		{
-			p.y = (int) (p.getY() - 1) ; 
+			p.x = (int) (p.getX() +1) ; 
 			return p;
 		}
 		// adds 1 to the X-coord
 		else if(d == Direction.RIGHT)
 		{
-			p.x = (int) (p.getX() + 1) ; 
+			p.y = (int) (p.getY() + 1) ; 
 			return p;
 		}
 		// removes 1 from the X-coord
 		else if(d == Direction.LEFT)
 		{
-			p.x = (int) (p.getX() - 1) ;
+			p.y = (int) (p.getY() - 1) ;
 			return p;
 		}
 		else
@@ -477,9 +489,20 @@ public abstract class Task implements WizardListener {
 		// an obstacle
 		else if(targetedCell instanceof ObstacleCell)
 		{
-			Champion target = ((ChampionCell) targetedCell).getChamp();
+			//Obs target = ((ChampionCell) targetedCell).getChamp();
 			
-			((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+			//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+			if(this instanceof FirstTask)
+			{
+				PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
+				((PhysicalObstacle) target).setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+			}
+			else if(this instanceof SecondTask)
+			{
+				Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
+				((Merperson) target).setHp(((Merperson) target).getHp() - s.getDamageAmount());
+			}
+			
 
 		}
 		useSpell(s);
@@ -512,23 +535,23 @@ public abstract class Task implements WizardListener {
 	 * responsible for activating the Gryffindor trait.
 	 */
 	public void onGryffindorTrait()
-	{	
-		Wizard currentchamp = (Wizard) this.currentChamp;
-		
-		// makes sure the current Champion is a Hufflepuf Wizard
-		if(!(currentchamp instanceof GryffindorWizard))
-		{
-			return;
+	{	if (!traitActivated){
+			Wizard currentchamp = (Wizard) this.currentChamp;
+			
+			// makes sure the current Champion is a Hufflepuf Wizard
+			if(!(currentchamp instanceof GryffindorWizard))
+			{
+				return;
+			}
+			
+			// activates trait
+			traitActivated = true;
+	
+			// sets the cool down according to the task
+			
+			currentchamp.setTraitCooldown(4);
+			 allowedMoves = 2;
 		}
-		
-		// activates trait
-		traitActivated = true;
-
-		// sets the cool down according to the task
-		
-		currentchamp.setTraitCooldown(4);
-		 allowedMoves = 2;
-		
 		
 		
 	}
@@ -537,36 +560,37 @@ public abstract class Task implements WizardListener {
 	 * responsible for activating the Hufflepuff trait.
 	 */
 	public void onHufflepuffTrait()
-	{
-		Wizard currentchamp = (Wizard) this.currentChamp;
-		
-		// makes sure the current Champion is a Hufflepuf Wizard
-		if(!(currentchamp instanceof HufflepuffWizard))
-		{
-			return;
-		}
-		
-		// activates trait
-		traitActivated = true;
-
-		// sets the cool down according to the task
-		
-		if(this instanceof FirstTask)
-		{
-			currentchamp.setTraitCooldown(3);
-		}
-		else if(this instanceof SecondTask)
-		{
-			currentchamp.setTraitCooldown(6);
-		}
-		
-		// no cool down for the third task
-
+	{	
+		if (!traitActivated){
+			Wizard currentchamp = (Wizard) this.currentChamp;
+			
+			// makes sure the current Champion is a Hufflepuf Wizard
+			if(!(currentchamp instanceof HufflepuffWizard))
+			{
+				return;
+			}
+			
+			// activates trait
+			traitActivated = true;
 	
-		/*
-		 * not sure if I should use it in any other function
-		 */
+			// sets the cool down according to the task
+			
+			if(this instanceof FirstTask)
+			{
+				currentchamp.setTraitCooldown(3);
+			}
+			else if(this instanceof SecondTask)
+			{
+				currentchamp.setTraitCooldown(6);
+			}
+			
+			// no cool down for the third task
+	
 		
+			/*
+			 * not sure if I should use it in any other function
+			 */
+		}
 	}
 }
 
