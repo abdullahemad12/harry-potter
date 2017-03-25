@@ -2,16 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
 		<item value="onGry" key="selection"/>
+=======
+		<item value="" key="selection"/>
+>>>>>>> 25e8c67075248c959f0606a32e6b2012d7b0a675
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="onGry"/>
 			<item value="onGryffindorWizard"/>
 			<item value="ongry"/>
 			<item value="on"/>
+=======
+			<item value="setMap"/>
+>>>>>>> 25e8c67075248c959f0606a32e6b2012d7b0a675
 			<item value="getListener"/>
 			<item value="onTrait"/>
 			<item value="readMap"/>

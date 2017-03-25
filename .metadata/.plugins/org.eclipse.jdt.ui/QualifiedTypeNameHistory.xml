@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="harrypotter.model.world.Cell"/>
 <fullyQualifiedTypeName name="com.sun.javafx.scene.paint.GradientUtils.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="java.util.EventListener"/>
@@ -20,4 +19,8 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.PhysicalObstacle"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.ObstacleCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Cell"/>
 </qualifiedTypeNameHistroy>
