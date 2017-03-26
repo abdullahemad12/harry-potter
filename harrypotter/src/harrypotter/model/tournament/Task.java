@@ -4,18 +4,10 @@ package harrypotter.model.tournament;
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
-import harrypotter.model.magic.Potion;
-import harrypotter.model.magic.RelocatingSpell;
-import harrypotter.model.magic.Spell;
-import harrypotter.model.world.ChampionCell;
-import harrypotter.model.world.Cell;
-import harrypotter.model.world.CollectibleCell;
-import harrypotter.model.world.Direction;
-import harrypotter.model.world.EmptyCell;
-import harrypotter.model.world.Merperson;
-import harrypotter.model.world.ObstacleCell;
-import harrypotter.model.world.PhysicalObstacle;
-import harrypotter.model.world.TreasureCell;
+
+
+import harrypotter.model.world.*;
+
 
 import harrypotter.model.character.*;
 import harrypotter.model.magic.*;
@@ -84,6 +76,10 @@ public abstract class Task implements WizardListener {
 
 		}
 		currentChamp = champions.get(0);
+		((Wizard)currentChamp).useTrait();
+
+
+			
 	}
 	public TaskListener getListener() {
 		return listener;
@@ -368,10 +364,16 @@ public abstract class Task implements WizardListener {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
-					// if all the players were removed than they must have winned or died
+					// if all the players were removed than they must have wined or died
 					if(champions.isEmpty())
 					{
 						listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+					else
+					{
+						currentChamp = champions.get(0);
+						((Wizard)currentChamp).useTrait();
+
 					}
 	
 				}
@@ -412,13 +414,19 @@ public abstract class Task implements WizardListener {
 						
 						if(champions.isEmpty())
 						{
-							listener.onFinishingFirstTask(win);
+							listener.onFinishingSecondTask(win);
+						}
+						else
+						{
+							currentChamp = champions.get(0);
+							((Wizard)currentChamp).useTrait();
+
 						}
 						
 					}
 				}
 			}
-		}	
+		}
 	}
 	
 	/*
@@ -552,6 +560,10 @@ public abstract class Task implements WizardListener {
 			currentchamp.setTraitCooldown(4);
 			 allowedMoves = 2;
 		}
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+		Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			useSpell(s);
+	}
 		
 		
 	}
