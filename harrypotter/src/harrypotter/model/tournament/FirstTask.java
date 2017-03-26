@@ -30,6 +30,7 @@ public class FirstTask extends Task {
 		markCells();
 		winners = new ArrayList<Champion>();
 		
+		
 	}
 	
 	//helper that shuffles the champions.
@@ -113,9 +114,11 @@ public class FirstTask extends Task {
 			for(int j=0; j<getChampions().size();j++){
 				// checking if there is a champ in the cell
 				if (((Wizard)getChampions().get(j)).getLocation().equals(p)){
+					if(((Wizard)getChampions().get(j)).getHp()-150>0)
 					((Wizard)getChampions().get(j)).setHp((((Wizard)getChampions().get(j)).getHp())-150);
 					// removing champs with hp<=0
-					if (((Wizard)getChampions().get(j)).getHp()<=0){
+					else{
+						((Wizard)getChampions().get(j)).setHp(0);
 						int x = (int) ((Wizard)getChampions().get(j)).getLocation().getX();
 						int y = (int) ((Wizard)getChampions().get(j)).getLocation().getY();
 						getMap()[x][y]= new EmptyCell();
@@ -131,7 +134,8 @@ public class FirstTask extends Task {
 	//moving the currentChamp one cell up
 	public void moveForward() throws IOException {
 		//getting old point
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		Point pp= ((Wizard)getCurrentChamp()).getLocation();
+		Point p=new Point(pp);
 		// moving it up
 		p.translate(-1, 0);
 		//checking if it is possible to move
@@ -155,7 +159,8 @@ public class FirstTask extends Task {
 	
 	//moving the currentChamp one cell down
 	public void moveBackward() throws IOException {
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		Point pp= ((Wizard)getCurrentChamp()).getLocation();
+		Point p=new Point(pp);
 		p.translate(1, 0);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -174,7 +179,8 @@ public class FirstTask extends Task {
 	
 	//moving the currentChamp one cell left
 	public void moveLeft() throws IOException {
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		Point pp= ((Wizard)getCurrentChamp()).getLocation();
+		Point p=new Point(pp);
 		p.translate(0, -1);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -193,7 +199,8 @@ public class FirstTask extends Task {
 	
 	//moving the currentChamp one cell right
 	public void moveRight() throws IOException {
-		Point p= ((Wizard)getCurrentChamp()).getLocation();
+		Point pp= ((Wizard)getCurrentChamp()).getLocation();
+		Point p=new Point(pp);
 		p.translate(0, 1);
 		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 			if (getMap()[p.x][p.y] instanceof CollectibleCell){

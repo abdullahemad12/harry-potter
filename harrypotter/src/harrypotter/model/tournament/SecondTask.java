@@ -153,7 +153,8 @@ public class SecondTask extends Task {
 	//moving the currentChamp one cell up
 		public void moveForward() throws IOException {
 			//getting old point
-			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
 			// moving it up
 			p.translate(-1, 0);
 			//checking if it is possible to move
@@ -182,7 +183,8 @@ public class SecondTask extends Task {
 		
 		//moving the currentChamp one cell down
 		public void moveBackward() throws IOException {
-			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
 			p.translate(1, 0);
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell||(getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))){
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -205,7 +207,8 @@ public class SecondTask extends Task {
 		
 		//moving the currentChamp one cell left
 		public void moveLeft() throws IOException {
-			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
 			p.translate(0, -1);
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell||(getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))){
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -228,7 +231,8 @@ public class SecondTask extends Task {
 		
 		//moving the currentChamp one cell right
 		public void moveRight() throws IOException {
-			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
 			p.translate(0, 1);
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell||(getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))){
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
