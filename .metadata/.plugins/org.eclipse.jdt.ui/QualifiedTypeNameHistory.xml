@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
@@ -23,4 +22,6 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.ObstacleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Cell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
 </qualifiedTypeNameHistroy>
