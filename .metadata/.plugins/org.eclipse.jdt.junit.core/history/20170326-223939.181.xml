@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="M2PublicTests.testTaskListenerVariableGetter" project="harrypotter" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="testTaskListenerVariableGetter" classname="harrypotter.tests.M2PublicTests" time="0.0"/>
+</testrun>

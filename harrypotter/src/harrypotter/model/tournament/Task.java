@@ -76,6 +76,10 @@ public abstract class Task implements WizardListener {
 
 		}
 		currentChamp = champions.get(0);
+		((Wizard)currentChamp).useTrait();
+
+
+			
 	}
 	public TaskListener getListener() {
 		return listener;
@@ -360,10 +364,16 @@ public abstract class Task implements WizardListener {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
-					// if all the players were removed than they must have winned or died
+					// if all the players were removed than they must have wined or died
 					if(champions.isEmpty())
 					{
 						listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+					else
+					{
+						currentChamp = champions.get(0);
+						((Wizard)currentChamp).useTrait();
+
 					}
 	
 				}
@@ -404,13 +414,19 @@ public abstract class Task implements WizardListener {
 						
 						if(champions.isEmpty())
 						{
-							listener.onFinishingFirstTask(win);
+							listener.onFinishingSecondTask(win);
+						}
+						else
+						{
+							currentChamp = champions.get(0);
+							((Wizard)currentChamp).useTrait();
+
 						}
 						
 					}
 				}
 			}
-		}	
+		}
 	}
 	
 	/*
@@ -544,6 +560,10 @@ public abstract class Task implements WizardListener {
 			currentchamp.setTraitCooldown(4);
 			 allowedMoves = 2;
 		}
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+		Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			useSpell(s);
+	}
 		
 		
 	}

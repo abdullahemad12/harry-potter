@@ -54,6 +54,7 @@ public class SecondTask extends Task {
 			{
 				//removes him from the map and from the list of chamions
 				cell[x][y] = new EmptyCell();
+				((Wizard)c).setHp(0);
 				this.getChampions().remove(c);
 			}
 			// does damage do the wizard
@@ -72,6 +73,7 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
+				((Wizard)c).setHp(0);
 				this.getChampions().remove(c);
 			}
 			else
@@ -89,6 +91,7 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
+				((Wizard)c).setHp(0);
 				this.getChampions().remove(c);
 			}
 			else
@@ -106,6 +109,7 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
+				((Wizard)c).setHp(0);
 				this.getChampions().remove(c);
 			}
 			else
