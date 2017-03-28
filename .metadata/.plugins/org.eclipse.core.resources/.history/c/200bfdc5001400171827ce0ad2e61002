@@ -322,6 +322,9 @@ public abstract class Task implements WizardListener  {
 	public void usePotion(Potion p){
 		// getting new ip
 		int newIp= p.getAmount() + ((Wizard)currentChamp).getIp();
+		//checking if ip<DefaultIp 
+		if (newIp>((Wizard)currentChamp).getDefaultIp())
+			newIp=((Wizard)currentChamp).getDefaultIp();
 		// setting new ip.
 		((Wizard)currentChamp).setIp(newIp);	
 		((Wizard)currentChamp).getInventory().remove(p);
@@ -396,8 +399,6 @@ public abstract class Task implements WizardListener  {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
-					if (((Wizard) currentChamp) instanceof GryffindorWizard && allowedMoves>0 )
-						endTurn();
 				}
 				// if all the players were removed than they must have wined or died
 				if(champions.isEmpty())
@@ -540,7 +541,7 @@ public abstract class Task implements WizardListener  {
 				else{
 					((Wizard) target).setHp(0);
 					champions.remove(target);
-					map[p.x][p.y] =new EmptyCell();
+					targetedCell =new EmptyCell();
 				}
 			}
 			else
@@ -551,7 +552,7 @@ public abstract class Task implements WizardListener  {
 				else{
 					((Wizard) target).setHp(0);
 					champions.remove(target);
-					map[p.x][p.y] =new EmptyCell();
+					targetedCell =new EmptyCell();
 				}
 			}
 		}

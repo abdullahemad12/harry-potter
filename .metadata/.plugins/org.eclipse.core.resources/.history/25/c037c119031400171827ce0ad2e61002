@@ -64,7 +64,6 @@ public class FirstTask extends Task {
 	//This method is responsible for getting the cells that a dragon will attack after the currentChamp performs an action.
 	public void markCells(){
 		randomGenerator = new Random();
-		markedCells.clear();
 
 		// get location of champ
 		Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
@@ -134,8 +133,8 @@ public class FirstTask extends Task {
 					// removing champs with hp<=0
 					else{
 						((Wizard)getChampions().get(j)).setHp(0);
-						int x = (int) ((Wizard)getChampions().get(j)).getLocation().x;
-						int y = (int) ((Wizard)getChampions().get(j)).getLocation().y;
+						int x = (int) ((Wizard)getChampions().get(j)).getLocation().getX();
+						int y = (int) ((Wizard)getChampions().get(j)).getLocation().getY();
 						getMap()[x][y]= new EmptyCell();
 						getChampions().remove(j);
 						j--;
@@ -148,7 +147,7 @@ public class FirstTask extends Task {
 				}
 			}
 		}
-		//getMarkedCells().clear();
+		getMarkedCells().clear();
 	}
 	
 	
@@ -249,7 +248,7 @@ public class FirstTask extends Task {
 			((Wizard)getCurrentChamp()).setTraitCooldown(5);
 			setTaitActivated(true);
 		}
-		return getMarkedCells();
+		return markedCells;
 	}
 	/*public void finalizeAction() throws IOException{
 		super.finalizeAction();

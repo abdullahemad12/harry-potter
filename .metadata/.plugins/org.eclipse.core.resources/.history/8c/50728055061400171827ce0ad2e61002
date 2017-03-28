@@ -396,8 +396,6 @@ public abstract class Task implements WizardListener  {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
-					if (((Wizard) currentChamp) instanceof GryffindorWizard && allowedMoves>0 )
-						endTurn();
 				}
 				// if all the players were removed than they must have wined or died
 				if(champions.isEmpty())
