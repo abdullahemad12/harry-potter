@@ -98,7 +98,7 @@ public class FirstTask extends Task {
 					Point p3= new Point(p); p3.translate(0,1); markedCells.add(new Point(x, y+1));f3=false; break;}
 				else{ i--; break;}
 			//fire down
-			case 4: if (y>0&& f4){
+			case 4: if (y<0&& f4){
 					Point p4= new Point(p); p4.translate(0,-1); markedCells.add(new Point(x, y-1));f4=false; break;}
 				else{ i--; break;}
 			default: break;

@@ -374,12 +374,10 @@ public abstract class Task implements WizardListener  {
 	public void finalizeAction()throws IOException
 	{
 		allowedMoves--;
-		if (allowedMoves==0){
-			for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
-				Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
-				if (s.getCoolDown()>0)
-					s.setCoolDown(s.getCoolDown()-1);
-			}
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+			Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			if (s.getCoolDown()>0)
+				s.setCoolDown(s.getCoolDown()-1);
 		}
 		
 			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
