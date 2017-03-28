@@ -42,7 +42,7 @@ public class Tournament  implements TaskListener {
 	 * adding a champion to the 
 	 * champions array list which contains the champions participating in the tournament.
 	 */
-	void addChampion(Champion c)
+	public void addChampion(Champion c)
 	{
 		this.champions.add(c);
 	}
@@ -53,15 +53,24 @@ public class Tournament  implements TaskListener {
 	
 	public void beginTournament() throws IOException{
 		firstTask = new FirstTask(champions);
+		firstTask.setListener(this);
 	}
 	
 	public void onFinishingFirstTask(ArrayList<Champion> winners) throws IOException
 	{
-		this.secondTask = new SecondTask(winners);
+		if (winners.size()>0){
+			this.secondTask = new SecondTask(winners);
+			secondTask.getListener();
+			secondTask.setListener(this);
+		}	
 	}
 	
 	public void onFinishingSecondTask(ArrayList<Champion> winners) throws IOException{
-		thirdTask = new ThirdTask(winners);
+		if (winners.size()>0){
+			thirdTask = new ThirdTask(winners);
+			thirdTask.getListener();
+			thirdTask.setListener(this);
+		}
 	}
 	
 	public void onFinishingThirdTask(Champion winner)

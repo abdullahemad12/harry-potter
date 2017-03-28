@@ -214,10 +214,13 @@ public class ThirdTask extends Task {
 	
 	public void onSlytherinTrait(Direction d) throws IOException {
 		super.onSlytherinTrait(d);
-		if (!isTraitActivated()){
-			((Wizard)getCurrentChamp()).setTraitCooldown(10);
-			finalizeAction();
-		}
+		((Wizard)getCurrentChamp()).setTraitCooldown(10);
+		Point p=new Point( ((Wizard)getCurrentChamp()).getLocation());
+		if (getMap()[p.x][p.y] instanceof CupCell){
+			if (getListener() != null)
+				getListener().onFinishingThirdTask(getCurrentChamp());
+		}	
+		finalizeAction();
 	}
 	
 	public Object onRavenclawTrait(){

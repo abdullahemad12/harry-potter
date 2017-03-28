@@ -7,18 +7,15 @@ import harrypotter.model.character.WizardListener;
 
 
 import harrypotter.model.world.*;
-
-
 import harrypotter.model.character.*;
 import harrypotter.model.magic.*;
-
-
 
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EventObject;
 import java.util.Random;
 
 
@@ -28,7 +25,7 @@ import java.util.Random;
 
 //A class representing a tournament task. 
 
-public abstract class Task implements WizardListener {
+public abstract class Task implements WizardListener  {
 	private Random randomGenerator;
 	
 	private ArrayList<Champion> champions;
@@ -76,8 +73,9 @@ public abstract class Task implements WizardListener {
 
 		}
 		currentChamp = champions.get(0);
-		((Wizard)currentChamp).useTrait();
-
+		for (int i= 0; i< champions.size(); i++)
+		((Wizard)champions.get(i)).setListener(this);
+		
 
 			
 	}
@@ -280,7 +278,14 @@ public abstract class Task implements WizardListener {
 			newloc.translate(0, -r);
 		
 		//swapping cells
-		getMap()[newloc.x][newloc.y]=getMap()[ObsLoc.x][ObsLoc.y];
+		if (getMap()[ObsLoc.x][ObsLoc.y] instanceof ObstacleCell){
+			//getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
+		}
+		else{
+			if(getMap()[ObsLoc.x][ObsLoc.y] instanceof ChampionCell){
+				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());}
+			else{
+				getMap()[newloc.x][newloc.y]=new EmptyCell();}}
 		getMap()[ObsLoc.x][ObsLoc.y]= new EmptyCell();
 		useSpell(s);
 		finalizeAction();
@@ -291,7 +296,7 @@ public abstract class Task implements WizardListener {
 		//changing currentChamp.
 		boolean flag =champions.remove(currentChamp);
 		if (flag)
-			champions.add(champions.size()-1, currentChamp);
+			champions.add(champions.size(), currentChamp);
 		currentChamp= champions.get(0);
 	}
 	
@@ -318,9 +323,10 @@ public abstract class Task implements WizardListener {
 	
 	
 	public void onSlytherinTrait(Direction d) throws IOException {
+		//((SlytherinWizard)getCurrentChamp()).setTraitDirection(d);
 		if (!traitActivated){
 			traitActivated = true;
-			Point p= ((Wizard)getCurrentChamp()).getLocation();
+			Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
 			getMap()[p.x][p.y]= new EmptyCell();
 			if (d==Direction.FORWARD)
 				p.translate(2, 0);
@@ -331,7 +337,17 @@ public abstract class Task implements WizardListener {
 			if (d==Direction.LEFT)
 				p.translate(0, -2);
 			((Wizard)currentChamp).setLocation(p);
-			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				//changing ip after collecting the collectible
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			}	
+			//getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 		}	
 	}
 
@@ -346,13 +362,13 @@ public abstract class Task implements WizardListener {
 			if (s.getCoolDown()>0)
 				s.setCoolDown(s.getCoolDown()-1);
 		}
-		if (allowedMoves==0){
-			
+		
 			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
 			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
 			Cell current = map[p.x][p.y];
+			
 			if(this instanceof FirstTask)
 			{
 				// we have a winner
@@ -364,39 +380,44 @@ public abstract class Task implements WizardListener {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
-					// if all the players were removed than they must have wined or died
-					if(champions.isEmpty())
-					{
-						listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+				}
+				// if all the players were removed than they must have wined or died
+				if(champions.isEmpty())
+				{ 	if (getListener() != null){
+							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
 					}
-					else
-					{
-						currentChamp = champions.get(0);
-						((Wizard)currentChamp).useTrait();
+				}
 
+				
+					//does not fire a hifflepuffWizard whose trait has been activated
+				if(!(temp instanceof HufflepuffWizard && traitActivated))
+				{
+					((FirstTask)this).fire();
+				}
+				
+				if(champions.isEmpty())
+				{ 	if (getListener() != null){
+							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+				}
+				
+				/*if (((FirstTask)this).getChampions().size()==0){
+					if(((FirstTask)this).getWinners().size()==0){
+						
+					}
+					else{
+					getListener().onFinishingFirstTask(((FirstTask)this).getWinners());
+					//setListener(this);
 					}
 	
-				}
-				else
-				{
-					//does not fire a hifflepuffWizard whose trait has been activated
-					if(!(temp instanceof HufflepuffWizard) || !traitActivated)
-					{
-						((FirstTask)this).fire();
-					}
-				}
+				}*/
 				
 			}
 			else if(this instanceof SecondTask)
 			{
-				//does not fire a hifflepuffWizard whose trait has been activated
-				if(!(temp instanceof HufflepuffWizard) || !traitActivated)
-				{
-					((SecondTask)this).encounterMerPerson();
-				}
 				
 				// collects treasure
-				if(current instanceof TreasureCell)
+				/*if(current instanceof TreasureCell)
 				{
 					// gets the owner to check whether the treasure belongs to the champion or not
 					Wizard owner =(Wizard) ((TreasureCell) current).getOwner();
@@ -410,23 +431,33 @@ public abstract class Task implements WizardListener {
 						// removes him from champions
 						champions.remove(temp);
 						
-						// Task ends if the list is empty
 						
-						if(champions.isEmpty())
-						{
-							listener.onFinishingSecondTask(win);
-						}
-						else
-						{
-							currentChamp = champions.get(0);
-							((Wizard)currentChamp).useTrait();
-
-						}
 						
 					}
-				}
+				}*/
+						
+						// Task ends if the list is empty
+						
+					if(champions.isEmpty())
+					{
+						if (getListener() != null)
+							listener.onFinishingSecondTask(((SecondTask)this).getWinners());
+					}			
+					
+					
+					//does not fire a hifflepuffWizard whose trait has been activated
+					if(allowedMoves==0 && (!(temp instanceof HufflepuffWizard &&traitActivated)))
+					{
+						((SecondTask)this).encounterMerPerson();
+					}
+					
+						
+					
+				
 			}
-		}
+			traitActivated = false;
+			if (allowedMoves==0)
+				endTurn();
 	}
 	
 	/*
@@ -435,7 +466,7 @@ public abstract class Task implements WizardListener {
 	public Point getTargetPoint(Direction d)
 	{
 		// the location of the current champ
-		Point p =((Wizard)this.currentChamp).getLocation();
+		Point p =new Point(((Wizard)this.currentChamp).getLocation());
 		
 		// adds 1 to the Y-coord
 		if(d == Direction.FORWARD)
@@ -491,7 +522,13 @@ public abstract class Task implements WizardListener {
 			else
 			{
 				// otherwise
-				((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				if (((Wizard) target).getHp()-s.getDamageAmount()>0)
+					((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				else{
+					((Wizard) target).setHp(0);
+					champions.remove(target);
+					targetedCell =new EmptyCell();
+				}
 			}
 		}
 		// an obstacle
@@ -500,15 +537,25 @@ public abstract class Task implements WizardListener {
 			//Obs target = ((ChampionCell) targetedCell).getChamp();
 			
 			//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
-			if(this instanceof FirstTask)
+			if(this instanceof FirstTask || this instanceof ThirdTask)
 			{
 				PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
-				((PhysicalObstacle) target).setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+				if (((PhysicalObstacle) target).getHp()-s.getDamageAmount()>0)
+					((PhysicalObstacle) target).setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+				else{
+					((PhysicalObstacle) target).setHp(0);
+					targetedCell =new EmptyCell();
+				}
 			}
 			else if(this instanceof SecondTask)
 			{
 				Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
-				((Merperson) target).setHp(((Merperson) target).getHp() - s.getDamageAmount());
+				if (((Merperson) target).getHp()-s.getDamageAmount() >0)
+					((Merperson) target).setHp(((Merperson) target).getHp() - s.getDamageAmount());
+				else{
+					((Merperson) target).setHp(0);
+					targetedCell =new EmptyCell();
+				}
 			}
 			
 
@@ -560,10 +607,10 @@ public abstract class Task implements WizardListener {
 			currentchamp.setTraitCooldown(4);
 			 allowedMoves = 2;
 		}
-		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+		/*for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
 		Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
 			useSpell(s);
-	}
+	}*/
 		
 		
 	}
@@ -604,6 +651,16 @@ public abstract class Task implements WizardListener {
 			 */
 		}
 	}
+	/*public void finalizeAction()throws IOException{
+		allowedMoves--;
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+			Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			if (s.getCoolDown()>0)
+				s.setCoolDown(s.getCoolDown()-1);
+		}
+		((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
+		
+	}*/
 }
 
 
