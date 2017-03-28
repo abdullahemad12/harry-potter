@@ -63,8 +63,9 @@ public class FirstTask extends Task {
 	
 	//This method is responsible for getting the cells that a dragon will attack after the currentChamp performs an action.
 	public void markCells(){
-		randomGenerator = new Random();
+		
 
+		
 		// get location of champ
 		Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
 		int x = p.x;

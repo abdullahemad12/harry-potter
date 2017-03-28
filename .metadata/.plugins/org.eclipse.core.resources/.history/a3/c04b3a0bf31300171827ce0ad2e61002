@@ -138,11 +138,14 @@ public class FirstTask extends Task {
 						getMap()[x][y]= new EmptyCell();
 						getChampions().remove(j);
 						j--;
+						
 						if(getChampions().isEmpty())
 						{ 	if (getListener() != null){
 									getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
 							}
 						}
+						if (!getChampions().contains(getCurrentChamp()))
+							setCurrentChamp(getChampions().get(0));
 					}
 				}
 			}

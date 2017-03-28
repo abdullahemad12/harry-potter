@@ -292,29 +292,12 @@ public abstract class Task implements WizardListener  {
 	}
 	
 	//This method is responsible for ending the turn of the currentChamp.
-	public void endTurn()throws IOException{
+	public void endTurn(){
 		//changing currentChamp.
 		boolean flag =champions.remove(currentChamp);
 		if (flag)
-			champions.add(champions.size(), currentChamp);
-		if(this instanceof FirstTask && champions.isEmpty()){
-			if (getListener() != null){
-				listener.onFinishingFirstTask(((FirstTask) this).getWinners());
-			}
-		}
-		else {
-			if (this instanceof SecondTask && champions.isEmpty()){
-				if (getListener() != null){
-					listener.onFinishingFirstTask(((SecondTask) this).getWinners());
-				}
-			}
-			else{
-				currentChamp= champions.get(0);
-				allowedMoves=1;
-			}
-		}
-			
-		
+			champions.add(0, currentChamp);
+		currentChamp= champions.get(champions.size()-1);
 	}
 	
 	//This method is responsible for increasing the currentChamp's ip

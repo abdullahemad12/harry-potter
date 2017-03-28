@@ -305,7 +305,7 @@ public abstract class Task implements WizardListener  {
 		else {
 			if (this instanceof SecondTask && champions.isEmpty()){
 				if (getListener() != null){
-					listener.onFinishingFirstTask(((SecondTask) this).getWinners());
+					listener.onFinishingFirstTask(((FirstTask) this).getWinners());
 				}
 			}
 			else{
