@@ -130,7 +130,7 @@ public class ThirdTask extends Task {
 		}
 		//calling the listener 
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getMap()[pp.x][pp.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
@@ -156,7 +156,7 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getMap()[pp.x][pp.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
@@ -182,7 +182,7 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getMap()[pp.x][pp.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
@@ -208,7 +208,7 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		if (getMap()[p.x][p.y] instanceof CupCell){
-			getMap()[pp.x][pp.y]= new EmptyCell();
+			getMap()[p.x][p.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
