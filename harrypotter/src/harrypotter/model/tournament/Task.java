@@ -256,7 +256,7 @@ public abstract class Task implements WizardListener  {
 	
 	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException{
 		// getting old location
-		Point ObsLoc= ((Wizard)getCurrentChamp()).getLocation();
+		Point ObsLoc= new Point(((Wizard)getCurrentChamp()).getLocation());
 		if (d==Direction.FORWARD)
 			ObsLoc.translate(-1, 0);
 		if (d==Direction.BACKWARD)
@@ -267,7 +267,7 @@ public abstract class Task implements WizardListener  {
 			ObsLoc.translate(0, -1);
 		
 		//getting new location
-		Point newloc= ((Wizard)getCurrentChamp()).getLocation();
+		Point newloc= new Point(((Wizard)getCurrentChamp()).getLocation());
 		if (t==Direction.FORWARD)
 			newloc.translate(-r, 0);
 		if (t==Direction.BACKWARD)
@@ -279,7 +279,7 @@ public abstract class Task implements WizardListener  {
 		
 		//swapping cells
 		if (getMap()[ObsLoc.x][ObsLoc.y] instanceof ObstacleCell){
-			//getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
+			getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
 		}
 		else{
 			if(getMap()[ObsLoc.x][ObsLoc.y] instanceof ChampionCell){
@@ -517,7 +517,13 @@ public abstract class Task implements WizardListener  {
 			// the Champion was a HufflepuffWizard in the third task
 			if((this instanceof ThirdTask) && (target instanceof HufflepuffWizard))
 			{
-				((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount() / 2));
+				if (((Wizard) target).getHp()-(s.getDamageAmount()/2)>0)
+					((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount()/2));
+				else{
+					((Wizard) target).setHp(0);
+					champions.remove(target);
+					targetedCell =new EmptyCell();
+				}
 			}
 			else
 			{

@@ -232,7 +232,7 @@ public class ThirdTask extends Task {
 			for (int i=0; i<10; i++){
 				for (int j=0; j<10; j++){
 					if (getMap()[i][j] instanceof CupCell){
-						treloc.setLocation(i, i);
+						treloc.setLocation(i, j);
 						break;
 					}
 						
@@ -241,17 +241,16 @@ public class ThirdTask extends Task {
 			ArrayList<Direction> location = new ArrayList<Direction>();
 			Point p= ((Wizard)getCurrentChamp()).getLocation();
 			// checking the location of the treasure cell relative to the champions cell and adding it to the array location 
-			if (treloc.x-p.x>0)
-				location.add(Direction.BACKWARD);
-			else
-				if (treloc.x-p.x<0)
-					location.add(Direction.FORWARD);
-			
 			if (treloc.y-p.y>0)
 				location.add(Direction.RIGHT);
 			else
 				if (treloc.y-p.y<0)
 					location.add(Direction.LEFT);
+			if (treloc.x-p.x>0)
+				location.add(Direction.BACKWARD);
+			else
+				if (treloc.x-p.x<0)
+					location.add(Direction.FORWARD);
 			return location;
 		}
 		return null;

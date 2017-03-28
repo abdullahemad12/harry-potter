@@ -68,6 +68,8 @@ public class FirstTask extends Task {
 		
 		// get location of champ
 		Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
+		int x = p.x;
+		int y=p.y;
 		
 		//flags to prevent duplicates 
 		boolean f0=true;
@@ -78,27 +80,27 @@ public class FirstTask extends Task {
 		
 		// set 2 locations.
 		for(int i=0;i<2;i++){
-			int x=randomGenerator.nextInt(5);
-			switch (x){
+			int xx=randomGenerator.nextInt(5);
+			switch (xx){
 			// fire in same cell
 			case 0:if(f0){ 
 						markedCells.add(p);f0=false; break;}
 					else{ i--; break;}
 			// fire left
-			case 1: if (p.x>0&& f1){
-						Point p1= new Point(p); p1.translate(-1,0); markedCells.add(p1);f1=false; break;}
+			case 1: if (x>0&& f1){
+						Point p1= new Point(p); p1.translate(-1,0); markedCells.add(new Point(x-1, y));f1=false; break;}
 					else{ i--; break;}
 			//fire right
-			case 2: if (p.x<9&& f2){
-						Point p2= new Point(p); p2.translate(1,0); markedCells.add(p2);f2=false; break;}
+			case 2: if (x<9&& f2){
+						Point p2= new Point(p); p2.translate(1,0); markedCells.add(new Point(x+1, y));f2=false; break;}
 					else{ i--; break;}
 			//fire up
-			case 3: if (p.y<9&& f3){
-					Point p3= new Point(p); p3.translate(0,1); markedCells.add(p3);f3=false; break;}
+			case 3: if (y<9&& f3){
+					Point p3= new Point(p); p3.translate(0,1); markedCells.add(new Point(x, y+1));f3=false; break;}
 				else{ i--; break;}
 			//fire down
-			case 4: if (p.y<0&& f4){
-					Point p4= new Point(p); p4.translate(0,-1); markedCells.add(p4);f4=false; break;}
+			case 4: if (y<0&& f4){
+					Point p4= new Point(p); p4.translate(0,-1); markedCells.add(new Point(x, y-1));f4=false; break;}
 				else{ i--; break;}
 			default: break;
 			}
