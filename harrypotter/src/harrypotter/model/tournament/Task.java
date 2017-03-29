@@ -85,10 +85,6 @@ public abstract class Task implements WizardListener  {
 	public void setListener(TaskListener listener) {
 		this.listener = listener;
 	}
-	public void setTraitActivated(boolean traitActivated)
-	{
-		this.traitActivated = traitActivated;
-	}
 	public ArrayList<Champion> getChampions(){
 		return champions;
 	}
@@ -117,7 +113,7 @@ public abstract class Task implements WizardListener  {
 		return traitActivated;
 	}
 	
-	public void setTaitActivated(boolean traitActivated){
+	public void setTraitActivated(boolean traitActivated){
 		this.traitActivated=traitActivated;
 	}
 	
@@ -312,6 +308,9 @@ public abstract class Task implements WizardListener  {
 				currentChamp= champions.get(0);
 				allowedMoves=1;
 			}
+		}
+		if ( this instanceof FirstTask){
+			((FirstTask)this).markCells();
 		}
 			
 		
@@ -556,32 +555,42 @@ public abstract class Task implements WizardListener  {
 			}
 		}
 		// an obstacle
-		else if(targetedCell instanceof ObstacleCell)
-		{
-			//Obs target = ((ChampionCell) targetedCell).getChamp();
-			
-			//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
-			if(this instanceof FirstTask || this instanceof ThirdTask)
+		else{
+			if(targetedCell instanceof ObstacleCell)
 			{
-				PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
-				if (((PhysicalObstacle) target).getHp()-s.getDamageAmount()>0)
-					((PhysicalObstacle) target).setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
-				else{
-					((PhysicalObstacle) target).setHp(0);
-					targetedCell =new EmptyCell();
+				//Obs target = ((ChampionCell) targetedCell).getChamp();
+				
+				//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				/*if(this instanceof FirstTask || this instanceof ThirdTask)
+				{
+					PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount()>0)
+						 target.setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+					else{
+						 target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
+					}
+				}
+				else{ 
+					if(this instanceof SecondTask)
+					{
+						Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
+						if ( target.getHp()-s.getDamageAmount() >0)
+							target.setHp( target.getHp() - s.getDamageAmount());
+						else{
+							 target.setHp(0);
+							map[p.x][p.y] =new EmptyCell();
+						}
+					}
+				}*/
+				Obstacle  target = ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount() >0)
+						target.setHp( target.getHp() - s.getDamageAmount());
+					else{
+						target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
 				}
 			}
-			else if(this instanceof SecondTask)
-			{
-				Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
-				if (((Merperson) target).getHp()-s.getDamageAmount() >0)
-					((Merperson) target).setHp(((Merperson) target).getHp() - s.getDamageAmount());
-				else{
-					((Merperson) target).setHp(0);
-					targetedCell =new EmptyCell();
-				}
-			}
-			
 
 		}
 		useSpell(s);

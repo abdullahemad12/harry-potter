@@ -350,7 +350,7 @@ public class SecondTask extends Task {
 		public Object onRavenclawTrait(){
 			if (!isTraitActivated()){
 				((Wizard)getCurrentChamp()).setTraitCooldown(7);
-				setTaitActivated(true);
+				setTraitActivated(true);
 				//getting location of treasure cell
 				Point treloc = new Point();
 				for (int i=0; i<10; i++){

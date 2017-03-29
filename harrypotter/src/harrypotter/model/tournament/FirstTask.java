@@ -247,8 +247,9 @@ public class FirstTask extends Task {
 	public Object onRavenclawTrait(){
 		if (!isTraitActivated()){
 			((Wizard)getCurrentChamp()).setTraitCooldown(5);
-			setTaitActivated(true);
+			setTraitActivated(true);
 		}
+		//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
 		return getMarkedCells();
 	}
 	/*public void finalizeAction() throws IOException{
