@@ -1,0 +1,14 @@
+package harrypotter.exceptions;
+
+public class NotEnoughIPException extends NotEnoughIPException{
+	
+	int requiredIP;// Represents the required ip for casting the spell.
+	int remainingIP;// Represents the remaining ip that the champion would have needed to cast the spell without raising an exception.
+	public NotEnoughIPException(int requiredIP, int remainingIP)
+	{
+		super("There is no Enough Inelligence points: remaining: " + remainingIP + "required: " + requiredIP);
+		this.requiredIP  = requiredIP;
+		this.remainingIP =  remainingIP;
+		
+	}
+}

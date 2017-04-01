@@ -1,0 +1,7 @@
+package harrypotter.exceptions;
+
+@SuppressWarnings("serial")
+public class OutOfRangeException extends InvalidActionException{
+
+	private int allowedRange;
+}

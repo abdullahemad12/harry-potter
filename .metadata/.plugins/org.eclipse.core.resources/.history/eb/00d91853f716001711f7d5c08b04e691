@@ -381,7 +381,7 @@ public abstract class Task implements WizardListener  {
 			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
-			//Cell current = map[p.x][p.y];
+			Cell current = map[p.x][p.y];
 			
 			if(this instanceof FirstTask)
 			{

@@ -1,0 +1,12 @@
+package harrypotter.exceptions;
+
+public abstract class InvalidActionException {
+	public InvalidActionException()
+	{
+		super();
+	}
+	public InvalidActionException(String message)
+	{
+		super(message);
+	}
+}

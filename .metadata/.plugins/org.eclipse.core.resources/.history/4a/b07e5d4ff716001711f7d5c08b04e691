@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EventObject;
 import java.util.Random;
 
 
@@ -381,7 +382,7 @@ public abstract class Task implements WizardListener  {
 			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
-			//Cell current = map[p.x][p.y];
+			Cell current = map[p.x][p.y];
 			
 			if(this instanceof FirstTask)
 			{
