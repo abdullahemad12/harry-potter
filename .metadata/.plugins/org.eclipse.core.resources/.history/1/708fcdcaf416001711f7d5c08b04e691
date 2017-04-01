@@ -1,7 +1,0 @@
-package harrypotter.exceptions;
-
-public class InvalidActionException {
-	
-	public InvalidActionException()
-
-}
