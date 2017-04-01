@@ -31,5 +31,11 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
+=======
+<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+>>>>>>> 56c79b25a00d637052551b2d49de415049aa6c27
 </qualifiedTypeNameHistroy>
