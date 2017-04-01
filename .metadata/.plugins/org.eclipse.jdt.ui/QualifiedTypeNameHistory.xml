@@ -30,4 +30,6 @@
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

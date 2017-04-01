@@ -121,34 +121,28 @@ public class FirstTask extends Task {
 	//the dragon fires on the markedCells.
 	public void fire() throws IOException{
 		// looping on the fire cells
-		for (int i=0; i<markedCells.size();i++){
-			Point p= markedCells.get(i);
-			// looping on available champs
-			for(int j=0; j<getChampions().size();j++){
-				// checking if there is a champ in the cell
-				if (((Wizard)getChampions().get(j)).getLocation().x==p.x&& ((Wizard)getChampions().get(j)).getLocation().y==p.y){
-					if(((Wizard)getChampions().get(j)).getHp()-150>0)
-					((Wizard)getChampions().get(j)).setHp((((Wizard)getChampions().get(j)).getHp())-150);
-					// removing champs with hp<=0
-					else{
-						((Wizard)getChampions().get(j)).setHp(0);
-						int x = (int) ((Wizard)getChampions().get(j)).getLocation().x;
-						int y = (int) ((Wizard)getChampions().get(j)).getLocation().y;
-						getMap()[x][y]= new EmptyCell();
-						getChampions().remove(j);
-						j--;
-						if(getChampions().isEmpty())
-						{ 	if (getListener() != null){
-									getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
-							}
+		for (int i=0; i<2;i++){
+			if (getMap() [markedCells.get(i).x][markedCells.get(i).y] instanceof ChampionCell){
+				ChampionCell c = (ChampionCell) getMap() [markedCells.get(i).x][markedCells.get(i).y];
+				Wizard w = (Wizard) c.getChamp();
+				if (w.getHp()-150 >0){
+					((Wizard)((ChampionCell)getMap() [markedCells.get(i).x][markedCells.get(i).y]).getChamp()).setHp(w.getHp()-150);
+				}
+				else {
+					((Wizard)((ChampionCell)getMap() [markedCells.get(i).x][markedCells.get(i).y]).getChamp()).setHp(0);
+					getMap() [markedCells.get(i).x][markedCells.get(i).y] = new EmptyCell();
+					getChampions().remove(w);
+					if(getChampions().isEmpty())
+					{ 	if (getListener() != null){
+								getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
+								return;
 						}
 					}
 				}
 			}
 		}
-		//getMarkedCells().clear();
-	}
-	
+			
+	}	
 	
 	//moving the currentChamp one cell up
 	public void moveForward() throws IOException {
