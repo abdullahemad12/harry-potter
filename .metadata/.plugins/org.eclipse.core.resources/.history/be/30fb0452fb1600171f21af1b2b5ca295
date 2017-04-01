@@ -1,0 +1,5 @@
+package harrypotter.exceptions;
+
+public abstract class NotEnoughResourcesException {
+
+}

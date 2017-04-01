@@ -1,0 +1,10 @@
+package harrypotter.exceptions;
+
+public class OutOfBordersException {
+	
+	public OutOfBordersException()
+	{
+		super();
+	}
+
+}

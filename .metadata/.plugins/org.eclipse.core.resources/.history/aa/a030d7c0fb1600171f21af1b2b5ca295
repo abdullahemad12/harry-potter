@@ -1,0 +1,6 @@
+package harrypotter.exceptions;
+
+@SuppressWarnings("serial")
+public class InCooldownException {
+
+}
