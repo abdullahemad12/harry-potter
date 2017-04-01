@@ -74,7 +74,7 @@ public abstract class Task implements WizardListener  {
 		}
 		currentChamp = champions.get(0);
 		for (int i= 0; i< champions.size(); i++)
-			((Wizard)champions.get(i)).setListener(this);
+		((Wizard)champions.get(i)).setListener(this);
 		
 
 			
@@ -298,15 +298,13 @@ public abstract class Task implements WizardListener  {
 						else{
 							if ( this instanceof ThirdTask && getMap()[newloc.x][newloc.y] instanceof CupCell){
 								if (getListener() != null)
-									getListener().onFinishingThirdTask(getCurrentChamp());
+									getListener().onFinishingThirdTask(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
 							}
 						}
 					}
-				}	
-				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
-				((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setLocation(newloc);
-				if (this instanceof FirstTask && newloc.x == 4 && newloc.y==4)
-					getMap()[newloc.x][newloc.y] = new EmptyCell();
+				}
+				if (!(this instanceof FirstTask && newloc.x!=4 &&newloc.y!=4)	
+					getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
 				}
 			else{
 				getMap()[newloc.x][newloc.y]=new EmptyCell();

@@ -444,11 +444,11 @@ public abstract class Task implements WizardListener  {
 					((FirstTask)this).fire();
 				}
 				
-				if(champions.isEmpty())
+				/*if(champions.isEmpty())
 				{ 	if (getListener() != null){
 							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
 					}
-				}
+				}*/
 				
 				/*if (((FirstTask)this).getChampions().size()==0){
 					if(((FirstTask)this).getWinners().size()==0){

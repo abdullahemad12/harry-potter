@@ -74,7 +74,7 @@ public abstract class Task implements WizardListener  {
 		}
 		currentChamp = champions.get(0);
 		for (int i= 0; i< champions.size(); i++)
-			((Wizard)champions.get(i)).setListener(this);
+		((Wizard)champions.get(i)).setListener(this);
 		
 
 			

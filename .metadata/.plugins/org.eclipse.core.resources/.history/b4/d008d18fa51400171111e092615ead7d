@@ -28,7 +28,7 @@ public class FirstTask extends Task {
 	public FirstTask(ArrayList<Champion> champions) throws IOException{
 		super(shuffleHelper(champions));
 		markedCells = new ArrayList<Point>();
-		markCells();
+		//markCells();
 		winners = new ArrayList<Champion>();
 		
 		
@@ -248,16 +248,9 @@ public class FirstTask extends Task {
 		if (!isTraitActivated()){
 			((Wizard)getCurrentChamp()).setTraitCooldown(5);
 			setTraitActivated(true);
-			ArrayList<Point> ms = new ArrayList<Point>();
-			for (int i=0; i< markedCells.size(); i++){
-				ms.add(markedCells.get(i));
-			}
-				
-			//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
-			return ms;
 		}
-		else
-			return null;
+		//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
+		return getMarkedCells();
 	}
 	/*public void finalizeAction() throws IOException{
 		super.finalizeAction();

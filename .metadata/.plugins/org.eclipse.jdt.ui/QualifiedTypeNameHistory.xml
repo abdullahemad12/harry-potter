@@ -8,8 +8,6 @@
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.PhysicalObstacle"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Merperson"/>
@@ -20,14 +18,18 @@
 <fullyQualifiedTypeName name="java.util.EventObject"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.TaskListener"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Obstacle"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.TreasureCell"/>
 </qualifiedTypeNameHistroy>

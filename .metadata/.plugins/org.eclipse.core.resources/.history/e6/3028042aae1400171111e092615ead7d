@@ -142,6 +142,7 @@ public class FirstTask extends Task {
 						if(getChampions().isEmpty())
 						{ 	if (getListener() != null){
 									getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
+									return;
 							}
 						}
 					}
@@ -248,16 +249,9 @@ public class FirstTask extends Task {
 		if (!isTraitActivated()){
 			((Wizard)getCurrentChamp()).setTraitCooldown(5);
 			setTraitActivated(true);
-			ArrayList<Point> ms = new ArrayList<Point>();
-			for (int i=0; i< markedCells.size(); i++){
-				ms.add(markedCells.get(i));
-			}
-				
-			//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
-			return ms;
 		}
-		else
-			return null;
+		//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
+		return getMarkedCells();
 	}
 	/*public void finalizeAction() throws IOException{
 		super.finalizeAction();
