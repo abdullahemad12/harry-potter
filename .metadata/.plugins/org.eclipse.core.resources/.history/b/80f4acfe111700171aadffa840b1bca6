@@ -1,6 +1,6 @@
 package harrypotter.exceptions;
 
-public class InvalidActionException extends Exception  {
+public class InvalidActionException {
 	
 	public InvalidActionException()
 	{
@@ -8,7 +8,7 @@ public class InvalidActionException extends Exception  {
 	}
 	public InvalidActionException(String message)
 	{
-		super(message);
+		//super(message);
 	}
 
 }
