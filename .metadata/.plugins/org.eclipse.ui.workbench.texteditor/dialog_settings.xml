@@ -2,12 +2,26 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
+		<item value="onR" key="selection"/>
+=======
 		<item value="Owne" key="selection"/>
+>>>>>>> 56c79b25a00d637052551b2d49de415049aa6c27
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
+			<item value="onr"/>
+			<item value="castr"/>
+			<item value="fi"/>
+			<item value="castre"/>
+			<item value="setTaitActivated"/>
+			<item value="ravenclaw"/>
+			<item value="ravnclaw"/>
+			<item value="finalize"/>
+=======
 			<item value="owne"/>
 			<item value="finaliz"/>
 			<item value="finalis"/>
@@ -16,8 +30,11 @@
 			<item value="endTur"/>
 			<item value="gryffindor"/>
 			<item value="markedCells"/>
+>>>>>>> 56c79b25a00d637052551b2d49de415049aa6c27
 		</list>
 		<list key="replacehistory">
+			<item value="setTraitActivated"/>
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

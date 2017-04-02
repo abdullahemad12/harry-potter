@@ -54,8 +54,8 @@ public class SecondTask extends Task {
 			{
 				//removes him from the map and from the list of chamions
 				cell[x][y] = new EmptyCell();
-				((Wizard)c).setHp(0);
-				this.getChampions().remove(c);
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
 				if(getChampions().isEmpty())
 				{
 					if (getListener() != null)
@@ -66,7 +66,7 @@ public class SecondTask extends Task {
 			// does damage do the wizard
 			else
 			{
-				((Wizard)c).setHp(hp - damage);
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
 			}
 			
 		}
@@ -79,8 +79,8 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
-				((Wizard)c).setHp(0);
-				this.getChampions().remove(c);
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
 				if(getChampions().isEmpty())
 				{
 					if (getListener() != null)
@@ -90,7 +90,7 @@ public class SecondTask extends Task {
 			}
 			else
 			{
-				((Wizard)c).setHp(hp - damage);
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
 			}
 			
 		}
@@ -103,8 +103,8 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
-				((Wizard)c).setHp(0);
-				this.getChampions().remove(c);
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
 				if(getChampions().isEmpty())
 				{
 					if (getListener() != null)
@@ -114,7 +114,7 @@ public class SecondTask extends Task {
 			}
 			else
 			{
-				((Wizard)c).setHp(hp - damage);
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
 			}
 			
 		}
@@ -127,8 +127,8 @@ public class SecondTask extends Task {
 			if(hp - damage <= 0)
 			{
 				cell[x][y] = new EmptyCell();
-				((Wizard)c).setHp(0);
-				this.getChampions().remove(c);
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
 				if(getChampions().isEmpty())
 				{
 					if (getListener() != null)
@@ -138,7 +138,7 @@ public class SecondTask extends Task {
 			}
 			else
 			{
-				((Wizard)c).setHp(hp - damage);
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
 			}
 			
 		}
@@ -350,7 +350,7 @@ public class SecondTask extends Task {
 			super.onSlytherinTrait(d);
 			Point p=new Point( ((Wizard)getCurrentChamp()).getLocation());
 			((Wizard)getCurrentChamp()).setTraitCooldown(4);
-			if (getMap()[p.x][p.y] instanceof TreasureCell){
+			if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
 				winners.add(getCurrentChamp());
 				getChampions().remove(getCurrentChamp());
 				getMap()[p.x][p.y]= new EmptyCell();

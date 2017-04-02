@@ -9,10 +9,10 @@ public class GryffindorWizard extends Wizard implements Champion {
 	}
     public void useTrait()throws InCooldownException{
     	int temp;
-		/*if((temp = ((Wizard)this).getTraitCooldown()) != 0)
+		if((temp = ((Wizard)this).getTraitCooldown()) != 0)
 		{
 			throw new InCooldownException(temp);
-		}*/
+		}
     	if (getListener() != null)
     		getListener().onGryffindorTrait();
 	}

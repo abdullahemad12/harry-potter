@@ -1,0 +1,29 @@
+package harrypotter.exceptions;
+
+
+<<<<<<< HEAD
+@SuppressWarnings("serial")
+public abstract class InvalidActionException extends Exception {
+	
+=======
+public abstract class InvalidActionException extends Exception {
+
+>>>>>>> 5dde7448df165263ee7313d3282185773b911059
+	public InvalidActionException()
+	{
+		super();
+	}
+	public InvalidActionException(String message)
+	{
+<<<<<<< HEAD
+		super(message);
+	}
+	
+	
+=======
+
+		super(message);
+	}
+
+>>>>>>> 5dde7448df165263ee7313d3282185773b911059
+}

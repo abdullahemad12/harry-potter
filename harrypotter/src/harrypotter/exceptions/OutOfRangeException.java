@@ -7,7 +7,7 @@ public class OutOfRangeException extends InvalidActionException{
 	
 	public OutOfRangeException(int allowedRange)
 	{
-		super();
+		super("message.");
 		this.allowedRange = allowedRange;
 		
 	}

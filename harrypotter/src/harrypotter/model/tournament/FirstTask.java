@@ -258,9 +258,16 @@ public class FirstTask extends Task {
 		if (!isTraitActivated()){
 			((Wizard)getCurrentChamp()).setTraitCooldown(5);
 			setTraitActivated(true);
+			ArrayList<Point> ms = new ArrayList<Point>();
+			for (int i=0; i< markedCells.size(); i++){
+				ms.add(markedCells.get(i));
+			}
+				
+			//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
+			return ms;
 		}
-		//ArrayList<Point> ms = new ArrayList<Point>(markedCells);
-		return getMarkedCells();
+		else
+			return null;
 	}
 	/*public void finalizeAction() throws IOException{
 		super.finalizeAction();

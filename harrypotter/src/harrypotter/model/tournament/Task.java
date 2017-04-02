@@ -74,7 +74,7 @@ public abstract class Task implements WizardListener  {
 		}
 		currentChamp = champions.get(0);
 		for (int i= 0; i< champions.size(); i++)
-		((Wizard)champions.get(i)).setListener(this);
+			((Wizard)champions.get(i)).setListener(this);
 		
 
 			
@@ -250,8 +250,13 @@ public abstract class Task implements WizardListener  {
 		((Wizard)getCurrentChamp()).setIp(newIp);
 	}
 	
-	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException{
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException, NotEnoughIPException{
 		int temp;
+
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
+		}
 		if((temp = s.getCoolDown()) != 0)
 		{
 			throw new InCooldownException(temp);
@@ -288,9 +293,41 @@ public abstract class Task implements WizardListener  {
 		}
 		else{
 			if(getMap()[ObsLoc.x][ObsLoc.y] instanceof ChampionCell){
-				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());}
+				if (getMap()[newloc.x][newloc.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getIp();
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setIp(newIp);
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()));
+				}
+				else{
+					if (this instanceof FirstTask && newloc.x==4 && newloc.y==4){
+						((FirstTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+					}
+					else{
+						if (this instanceof SecondTask && (getMap()[newloc.x][newloc.y] instanceof TreasureCell && ((TreasureCell)getMap()[newloc.x][newloc.y]).getOwner().equals(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()))){
+							((SecondTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+							champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						}
+						else{
+							if ( this instanceof ThirdTask && getMap()[newloc.x][newloc.y] instanceof CupCell){
+								if (getListener() != null)
+									getListener().onFinishingThirdTask(getCurrentChamp());
+							}
+						}
+					}
+				}	
+				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+				((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setLocation(newloc);
+				if (this instanceof FirstTask && newloc.x == 4 && newloc.y==4)
+					getMap()[newloc.x][newloc.y] = new EmptyCell();
+				}
 			else{
-				getMap()[newloc.x][newloc.y]=new EmptyCell();}}
+				getMap()[newloc.x][newloc.y]=new EmptyCell();
+				}
+			}
+		
+		
 		getMap()[ObsLoc.x][ObsLoc.y]= new EmptyCell();
 		useSpell(s);
 		finalizeAction();
@@ -530,9 +567,10 @@ public abstract class Task implements WizardListener  {
 	 */
 	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException, InCooldownException,NotEnoughIPException, InvalidTargetCellException
 	{
+		
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
 		{
-			throw new InCooldownException(allowedMoves);
+			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
 		}
 		int temp;
 		if((temp = s.getCoolDown()) != 0)
@@ -620,8 +658,13 @@ public abstract class Task implements WizardListener  {
 	/*
 	 * This is responsible for casting a HealingSpell to restore the hp of the currentChamp with the healing amount of the spell.
 	 */
-	public void castHealingSpell(HealingSpell s) throws IOException, InCooldownException
+	public void castHealingSpell(HealingSpell s) throws IOException, InCooldownException, NotEnoughIPException
 	{
+
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
+		}
 		if(s.getCoolDown() != 0)
 		{
 			throw new InCooldownException(s.getCoolDown());
