@@ -13,6 +13,7 @@ import harrypotter.model.world.Obstacle;
 import harrypotter.model.world.ObstacleCell;
 import harrypotter.model.world.PhysicalObstacle;
 import harrypotter.model.world.WallCell;
+import harrypotter.exceptions.*;
 
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -106,7 +107,7 @@ public class ThirdTask extends Task {
 	
 	}
 	//moving the currentChamp one cell up
-	public void moveForward()  throws IOException {
+	public void moveForward()  throws IOException, InvalidTargetCellException {
 		//getting old point
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
@@ -129,17 +130,21 @@ public class ThirdTask extends Task {
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
 		//calling the listener 
-		if (getMap()[p.x][p.y] instanceof CupCell){
+		else if (getMap()[p.x][p.y] instanceof CupCell){
 			getMap()[pp.x][pp.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
+		else
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+		}
 		finalizeAction();
 	}
 	
 	//moving the currentChamp one cell down
-	public void moveBackward() throws IOException {
+	public void moveBackward() throws IOException, InvalidTargetCellException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(1, 0);
@@ -155,17 +160,21 @@ public class ThirdTask extends Task {
 			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
-		if (getMap()[p.x][p.y] instanceof CupCell){
+		else if (getMap()[p.x][p.y] instanceof CupCell){
 			getMap()[pp.x][pp.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
+		else
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+		}
 		finalizeAction();
 	}
 	
 	//moving the currentChamp one cell left
-	public void moveLeft() throws IOException {
+	public void moveLeft() throws IOException, InvalidTargetCellException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(0, -1);
@@ -181,17 +190,21 @@ public class ThirdTask extends Task {
 			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
-		if (getMap()[p.x][p.y] instanceof CupCell){
+		else if (getMap()[p.x][p.y] instanceof CupCell){
 			getMap()[pp.x][pp.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
 		}
+		else
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+		}
 		finalizeAction();
 	}
 	
 	//moving the currentChamp one cell right
-	public void moveRight() throws IOException {
+	public void moveRight() throws IOException, InvalidTargetCellException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(0, 1);
@@ -207,11 +220,15 @@ public class ThirdTask extends Task {
 			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 			((Wizard)getCurrentChamp()).setLocation(p);
 		}
-		if (getMap()[p.x][p.y] instanceof CupCell){
+		else if (getMap()[p.x][p.y] instanceof CupCell){
 			getMap()[pp.x][pp.y]= new EmptyCell();
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 			
+		}
+		else
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
 		}
 		finalizeAction();
 	}

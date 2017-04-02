@@ -1,5 +1,7 @@
 package harrypotter.model.character;
 
+import harrypotter.exceptions.InCooldownException;
+
 import java.io.IOException;
 
 /*
@@ -12,5 +14,5 @@ public interface Champion{
 	 * Method for activating the special traits available to champions of each house
      * during the tasks.
 	 */
-	public void useTrait() throws IOException ;
+	public void useTrait() throws IOException, InCooldownException ;
 }

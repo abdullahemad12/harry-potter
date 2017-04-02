@@ -1,7 +1,6 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
-import harrypotter.model.character.HufflepuffWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.Potion;
 import harrypotter.model.world.Cell;
@@ -11,7 +10,7 @@ import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
-
+import harrypotter.exceptions.*;
 
 
 import harrypotter.model.world.TreasureCell;
@@ -176,14 +175,14 @@ public class SecondTask extends Task {
 	}
 	
 	//moving the currentChamp one cell up
-		public void moveForward() throws IOException {
+		public void moveForward() throws IOException, InvalidTargetCellException {
 			//getting old point
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			// moving it up
 			p.translate(-1, 0);
 			//checking if it is possible to move
-			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+			if (getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 				{
 				//changing ip after collecting the collectible
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -205,7 +204,7 @@ public class SecondTask extends Task {
 					}	
 					endTurn();
 				}
-				else{
+				else if (getMap()[p.x][p.y] instanceof EmptyCell){
 					//changing map cell type
 					Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 					getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -213,16 +212,21 @@ public class SecondTask extends Task {
 					//changing champs location
 					((Wizard)getCurrentChamp()).setLocation(p);
 				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+					
 			}
 			finalizeAction();
 		}
 		
 		//moving the currentChamp one cell down
-		public void moveBackward() throws IOException {
+		public void moveBackward() throws IOException, InvalidTargetCellException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(1, 0);
-			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell||(getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())))
+			if ( getMap()[p.x][p.y] instanceof CollectibleCell||(getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())))
 				{
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
 					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
@@ -242,7 +246,7 @@ public class SecondTask extends Task {
 					}	
 					endTurn();
 				}
-				else{
+				else if (getMap()[p.x][p.y] instanceof EmptyCell){
 					//changing map cell type
 					Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 					getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -250,12 +254,16 @@ public class SecondTask extends Task {
 					//changing champs location
 					((Wizard)getCurrentChamp()).setLocation(p);
 				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
 			}
 			finalizeAction();
 		}
 		
 		//moving the currentChamp one cell left
-		public void moveLeft() throws IOException {
+		public void moveLeft() throws IOException, InvalidTargetCellException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(0, -1);
@@ -279,7 +287,7 @@ public class SecondTask extends Task {
 					}	
 					endTurn();
 				}
-				else{
+				else if (getMap()[p.x][p.y] instanceof EmptyCell){
 					//changing map cell type
 					Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 					getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -287,12 +295,16 @@ public class SecondTask extends Task {
 					//changing champs location
 					((Wizard)getCurrentChamp()).setLocation(p);
 				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
 			}
 			finalizeAction();
 		}
 		
 		//moving the currentChamp one cell right
-		public void moveRight() throws IOException {
+		public void moveRight() throws IOException, InvalidTargetCellException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(0, 1);
@@ -317,7 +329,7 @@ public class SecondTask extends Task {
 					endTurn();
 					
 				}
-				else{
+				else if (getMap()[p.x][p.y] instanceof EmptyCell){
 					//changing map cell type
 					Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 					getMap()[oldP.x][oldP.y]= new EmptyCell();
@@ -325,6 +337,12 @@ public class SecondTask extends Task {
 					//changing champs location
 					((Wizard)getCurrentChamp()).setLocation(p);
 				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+				
+				
 			}
 			finalizeAction();
 		}

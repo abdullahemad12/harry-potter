@@ -4,6 +4,7 @@ package harrypotter.model.tournament;
 import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
+import harrypotter.exceptions.*;
 
 
 import harrypotter.model.world.*;
@@ -15,7 +16,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.EventObject;
 import java.util.Random;
 
 
@@ -250,7 +250,12 @@ public abstract class Task implements WizardListener  {
 		((Wizard)getCurrentChamp()).setIp(newIp);
 	}
 	
-	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException{
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException{
+		int temp;
+		if((temp = s.getCoolDown()) != 0)
+		{
+			throw new InCooldownException(temp);
+		}
 		// getting old location
 		Point ObsLoc= new Point(((Wizard)getCurrentChamp()).getLocation());
 		if (d==Direction.FORWARD)
@@ -273,6 +278,10 @@ public abstract class Task implements WizardListener  {
 		if (t==Direction.LEFT)
 			newloc.translate(0, -r);
 		
+		if(!(getMap()[newloc.x][newloc.y] instanceof EmptyCell))
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Object to an Invalid Target Cell");
+		}
 		//swapping cells
 		if (getMap()[ObsLoc.x][ObsLoc.y] instanceof ObstacleCell){
 			getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
@@ -329,10 +338,10 @@ public abstract class Task implements WizardListener  {
 	public abstract void generateMap() throws IOException;
 	
 
-	public abstract void moveForward() throws IOException ;
-	public abstract void moveBackward() throws IOException ;
-	public abstract void moveLeft() throws IOException ;
-	public abstract void moveRight() throws IOException ;
+	public abstract void moveForward() throws IOException, InvalidTargetCellException ;
+	public abstract void moveBackward() throws IOException,InvalidTargetCellException ;
+	public abstract void moveLeft() throws IOException, InvalidTargetCellException ;
+	public abstract void moveRight() throws IOException, InvalidTargetCellException ;
 	
 	
 	public void onSlytherinTrait(Direction d) throws IOException {
@@ -382,7 +391,7 @@ public abstract class Task implements WizardListener  {
 			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
-			Cell current = map[p.x][p.y];
+			//Cell current = map[p.x][p.y];
 			
 			if(this instanceof FirstTask)
 			{
@@ -519,14 +528,23 @@ public abstract class Task implements WizardListener  {
 	/*
 	 * method is responsible for casting a DamagingSpell to the currentChamp’s adjacent cell in the target direction d
 	 */
-	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException
+	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException, InCooldownException,NotEnoughIPException, InvalidTargetCellException
 	{
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new InCooldownException(allowedMoves);
+		}
+		int temp;
+		if((temp = s.getCoolDown()) != 0)
+		{
+			throw new InCooldownException(temp);
+		}
 		// gets the target of the damaging spell 
 		Point p = getTargetPoint(d);
 		
 		// the cell at which the attack was made
 		Cell targetedCell = map[p.x][p.y];
-		
+		 
 		// a player was standing in the attacked cell
 		if(targetedCell instanceof ChampionCell)
 		{
@@ -555,8 +573,7 @@ public abstract class Task implements WizardListener  {
 			}
 		}
 		// an obstacle
-		else{
-			if(targetedCell instanceof ObstacleCell)
+		else if(targetedCell instanceof ObstacleCell)
 			{
 				//Obs target = ((ChampionCell) targetedCell).getChamp();
 				
@@ -591,7 +608,9 @@ public abstract class Task implements WizardListener  {
 						map[p.x][p.y] =new EmptyCell();
 				}
 			}
-
+		else
+		{
+			throw new InvalidTargetCellException("You are trying to target an invalid Cell");
 		}
 		useSpell(s);
 		finalizeAction();
@@ -601,8 +620,12 @@ public abstract class Task implements WizardListener  {
 	/*
 	 * This is responsible for casting a HealingSpell to restore the hp of the currentChamp with the healing amount of the spell.
 	 */
-	public void castHealingSpell(HealingSpell s) throws IOException
+	public void castHealingSpell(HealingSpell s) throws IOException, InCooldownException
 	{
+		if(s.getCoolDown() != 0)
+		{
+			throw new InCooldownException(s.getCoolDown());
+		}
 		// values
 		int hp = ((Wizard)this.currentChamp).getHp();
 		int defaulthp = ((Wizard)this.currentChamp).getDefaultHp();

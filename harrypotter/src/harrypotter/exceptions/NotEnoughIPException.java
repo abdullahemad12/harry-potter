@@ -7,7 +7,7 @@ public class NotEnoughIPException extends NotEnoughResourcesException{
 	int remainingIP;// Represents the remaining ip that the champion would have needed to cast the spell without raising an exception.
 	public NotEnoughIPException(int requiredIP, int remainingIP)
 	{
-		super();
+		super("Not Enough IP to cast this spell.... \nRequired IP: " + requiredIP + "\nRemaining: " +  remainingIP);
 		this.requiredIP  = requiredIP;
 		this.remainingIP =  remainingIP;
 		

@@ -5,7 +5,7 @@ import harrypotter.model.magic.Spell;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import harrypotter.exceptions.*;
 /*
  * A class representing a wizard character
  */
@@ -152,8 +152,8 @@ abstract public class Wizard implements Champion  {
 	public void setListener(WizardListener listener) {
 		this.listener = listener;
 	}
-	public void useTrait() throws IOException {
-		
+	public void useTrait() throws IOException, InCooldownException {
+	
 	}
 
 }
