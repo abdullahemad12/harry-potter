@@ -3,8 +3,8 @@ package harrypotter.exceptions;
 @SuppressWarnings("serial")
 public class NotEnoughIPException extends NotEnoughResourcesException{
 	
-	int requiredIP;// Represents the required ip for casting the spell.
-	int remainingIP;// Represents the remaining ip that the champion would have needed to cast the spell without raising an exception.
+	private int requiredIP;// Represents the required ip for casting the spell.
+	private int remainingIP;// Represents the remaining ip that the champion would have needed to cast the spell without raising an exception.
 	
 	public NotEnoughIPException(int requiredIP, int remainingIP)
 	{

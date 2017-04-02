@@ -7,7 +7,7 @@ public class OutOfRangeException extends InvalidActionException{
 	
 	public OutOfRangeException(int allowedRange)
 	{
-		super("message.");
+		super("Cannot cast the spell this range. allowed range: " + allowedRange +"cells");
 		this.allowedRange = allowedRange;
 		
 	}

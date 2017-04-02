@@ -1,6 +1,8 @@
 package harrypotter.model.character;
 
 import harrypotter.exceptions.InCooldownException;
+import harrypotter.exceptions.InvalidTargetCellException;
+import harrypotter.exceptions.OutOfBordersException;
 
 import java.io.IOException;
 
@@ -14,5 +16,5 @@ public interface Champion{
 	 * Method for activating the special traits available to champions of each house
      * during the tasks.
 	 */
-	public void useTrait() throws IOException, InCooldownException ;
+	public void useTrait() throws IOException, InCooldownException, OutOfBordersException , InvalidTargetCellException  ;
 }

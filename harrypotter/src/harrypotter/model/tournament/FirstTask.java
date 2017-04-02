@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
 import harrypotter.exceptions.*;
 
 public class FirstTask extends Task {
@@ -146,109 +147,126 @@ public class FirstTask extends Task {
 	}	
 	
 	//moving the currentChamp one cell up
-	public void moveForward() throws IOException, InvalidTargetCellException {
+	public void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		//getting old point
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
-		Point p=new Point(pp);
-		// moving it up
-		p.translate(-1, 0);
-		//checking if it is possible to move
-		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
-			//changing ip after collecting the collectible
-			if (getMap()[p.x][p.y] instanceof CollectibleCell){
-				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-				((Wizard)getCurrentChamp()).setIp(newIp);
-				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+		if (pp.x>0){
+			Point p=new Point(pp);
+			// moving it up
+			p.translate(-1, 0);
+			//checking if it is possible to move
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				//changing ip after collecting the collectible
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				//changing map cell type
+				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+				getMap()[oldP.x][oldP.y]= new EmptyCell();
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+				//changing champs location
+				((Wizard)getCurrentChamp()).setLocation(p);
+				finalizeAction();
 			}
-			//changing map cell type
-			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
-			getMap()[oldP.x][oldP.y]= new EmptyCell();
-			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
-			//changing champs location
-			((Wizard)getCurrentChamp()).setLocation(p);
+			else
+			{
+				throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+			}
+		
 		}
 		else
-		{
-			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
-		}
-		finalizeAction();
+			throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 	}
 	
 	//moving the currentChamp one cell down
-	public void moveBackward() throws IOException, InvalidTargetCellException {
+	public void moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
-		p.translate(1, 0);
-		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
-			if (getMap()[p.x][p.y] instanceof CollectibleCell){
-				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-				((Wizard)getCurrentChamp()).setIp(newIp);
-				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+		if (pp.x<9){
+			p.translate(1, 0);
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+				getMap()[oldP.x][oldP.y]= new EmptyCell();
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+				((Wizard)getCurrentChamp()).setLocation(p);
+				finalizeAction();
 			}
-			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
-			getMap()[oldP.x][oldP.y]= new EmptyCell();
-			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
-			((Wizard)getCurrentChamp()).setLocation(p);
+			else
+			{
+				throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+			}
 		}
 		else
-		{
-			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
-		}
+			throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 		
-		finalizeAction();
 	}
 	
 	//moving the currentChamp one cell left
-	public void moveLeft() throws IOException, InvalidTargetCellException {
+	public void moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
-		p.translate(0, -1);
-		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
-			if (getMap()[p.x][p.y] instanceof CollectibleCell){
-				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-				((Wizard)getCurrentChamp()).setIp(newIp);
-				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+		if (pp.y>0){
+			p.translate(0, -1);
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+				getMap()[oldP.x][oldP.y]= new EmptyCell();
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+				((Wizard)getCurrentChamp()).setLocation(p);
+				finalizeAction();
 			}
-			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
-			getMap()[oldP.x][oldP.y]= new EmptyCell();
-			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
-			((Wizard)getCurrentChamp()).setLocation(p);
+			else
+			{
+				throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+			}
 		}
 		else
-		{
-			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
-		}
-		finalizeAction();
+			throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 	}
 	
 	//moving the currentChamp one cell right
-	public void moveRight() throws IOException, InvalidTargetCellException {
+	public void moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
-		p.translate(0, 1);
-		if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
-			if (getMap()[p.x][p.y] instanceof CollectibleCell){
-				int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-				int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-				((Wizard)getCurrentChamp()).setIp(newIp);
-				((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+		if (pp.y<9){
+			p.translate(0, 1);
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+				getMap()[oldP.x][oldP.y]= new EmptyCell();
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+				((Wizard)getCurrentChamp()).setLocation(p);
+				finalizeAction();
 			}
-			Point oldP= ((Wizard)getCurrentChamp()).getLocation();
-			getMap()[oldP.x][oldP.y]= new EmptyCell();
-			getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
-			((Wizard)getCurrentChamp()).setLocation(p);
+			else
+			{
+				throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+			}
 		}
 		else
-		{
-			throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
-		}
-		finalizeAction();
+			throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 	}
 	
-	public void onSlytherinTrait(Direction d) throws IOException {
+	public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
 		super.onSlytherinTrait(d);
 		((Wizard)getCurrentChamp()).setTraitCooldown(6);
 		finalizeAction();

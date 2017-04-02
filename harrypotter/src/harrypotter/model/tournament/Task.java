@@ -5,8 +5,6 @@ import harrypotter.model.character.Champion;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
 import harrypotter.exceptions.*;
-
-
 import harrypotter.model.world.*;
 import harrypotter.model.character.*;
 import harrypotter.model.magic.*;
@@ -250,8 +248,11 @@ public abstract class Task implements WizardListener  {
 		((Wizard)getCurrentChamp()).setIp(newIp);
 	}
 	
-	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException, NotEnoughIPException{
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException, NotEnoughIPException, OutOfRangeException, OutOfBordersException{
 		int temp;
+		if (r> s.getRange()){
+			throw new OutOfRangeException(s.getRange());
+		}
 
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
 		{
@@ -263,25 +264,29 @@ public abstract class Task implements WizardListener  {
 		}
 		// getting old location
 		Point ObsLoc= new Point(((Wizard)getCurrentChamp()).getLocation());
-		if (d==Direction.FORWARD)
-			ObsLoc.translate(-1, 0);
-		if (d==Direction.BACKWARD)
-			ObsLoc.translate(1, 0);
-		if (d==Direction.RIGHT)
-			ObsLoc.translate(0, 1);
-		if (d==Direction.LEFT)
-			ObsLoc.translate(0, -1);
+		if (d==Direction.FORWARD && ObsLoc.x>0)
+				ObsLoc.translate(-1, 0);
+		else if (d==Direction.BACKWARD && ObsLoc.x<9)
+				ObsLoc.translate(1, 0);
+		else if (d==Direction.RIGHT  && ObsLoc.y<9)
+				ObsLoc.translate(0, 1);
+		else if (d==Direction.LEFT && ObsLoc.y>0)
+				ObsLoc.translate(0, -1);
+		else 
+			throw new OutOfBordersException("You are moving an obstacle that is out of the map borders");
 		
 		//getting new location
 		Point newloc= new Point(((Wizard)getCurrentChamp()).getLocation());
-		if (t==Direction.FORWARD)
+		if (t==Direction.FORWARD && newloc.x>=r)
 			newloc.translate(-r, 0);
-		if (t==Direction.BACKWARD)
-			newloc.translate(r, 0);
-		if (t==Direction.RIGHT)
-			newloc.translate(0, r);
-		if (t==Direction.LEFT)
-			newloc.translate(0, -r);
+		else if (t==Direction.BACKWARD && newloc.x<9-r)
+				newloc.translate(r, 0);
+		else if (t==Direction.RIGHT && newloc.y<9-r)
+				newloc.translate(0, r);
+		else if (t==Direction.LEFT && newloc.y>=r)
+				newloc.translate(0, -r);
+		else 
+			throw new OutOfBordersException("You are moving the obstacle out of the map borders");
 		
 		if(!(getMap()[newloc.x][newloc.y] instanceof EmptyCell))
 		{
@@ -323,7 +328,8 @@ public abstract class Task implements WizardListener  {
 					getMap()[newloc.x][newloc.y] = new EmptyCell();
 				}
 			else{
-				getMap()[newloc.x][newloc.y]=new EmptyCell();
+				throw new InvalidTargetCellException("You are trying to move an empty cell");
+				//getMap()[newloc.x][newloc.y]=new EmptyCell();
 				}
 			}
 		
@@ -375,26 +381,32 @@ public abstract class Task implements WizardListener  {
 	public abstract void generateMap() throws IOException;
 	
 
-	public abstract void moveForward() throws IOException, InvalidTargetCellException ;
-	public abstract void moveBackward() throws IOException,InvalidTargetCellException ;
-	public abstract void moveLeft() throws IOException, InvalidTargetCellException ;
-	public abstract void moveRight() throws IOException, InvalidTargetCellException ;
+	public abstract void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException ;
+	public abstract void moveBackward() throws IOException,InvalidTargetCellException , OutOfBordersException;
+	public abstract void moveLeft() throws IOException, InvalidTargetCellException , OutOfBordersException;
+	public abstract void moveRight() throws IOException, InvalidTargetCellException , OutOfBordersException;
 	
 	
-	public void onSlytherinTrait(Direction d) throws IOException {
+	public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
 		//((SlytherinWizard)getCurrentChamp()).setTraitDirection(d);
 		if (!traitActivated){
 			traitActivated = true;
 			Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
 			getMap()[p.x][p.y]= new EmptyCell();
-			if (d==Direction.FORWARD)
+			if (d==Direction.FORWARD && p.x>1)
 				p.translate(-2, 0);
-			if (d==Direction.BACKWARD)
+			else if (d==Direction.BACKWARD && p.x<8)
 				p.translate(2, 0);
-			if (d==Direction.RIGHT)
+			else if (d==Direction.RIGHT && p.y<8)
 				p.translate(0, 2);
-			if (d==Direction.LEFT)
+			else if (d==Direction.LEFT && p.y>1)
 				p.translate(0, -2);
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+			//if (!(getMap()[p.x][p.y] instanceof EmptyCell)&& !(getMap()[p.x][p.y] instanceof CollectibleCell) && !(this instanceof SecondTask && getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))&&!( this instanceof ThirdTask && getMap()[p.x][p.y] instanceof CupCell)) 
+				//throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			if (getMap()[p.x][p.y] instanceof ChampionCell || ((getMap()[p.x][p.y] instanceof TreasureCell && !((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))) || getMap()[p.x][p.y] instanceof WallCell)
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
 			((Wizard)currentChamp).setLocation(p);
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 				//changing ip after collecting the collectible
@@ -565,7 +577,7 @@ public abstract class Task implements WizardListener  {
 	/*
 	 * method is responsible for casting a DamagingSpell to the currentChamp’s adjacent cell in the target direction d
 	 */
-	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException, InCooldownException,NotEnoughIPException, InvalidTargetCellException
+	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException, InCooldownException,NotEnoughIPException, InvalidTargetCellException, OutOfBordersException
 	{
 		
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
@@ -579,6 +591,8 @@ public abstract class Task implements WizardListener  {
 		}
 		// gets the target of the damaging spell 
 		Point p = getTargetPoint(d);
+		if (p.x<0||p.x>9||p.y<0||p.y>9)
+			throw new OutOfBordersException("You are casting the spell out of the map borderd");
 		
 		// the cell at which the attack was made
 		Cell targetedCell = map[p.x][p.y];
