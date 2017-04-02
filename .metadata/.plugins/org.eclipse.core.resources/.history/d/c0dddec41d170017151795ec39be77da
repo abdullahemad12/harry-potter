@@ -74,7 +74,7 @@ public abstract class Task implements WizardListener  {
 		}
 		currentChamp = champions.get(0);
 		for (int i= 0; i< champions.size(); i++)
-		((Wizard)champions.get(i)).setListener(this);
+			((Wizard)champions.get(i)).setListener(this);
 		
 
 			
@@ -84,10 +84,6 @@ public abstract class Task implements WizardListener  {
 	}
 	public void setListener(TaskListener listener) {
 		this.listener = listener;
-	}
-	public void setTraitActivated(boolean traitActivated)
-	{
-		this.traitActivated = traitActivated;
 	}
 	public ArrayList<Champion> getChampions(){
 		return champions;
@@ -117,7 +113,7 @@ public abstract class Task implements WizardListener  {
 		return traitActivated;
 	}
 	
-	public void setTaitActivated(boolean traitActivated){
+	public void setTraitActivated(boolean traitActivated){
 		this.traitActivated=traitActivated;
 	}
 	
@@ -256,7 +252,7 @@ public abstract class Task implements WizardListener  {
 	
 	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException{
 		// getting old location
-		Point ObsLoc= ((Wizard)getCurrentChamp()).getLocation();
+		Point ObsLoc= new Point(((Wizard)getCurrentChamp()).getLocation());
 		if (d==Direction.FORWARD)
 			ObsLoc.translate(-1, 0);
 		if (d==Direction.BACKWARD)
@@ -267,7 +263,7 @@ public abstract class Task implements WizardListener  {
 			ObsLoc.translate(0, -1);
 		
 		//getting new location
-		Point newloc= ((Wizard)getCurrentChamp()).getLocation();
+		Point newloc= new Point(((Wizard)getCurrentChamp()).getLocation());
 		if (t==Direction.FORWARD)
 			newloc.translate(-r, 0);
 		if (t==Direction.BACKWARD)
@@ -279,25 +275,77 @@ public abstract class Task implements WizardListener  {
 		
 		//swapping cells
 		if (getMap()[ObsLoc.x][ObsLoc.y] instanceof ObstacleCell){
-			//getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
+			getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
 		}
 		else{
 			if(getMap()[ObsLoc.x][ObsLoc.y] instanceof ChampionCell){
-				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());}
+				if (getMap()[newloc.x][newloc.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getIp();
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setIp(newIp);
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()));
+				}
+				else{
+					if (this instanceof FirstTask && newloc.x==4 && newloc.y==4){
+						((FirstTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+					}
+					else{
+						if (this instanceof SecondTask && (getMap()[newloc.x][newloc.y] instanceof TreasureCell && ((TreasureCell)getMap()[newloc.x][newloc.y]).getOwner().equals(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()))){
+							((SecondTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+							champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						}
+						else{
+							if ( this instanceof ThirdTask && getMap()[newloc.x][newloc.y] instanceof CupCell){
+								if (getListener() != null)
+									getListener().onFinishingThirdTask(getCurrentChamp());
+							}
+						}
+					}
+				}	
+				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+				((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setLocation(newloc);
+				if (this instanceof FirstTask && newloc.x == 4 && newloc.y==4)
+					getMap()[newloc.x][newloc.y] = new EmptyCell();
+				}
 			else{
-				getMap()[newloc.x][newloc.y]=new EmptyCell();}}
+				getMap()[newloc.x][newloc.y]=new EmptyCell();
+				}
+			}
+		
+		
 		getMap()[ObsLoc.x][ObsLoc.y]= new EmptyCell();
 		useSpell(s);
 		finalizeAction();
 	}
 	
 	//This method is responsible for ending the turn of the currentChamp.
-	public void endTurn(){
+	public void endTurn()throws IOException{
 		//changing currentChamp.
 		boolean flag =champions.remove(currentChamp);
 		if (flag)
 			champions.add(champions.size(), currentChamp);
-		currentChamp= champions.get(0);
+		if(this instanceof FirstTask && champions.isEmpty()){
+			if (getListener() != null){
+				listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+			}
+		}
+		else {
+			if (this instanceof SecondTask && champions.isEmpty()){
+				if (getListener() != null){
+					listener.onFinishingFirstTask(((SecondTask) this).getWinners());
+				}
+			}
+			else{
+				currentChamp= champions.get(0);
+				allowedMoves=1;
+			}
+		}
+		if ( this instanceof FirstTask){
+			((FirstTask)this).markCells();
+		}
+			
+		
 	}
 	
 	//This method is responsible for increasing the currentChamp's ip
@@ -305,9 +353,6 @@ public abstract class Task implements WizardListener  {
 	public void usePotion(Potion p){
 		// getting new ip
 		int newIp= p.getAmount() + ((Wizard)currentChamp).getIp();
-		//checking if ip<DefaultIp 
-		if (newIp>((Wizard)currentChamp).getDefaultIp())
-			newIp=((Wizard)currentChamp).getDefaultIp();
 		// setting new ip.
 		((Wizard)currentChamp).setIp(newIp);	
 		((Wizard)currentChamp).getInventory().remove(p);
@@ -329,9 +374,9 @@ public abstract class Task implements WizardListener  {
 			Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
 			getMap()[p.x][p.y]= new EmptyCell();
 			if (d==Direction.FORWARD)
-				p.translate(2, 0);
-			if (d==Direction.BACKWARD)
 				p.translate(-2, 0);
+			if (d==Direction.BACKWARD)
+				p.translate(2, 0);
 			if (d==Direction.RIGHT)
 				p.translate(0, 2);
 			if (d==Direction.LEFT)
@@ -357,17 +402,19 @@ public abstract class Task implements WizardListener  {
 	public void finalizeAction()throws IOException
 	{
 		allowedMoves--;
-		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
-			Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
-			if (s.getCoolDown()>0)
-				s.setCoolDown(s.getCoolDown()-1);
+		if (allowedMoves==0){
+			for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+				Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+				if (s.getCoolDown()>0)
+					s.setCoolDown(s.getCoolDown()-1);
+			}
 		}
 		
 			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
 			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
-			Cell current = map[p.x][p.y];
+			//Cell current = map[p.x][p.y];
 			
 			if(this instanceof FirstTask)
 			{
@@ -380,6 +427,8 @@ public abstract class Task implements WizardListener  {
 					win.add(temp);
 					((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
+					if (((Wizard) currentChamp) instanceof GryffindorWizard && allowedMoves>0 )
+						endTurn();
 				}
 				// if all the players were removed than they must have wined or died
 				if(champions.isEmpty())
@@ -387,13 +436,7 @@ public abstract class Task implements WizardListener  {
 							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
 					}
 				}
-				else
-				{
-					currentChamp = champions.get(0);
-					//((Wizard)currentChamp).useTrait();					
-				}
 
-				
 				
 					//does not fire a hifflepuffWizard whose trait has been activated
 				if(!(temp instanceof HufflepuffWizard && traitActivated))
@@ -456,11 +499,6 @@ public abstract class Task implements WizardListener  {
 					{
 						((SecondTask)this).encounterMerPerson();
 					}
-					if(champions.isEmpty())
-					{
-						if (getListener() != null)
-							listener.onFinishingSecondTask(((SecondTask)this).getWinners());
-					}			
 					
 						
 					
@@ -528,7 +566,13 @@ public abstract class Task implements WizardListener  {
 			// the Champion was a HufflepuffWizard in the third task
 			if((this instanceof ThirdTask) && (target instanceof HufflepuffWizard))
 			{
-				((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount() / 2));
+				if (((Wizard) target).getHp()-(s.getDamageAmount()/2)>0)
+					((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount()/2));
+				else{
+					((Wizard) target).setHp(0);
+					champions.remove(target);
+					map[p.x][p.y] =new EmptyCell();
+				}
 			}
 			else
 			{
@@ -538,37 +582,47 @@ public abstract class Task implements WizardListener  {
 				else{
 					((Wizard) target).setHp(0);
 					champions.remove(target);
-					targetedCell =new EmptyCell();
+					map[p.x][p.y] =new EmptyCell();
 				}
 			}
 		}
 		// an obstacle
-		else if(targetedCell instanceof ObstacleCell)
-		{
-			//Obs target = ((ChampionCell) targetedCell).getChamp();
-			
-			//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
-			if(this instanceof FirstTask || this instanceof ThirdTask)
+		else{
+			if(targetedCell instanceof ObstacleCell)
 			{
-				PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
-				if (((PhysicalObstacle) target).getHp()-s.getDamageAmount()>0)
-					((PhysicalObstacle) target).setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
-				else{
-					((PhysicalObstacle) target).setHp(0);
-					targetedCell =new EmptyCell();
+				//Obs target = ((ChampionCell) targetedCell).getChamp();
+				
+				//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				/*if(this instanceof FirstTask || this instanceof ThirdTask)
+				{
+					PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount()>0)
+						 target.setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+					else{
+						 target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
+					}
+				}
+				else{ 
+					if(this instanceof SecondTask)
+					{
+						Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
+						if ( target.getHp()-s.getDamageAmount() >0)
+							target.setHp( target.getHp() - s.getDamageAmount());
+						else{
+							 target.setHp(0);
+							map[p.x][p.y] =new EmptyCell();
+						}
+					}
+				}*/
+				Obstacle  target = ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount() >0)
+						target.setHp( target.getHp() - s.getDamageAmount());
+					else{
+						target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
 				}
 			}
-			else if(this instanceof SecondTask)
-			{
-				Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
-				if (((Merperson) target).getHp()-s.getDamageAmount() >0)
-					((Merperson) target).setHp(((Merperson) target).getHp() - s.getDamageAmount());
-				else{
-					((Merperson) target).setHp(0);
-					targetedCell =new EmptyCell();
-				}
-			}
-			
 
 		}
 		useSpell(s);

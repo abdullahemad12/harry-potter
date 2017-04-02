@@ -1,7 +1,7 @@
 package harrypotter.exceptions;
 
-
-public abstract class NotEnoughResourcesException extends InvalidActionException{
+@SuppressWarnings("serial")
+public abstract class NotEnoughResourcesException extends Exception{
 	
 	public NotEnoughResourcesException(String message)
 	{
