@@ -10,6 +10,7 @@ import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
+import harrypotter.model.world.WallCell;
 import harrypotter.exceptions.*;
 import harrypotter.model.world.TreasureCell;
 
@@ -354,6 +355,15 @@ public class SecondTask extends Task {
 				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 		}
 		public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
+			
+			Point temp = new Point(((Wizard)getCurrentChamp()).getLocation());
+			if (!trans(d, temp))
+				throw new OutOfBordersException("Trying to move out of the borders of the map");
+			
+			if(getMap()[temp.x][temp.y] instanceof TreasureCell)
+			{
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			}
 			super.onSlytherinTrait(d);
 			Point p=new Point( ((Wizard)getCurrentChamp()).getLocation());
 			((Wizard)getCurrentChamp()).setTraitCooldown(4);
@@ -375,7 +385,24 @@ public class SecondTask extends Task {
 			}
 			//finalizeAction();
 		}
-		
+		/*
+		 * Simulates the new points for an activated Slytherin Trait
+		 */
+		private static boolean trans(Direction d, Point p )
+		{
+			if (d==Direction.FORWARD && p.x>1)
+				 p.translate(-2, 0);
+				
+			else if (d==Direction.BACKWARD && p.x<8)
+				p.translate(2, 0);
+			else if (d==Direction.RIGHT && p.y<8)
+				p.translate(0, 2);
+			else if (d==Direction.LEFT && p.y>1)
+				p.translate(0, -2);
+			else
+				return false;
+			return true;
+		}
 		public Object onRavenclawTrait(){
 			if (!isTraitActivated()){
 				((Wizard)getCurrentChamp()).setTraitCooldown(7);

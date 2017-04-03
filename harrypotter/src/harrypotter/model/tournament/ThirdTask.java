@@ -251,14 +251,35 @@ public class ThirdTask extends Task {
 	}
 	
 	public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
+		Point temp = new Point(((Wizard)getCurrentChamp()).getLocation());
+		trans(d, temp);
+		if(getMap()[temp.x][temp.y] instanceof WallCell || getMap()[temp.x][temp.y] instanceof CupCell)
+		{
+			throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+		}
 		super.onSlytherinTrait(d);
-		((Wizard)getCurrentChamp()).setTraitCooldown(10);
 		Point p=new Point( ((Wizard)getCurrentChamp()).getLocation());
+		((Wizard)getCurrentChamp()).setTraitCooldown(10);
 		if (getMap()[p.x][p.y] instanceof CupCell){
 			if (getListener() != null)
 				getListener().onFinishingThirdTask(getCurrentChamp());
 		}	
 		finalizeAction();
+	}
+	
+	/*
+	 * Simulates the new points for an activated Slytherin Trait
+	 */
+	private static void trans(Direction d, Point p )
+	{
+		if (d==Direction.FORWARD && p.x>1)
+			 p.translate(-2, 0);
+		else if (d==Direction.BACKWARD && p.x<8)
+			p.translate(2, 0);
+		else if (d==Direction.RIGHT && p.y<8)
+			p.translate(0, 2);
+		else if (d==Direction.LEFT && p.y>1)
+			p.translate(0, -2);
 	}
 	
 	public Object onRavenclawTrait(){

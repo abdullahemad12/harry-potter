@@ -1,0 +1,452 @@
+package harrypotter.model.tournament;
+
+import harrypotter.model.character.Champion;
+import harrypotter.model.character.Wizard;
+import harrypotter.model.magic.Potion;
+import harrypotter.model.world.Cell;
+import harrypotter.model.world.ChampionCell;
+import harrypotter.model.world.CollectibleCell;
+import harrypotter.model.world.Direction;
+import harrypotter.model.world.EmptyCell;
+import harrypotter.model.world.Merperson;
+import harrypotter.model.world.ObstacleCell;
+import harrypotter.model.world.WallCell;
+import harrypotter.exceptions.*;
+import harrypotter.model.world.TreasureCell;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.awt.*;
+
+public class SecondTask extends Task {
+	
+	private ArrayList<Champion> winners; // An array list containing the winners of this task
+	
+	public SecondTask(ArrayList<Champion> champions)throws IOException{
+		super(shuffleHelper(champions));
+		winners = new ArrayList<Champion>();
+	}
+	/*
+	 * checks if the champion encounters a mereperson and does damage for him in this case
+	 */
+	public void encounterMerPerson() throws IOException
+	{
+		// gets the location of the current champion
+		Champion c = getCurrentChamp();
+		Point location = ((Wizard) c).getLocation();
+		// x-y points of the champion in the array of cells 
+		int x = (int)location.getX();
+		int y = (int)location.getY();
+		Cell cell[][] = this.getMap();
+		
+		// Checks for the adjacent cell whether it contains a merperson
+		if(y<9&& cell[x][y + 1] instanceof ObstacleCell)
+		{
+			// gets the mere person
+			Merperson merperson = (Merperson)((ObstacleCell)cell[x][y + 1]).getObstacle();
+			int damage = merperson.getDamage();
+			int hp = ((Wizard) c).getHp();
+			
+			// removes the champion if he can't handle the damage
+			if(hp - damage <= 0)
+			{
+				//removes him from the map and from the list of chamions
+				cell[x][y] = new EmptyCell();
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
+				if(getChampions().isEmpty())
+				{
+					if (getListener() != null)
+						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+				}
+				endTurn();
+			}
+			// does damage do the wizard
+			else
+			{
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
+			}
+			
+		}
+		// does exactly the same but for another cell
+		if(x<9&&cell[x + 1][y] instanceof ObstacleCell)
+		{
+			Merperson merperson = (Merperson)((ObstacleCell)cell[x + 1][y]).getObstacle();
+			int damage = merperson.getDamage();
+			int hp = ((Wizard) c).getHp();
+			if(hp - damage <= 0)
+			{
+				cell[x][y] = new EmptyCell();
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
+				if(getChampions().isEmpty())
+				{
+					if (getListener() != null)
+						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+				}
+				endTurn();
+			}
+			else
+			{
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
+			}
+			
+		}
+		
+		if(y>0&&cell[x][y - 1] instanceof ObstacleCell)
+		{
+			Merperson merperson = (Merperson)((ObstacleCell)cell[x][y - 1]).getObstacle();
+			int damage = merperson.getDamage();
+			int hp = ((Wizard) c).getHp();
+			if(hp - damage <= 0)
+			{
+				cell[x][y] = new EmptyCell();
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
+				if(getChampions().isEmpty())
+				{
+					if (getListener() != null)
+						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+				}
+				endTurn();
+			}
+			else
+			{
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
+			}
+			
+		}
+
+		if(x>0&&cell[x - 1][y] instanceof ObstacleCell)
+		{
+			Merperson merperson = (Merperson)((ObstacleCell)cell[x - 1][y]).getObstacle();
+			int damage = merperson.getDamage();
+			int hp = ((Wizard) c).getHp();
+			if(hp - damage <= 0)
+			{
+				cell[x][y] = new EmptyCell();
+				((Wizard)getCurrentChamp()).setHp(0);
+				this.getChampions().remove(getCurrentChamp());
+				if(getChampions().isEmpty())
+				{
+					if (getListener() != null)
+						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+				}
+				endTurn();
+			}
+			else
+			{
+				((Wizard)getCurrentChamp()).setHp(hp - damage);
+			}
+			
+		}
+		
+		
+	}
+	
+	/*
+	 * Gets the list of winners
+	 */
+	public ArrayList<Champion> getWinners()
+	{
+		return winners;
+	}
+	
+	/*
+	 * Sets the list of winners
+	 */
+	public void setWinners(ArrayList<Champion> winners) {
+		this.winners = winners;
+	}
+
+	
+	
+	private static ArrayList<Champion> shuffleHelper(ArrayList<Champion> champions){
+		Collections.shuffle(champions);
+		return champions;
+	}
+	public void generateMap(){
+		super.addplayers();
+		super.addingpotions();
+		super.task2();
+				
+	}
+	
+	//moving the currentChamp one cell up
+		public void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+			//getting old point
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
+			// moving it up
+			p.translate(-1, 0);
+			//checking if it is possible to move
+			if (pp.x>0){
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+					{
+					//changing ip after collecting the collectible
+					if (getMap()[p.x][p.y] instanceof CollectibleCell){
+						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+						((Wizard)getCurrentChamp()).setIp(newIp);
+						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+					}
+					//declaring winning champ as winner 
+					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
+						winners.add(getCurrentChamp());
+						getChampions().remove(getCurrentChamp());
+						getMap()[p.x][p.y]= new EmptyCell();
+						getMap()[pp.x][pp.y]= new EmptyCell();
+						if(getChampions().isEmpty())
+						{
+							if (getListener() != null)
+								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+						}	
+						endTurn();
+					}
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
+						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+						getMap()[oldP.x][oldP.y]= new EmptyCell();
+						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+						((Wizard)getCurrentChamp()).setLocation(p);
+					}
+					
+				finalizeAction();		
+				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+			}
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+		}
+		
+		//moving the currentChamp one cell down
+		public void moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
+			p.translate(1, 0);
+			if (pp.x<9){
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+					{
+					if (getMap()[p.x][p.y] instanceof CollectibleCell){
+						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+						((Wizard)getCurrentChamp()).setIp(newIp);
+						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+					} 
+					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
+						winners.add(getCurrentChamp());
+						getChampions().remove(getCurrentChamp());
+						getMap()[p.x][p.y]= new EmptyCell();
+						getMap()[pp.x][pp.y]= new EmptyCell();
+						if(getChampions().isEmpty())
+						{
+							if (getListener() != null)
+								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+						}	
+						endTurn();
+					}
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
+						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+						getMap()[oldP.x][oldP.y]= new EmptyCell();
+						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+						((Wizard)getCurrentChamp()).setLocation(p);
+					}
+					
+				finalizeAction();		
+				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+			}
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+			
+		}
+		
+		//moving the currentChamp one cell left
+		public void moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
+			p.translate(0, -1);
+			if (pp.y>0){
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+					{
+					if (getMap()[p.x][p.y] instanceof CollectibleCell){
+						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+						((Wizard)getCurrentChamp()).setIp(newIp);
+						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+					} 
+					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
+						winners.add(getCurrentChamp());
+						getChampions().remove(getCurrentChamp());
+						getMap()[p.x][p.y]= new EmptyCell();
+						getMap()[pp.x][pp.y]= new EmptyCell();
+						if(getChampions().isEmpty())
+						{
+							if (getListener() != null)
+								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+						}	
+						endTurn();
+					}
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
+						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+						getMap()[oldP.x][oldP.y]= new EmptyCell();
+						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+						((Wizard)getCurrentChamp()).setLocation(p);
+					}
+					
+				finalizeAction();		
+				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+			}
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+		}
+		
+		//moving the currentChamp one cell right
+		public void moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
+			Point pp= ((Wizard)getCurrentChamp()).getLocation();
+			Point p=new Point(pp);
+			p.translate(0, 1);
+			if (pp.y<9){
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+					{
+					if (getMap()[p.x][p.y] instanceof CollectibleCell){
+						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+						((Wizard)getCurrentChamp()).setIp(newIp);
+						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+					} 
+					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
+						winners.add(getCurrentChamp());
+						getChampions().remove(getCurrentChamp());
+						getMap()[p.x][p.y]= new EmptyCell();
+						getMap()[pp.x][pp.y]= new EmptyCell();
+						if(getChampions().isEmpty())
+						{
+							if (getListener() != null)
+								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+						}	
+						endTurn();
+					}
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
+						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
+						getMap()[oldP.x][oldP.y]= new EmptyCell();
+						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+						((Wizard)getCurrentChamp()).setLocation(p);
+					}
+					
+				finalizeAction();		
+				}
+				else
+				{
+					throw new InvalidTargetCellException("You are Trying to Move to an Invalid Target Cell");
+				}
+			}
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+		}
+		public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
+			
+			Point temp = new Point(((Wizard)getCurrentChamp()).getLocation());
+			trans(d, temp);
+			if(temp.x > 10 || temp.x < 0 || temp.y > 10 || temp.x < 10)
+			{
+				throw new OutOfBordersException("Trying to move out of the borders of the map");
+			}
+			if(getMap()[temp.x][temp.y] instanceof TreasureCell)
+			{
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			}
+			super.onSlytherinTrait(d);
+			Point p=new Point( ((Wizard)getCurrentChamp()).getLocation());
+			((Wizard)getCurrentChamp()).setTraitCooldown(4);
+			if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
+				winners.add(getCurrentChamp());
+				getChampions().remove(getCurrentChamp());
+				getMap()[p.x][p.y]= new EmptyCell();
+				//getMap()[pp.x][pp.y]= new EmptyCell();
+				if(getChampions().isEmpty())
+				{
+					if (getListener() != null)
+						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+				}	
+				endTurn();
+			}
+			else{
+				finalizeAction();
+
+			}
+			//finalizeAction();
+		}
+		/*
+		 * Simulates the new points for an activated Slytherin Trait
+		 */
+		private static void trans(Direction d, Point p )
+		{
+			if (d==Direction.FORWARD && p.x>1)
+				 p.translate(-2, 0);
+			else if (d==Direction.BACKWARD && p.x<8)
+				p.translate(2, 0);
+			else if (d==Direction.RIGHT && p.y<8)
+				p.translate(0, 2);
+			else if (d==Direction.LEFT && p.y>1)
+				p.translate(0, -2);
+		}
+		public Object onRavenclawTrait(){
+			if (!isTraitActivated()){
+				((Wizard)getCurrentChamp()).setTraitCooldown(7);
+				setTraitActivated(true);
+				//getting location of treasure cell
+				Point treloc = new Point();
+				for (int i=0; i<10; i++){
+					for (int j=0; j<10; j++){
+						if (getMap()[i][j] instanceof TreasureCell && ((TreasureCell)getMap()[i][j]).getOwner()==getCurrentChamp()){
+							treloc.setLocation(i, j);
+							break;
+						}
+							
+					}
+				}
+				ArrayList<Direction> location = new ArrayList<Direction>();
+				Point p= ((Wizard)getCurrentChamp()).getLocation();
+				// checking the location of the treasure cell relative to the champions cell and adding it to the array location 
+				if (treloc.y-p.y>0)
+					location.add(Direction.RIGHT);
+				else
+					if (treloc.y-p.y<0)
+						location.add(Direction.LEFT);
+				if (treloc.x-p.x>0)
+					location.add(Direction.BACKWARD);
+				else
+					if (treloc.x-p.x<0)
+						location.add(Direction.FORWARD);
+				
+				
+				
+				return location;
+			}
+			return null;
+		}
+		/*public void finalizeAction() throws IOException{
+			super.finalizeAction();
+			Point p =((Wizard)getCurrentChamp()).getLocation();
+			if((!((Wizard)getCurrentChamp() instanceof HufflepuffWizard) &&isTraitActivated())&& getAllowedMoves()==0)
+			{
+				encounterMerPerson();
+				endTurn();
+			}
+		}*/
+
+		
+		
+
+}

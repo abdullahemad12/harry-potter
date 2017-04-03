@@ -393,10 +393,17 @@ public abstract class Task implements WizardListener  {
 			traitActivated = true;
 			Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
 			getMap()[p.x][p.y]= new EmptyCell();
+			if(p.x < 1 || p.x >8 || p.y < 1 || p.y > 8 )
+			{
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+
+			}
 			if (d==Direction.FORWARD && p.x>1)
 				p.translate(-2, 0);
 			else if (d==Direction.BACKWARD && p.x<8)
+			{
 				p.translate(2, 0);
+			}
 			else if (d==Direction.RIGHT && p.y<8)
 				p.translate(0, 2);
 			else if (d==Direction.LEFT && p.y>1)
@@ -405,7 +412,17 @@ public abstract class Task implements WizardListener  {
 				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 			//if (!(getMap()[p.x][p.y] instanceof EmptyCell)&& !(getMap()[p.x][p.y] instanceof CollectibleCell) && !(this instanceof SecondTask && getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))&&!( this instanceof ThirdTask && getMap()[p.x][p.y] instanceof CupCell)) 
 				//throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
-			if (getMap()[p.x][p.y] instanceof ChampionCell || ((getMap()[p.x][p.y] instanceof TreasureCell && !((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))) || getMap()[p.x][p.y] instanceof WallCell)
+			if(this instanceof SecondTask && !(getMap()[p.x][p.y] instanceof EmptyCell))
+			{
+				
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+
+			}
+			if( getMap()[p.x][p.y] instanceof WallCell)
+			{
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			}
+			if (getMap()[p.x][p.y] instanceof ChampionCell || ((getMap()[p.x][p.y] instanceof TreasureCell && !((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
 			((Wizard)currentChamp).setLocation(p);
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
