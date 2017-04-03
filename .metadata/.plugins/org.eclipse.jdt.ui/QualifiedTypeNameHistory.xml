@@ -3,13 +3,13 @@
 <fullyQualifiedTypeName name="harrypotter.exceptions.OutOfRangeException"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="harrypotter.exceptions.OutOfBordersException"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.CollectibleCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="harrypotter.exceptions.InvalidTargetCellException"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.ChampionCell"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.WallCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
