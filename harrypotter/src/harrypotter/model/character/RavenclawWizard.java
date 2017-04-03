@@ -15,8 +15,9 @@ public class RavenclawWizard extends Wizard implements Champion {
 		{
 			throw new InCooldownException(temp);
 		}
-		if (getListener() != null)
-			getListener().onRavenclawTrait();
+		else
+			if (getListener() != null)
+				getListener().onRavenclawTrait();
 	}
 
 }

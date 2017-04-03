@@ -8,6 +8,7 @@ public class InCooldownException extends NotEnoughResourcesException{
 	public InCooldownException(int remainingTurns)
 	{
 		super("Cannot make a move Yet. remaining Turns: " + remainingTurns);
+		this.remainingTurns=remainingTurns; 
 	}
 	public int getRemainingTurns()
 	{

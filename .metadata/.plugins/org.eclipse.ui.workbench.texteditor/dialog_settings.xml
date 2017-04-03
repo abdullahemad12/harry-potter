@@ -2,46 +2,25 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-<<<<<<< HEAD
-		<item value="onR" key="selection"/>
-=======
-		<item value="Owne" key="selection"/>
->>>>>>> 56c79b25a00d637052551b2d49de415049aa6c27
+		<item value="OutOfBordersException" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-<<<<<<< HEAD
-			<item value="onr"/>
-			<item value="castr"/>
-			<item value="fi"/>
-			<item value="castre"/>
-			<item value="setTaitActivated"/>
-			<item value="ravenclaw"/>
-			<item value="ravnclaw"/>
-			<item value="finalize"/>
-=======
-			<item value="owne"/>
-			<item value="finaliz"/>
-			<item value="finalis"/>
-			<item value="winners"/>
-			<item value="endTUr"/>
-			<item value="endTur"/>
-			<item value="gryffindor"/>
-			<item value="markedCells"/>
->>>>>>> 56c79b25a00d637052551b2d49de415049aa6c27
+			<item value="getTargetPoint"/>
+			<item value="onsl"/>
+			<item value="ons"/>
+			<item value="movef"/>
 		</list>
 		<list key="replacehistory">
-			<item value="setTraitActivated"/>
-			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="296" key="DIALOG_WIDTH"/>
-		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="428" key="DIALOG_HEIGHT"/>
-		<item value="304" key="DIALOG_X_ORIGIN"/>
-		<item value="313" key="DIALOG_Y_ORIGIN"/>
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="577" key="DIALOG_X_ORIGIN"/>
+		<item value="350" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

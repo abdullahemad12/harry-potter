@@ -15,8 +15,9 @@ public class HufflepuffWizard extends Wizard implements Champion{
 		{
 			throw new InCooldownException(temp);
 		}
-		if (getListener() != null)
-			getListener().onHufflepuffTrait();
+		else
+			if (getListener() != null)
+				getListener().onHufflepuffTrait();
 	}
 
 }
