@@ -1,6 +1,7 @@
 package harrypotter.model.character;
 
 import harrypotter.exceptions.InCooldownException;
+import harrypotter.model.tournament.*;
 
 public class HufflepuffWizard extends Wizard implements Champion{
 
@@ -10,14 +11,18 @@ public class HufflepuffWizard extends Wizard implements Champion{
 		
 	}
 	 public void useTrait()throws InCooldownException{
-    	int temp;
-		if((temp = ((Wizard)this).getTraitCooldown()) != 0)
+		 int temp;
+		if (getListener() != null)
 		{
-			throw new InCooldownException(temp);
-		}
-		else
-			if (getListener() != null)
+			 if(!(getListener() instanceof ThirdTask))
+			 {
+				if((temp = ((Wizard)this).getTraitCooldown()) != 0 )
+				{
+					throw new InCooldownException(temp);
+				}
+			 }
 				getListener().onHufflepuffTrait();
+		}
 	}
 
 }
