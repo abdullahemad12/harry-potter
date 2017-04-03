@@ -360,7 +360,7 @@ public class SecondTask extends Task {
 			if (!trans(d, temp))
 				throw new OutOfBordersException("Trying to move out of the borders of the map");
 			
-			if(getMap()[temp.x][temp.y] instanceof TreasureCell)
+			if(!(getMap()[temp.x][temp.y] instanceof EmptyCell))
 			{
 				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
 			}
