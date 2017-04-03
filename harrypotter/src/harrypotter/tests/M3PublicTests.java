@@ -18,6 +18,884 @@ import org.junit.Test;
 
 public class M3PublicTests {
 
+	private static boolean containsMethodName(Method[] methods, String name) {
+		for (Method method : methods) {
+			if (method.getName().equals(name))
+				return true;
+		}
+		return false;
+	}
+
+	private void castDamagingSpellOutOfBordersHelper(Task task,
+			Champion currentChamp) throws Exception {
+
+		for (int iteration = 0; iteration < 50; iteration++) {
+
+			int x = 0;
+			int y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			DamagingSpell dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
+			((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
+
+			boolean exceptionThrown = false;
+			Exception thrown = null;
+
+			try {
+				task.castDamagingSpell(dmg, Direction.FORWARD);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+			task.setCurrentChamp(currentChamp);
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, thrown.getClass());
+
+			x = 9;
+			y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
+			((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
+
+			exceptionThrown = false;
+			thrown = null;
+
+			try {
+				task.castDamagingSpell(dmg, Direction.BACKWARD);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+			task.setCurrentChamp(currentChamp);
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, thrown.getClass());
+
+			x = new Random().nextInt(10);
+			y = 0;
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
+			((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
+
+			exceptionThrown = false;
+			thrown = null;
+			try {
+				task.castDamagingSpell(dmg, Direction.LEFT);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+			task.setCurrentChamp(currentChamp);
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, thrown.getClass());
+
+			x = new Random().nextInt(10);
+			y = 9;
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
+			((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
+
+			exceptionThrown = false;
+			thrown = null;
+
+			try {
+				task.castDamagingSpell(dmg, Direction.RIGHT);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+			task.setCurrentChamp(currentChamp);
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, thrown.getClass());
+
+		}
+	}
+
+	private void castRelocatingSpellOnTargetOutOfBordersHelper(Task task,
+			Champion currentChamp) throws Exception {
+
+		for (int iteration = 0; iteration < 50; iteration++) {
+
+			int x = 0;
+			int y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+			RelocatingSpell spell = new RelocatingSpell("rel", 100, 3, 2);
+			((Wizard) task.getCurrentChamp()).getSpells().add(spell);
+
+			boolean exceptionThrown = false;
+			Exception e = null;
+			try {
+				task.castRelocatingSpell(spell, Direction.FORWARD,
+						Direction.BACKWARD, 2);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				e = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, e.getClass());
+
+			x = 9;
+			y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			spell = new RelocatingSpell("rel", 100, 3, 2);
+			((Wizard) task.getCurrentChamp()).getSpells().add(spell);
+
+			exceptionThrown = false;
+			try {
+				task.castRelocatingSpell(spell, Direction.BACKWARD,
+						Direction.FORWARD, 2);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				e = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, e.getClass());
+
+			x = new Random().nextInt(10);
+			y = 0;
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			spell = new RelocatingSpell("rel", 100, 3, 2);
+			((Wizard) task.getCurrentChamp()).getSpells().add(spell);
+
+			exceptionThrown = false;
+
+			try {
+				task.castRelocatingSpell(spell, Direction.LEFT,
+						Direction.RIGHT, 2);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				e = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, e.getClass());
+
+			x = new Random().nextInt(10);
+			y = 9;
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			spell = new RelocatingSpell("rel", 100, 3, 2);
+			((Wizard) task.getCurrentChamp()).getSpells().add(spell);
+
+			exceptionThrown = false;
+			try {
+				task.castRelocatingSpell(spell, Direction.RIGHT,
+						Direction.LEFT, 2);
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				e = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown);
+
+			assertEquals(
+					"In the "
+							+ task.getClass().getSimpleName()
+							+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
+					OutOfBordersException.class, e.getClass());
+
+		}
+	}
+
+	private void damageInvalidTarget(Task task, DamagingSpell s, Direction d,
+			Point targetPoint) throws Exception {
+
+		Champion curr = task.getCurrentChamp();
+		Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
+				.getClass();
+		int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
+		try {
+
+			task.castDamagingSpell(s, d);
+
+			fail("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", an exception of type InvalidTargetCellException should be thrown ");
+
+		} catch (InvalidTargetCellException e) {
+
+			assertEquals(
+					"If a champion tries to use a damaging spell on "
+							+ targetClass.getSimpleName()
+							+ ", an exception of type InvalidTargetCellException should be thrown ",
+					InvalidTargetCellException.class, e.getClass());
+
+			assertEquals("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", the cell should not be affected ", targetClass,
+					task.getMap()[targetPoint.x][targetPoint.y].getClass());
+
+			assertEquals("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", the spell coolDown should not change ", 0,
+					s.getCoolDown());
+
+			assertEquals("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", the champion's IP should not change ", PrevIp,
+					((Wizard) task.getCurrentChamp()).getIp());
+
+			assertEquals("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", the allowedMoves should not change ", 1,
+					task.getAllowedMoves());
+
+			assertEquals("If a champion tries to use a damaging spell on "
+					+ targetClass.getSimpleName()
+					+ ", the currentChamp should not change ", curr,
+					task.getCurrentChamp());
+
+		}
+
+	}
+
+	private Cell getCellClone(Cell cell, Champion champion) {
+
+		if (cell instanceof CupCell)
+			return new CupCell();
+		else if (cell instanceof TreasureCell)
+			return new TreasureCell(champion);
+		else if (cell instanceof ChampionCell)
+			return new ChampionCell(champion);
+		else if (cell instanceof WallCell)
+			return new WallCell();
+		else if (cell instanceof ObstacleCell)
+			return new ObstacleCell(new PhysicalObstacle(((ObstacleCell) cell)
+					.getObstacle().getHp()));
+		else if (cell instanceof CollectibleCell)
+			return new CollectibleCell(new Potion("Senzo", 100));
+
+		return new EmptyCell();
+
+	}
+
+	private Spell getSpellClone(Spell spell) {
+		Spell clone = null;
+		if (spell instanceof DamagingSpell)
+			clone = new DamagingSpell(spell.getName(), spell.getCost(),
+					spell.getDefaultCooldown(),
+					((DamagingSpell) spell).getDamageAmount());
+		else if (spell instanceof RelocatingSpell)
+			clone = new RelocatingSpell(spell.getName(), spell.getCost(),
+					spell.getDefaultCooldown(),
+					((RelocatingSpell) spell).getRange());
+		else if (spell instanceof HealingSpell)
+			clone = new HealingSpell(spell.getName(), spell.getCost(),
+					spell.getDefaultCooldown(),
+					((HealingSpell) spell).getHealingAmount());
+		clone.setCoolDown(spell.getCoolDown());
+		return clone;
+	}
+
+	private Task getTaskClone(Task task) throws Exception {
+		Task clone = null;
+		int length = task.getChampions().size();
+		ArrayList<Champion> temp = new ArrayList<Champion>();
+		for (int i = 0; i < length; i++) {
+			temp.add((Champion) getWizardClone((Wizard) (task.getChampions()
+					.get(i))));
+		}
+		if (task instanceof FirstTask)
+			clone = new FirstTask(temp);
+		else if (task instanceof SecondTask)
+			clone = new SecondTask(temp);
+		else
+			clone = new ThirdTask(temp);
+		clone.setTraitActivated(task.isTraitActivated());
+		clone.setAllowedMoves(task.getAllowedMoves());
+		clone.setCurrentChamp((Champion) getWizardClone((Wizard) task
+				.getCurrentChamp()));
+		clone.getChampions().clear();
+		for (int i = 0; i < length; i++) {
+			clone.getChampions().add(
+					(Champion) getWizardClone((Wizard) (task.getChampions()
+							.get(i))));
+		}
+
+		for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 10; j++)
+				clone.getMap()[i][j] = getCellClone(task.getMap()[i][j],
+						clone.getCurrentChamp());
+		return clone;
+
+	}
+
+	private Wizard getWizardClone(Wizard wizard) {
+
+		Wizard clone = null;
+		if (wizard instanceof GryffindorWizard)
+			clone = new GryffindorWizard(wizard.getName());
+		else if (wizard instanceof SlytherinWizard)
+			clone = new SlytherinWizard(wizard.getName());
+		else if (wizard instanceof HufflepuffWizard)
+			clone = new HufflepuffWizard(wizard.getName());
+		else if (wizard instanceof RavenclawWizard)
+			clone = new RavenclawWizard(wizard.getName());
+		clone.setHp(wizard.getHp());
+		clone.setIp(wizard.getIp());
+		clone.setLocation(new Point(wizard.getLocation().x, wizard
+				.getLocation().y));
+		clone.setTraitCooldown(wizard.getTraitCooldown());
+		clone.getSpells().clear();
+		for (int i = 0; i < wizard.getSpells().size(); i++)
+			clone.getSpells().add(getSpellClone(wizard.getSpells().get(i)));
+		for (int i = 0; i < wizard.getInventory().size(); i++)
+			clone.getInventory().add(
+					new Potion(((Potion) wizard.getInventory().get(i))
+							.getName(), ((Potion) wizard.getInventory().get(i))
+							.getAmount()));
+		return clone;
+	}
+
+	private void onSlythMovesToInvalidCellsHelper(Task task,
+			Point championLocation, Point targetLocation, Direction direction,
+			Cell invalidCell, SlytherinWizard s, Champion c) throws Exception {
+
+		for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 10; j++)
+				task.getMap()[i][j] = new EmptyCell();
+
+		task.setCurrentChamp(s);
+		task.getMap()[championLocation.x][championLocation.y] = new ChampionCell(
+				s);
+		((Wizard) task.getCurrentChamp()).setLocation(championLocation);
+
+		if (invalidCell instanceof CollectibleCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new CollectibleCell(
+					new Potion("p", 100));
+		else if (invalidCell instanceof TreasureCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new TreasureCell(
+					s);
+		else if (invalidCell instanceof ObstacleCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new ObstacleCell(
+					new PhysicalObstacle(100));
+		else if (invalidCell instanceof WallCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new WallCell();
+		else if (invalidCell instanceof CupCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new CupCell();
+		else if (invalidCell instanceof ChampionCell)
+			task.getMap()[targetLocation.x][targetLocation.y] = new ChampionCell(
+					c);
+
+		Exception thrown = null;
+
+		boolean exceptionThrown = false;
+		try {
+			s.setTraitDirection(direction);
+			s.useTrait();
+		} catch (InvalidTargetCellException e1) {
+			exceptionThrown = true;
+			thrown = e1;
+		}
+
+		assertTrue("In the " + task.getClass().getSimpleName()
+				+ ", when slytherin trait is activated in the " + direction
+				+ " direction, and the target cell is "
+				+ invalidCell.getClass().getSimpleName()
+				+ ", InvalidTargetCell Exception should be thrown",
+				exceptionThrown);
+
+		assertEquals("In the " + task.getClass().getSimpleName()
+				+ ", when slytherin trait is activated in the " + direction
+				+ " direction, and the target cell is "
+				+ invalidCell.getClass().getSimpleName()
+				+ ", InvalidTargetCell Exception should be thrown",
+				InvalidTargetCellException.class, thrown.getClass());
+
+		task.setCurrentChamp(s);
+
+		Point newLocation = ((Wizard) task.getCurrentChamp()).getLocation();
+		assertEquals(
+				"In the "
+						+ task.getClass().getSimpleName()
+						+ ", when slytherin trait is activated in the "
+						+ direction
+						+ " direction, and the target cell is "
+						+ invalidCell.getClass().getSimpleName()
+						+ ", it is considered an invalid move and the champion's location shouldn't change",
+				championLocation, newLocation);
+
+		assertEquals(
+				"In the "
+						+ task.getClass().getSimpleName()
+						+ ", when slytherin trait is activated in the "
+						+ direction
+						+ " direction, and the target cell is "
+						+ invalidCell.getClass().getSimpleName()
+						+ ", it is considered an invalid move and the target cell shouldn't change",
+				invalidCell.getClass(),
+				task.getMap()[targetLocation.x][targetLocation.y].getClass());
+	}
+
+	private void relocateInvalidTarget(Task task, RelocatingSpell s,
+			Direction d, Direction t, int r, Point targetPoint, Point destPoint)
+			throws Exception {
+
+		Champion curr = task.getCurrentChamp();
+		Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
+				.getClass();
+		int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
+		try {
+
+			task.castRelocatingSpell(s, d, t, r);
+
+			fail("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", an exception of type InvalidTargetCellException should be thrown ");
+
+		} catch (InvalidTargetCellException e) {
+
+			assertEquals(
+					"If a champion tries to use a relocating spell on "
+							+ targetClass.getSimpleName()
+							+ ", an exception of type InvalidTargetCellException should be thrown ",
+					InvalidTargetCellException.class, e.getClass());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the cell should not be affected ", targetClass,
+					task.getMap()[targetPoint.x][targetPoint.y].getClass());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the target cell should not change ", EmptyCell.class,
+					task.getMap()[destPoint.x][destPoint.y].getClass());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the spell coolDown should not change ", 0,
+					s.getCoolDown());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the champion's IP should not change ", PrevIp,
+					((Wizard) task.getCurrentChamp()).getIp());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the allowedMoves should not change ", 1,
+					task.getAllowedMoves());
+
+			assertEquals("If a champion tries to use a relocating spell on "
+					+ targetClass.getSimpleName()
+					+ ", the currentChamp should not change ", curr,
+					task.getCurrentChamp());
+
+		}
+
+	}
+
+	private void relocateToInvalidDestination(Task task, RelocatingSpell s,
+			Direction d, Direction t, int r, Point targetPoint, Point destPoint)
+			throws Exception {
+
+		Champion curr = task.getCurrentChamp();
+		Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
+				.getClass();
+		Class<? extends Cell> destClass = task.getMap()[destPoint.x][destPoint.y]
+				.getClass();
+		int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
+
+		try {
+
+			task.castRelocatingSpell(s, d, t, r);
+
+			fail("If a champion tries to relocate "
+					+ targetClass.getSimpleName()
+					+ " to a cell of type "
+					+ destClass.getSimpleName()
+					+ ", an exception of type InvalidTargetCellException should be thrown ");
+
+		} catch (InvalidTargetCellException e) {
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type "
+							+ destClass.getSimpleName()
+							+ ", an exception of type InvalidTargetCellException should be thrown ",
+					InvalidTargetCellException.class, e.getClass());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the cell should not be affected ",
+					targetClass,
+					task.getMap()[targetPoint.x][targetPoint.y].getClass());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the destination cell should not change ",
+					destClass,
+					task.getMap()[destPoint.x][destPoint.y].getClass());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the spell coolDown should not change ", 0,
+					s.getCoolDown());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the champion's IP should not change ", PrevIp,
+					((Wizard) task.getCurrentChamp()).getIp());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the allowedMoves should not change ", 1,
+					task.getAllowedMoves());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell of type " + destClass.getSimpleName()
+							+ ", the currentChamp should not change ", curr,
+					task.getCurrentChamp());
+
+		}
+
+	}
+
+	private void relocateToOutOfBorders(Task task, RelocatingSpell s,
+			Direction d, Direction t, int r, Point targetPoint)
+			throws Exception {
+
+		Champion curr = task.getCurrentChamp();
+		Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
+				.getClass();
+		int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
+
+		try {
+
+			task.castRelocatingSpell(s, d, t, r);
+
+			fail("If a champion tries to relocate "
+					+ targetClass.getSimpleName()
+					+ " to a cell outside the borders of the map, an exception of type OutOfBordersException should be thrown ");
+
+		} catch (OutOfBordersException e) {
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, an exception of type OutOfBordersException should be thrown ",
+					OutOfBordersException.class, e.getClass());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, the cell should not be affected ",
+					targetClass,
+					task.getMap()[targetPoint.x][targetPoint.y].getClass());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, the spell coolDown should not change ",
+					0, s.getCoolDown());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, the champion's IP should not change ",
+					PrevIp, ((Wizard) task.getCurrentChamp()).getIp());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, the allowedMoves should not change ",
+					1, task.getAllowedMoves());
+
+			assertEquals(
+					"If a champion tries to relocate "
+							+ targetClass.getSimpleName()
+							+ " to a cell outside the borders of the map, the currentChamp should not change ",
+					curr, task.getCurrentChamp());
+
+		}
+
+	}
+
+	private void SlytherinMovesToCellOutOfBordersOnTraitActivatedHelper(
+			Task task, Champion currentChamp) throws Exception {
+
+		for (int iteration = 0; iteration < 50; iteration++) {
+
+			int x = 0;
+			int y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			boolean exceptionThrown = false;
+			Exception thrown = null;
+
+			try {
+				((SlytherinWizard) currentChamp)
+						.setTraitDirection(Direction.FORWARD);
+				currentChamp.useTrait();
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass()
+							+ ", when slytherin trait is activated in the Forward direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown && thrown instanceof OutOfBordersException);
+
+			x = 9;
+			y = new Random().nextInt(10);
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			exceptionThrown = false;
+			thrown = null;
+
+			try {
+
+				((SlytherinWizard) currentChamp)
+						.setTraitDirection(Direction.BACKWARD);
+				currentChamp.useTrait();
+
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass()
+							+ ", when slytherin trait is activated in the Backward direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown && thrown instanceof OutOfBordersException);
+
+			x = new Random().nextInt(10);
+			y = 0;
+
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			exceptionThrown = false;
+			thrown = null;
+
+			try {
+
+				((SlytherinWizard) currentChamp)
+						.setTraitDirection(Direction.LEFT);
+				currentChamp.useTrait();
+
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass()
+							+ ", when slytherin trait is activated in the Left direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown && thrown instanceof OutOfBordersException);
+
+			x = new Random().nextInt(10);
+			y = 9;
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++)
+					task.getMap()[i][j] = new EmptyCell();
+
+			task.setCurrentChamp(currentChamp);
+			task.getMap()[x][y] = new ChampionCell(currentChamp);
+
+			((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
+
+			exceptionThrown = false;
+			thrown = null;
+
+			try {
+
+				((SlytherinWizard) currentChamp)
+						.setTraitDirection(Direction.RIGHT);
+				currentChamp.useTrait();
+
+			} catch (OutOfBordersException ee) {
+				exceptionThrown = true;
+				thrown = ee;
+			}
+
+			assertTrue(
+					"In the "
+							+ task.getClass()
+							+ ", when slytherin trait is activated in the Right direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
+					exceptionThrown && thrown instanceof OutOfBordersException);
+
+		}
+	}
+
 	@Test(timeout = 1000)
 	public void tesInvalidTargetCellExceptionExtendsException() {
 		testClassIsSubClass(InvalidTargetCellException.class,
@@ -827,6 +1705,54 @@ public class M3PublicTests {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
+	private void testClassIsAbstract(Class aClass) {
+		assertTrue("You should not be able to create new instances from "
+				+ aClass.getName() + " class.",
+				Modifier.isAbstract(aClass.getModifiers()));
+	}
+
+	@SuppressWarnings("rawtypes")
+	private void testClassIsSubClass(Class subClass, Class superClass) {
+		assertEquals(subClass.getName() + " class should inherit from "
+				+ superClass.getName() + ".", superClass,
+				subClass.getSuperclass());
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void testConstructorExists(Class aClass, Class... inputs) {
+		boolean thrown = false;
+		try {
+			aClass.getConstructor(inputs);
+		} catch (NoSuchMethodException e) {
+			thrown = true;
+		}
+
+		if (inputs.length > 0) {
+			String msg = "";
+			int i = 0;
+			do {
+				msg += inputs[i].getSimpleName() + " and ";
+				i++;
+			} while (i < inputs.length);
+
+			msg = msg.substring(0, msg.length() - 4);
+
+			assertFalse(
+					"Missing constructor with " + msg + " parameter"
+							+ (inputs.length > 1 ? "s" : "") + " in "
+							+ aClass.getName() + " class.",
+
+					thrown);
+		} else
+			assertFalse(
+					"Missing constructor with zero parameters in "
+							+ aClass.getName() + " class.",
+
+					thrown);
+
+	}
+
 	@Test(timeout = 1000)
 	public void testConstructorInitializationInCooldownException()
 			throws Exception {
@@ -1205,6 +2131,27 @@ public class M3PublicTests {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void testGetterMethodExistsInClass(Class aClass, String methodName,
+			Class<Integer> returnedType) {
+		Method m = null;
+		boolean found = true;
+		try {
+			m = aClass.getDeclaredMethod(methodName);
+		} catch (NoSuchMethodException e) {
+			found = false;
+		}
+
+		String varName = methodName.substring(3).toLowerCase();
+		assertTrue(
+				"The " + varName + " instance variable in class "
+						+ aClass.getName() + " is a READ variable.", found);
+
+		assertTrue("incorrect return type for " + methodName + " method in "
+				+ aClass.getName() + " class.", m.getReturnType()
+				.isAssignableFrom(returnedType));
+	}
+
 	@Test(timeout = 1000)
 	public void testInCooldownExceptionConstructorExists() {
 		testConstructorExists(InCooldownException.class, int.class);
@@ -1236,6 +2183,36 @@ public class M3PublicTests {
 				"setRemainingTurns", int.class, false);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unused" })
+	private void testInstanceVariablesArePresent(Class aClass, String varName,
+			boolean implementedVar) throws Exception {
+		Field f;
+		boolean thrown = false;
+		try {
+			f = aClass.getDeclaredField(varName);
+		} catch (NoSuchFieldException e) {
+			thrown = true;
+		}
+		if (implementedVar) {
+			assertFalse("There should be " + varName
+					+ " instance variable in class " + aClass.getName(), thrown);
+		} else {
+			assertTrue("There should not be " + varName
+					+ " instance variable in class " + aClass.getName()
+					+ ", it should be inherited from the super class", thrown);
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	private void testInstanceVariablesArePrivate(Class aClass, String varName)
+			throws Exception {
+		Field f = aClass.getDeclaredField(varName);
+		assertEquals(
+				varName + " instance variable in class " + aClass.getName()
+						+ " should not be accessed outside that class", 2,
+				f.getModifiers());
+	}
+
 	@Test(timeout = 1000)
 	public void testInvalidActionExceptionAbstract() {
 		testClassIsAbstract(InvalidActionException.class);
@@ -1264,6 +2241,117 @@ public class M3PublicTests {
 	@Test(timeout = 1000)
 	public void testInvalidTargetCellExceptionConstructorExists2() {
 		testConstructorExists(InvalidTargetCellException.class, String.class);
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void testMethodExistsInClass(Class aClass, String methodName,
+			boolean implementedMethod, Class returnType, Class... inputTypes) {
+
+		Method[] methods = aClass.getDeclaredMethods();
+
+		if (implementedMethod) {
+			assertTrue(
+					"The " + methodName + " method in class "
+							+ aClass.getName() + " should be implemented.",
+					containsMethodName(methods, methodName));
+		} else {
+			assertFalse(
+					"The "
+							+ methodName
+							+ " method in class "
+							+ aClass.getName()
+							+ " should not be implemented, only inherited from super class.",
+					containsMethodName(methods, methodName));
+			return;
+		}
+		Method m = null;
+		boolean found = true;
+		try {
+			m = aClass.getDeclaredMethod(methodName, inputTypes);
+		} catch (NoSuchMethodException e) {
+			found = false;
+		}
+		String inputsList = "";
+		for (Class inputType : inputTypes) {
+			inputsList += inputType.getSimpleName() + ", ";
+		}
+		if (inputsList.equals(""))
+			assertTrue(aClass.getName() + " class should have " + methodName
+					+ " method that takes no parameters", found);
+		else {
+			if (inputsList.charAt(inputsList.length() - 1) == ' ')
+				inputsList = inputsList.substring(0, inputsList.length() - 2);
+			assertTrue(aClass.getName() + " class should have " + methodName
+					+ " method that takes " + inputsList + " parameter(s)",
+					found);
+		}
+
+		assertTrue("incorrect return type for " + methodName + " method in "
+				+ aClass.getName() + ".", m.getReturnType().equals(returnType));
+
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void testMethodExistsInClassOrSuperClass(Class aClass,
+			String methodName, boolean implementedMethod, Class returnType,
+			Class... inputTypes) {
+
+		Method[] methods = aClass.getDeclaredMethods();
+		Method[] superMethods = aClass.getSuperclass().getDeclaredMethods();
+		if (implementedMethod) {
+
+			assertTrue("The method " + methodName
+					+ " should be implemented in " + aClass.getName()
+					+ " class or " + aClass.getSuperclass().getName()
+					+ " class", containsMethodName(methods, methodName)
+					|| containsMethodName(superMethods, methodName));
+		} else {
+			assertFalse(
+					"The "
+							+ methodName
+							+ " method in class "
+							+ aClass.getName()
+							+ " should not be implemented, only inherited from super class.",
+					containsMethodName(methods, methodName)
+							|| containsMethodName(superMethods, methodName));
+			return;
+		}
+		Method m = null;
+		boolean found = true;
+		try {
+			m = aClass.getDeclaredMethod(methodName, inputTypes);
+		} catch (NoSuchMethodException e) {
+			try {
+				m = aClass.getSuperclass().getDeclaredMethod(methodName,
+						inputTypes);
+			} catch (NoSuchMethodException e1) {
+				found = false;
+			}
+		}
+
+		String inputsList = "";
+		for (Class inputType : inputTypes) {
+			inputsList += inputType.getSimpleName() + ", ";
+		}
+		if (inputsList.equals(""))
+			assertTrue("The method " + methodName
+					+ " should be implemented in " + aClass.getName()
+					+ " class or " + aClass.getSuperclass().getName()
+					+ " class", found);
+		else {
+			if (inputsList.charAt(inputsList.length() - 1) == ' ')
+				inputsList = inputsList.substring(0, inputsList.length() - 2);
+			assertTrue(
+					"The method " + methodName + " implemented in "
+							+ aClass.getName() + " class or "
+							+ aClass.getSuperclass().getName()
+							+ " class, should take " + inputsList
+							+ " parameter(s)", found);
+		}
+
+		assertTrue("incorrect return type for " + methodName + " method in "
+				+ aClass.getName() + ".", m.getReturnType().equals(returnType));
+
 	}
 
 	@Test(timeout = 1000)
@@ -2138,6 +3226,118 @@ public class M3PublicTests {
 
 	}
 
+	private void testNoChange(Cell before, Cell after, String exception) {
+
+		assertEquals("The type of the cells should not be changed when an "
+				+ exception + " exception is thrown", before.getClass(),
+				after.getClass());
+
+		if (before instanceof ObstacleCell) {
+			assertEquals(
+					"The hp of the obstacles should not be changed when an "
+							+ exception + " exception is thrown",
+					(((ObstacleCell) before).getObstacle()).getHp(),
+					(((ObstacleCell) after).getObstacle()).getHp());
+		}
+	}
+
+	private void testNoChange(Spell before, Spell after, String champion,
+			String exception) {
+
+		assertEquals("The type of the spells of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getClass(), after.getClass());
+
+		assertEquals("The name of the spells of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getName(), after.getName());
+
+		assertEquals("The cooldown of the spells of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getCoolDown(),
+				after.getCoolDown());
+	}
+
+	private void testNoChange(Task before, Task after, String exception) {
+		assertEquals("The traitActivated flag should not be changed when an "
+				+ exception + " exception is thrown",
+				before.isTraitActivated(), after.isTraitActivated());
+		assertEquals("The allowed moves should not be changed when an "
+				+ exception + " exception is thrown", before.getAllowedMoves(),
+				after.getAllowedMoves());
+
+		assertEquals(
+				"The number of champions currently competing should not be changed when an "
+						+ exception + " exception is thrown", before
+						.getChampions().size(), after.getChampions().size());
+
+		testNoChange((Wizard) before.getCurrentChamp(),
+				(Wizard) after.getCurrentChamp(), "current champion", exception);
+
+		testNoChange((Wizard) before.getChampions().get(0), (Wizard) after
+				.getChampions().get(0), "current champion", exception);
+
+		for (int i = 1; i < before.getChampions().size(); i++)
+			testNoChange((Wizard) before.getChampions().get(i), (Wizard) after
+					.getChampions().get(i), "champion", exception);
+
+		for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 10; j++)
+				testNoChange(before.getMap()[i][j], after.getMap()[i][j],
+						exception);
+
+	}
+
+	private void testNoChange(Wizard before, Wizard after, String champion,
+			String exception) {
+
+		assertEquals("The type of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getClass(), after.getClass());
+
+		assertEquals("The name of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown, check if you have shifted the turn",
+				before.getName(), after.getName());
+
+		assertEquals("The trait cooldown of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getTraitCooldown(),
+				after.getTraitCooldown());
+
+		assertEquals("The Hp of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getHp(), after.getHp());
+
+		assertEquals("The ip of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getIp(), after.getIp());
+
+		assertEquals("The row location of the " + champion
+				+ " should not be changed when an" + exception
+				+ " exception is throw", before.getLocation().x,
+				after.getLocation().x);
+
+		assertEquals("The column location of the " + champion
+				+ " should not be changed when an exception is throw",
+				before.getLocation().y, after.getLocation().y);
+
+		assertEquals("The number of spells of the " + champion
+				+ " should not be changed when an " + exception
+				+ " exception is thrown", before.getSpells().size(), after
+				.getSpells().size());
+
+		for (int i = 0; i < before.getSpells().size(); i++)
+			testNoChange(before.getSpells().get(i), after.getSpells().get(i),
+					champion, exception);
+
+		assertEquals("The number of collectibles in the inventory of the "
+				+ champion + " should not be changed when an " + exception
+				+ " exception is thrown", before.getInventory().size(), after
+				.getInventory().size());
+
+	}
+
 	@Test(timeout = 1000)
 	public void testNotEnoughIPExceptionConstructorExists() {
 		testConstructorExists(NotEnoughIPException.class, int.class, int.class);
@@ -2242,6 +3442,8 @@ public class M3PublicTests {
 	public void testOutOfRangeExceptionConstructorExists() {
 		testConstructorExists(OutOfRangeException.class, int.class);
 	}
+
+	// Helper Methods-------------------------
 
 	@Test(timeout = 1000)
 	public void testOutOfRangeExceptionExtendsException() {
@@ -3385,8 +4587,7 @@ public class M3PublicTests {
 			task2.getMap()[6][6] = new ChampionCell(s);
 			s.setLocation(new Point(6, 6));
 
-			task2.getMap()[i - 1][j] = new ObstacleCell(new PhysicalObstacle(
-					100));
+			task2.getMap()[i - 1][j] = new ObstacleCell(new Merperson(100, 90));
 
 			int range = (int) ((3 * Math.random()) + 3);
 			int inRange = (int) ((range - 2) * Math.random()) + 2;
@@ -3843,6 +5044,39 @@ public class M3PublicTests {
 
 			}
 		}
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private void testSetterMethodExistsInClass(Class aClass, String methodName,
+			Class<Integer> inputType, boolean writeVariable) {
+
+		Method[] methods = aClass.getDeclaredMethods();
+		String varName = methodName.substring(3).toLowerCase();
+		if (writeVariable) {
+			assertTrue("The " + varName + " instance variable in class "
+					+ aClass.getName() + " is a WRITE variable.",
+					containsMethodName(methods, methodName));
+		} else {
+			assertFalse("The " + varName + " instance variable in class "
+					+ aClass.getName() + " is a READ ONLY variable.",
+					containsMethodName(methods, methodName));
+			return;
+		}
+		Method m = null;
+		boolean found = true;
+		try {
+			m = aClass.getDeclaredMethod(methodName, inputType);
+		} catch (NoSuchMethodException e) {
+			found = false;
+		}
+
+		assertTrue(aClass.getName() + " class should have " + methodName
+				+ " method that takes one " + inputType.getSimpleName()
+				+ " parameter", found);
+
+		assertTrue("incorrect return type for " + methodName + " method in "
+				+ aClass.getName() + ".", m.getReturnType().equals(Void.TYPE));
+
 	}
 
 	@Test(timeout = 1000)
@@ -4364,1240 +5598,5 @@ public class M3PublicTests {
 		}
 
 	}
-
-	// Helper Methods-------------------------
-
-		private static boolean containsMethodName(Method[] methods, String name) {
-			for (Method method : methods) {
-				if (method.getName().equals(name))
-					return true;
-			}
-			return false;
-		}
-
-		private void castDamagingSpellOutOfBordersHelper(Task task,
-				Champion currentChamp) throws Exception {
-
-			for (int iteration = 0; iteration < 50; iteration++) {
-
-				int x = 0;
-				int y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				DamagingSpell dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
-				((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
-
-				boolean exceptionThrown = false;
-				Exception thrown = null;
-
-				try {
-					task.castDamagingSpell(dmg, Direction.FORWARD);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-				task.setCurrentChamp(currentChamp);
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, thrown.getClass());
-
-				x = 9;
-				y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
-				((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
-
-				exceptionThrown = false;
-				thrown = null;
-
-				try {
-					task.castDamagingSpell(dmg, Direction.BACKWARD);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-				task.setCurrentChamp(currentChamp);
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, thrown.getClass());
-
-				x = new Random().nextInt(10);
-				y = 0;
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
-				((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
-
-				exceptionThrown = false;
-				thrown = null;
-				try {
-					task.castDamagingSpell(dmg, Direction.LEFT);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-				task.setCurrentChamp(currentChamp);
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, thrown.getClass());
-
-				x = new Random().nextInt(10);
-				y = 9;
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				dmg = new DamagingSpell("Sectumsempra", 150, 5, 300);
-				((Wizard) task.getCurrentChamp()).getSpells().add(dmg);
-
-				exceptionThrown = false;
-				thrown = null;
-
-				try {
-					task.castDamagingSpell(dmg, Direction.RIGHT);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-				task.setCurrentChamp(currentChamp);
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a damaging spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, thrown.getClass());
-
-			}
-		}
-
-		private void castRelocatingSpellOnTargetOutOfBordersHelper(Task task,
-				Champion currentChamp) throws Exception {
-
-			for (int iteration = 0; iteration < 50; iteration++) {
-
-				int x = 0;
-				int y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-				RelocatingSpell spell = new RelocatingSpell("rel", 100, 3, 2);
-				((Wizard) task.getCurrentChamp()).getSpells().add(spell);
-
-				boolean exceptionThrown = false;
-				Exception e = null;
-				try {
-					task.castRelocatingSpell(spell, Direction.FORWARD,
-							Direction.BACKWARD, 2);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					e = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, e.getClass());
-
-				x = 9;
-				y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				spell = new RelocatingSpell("rel", 100, 3, 2);
-				((Wizard) task.getCurrentChamp()).getSpells().add(spell);
-
-				exceptionThrown = false;
-				try {
-					task.castRelocatingSpell(spell, Direction.BACKWARD,
-							Direction.FORWARD, 2);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					e = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, e.getClass());
-
-				x = new Random().nextInt(10);
-				y = 0;
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				spell = new RelocatingSpell("rel", 100, 3, 2);
-				((Wizard) task.getCurrentChamp()).getSpells().add(spell);
-
-				exceptionThrown = false;
-
-				try {
-					task.castRelocatingSpell(spell, Direction.LEFT,
-							Direction.RIGHT, 2);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					e = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, e.getClass());
-
-				x = new Random().nextInt(10);
-				y = 9;
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				spell = new RelocatingSpell("rel", 100, 3, 2);
-				((Wizard) task.getCurrentChamp()).getSpells().add(spell);
-
-				exceptionThrown = false;
-				try {
-					task.castRelocatingSpell(spell, Direction.RIGHT,
-							Direction.LEFT, 2);
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					e = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown);
-
-				assertEquals(
-						"In the "
-								+ task.getClass().getSimpleName()
-								+ ", when a champion tries to cast a relocating spell on a cell out of the borders, OutOfBordersException should be thrown",
-						OutOfBordersException.class, e.getClass());
-
-			}
-		}
-
-		private void damageInvalidTarget(Task task, DamagingSpell s, Direction d,
-				Point targetPoint) throws Exception {
-
-			Champion curr = task.getCurrentChamp();
-			Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
-					.getClass();
-			int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
-			try {
-
-				task.castDamagingSpell(s, d);
-
-				fail("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", an exception of type InvalidTargetCellException should be thrown ");
-
-			} catch (InvalidTargetCellException e) {
-
-				assertEquals(
-						"If a champion tries to use a damaging spell on "
-								+ targetClass.getSimpleName()
-								+ ", an exception of type InvalidTargetCellException should be thrown ",
-						InvalidTargetCellException.class, e.getClass());
-
-				assertEquals("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", the cell should not be affected ", targetClass,
-						task.getMap()[targetPoint.x][targetPoint.y].getClass());
-
-				assertEquals("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", the spell coolDown should not change ", 0,
-						s.getCoolDown());
-
-				assertEquals("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", the champion's IP should not change ", PrevIp,
-						((Wizard) task.getCurrentChamp()).getIp());
-
-				assertEquals("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", the allowedMoves should not change ", 1,
-						task.getAllowedMoves());
-
-				assertEquals("If a champion tries to use a damaging spell on "
-						+ targetClass.getSimpleName()
-						+ ", the currentChamp should not change ", curr,
-						task.getCurrentChamp());
-
-			}
-
-		}
-
-		private Cell getCellClone(Cell cell, Champion champion) {
-
-			if (cell instanceof CupCell)
-				return new CupCell();
-			else if (cell instanceof TreasureCell)
-				return new TreasureCell(champion);
-			else if (cell instanceof ChampionCell)
-				return new ChampionCell(champion);
-			else if (cell instanceof WallCell)
-				return new WallCell();
-			else if (cell instanceof ObstacleCell)
-				return new ObstacleCell(new PhysicalObstacle(((ObstacleCell) cell)
-						.getObstacle().getHp()));
-			else if (cell instanceof CollectibleCell)
-				return new CollectibleCell(new Potion("Senzo", 100));
-
-			return new EmptyCell();
-
-		}
-
-		private Spell getSpellClone(Spell spell) {
-			Spell clone = null;
-			if (spell instanceof DamagingSpell)
-				clone = new DamagingSpell(spell.getName(), spell.getCost(),
-						spell.getDefaultCooldown(),
-						((DamagingSpell) spell).getDamageAmount());
-			else if (spell instanceof RelocatingSpell)
-				clone = new RelocatingSpell(spell.getName(), spell.getCost(),
-						spell.getDefaultCooldown(),
-						((RelocatingSpell) spell).getRange());
-			else if (spell instanceof HealingSpell)
-				clone = new HealingSpell(spell.getName(), spell.getCost(),
-						spell.getDefaultCooldown(),
-						((HealingSpell) spell).getHealingAmount());
-			clone.setCoolDown(spell.getCoolDown());
-			return clone;
-		}
-
-		private Task getTaskClone(Task task) throws Exception {
-			Task clone = null;
-			int length = task.getChampions().size();
-			ArrayList<Champion> temp = new ArrayList<Champion>();
-			for (int i = 0; i < length; i++) {
-				temp.add((Champion) getWizardClone((Wizard) (task.getChampions()
-						.get(i))));
-			}
-			if (task instanceof FirstTask)
-				clone = new FirstTask(temp);
-			else if (task instanceof SecondTask)
-				clone = new SecondTask(temp);
-			else
-				clone = new ThirdTask(temp);
-			clone.setTraitActivated(task.isTraitActivated());
-			clone.setAllowedMoves(task.getAllowedMoves());
-			clone.setCurrentChamp((Champion) getWizardClone((Wizard) task
-					.getCurrentChamp()));
-			clone.getChampions().clear();
-			for (int i = 0; i < length; i++) {
-				clone.getChampions().add(
-						(Champion) getWizardClone((Wizard) (task.getChampions()
-								.get(i))));
-			}
-
-			for (int i = 0; i < 10; i++)
-				for (int j = 0; j < 10; j++)
-					clone.getMap()[i][j] = getCellClone(task.getMap()[i][j],
-							clone.getCurrentChamp());
-			return clone;
-
-		}
-
-		private Wizard getWizardClone(Wizard wizard) {
-
-			Wizard clone = null;
-			if (wizard instanceof GryffindorWizard)
-				clone = new GryffindorWizard(wizard.getName());
-			else if (wizard instanceof SlytherinWizard)
-				clone = new SlytherinWizard(wizard.getName());
-			else if (wizard instanceof HufflepuffWizard)
-				clone = new HufflepuffWizard(wizard.getName());
-			else if (wizard instanceof RavenclawWizard)
-				clone = new RavenclawWizard(wizard.getName());
-			clone.setHp(wizard.getHp());
-			clone.setIp(wizard.getIp());
-			clone.setLocation(new Point(wizard.getLocation().x, wizard
-					.getLocation().y));
-			clone.setTraitCooldown(wizard.getTraitCooldown());
-			clone.getSpells().clear();
-			for (int i = 0; i < wizard.getSpells().size(); i++)
-				clone.getSpells().add(getSpellClone(wizard.getSpells().get(i)));
-			for (int i = 0; i < wizard.getInventory().size(); i++)
-				clone.getInventory().add(
-						new Potion(((Potion) wizard.getInventory().get(i))
-								.getName(), ((Potion) wizard.getInventory().get(i))
-								.getAmount()));
-			return clone;
-		}
-
-		private void onSlythMovesToInvalidCellsHelper(Task task,
-				Point championLocation, Point targetLocation, Direction direction,
-				Cell invalidCell, SlytherinWizard s, Champion c) throws Exception {
-
-			for (int i = 0; i < 10; i++)
-				for (int j = 0; j < 10; j++)
-					task.getMap()[i][j] = new EmptyCell();
-
-			task.setCurrentChamp(s);
-			task.getMap()[championLocation.x][championLocation.y] = new ChampionCell(
-					s);
-			((Wizard) task.getCurrentChamp()).setLocation(championLocation);
-
-			if (invalidCell instanceof CollectibleCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new CollectibleCell(
-						new Potion("p", 100));
-			else if (invalidCell instanceof TreasureCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new TreasureCell(
-						s);
-			else if (invalidCell instanceof ObstacleCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new ObstacleCell(
-						new PhysicalObstacle(100));
-			else if (invalidCell instanceof WallCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new WallCell();
-			else if (invalidCell instanceof CupCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new CupCell();
-			else if (invalidCell instanceof ChampionCell)
-				task.getMap()[targetLocation.x][targetLocation.y] = new ChampionCell(
-						c);
-
-			Exception thrown = null;
-
-			boolean exceptionThrown = false;
-			try {
-				s.setTraitDirection(direction);
-				s.useTrait();
-			} catch (InvalidTargetCellException e1) {
-				exceptionThrown = true;
-				thrown = e1;
-			}
-
-			assertTrue("In the " + task.getClass().getSimpleName()
-					+ ", when slytherin trait is activated in the " + direction
-					+ " direction, and the target cell is "
-					+ invalidCell.getClass().getSimpleName()
-					+ ", InvalidTargetCell Exception should be thrown",
-					exceptionThrown);
-
-			assertEquals("In the " + task.getClass().getSimpleName()
-					+ ", when slytherin trait is activated in the " + direction
-					+ " direction, and the target cell is "
-					+ invalidCell.getClass().getSimpleName()
-					+ ", InvalidTargetCell Exception should be thrown",
-					InvalidTargetCellException.class, thrown.getClass());
-
-			task.setCurrentChamp(s);
-
-			Point newLocation = ((Wizard) task.getCurrentChamp()).getLocation();
-			assertEquals(
-					"In the "
-							+ task.getClass().getSimpleName()
-							+ ", when slytherin trait is activated in the "
-							+ direction
-							+ " direction, and the target cell is "
-							+ invalidCell.getClass().getSimpleName()
-							+ ", it is considered an invalid move and the champion's location shouldn't change",
-					championLocation, newLocation);
-
-			assertEquals(
-					"In the "
-							+ task.getClass().getSimpleName()
-							+ ", when slytherin trait is activated in the "
-							+ direction
-							+ " direction, and the target cell is "
-							+ invalidCell.getClass().getSimpleName()
-							+ ", it is considered an invalid move and the target cell shouldn't change",
-					invalidCell.getClass(),
-					task.getMap()[targetLocation.x][targetLocation.y].getClass());
-		}
-
-		private void relocateInvalidTarget(Task task, RelocatingSpell s,
-				Direction d, Direction t, int r, Point targetPoint, Point destPoint)
-				throws Exception {
-
-			Champion curr = task.getCurrentChamp();
-			Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
-					.getClass();
-			int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
-			try {
-
-				task.castRelocatingSpell(s, d, t, r);
-
-				fail("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", an exception of type InvalidTargetCellException should be thrown ");
-
-			} catch (InvalidTargetCellException e) {
-
-				assertEquals(
-						"If a champion tries to use a relocating spell on "
-								+ targetClass.getSimpleName()
-								+ ", an exception of type InvalidTargetCellException should be thrown ",
-						InvalidTargetCellException.class, e.getClass());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the cell should not be affected ", targetClass,
-						task.getMap()[targetPoint.x][targetPoint.y].getClass());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the target cell should not change ", EmptyCell.class,
-						task.getMap()[destPoint.x][destPoint.y].getClass());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the spell coolDown should not change ", 0,
-						s.getCoolDown());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the champion's IP should not change ", PrevIp,
-						((Wizard) task.getCurrentChamp()).getIp());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the allowedMoves should not change ", 1,
-						task.getAllowedMoves());
-
-				assertEquals("If a champion tries to use a relocating spell on "
-						+ targetClass.getSimpleName()
-						+ ", the currentChamp should not change ", curr,
-						task.getCurrentChamp());
-
-			}
-
-		}
-
-		private void relocateToInvalidDestination(Task task, RelocatingSpell s,
-				Direction d, Direction t, int r, Point targetPoint, Point destPoint)
-				throws Exception {
-
-			Champion curr = task.getCurrentChamp();
-			Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
-					.getClass();
-			Class<? extends Cell> destClass = task.getMap()[destPoint.x][destPoint.y]
-					.getClass();
-			int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
-
-			try {
-
-				task.castRelocatingSpell(s, d, t, r);
-
-				fail("If a champion tries to relocate "
-						+ targetClass.getSimpleName()
-						+ " to a cell of type "
-						+ destClass.getSimpleName()
-						+ ", an exception of type InvalidTargetCellException should be thrown ");
-
-			} catch (InvalidTargetCellException e) {
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type "
-								+ destClass.getSimpleName()
-								+ ", an exception of type InvalidTargetCellException should be thrown ",
-						InvalidTargetCellException.class, e.getClass());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the cell should not be affected ",
-						targetClass,
-						task.getMap()[targetPoint.x][targetPoint.y].getClass());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the destination cell should not change ",
-						destClass,
-						task.getMap()[destPoint.x][destPoint.y].getClass());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the spell coolDown should not change ", 0,
-						s.getCoolDown());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the champion's IP should not change ", PrevIp,
-						((Wizard) task.getCurrentChamp()).getIp());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the allowedMoves should not change ", 1,
-						task.getAllowedMoves());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell of type " + destClass.getSimpleName()
-								+ ", the currentChamp should not change ", curr,
-						task.getCurrentChamp());
-
-			}
-
-		}
-
-		private void relocateToOutOfBorders(Task task, RelocatingSpell s,
-				Direction d, Direction t, int r, Point targetPoint)
-				throws Exception {
-
-			Champion curr = task.getCurrentChamp();
-			Class<? extends Cell> targetClass = task.getMap()[targetPoint.x][targetPoint.y]
-					.getClass();
-			int PrevIp = ((Wizard) task.getCurrentChamp()).getIp();
-
-			try {
-
-				task.castRelocatingSpell(s, d, t, r);
-
-				fail("If a champion tries to relocate "
-						+ targetClass.getSimpleName()
-						+ " to a cell outside the borders of the map, an exception of type OutOfBordersException should be thrown ");
-
-			} catch (OutOfBordersException e) {
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, an exception of type OutOfBordersException should be thrown ",
-						OutOfBordersException.class, e.getClass());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, the cell should not be affected ",
-						targetClass,
-						task.getMap()[targetPoint.x][targetPoint.y].getClass());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, the spell coolDown should not change ",
-						0, s.getCoolDown());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, the champion's IP should not change ",
-						PrevIp, ((Wizard) task.getCurrentChamp()).getIp());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, the allowedMoves should not change ",
-						1, task.getAllowedMoves());
-
-				assertEquals(
-						"If a champion tries to relocate "
-								+ targetClass.getSimpleName()
-								+ " to a cell outside the borders of the map, the currentChamp should not change ",
-						curr, task.getCurrentChamp());
-
-			}
-
-		}
-
-		private void SlytherinMovesToCellOutOfBordersOnTraitActivatedHelper(
-				Task task, Champion currentChamp) throws Exception {
-
-			for (int iteration = 0; iteration < 50; iteration++) {
-
-				int x = 0;
-				int y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				boolean exceptionThrown = false;
-				Exception thrown = null;
-
-				try {
-					((SlytherinWizard) currentChamp)
-							.setTraitDirection(Direction.FORWARD);
-					currentChamp.useTrait();
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass()
-								+ ", when slytherin trait is activated in the Forward direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown && thrown instanceof OutOfBordersException);
-
-				x = 9;
-				y = new Random().nextInt(10);
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				exceptionThrown = false;
-				thrown = null;
-
-				try {
-
-					((SlytherinWizard) currentChamp)
-							.setTraitDirection(Direction.BACKWARD);
-					currentChamp.useTrait();
-
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass()
-								+ ", when slytherin trait is activated in the Backward direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown && thrown instanceof OutOfBordersException);
-
-				x = new Random().nextInt(10);
-				y = 0;
-
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				exceptionThrown = false;
-				thrown = null;
-
-				try {
-
-					((SlytherinWizard) currentChamp)
-							.setTraitDirection(Direction.LEFT);
-					currentChamp.useTrait();
-
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass()
-								+ ", when slytherin trait is activated in the Left direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown && thrown instanceof OutOfBordersException);
-
-				x = new Random().nextInt(10);
-				y = 9;
-				for (int i = 0; i < 10; i++)
-					for (int j = 0; j < 10; j++)
-						task.getMap()[i][j] = new EmptyCell();
-
-				task.setCurrentChamp(currentChamp);
-				task.getMap()[x][y] = new ChampionCell(currentChamp);
-
-				((Wizard) task.getCurrentChamp()).setLocation(new Point(x, y));
-
-				exceptionThrown = false;
-				thrown = null;
-
-				try {
-
-					((SlytherinWizard) currentChamp)
-							.setTraitDirection(Direction.RIGHT);
-					currentChamp.useTrait();
-
-				} catch (OutOfBordersException ee) {
-					exceptionThrown = true;
-					thrown = ee;
-				}
-
-				assertTrue(
-						"In the "
-								+ task.getClass()
-								+ ", when slytherin trait is activated in the Right direction, and the target cell is out of the borders, OutOfBordersException should be thrown",
-						exceptionThrown && thrown instanceof OutOfBordersException);
-
-			}
-		}
-
-		@SuppressWarnings("rawtypes")
-		private void testClassIsAbstract(Class aClass) {
-			assertTrue("You should not be able to create new instances from "
-					+ aClass.getName() + " class.",
-					Modifier.isAbstract(aClass.getModifiers()));
-		}
-
-		@SuppressWarnings("rawtypes")
-		private void testClassIsSubClass(Class subClass, Class superClass) {
-			assertEquals(subClass.getName() + " class should inherit from "
-					+ superClass.getName() + ".", superClass,
-					subClass.getSuperclass());
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		private void testConstructorExists(Class aClass, Class... inputs) {
-			boolean thrown = false;
-			try {
-				aClass.getConstructor(inputs);
-			} catch (NoSuchMethodException e) {
-				thrown = true;
-			}
-
-			if (inputs.length > 0) {
-				String msg = "";
-				int i = 0;
-				do {
-					msg += inputs[i].getSimpleName() + " and ";
-					i++;
-				} while (i < inputs.length);
-
-				msg = msg.substring(0, msg.length() - 4);
-
-				assertFalse(
-						"Missing constructor with " + msg + " parameter"
-								+ (inputs.length > 1 ? "s" : "") + " in "
-								+ aClass.getName() + " class.",
-
-						thrown);
-			} else
-				assertFalse(
-						"Missing constructor with zero parameters in "
-								+ aClass.getName() + " class.",
-
-						thrown);
-
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		private void testGetterMethodExistsInClass(Class aClass, String methodName,
-				Class<Integer> returnedType) {
-			Method m = null;
-			boolean found = true;
-			try {
-				m = aClass.getDeclaredMethod(methodName);
-			} catch (NoSuchMethodException e) {
-				found = false;
-			}
-
-			String varName = methodName.substring(3).toLowerCase();
-			assertTrue(
-					"The " + varName + " instance variable in class "
-							+ aClass.getName() + " is a READ variable.", found);
-
-			assertTrue("incorrect return type for " + methodName + " method in "
-					+ aClass.getName() + " class.", m.getReturnType()
-					.isAssignableFrom(returnedType));
-		}
-
-		@SuppressWarnings({ "rawtypes", "unused" })
-		private void testInstanceVariablesArePresent(Class aClass, String varName,
-				boolean implementedVar) throws Exception {
-			Field f;
-			boolean thrown = false;
-			try {
-				f = aClass.getDeclaredField(varName);
-			} catch (NoSuchFieldException e) {
-				thrown = true;
-			}
-			if (implementedVar) {
-				assertFalse("There should be " + varName
-						+ " instance variable in class " + aClass.getName(), thrown);
-			} else {
-				assertTrue("There should not be " + varName
-						+ " instance variable in class " + aClass.getName()
-						+ ", it should be inherited from the super class", thrown);
-			}
-		}
-
-		@SuppressWarnings("rawtypes")
-		private void testInstanceVariablesArePrivate(Class aClass, String varName)
-				throws Exception {
-			Field f = aClass.getDeclaredField(varName);
-			assertEquals(
-					varName + " instance variable in class " + aClass.getName()
-							+ " should not be accessed outside that class", 2,
-					f.getModifiers());
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		private void testMethodExistsInClass(Class aClass, String methodName,
-				boolean implementedMethod, Class returnType, Class... inputTypes) {
-
-			Method[] methods = aClass.getDeclaredMethods();
-
-			if (implementedMethod) {
-				assertTrue(
-						"The " + methodName + " method in class "
-								+ aClass.getName() + " should be implemented.",
-						containsMethodName(methods, methodName));
-			} else {
-				assertFalse(
-						"The "
-								+ methodName
-								+ " method in class "
-								+ aClass.getName()
-								+ " should not be implemented, only inherited from super class.",
-						containsMethodName(methods, methodName));
-				return;
-			}
-			Method m = null;
-			boolean found = true;
-			try {
-				m = aClass.getDeclaredMethod(methodName, inputTypes);
-			} catch (NoSuchMethodException e) {
-				found = false;
-			}
-			String inputsList = "";
-			for (Class inputType : inputTypes) {
-				inputsList += inputType.getSimpleName() + ", ";
-			}
-			if (inputsList.equals(""))
-				assertTrue(aClass.getName() + " class should have " + methodName
-						+ " method that takes no parameters", found);
-			else {
-				if (inputsList.charAt(inputsList.length() - 1) == ' ')
-					inputsList = inputsList.substring(0, inputsList.length() - 2);
-				assertTrue(aClass.getName() + " class should have " + methodName
-						+ " method that takes " + inputsList + " parameter(s)",
-						found);
-			}
-
-			assertTrue("incorrect return type for " + methodName + " method in "
-					+ aClass.getName() + ".", m.getReturnType().equals(returnType));
-
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		private void testMethodExistsInClassOrSuperClass(Class aClass,
-				String methodName, boolean implementedMethod, Class returnType,
-				Class... inputTypes) {
-
-			Method[] methods = aClass.getDeclaredMethods();
-			Method[] superMethods = aClass.getSuperclass().getDeclaredMethods();
-			if (implementedMethod) {
-
-				assertTrue("The method " + methodName
-						+ " should be implemented in " + aClass.getName()
-						+ " class or " + aClass.getSuperclass().getName()
-						+ " class", containsMethodName(methods, methodName)
-						|| containsMethodName(superMethods, methodName));
-			} else {
-				assertFalse(
-						"The "
-								+ methodName
-								+ " method in class "
-								+ aClass.getName()
-								+ " should not be implemented, only inherited from super class.",
-						containsMethodName(methods, methodName)
-								|| containsMethodName(superMethods, methodName));
-				return;
-			}
-			Method m = null;
-			boolean found = true;
-			try {
-				m = aClass.getDeclaredMethod(methodName, inputTypes);
-			} catch (NoSuchMethodException e) {
-				try {
-					m = aClass.getSuperclass().getDeclaredMethod(methodName,
-							inputTypes);
-				} catch (NoSuchMethodException e1) {
-					found = false;
-				}
-			}
-
-			String inputsList = "";
-			for (Class inputType : inputTypes) {
-				inputsList += inputType.getSimpleName() + ", ";
-			}
-			if (inputsList.equals(""))
-				assertTrue("The method " + methodName
-						+ " should be implemented in " + aClass.getName()
-						+ " class or " + aClass.getSuperclass().getName()
-						+ " class", found);
-			else {
-				if (inputsList.charAt(inputsList.length() - 1) == ' ')
-					inputsList = inputsList.substring(0, inputsList.length() - 2);
-				assertTrue(
-						"The method " + methodName + " implemented in "
-								+ aClass.getName() + " class or "
-								+ aClass.getSuperclass().getName()
-								+ " class, should take " + inputsList
-								+ " parameter(s)", found);
-			}
-
-			assertTrue("incorrect return type for " + methodName + " method in "
-					+ aClass.getName() + ".", m.getReturnType().equals(returnType));
-
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		private void testSetterMethodExistsInClass(Class aClass, String methodName,
-				Class<Integer> inputType, boolean writeVariable) {
-
-			Method[] methods = aClass.getDeclaredMethods();
-			String varName = methodName.substring(3).toLowerCase();
-			if (writeVariable) {
-				assertTrue("The " + varName + " instance variable in class "
-						+ aClass.getName() + " is a WRITE variable.",
-						containsMethodName(methods, methodName));
-			} else {
-				assertFalse("The " + varName + " instance variable in class "
-						+ aClass.getName() + " is a READ ONLY variable.",
-						containsMethodName(methods, methodName));
-				return;
-			}
-			Method m = null;
-			boolean found = true;
-			try {
-				m = aClass.getDeclaredMethod(methodName, inputType);
-			} catch (NoSuchMethodException e) {
-				found = false;
-			}
-
-			assertTrue(aClass.getName() + " class should have " + methodName
-					+ " method that takes one " + inputType.getSimpleName()
-					+ " parameter", found);
-
-			assertTrue("incorrect return type for " + methodName + " method in "
-					+ aClass.getName() + ".", m.getReturnType().equals(Void.TYPE));
-
-		}
-
-		private void testNoChange(Cell before, Cell after, String exception) {
-
-			assertEquals("The type of the cells should not be changed when an "
-					+ exception + " exception is thrown", before.getClass(),
-					after.getClass());
-
-			if (before instanceof ObstacleCell) {
-				assertEquals(
-						"The hp of the obstacles should not be changed when an "
-								+ exception + " exception is thrown",
-						(((ObstacleCell) before).getObstacle()).getHp(),
-						(((ObstacleCell) after).getObstacle()).getHp());
-			}
-		}
-
-		private void testNoChange(Spell before, Spell after, String champion,
-				String exception) {
-
-			assertEquals("The type of the spells of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getClass(), after.getClass());
-
-			assertEquals("The name of the spells of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getName(), after.getName());
-
-			assertEquals("The cooldown of the spells of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getCoolDown(),
-					after.getCoolDown());
-		}
-
-		private void testNoChange(Task before, Task after, String exception) {
-			assertEquals("The traitActivated flag should not be changed when an "
-					+ exception + " exception is thrown",
-					before.isTraitActivated(), after.isTraitActivated());
-			assertEquals("The allowed moves should not be changed when an "
-					+ exception + " exception is thrown", before.getAllowedMoves(),
-					after.getAllowedMoves());
-
-			assertEquals(
-					"The number of champions currently competing should not be changed when an "
-							+ exception + " exception is thrown", before
-							.getChampions().size(), after.getChampions().size());
-
-			testNoChange((Wizard) before.getCurrentChamp(),
-					(Wizard) after.getCurrentChamp(), "current champion", exception);
-
-			testNoChange((Wizard) before.getChampions().get(0), (Wizard) after
-					.getChampions().get(0), "current champion", exception);
-
-			for (int i = 1; i < before.getChampions().size(); i++)
-				testNoChange((Wizard) before.getChampions().get(i), (Wizard) after
-						.getChampions().get(i), "champion", exception);
-
-			for (int i = 0; i < 10; i++)
-				for (int j = 0; j < 10; j++)
-					testNoChange(before.getMap()[i][j], after.getMap()[i][j],
-							exception);
-
-		}
-
-		private void testNoChange(Wizard before, Wizard after, String champion,
-				String exception) {
-
-			assertEquals("The type of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getClass(), after.getClass());
-
-			assertEquals("The name of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown, check if you have shifted the turn",
-					before.getName(), after.getName());
-
-			assertEquals("The trait cooldown of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getTraitCooldown(),
-					after.getTraitCooldown());
-
-			assertEquals("The Hp of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getHp(), after.getHp());
-
-			assertEquals("The ip of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getIp(), after.getIp());
-
-			assertEquals("The row location of the " + champion
-					+ " should not be changed when an" + exception
-					+ " exception is throw", before.getLocation().x,
-					after.getLocation().x);
-
-			assertEquals("The column location of the " + champion
-					+ " should not be changed when an exception is throw",
-					before.getLocation().y, after.getLocation().y);
-
-			assertEquals("The number of spells of the " + champion
-					+ " should not be changed when an " + exception
-					+ " exception is thrown", before.getSpells().size(), after
-					.getSpells().size());
-
-			for (int i = 0; i < before.getSpells().size(); i++)
-				testNoChange(before.getSpells().get(i), after.getSpells().get(i),
-						champion, exception);
-
-			assertEquals("The number of collectibles in the inventory of the "
-					+ champion + " should not be changed when an " + exception
-					+ " exception is thrown", before.getInventory().size(), after
-					.getInventory().size());
-
-		}
 
 }

@@ -256,7 +256,7 @@ public abstract class Task implements WizardListener  {
 
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
 		{
-			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
 		}
 		if((temp = s.getCoolDown()) != 0)
 		{
@@ -582,7 +582,7 @@ public abstract class Task implements WizardListener  {
 		
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
 		{
-			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
 		}
 		int temp;
 		if((temp = s.getCoolDown()) != 0)
@@ -677,7 +677,7 @@ public abstract class Task implements WizardListener  {
 
 		if (s.getCost() > ((Wizard)currentChamp).getIp())
 		{
-			throw new NotEnoughIPException(s.getCost(), ((Wizard)currentChamp).getIp());
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
 		}
 		if(s.getCoolDown() != 0)
 		{

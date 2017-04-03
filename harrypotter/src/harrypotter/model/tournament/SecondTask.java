@@ -181,7 +181,7 @@ public class SecondTask extends Task {
 			p.translate(-1, 0);
 			//checking if it is possible to move
 			if (pp.x>0){
-				if (getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					//changing ip after collecting the collectible
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
@@ -203,12 +203,10 @@ public class SecondTask extends Task {
 						}	
 						endTurn();
 					}
-					else if (getMap()[p.x][p.y] instanceof EmptyCell){
-						//changing map cell type
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
 						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 						getMap()[oldP.x][oldP.y]= new EmptyCell();
 						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
-						//changing champs location
 						((Wizard)getCurrentChamp()).setLocation(p);
 					}
 					
@@ -229,7 +227,7 @@ public class SecondTask extends Task {
 			Point p=new Point(pp);
 			p.translate(1, 0);
 			if (pp.x<9){
-				if (getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
 						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
@@ -249,7 +247,7 @@ public class SecondTask extends Task {
 						}	
 						endTurn();
 					}
-					else if (getMap()[p.x][p.y] instanceof EmptyCell){
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
 						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 						getMap()[oldP.x][oldP.y]= new EmptyCell();
 						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
@@ -274,7 +272,7 @@ public class SecondTask extends Task {
 			Point p=new Point(pp);
 			p.translate(0, -1);
 			if (pp.y>0){
-				if (getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
 						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
@@ -294,7 +292,7 @@ public class SecondTask extends Task {
 						}	
 						endTurn();
 					}
-					else if (getMap()[p.x][p.y] instanceof EmptyCell){
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
 						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 						getMap()[oldP.x][oldP.y]= new EmptyCell();
 						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
@@ -318,7 +316,7 @@ public class SecondTask extends Task {
 			Point p=new Point(pp);
 			p.translate(0, 1);
 			if (pp.y<9){
-				if (getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
 						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
@@ -338,7 +336,7 @@ public class SecondTask extends Task {
 						}	
 						endTurn();
 					}
-					else if (getMap()[p.x][p.y] instanceof EmptyCell){
+					if (getMap()[p.x][p.y] instanceof EmptyCell){
 						Point oldP= ((Wizard)getCurrentChamp()).getLocation();
 						getMap()[oldP.x][oldP.y]= new EmptyCell();
 						getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
