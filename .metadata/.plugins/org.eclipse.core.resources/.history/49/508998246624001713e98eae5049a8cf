@@ -1,0 +1,30 @@
+package harrypotter.view;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.*;
+ 
+
+public class StartMenuView extends JFrame{
+	
+	private JPanel left; // right portion of the screen 
+	private JPanel middle;
+	private JPanel right;
+
+	public StartMenuView()
+	{
+		this.setTitle("HarryPotter");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(50,50,1200,600);
+		setVisible(true);
+	
+
+		
+	}
+
+	public static void main(String[] args)
+	{
+		 new StartMenuView();
+	}
+}

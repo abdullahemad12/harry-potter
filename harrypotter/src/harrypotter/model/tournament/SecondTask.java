@@ -10,7 +10,6 @@ import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 import harrypotter.model.world.Merperson;
 import harrypotter.model.world.ObstacleCell;
-import harrypotter.model.world.WallCell;
 import harrypotter.exceptions.*;
 import harrypotter.model.world.TreasureCell;
 
