@@ -1,0 +1,35 @@
+package harrypotter.view;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import java.awt.*;
+ 
+
+public class StartMenuGUI extends JFrame{
+	private JComboBox player1;
+	private JComboBox player2;
+	private JComboBox player3;
+	private JComboBox player4;
+	private JComboBox spells1;
+	private JComboBox spells2;
+	private JComboBox spells3;
+	private JComboBox spells4;
+
+	public StartMenuGUI()
+	{
+		this.setTitle("HarryPotter");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(50,50,1200,600);
+		setVisible(true);
+		player1 = new JComboBox();
+		player2 = new JComboBox();
+		player3 = new JComboBox();
+		player4 = new JComboBox();
+		
+		
+	}
+
+	public static void main(String[] args)
+	{
+		 new StartMenuGUI();
+	}
+}
