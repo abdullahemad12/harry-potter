@@ -32,7 +32,7 @@ public class StartMenuView extends JFrame{
 		Champions.add(hufflepuf);
 		Champions.add(ravenclaw);
 		Champions.add(slytherin);
-		
+		name = new JTextField();
 		// setting the left panel
 		left = new JPanel();
 		add(left, BorderLayout.WEST);
@@ -45,10 +45,9 @@ public class StartMenuView extends JFrame{
 		
 		
 		middle = new JPanel();
-		name = new JTextField();
 		middle.setBackground(Color.BLUE);
 		middle.setPreferredSize(new Dimension(400,600));
-		middle.add(name);
+		//middle.add(name);
 		add(middle, BorderLayout.CENTER);
 		
 		right = new JPanel();

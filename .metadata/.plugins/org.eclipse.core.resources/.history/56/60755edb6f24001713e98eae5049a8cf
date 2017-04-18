@@ -46,8 +46,10 @@ public class StartMenuView extends JFrame{
 		
 		middle = new JPanel();
 		name = new JTextField();
+		
+		
 		middle.setBackground(Color.BLUE);
-		middle.setPreferredSize(new Dimension(400,600));
+		//middle.setPreferredSize(new Dimension(400,600));
 		middle.add(name);
 		add(middle, BorderLayout.CENTER);
 		
