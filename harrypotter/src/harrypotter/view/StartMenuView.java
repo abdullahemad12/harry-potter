@@ -2,6 +2,7 @@ package harrypotter.view;
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.ArrayList;
  
 
 public class StartMenuView extends JFrame{
@@ -10,17 +11,19 @@ public class StartMenuView extends JFrame{
 	private JPanel middle;// middle portion of the screen 
 	private JPanel right;// right portion of the screen 
 	private ButtonGroup Champions; // all champions 
-	private ButtonGroup Spells; // all available spells   
 	private JTextField name; // name of the player
+	private ArrayList<JCheckBox> spell;
+	private int currentChamp; // counter of the number of champions 
 	public StartMenuView()
 	{
+		spell = new ArrayList<JCheckBox>();
 		this.setTitle("HarryPotter");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(50,50,1200,600);
-		setVisible(true);
-	
+		
 		// sets the radio buttons of the champions
 		Champions = new ButtonGroup();
+		
 		
 		JRadioButton gryffindor = new JRadioButton("Gryffindor Wizard");
 		JRadioButton hufflepuf = new JRadioButton("Hufflepuff Wizard");
@@ -45,10 +48,11 @@ public class StartMenuView extends JFrame{
 		
 		
 		middle = new JPanel();
-		name = new JTextField();
+		name = new JTextField("Enter Your Name", 10);
 		middle.setBackground(Color.BLUE);
 		middle.setPreferredSize(new Dimension(400,600));
 		middle.add(name);
+		//middle.add(name);
 		add(middle, BorderLayout.CENTER);
 		
 		right = new JPanel();
@@ -57,9 +61,15 @@ public class StartMenuView extends JFrame{
 		right.setPreferredSize(new Dimension(400,600));
 		
 	}
+	
+	public void addSpell(JCheckBox cb)
+	{
+		spell.add(cb);
+		right.add(cb);
+	}
 
-	public static void main(String[] args)
+	/*public static void main(String[] args)
 	{
 		 new StartMenuView();
-	}
+	}*/
 }

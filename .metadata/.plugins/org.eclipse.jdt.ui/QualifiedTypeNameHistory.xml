@@ -12,4 +12,15 @@
 <fullyQualifiedTypeName name="harrypotter.model.world.CupCell"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
+<fullyQualifiedTypeName name="harrypotter.view.StartMenuView"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="harrypotter.controller.HarrypotterGUI"/>
+<fullyQualifiedTypeName name="java.awt.Checkbox"/>
+<fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
 </qualifiedTypeNameHistroy>
