@@ -1,0 +1,13 @@
+package harrypotter.controller;
+
+import harrypotter.model.tournament.*;
+
+public class HarrypotterGUI {
+	private Tournament tournament; 
+	
+	public HarrypotterGUI()
+	{
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package harrypotter.controller;
+
+import harrypotter.model.tournament.*;
+import harrypotter.view.StartMenuView;
+
+public class HarrypotterGUI {
+	private Tournament tournament; 
+	private StartMenuView startmenuview;
+	public HarrypotterGUI() throws Exception
+	{
+		tournament = new Tournament();
+		startmenuview = new StartMenuView();
+	}
+
+}
