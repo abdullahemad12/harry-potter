@@ -9038,3 +9038,6 @@ java.lang.ArrayIndexOutOfBoundsException: 1034
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
 >>>>>>> 035657b7930d132d11f3852719aca4f5c36a0992
+
+!ENTRY org.eclipse.equinox.ds 1 0 2017-04-18 22:00:01.309
+!MESSAGE Could not bind a reference of component org.eclipse.fx.ide.css.cssext.ui.internal.DefaultCssExtProvider. The reference is: Reference[name = ICSSExtModelProvider, interface = org.eclipse.fx.ide.css.cssext.ICSSExtModelProvider, policy = dynamic, cardinality = 0..n, target = null, bind = bindCssExtensionModelProvider, unbind = unbindCssExtensionModelProvider]
