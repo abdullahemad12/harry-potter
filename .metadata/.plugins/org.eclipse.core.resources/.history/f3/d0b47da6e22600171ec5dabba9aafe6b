@@ -40,7 +40,6 @@ public class Task1view  extends JFrame {
 		leftDownPan = new JPanel();
 		rightPan = new JPanel();
 		leftPan = new JPanel();
-		spells=new JComboBox();
 		
 		//setting panels size
 		rightPan.setPreferredSize(new Dimension(getWidth()-300, getHeight()));

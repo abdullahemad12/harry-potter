@@ -108,17 +108,14 @@ public class Task1GUI implements ActionListener {
 		Task1view.addtextLU(((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getName());
 		Task1view.addtextLU(((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getName());
 		
-		Task1view.addtextLU("Cost: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(0)).getCost());
-		Task1view.addtextLU("Cost: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getCost());
-		Task1view.addtextLU("Cost: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getCost());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(0)).getCost());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getCost());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getCost());
 		
-		Task1view.addtextLU("Cool Down: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(0)).getCoolDown());
-		Task1view.addtextLU("Cool Down: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getCoolDown());
-		Task1view.addtextLU("Cool Down: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getCoolDown());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(0)).getCoolDown());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getCoolDown());
+		Task1view.addtextLU(""+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getCoolDown());
 		
-		
-		Task1view.setVisible(true);
-	
 	}
 
 	@Override

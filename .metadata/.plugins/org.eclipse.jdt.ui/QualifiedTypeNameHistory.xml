@@ -18,9 +18,16 @@
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
 <fullyQualifiedTypeName name="harrypotter.view.StartMenuView"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="harrypotter.controller.HarrypotterGUI"/>
 <fullyQualifiedTypeName name="java.awt.Checkbox"/>
 <fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.view.Task1view"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 </qualifiedTypeNameHistroy>

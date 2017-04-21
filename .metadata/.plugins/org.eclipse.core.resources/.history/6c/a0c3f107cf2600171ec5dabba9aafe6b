@@ -80,7 +80,7 @@ public class HarrypotterGUI implements ActionListener {
 		startmenu2.setVisible(true);
 	}
 	
-	public void actionPerformed(ActionEvent e) 
+	public void actionPerformed(ActionEvent e) throws IOException
 	{
 		// names of the four champions 
 		String name1 = startmenu2.getName1();
@@ -120,12 +120,7 @@ public class HarrypotterGUI implements ActionListener {
 		}
 		
 		startmenu2.setVisible(false);
-		try {
-			tournament.beginTournament();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		tournament.beginTournament();
 		new Task1GUI(this.tournament);
 		
 	}

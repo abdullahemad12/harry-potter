@@ -116,9 +116,6 @@ public class Task1GUI implements ActionListener {
 		Task1view.addtextLU("Cool Down: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(1)).getCoolDown());
 		Task1view.addtextLU("Cool Down: "+((Spell)((Wizard)(tournament.getFirstTask().getCurrentChamp())).getSpells().get(2)).getCoolDown());
 		
-		
-		Task1view.setVisible(true);
-	
 	}
 
 	@Override

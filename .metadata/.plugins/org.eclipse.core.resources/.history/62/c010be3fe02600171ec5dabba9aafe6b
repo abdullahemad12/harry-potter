@@ -40,7 +40,6 @@ public class Task1view  extends JFrame {
 		leftDownPan = new JPanel();
 		rightPan = new JPanel();
 		leftPan = new JPanel();
-		spells=new JComboBox();
 		
 		//setting panels size
 		rightPan.setPreferredSize(new Dimension(getWidth()-300, getHeight()));
@@ -48,8 +47,6 @@ public class Task1view  extends JFrame {
 		
 		leftPan.setLayout(new GridLayout(0,1));
 		leftUpPan.setLayout(new GridLayout(0,3));
-		leftDownPan.setLayout(new GridLayout(0,3));
-		
 		
 		//adding the panel
 		add(leftPan, BorderLayout.WEST);
@@ -69,21 +66,7 @@ public class Task1view  extends JFrame {
 		UseTrait = new JButton("Use Trait");
 		UseSpell = new JButton("Use Spell");
 		
-		spells.addItem("Spell 1");
-		spells.addItem("Spell 2");
-		spells.addItem("Spell 3");
-		
-		leftDownPan.add(new JLabel(""));
-		leftDownPan.add(Up);
-		leftDownPan.add(new JLabel(""));
-		leftDownPan.add(Left);
-		leftDownPan.add(Down);
-		leftDownPan.add(Right);
-		leftDownPan.add(UseSpell);
-		leftDownPan.add(spells);
-		leftDownPan.add(UseTrait);
-		
-		
+		spells.add("Spell 1");
 	}
 	
 	public void addtextLU(String x){
