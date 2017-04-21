@@ -118,7 +118,15 @@ public class HarrypotterGUI implements ActionListener {
 			tournament.addChampion(player[i]);
 		}
 		
-		
+		for(Champion champ : tournament.getChampions())
+		{
+			Wizard wiz = (Wizard) champ;
+			System.out.print(wiz.getName() + "\n");
+			for(Spell spell : wiz.getSpells())
+			{
+				System.out.print("Spell :" + spell.getName() + "\n");
+			}
+		}
 		
 	}
 	

@@ -118,8 +118,6 @@ public class HarrypotterGUI implements ActionListener {
 			tournament.addChampion(player[i]);
 		}
 		
-		
-		
 	}
 	
 	/*
