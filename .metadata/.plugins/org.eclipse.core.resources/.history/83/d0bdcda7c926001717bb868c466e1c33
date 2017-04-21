@@ -118,8 +118,7 @@ public class HarrypotterGUI implements ActionListener {
 			tournament.addChampion(player[i]);
 		}
 		
-		startmenu2.setVisible(false);
-		new Task1GUI(this.tournament);
+		
 		
 	}
 	
