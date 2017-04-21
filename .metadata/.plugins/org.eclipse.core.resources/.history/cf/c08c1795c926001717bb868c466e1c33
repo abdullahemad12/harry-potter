@@ -1,0 +1,16 @@
+package harrypotter.controller;
+
+import harrypotter.model.tournament.Tournament;
+
+public class Task1GUI implements ActionListener {
+	
+	private Tournament tournament;
+	
+	public Task1GUI(Tournament tournament)
+	{
+		this.tournament = new tournament
+	}
+	
+	
+
+}
