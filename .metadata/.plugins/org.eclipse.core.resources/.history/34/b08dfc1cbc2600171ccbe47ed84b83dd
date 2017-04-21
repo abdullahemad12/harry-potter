@@ -129,7 +129,7 @@ public class Startmenu2 extends JFrame {
 		championsPan.add(ravenclaw1);championsPan.add(ravenclaw2);championsPan.add(ravenclaw3);championsPan.add(ravenclaw4);
 		championsPan.add(slytherin1);championsPan.add(slytherin2);championsPan.add(slytherin3);championsPan.add(slytherin4);
 		
-		//championsPan.add(new JLabel(""));
+		championsPan.add(new JLabel(""));
 		
 		championsPan.add(new JLabel("Choose Spells"));
 		championsPan.add(new JLabel("Choose Spells"));
