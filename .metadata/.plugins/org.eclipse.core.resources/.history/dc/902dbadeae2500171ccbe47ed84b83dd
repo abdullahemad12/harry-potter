@@ -1,0 +1,49 @@
+package harrypotter.view;
+
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Startmenu2 extends JFrame {
+	
+	private JTextField name1;
+	private JTextField name2;
+	private JTextField name3;
+	private JTextField name4;
+	
+	public Startmenu2(){
+		
+		this.setTitle("HarryPotter");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(50,50,1200,600);
+		
+		setLayout(new GridLayout(0,4));
+		add(new JLabel("Player 1"));
+		add(new JLabel("Player 2"));
+		add(new JLabel("Player 3"));
+		add(new JLabel("Player 4"));
+		add(new JLabel("Enter name"));
+		add(new JLabel("Enter name"));
+		add(new JLabel("Enter name"));
+		add(new JLabel("Enter name"));
+		
+		name1 = new JTextField();
+		add(name1);
+		name2 = new JTextField();
+		add(name2);
+		name3 = new JTextField();
+		add(name3);
+		name4 = new JTextField();
+		add(name4);
+		
+		setVisible(true);
+	}
+	
+	public static void main(String[] args)
+	{
+		 new Startmenu2();
+	}
+
+}
