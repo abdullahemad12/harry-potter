@@ -34,5 +34,9 @@ public abstract class Spell {
 	public void setCoolDown(int coolDown){
 		this.coolDown= coolDown;
 	}
+	public String toString()
+	{
+		return this.name;
+	}
 
 }

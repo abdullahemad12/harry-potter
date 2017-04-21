@@ -141,6 +141,14 @@ abstract public class Wizard implements Champion  {
 		this.traitCooldown=traitCooldown;
 	}
 	
+	/**
+	 * @param spells the spells to set
+	 */
+	public void setSpells(ArrayList<Spell> spells) {
+		this.spells = spells;
+	}
+	
+	
 	/*
 	 * @return the listener
 	 */

@@ -1,35 +1,48 @@
 package harrypotter.view;
 
+import harrypotter.model.magic.Spell;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 
 public class Startmenu2 extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public JPanel championsPan;
 	private JPanel startPan;
 	
 	private JTextField name1;
 	private JTextField name2;
 	private JTextField name3;
+	
 	private JTextField name4;
 	
 	private ButtonGroup Champions1;
 	private ButtonGroup Champions2;
 	private ButtonGroup Champions3;
 	private ButtonGroup Champions4;
+	
+	private ArrayList<JComboBox<Spell>> spells;
 	
 	private JButton startBtn;
 	
@@ -38,7 +51,7 @@ public class Startmenu2 extends JFrame {
 	public Startmenu2(){
 		
 		spell = new ArrayList<JCheckBox>();
-		
+		spells = new ArrayList<JComboBox<Spell>>();
 		this.setTitle("HarryPotter");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(50,50,1200,600);
@@ -73,7 +86,7 @@ public class Startmenu2 extends JFrame {
 		
 		Champions1 = new ButtonGroup();
 		
-		JRadioButton gryffindor1 = new JRadioButton("Gryffindor Wizard");
+		JRadioButton gryffindor1 = new JRadioButton("Gryffindor Wizard", true);
 		JRadioButton hufflepuf1 = new JRadioButton("Hufflepuff Wizard");
 		JRadioButton ravenclaw1 = new JRadioButton("Ravenclaw Wizard");
 		JRadioButton slytherin1 = new JRadioButton("Slytherin Wizard");
@@ -84,7 +97,7 @@ public class Startmenu2 extends JFrame {
 		
 		Champions2 = new ButtonGroup();
 		
-		JRadioButton gryffindor2 = new JRadioButton("Gryffindor Wizard");
+		JRadioButton gryffindor2 = new JRadioButton("Gryffindor Wizard", true);
 		JRadioButton hufflepuf2 = new JRadioButton("Hufflepuff Wizard");
 		JRadioButton ravenclaw2 = new JRadioButton("Ravenclaw Wizard");
 		JRadioButton slytherin2 = new JRadioButton("Slytherin Wizard");
@@ -96,7 +109,7 @@ public class Startmenu2 extends JFrame {
 		
 		Champions3 = new ButtonGroup();
 		
-		JRadioButton gryffindor3 = new JRadioButton("Gryffindor Wizard");
+		JRadioButton gryffindor3 = new JRadioButton("Gryffindor Wizard", true);
 		JRadioButton hufflepuf3 = new JRadioButton("Hufflepuff Wizard");
 		JRadioButton ravenclaw3 = new JRadioButton("Ravenclaw Wizard");
 		JRadioButton slytherin3 = new JRadioButton("Slytherin Wizard");
@@ -107,10 +120,11 @@ public class Startmenu2 extends JFrame {
 		
 		Champions4 = new ButtonGroup();
 		
-		JRadioButton gryffindor4 = new JRadioButton("Gryffindor Wizard");
+		JRadioButton gryffindor4 = new JRadioButton("Gryffindor Wizard", true);
 		JRadioButton hufflepuf4 = new JRadioButton("Hufflepuff Wizard");
 		JRadioButton ravenclaw4 = new JRadioButton("Ravenclaw Wizard");
 		JRadioButton slytherin4 = new JRadioButton("Slytherin Wizard");
+		
 		Champions4.add(gryffindor4);
 		Champions4.add(hufflepuf4);
 		Champions4.add(ravenclaw4);
@@ -146,6 +160,173 @@ public class Startmenu2 extends JFrame {
 		
 		//setVisible(true);
 	}
+	
+	
+	/**
+	 * @return the name1
+	 */
+	public String getName1() {
+		if(name1.getText() == "")
+		{
+			return "player 1";
+		}
+		return name1.getText();
+	}
+
+
+
+	/**
+	 * @return the name2
+	 */
+	public String getName2() {
+		if(name2.getText() == "")
+		{
+			return "player 2";
+		}
+		return name2.getText();
+	}
+
+
+
+	/**
+	 * @return the name3
+	 */
+	public String getName3() {
+		if(name3.getText() == "")
+		{
+			return "player 3";
+		}
+		return name3.getText();
+	}
+
+
+
+	/**
+	 * @return the name4
+	 */
+	public String getName4() {
+		if(name4.getText() == "")
+		{
+			return "player 4";
+		}
+		return name4.getText();	
+	}
+	
+
+	/**
+	 * @return the champions1
+	 */
+	public String getChampions1() {
+		
+		// iterates over the enumartion
+		Enumeration<AbstractButton> champs = Champions1.getElements();
+		// will return the name of the selected champ
+		while(champs.hasMoreElements())
+		{
+			AbstractButton button = (AbstractButton)champs.nextElement();
+			
+			// if the current button was selected
+			if(button.isSelected())
+			{
+				return button.getText();
+			}
+		}
+		
+		//default is Slytherin Wizard
+		return "default";
+	}
+
+
+	/**
+	 * @return the champions2
+	 */
+	public String getChampions2() {
+
+		// iterates over the enumartion
+		Enumeration<AbstractButton> champs = Champions2.getElements();
+		// will return the name of the selected champ
+		while(champs.hasMoreElements())
+		{
+			AbstractButton button = (AbstractButton)champs.nextElement();
+			
+			// if the current button was selected
+			if(button.isSelected())
+			{
+				return button.getText();
+			}
+		}
+		
+		//default is Slytherin Wizard
+		return "default";
+	}
+
+
+	/**
+	 * @return the champions3
+	 */
+	public String getChampions3() {
+
+		// iterates over the enumartion
+		Enumeration<AbstractButton> champs = Champions3.getElements();
+		// will return the name of the selected champ
+		while(champs.hasMoreElements())
+		{
+			AbstractButton button = (AbstractButton)champs.nextElement();
+			
+			// if the current button was selected
+			if(button.isSelected())
+			{
+				return button.getText();
+			}
+		}
+		
+		//default is Slytherin Wizard
+		return "default";
+	}
+
+
+	/**
+	 * @return the champions4
+	 */
+	public String getChampions4() {
+
+		// iterates over the enumartion
+		Enumeration<AbstractButton> champs = Champions4.getElements();
+		// will return the name of the selected champ
+		while(champs.hasMoreElements())
+		{
+			AbstractButton button = (AbstractButton)champs.nextElement();
+			
+			// if the current button was selected
+			if(button.isSelected())
+			{
+				return button.getText();
+			}
+		}
+		
+		//default is Slytherin Wizard
+		return "default";
+	}
+	
+	public JButton getButton()
+	{
+		return startBtn;
+		
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void setSpells(JComboBox combo)
+	{
+		spells.add(combo);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Spell getSpell(int i)
+	{
+		JComboBox box = spells.get(i);
+		return (Spell)box.getSelectedItem();
+	}
+
 	
 //	public void addSpell(JCheckBox cb)
 //	{
