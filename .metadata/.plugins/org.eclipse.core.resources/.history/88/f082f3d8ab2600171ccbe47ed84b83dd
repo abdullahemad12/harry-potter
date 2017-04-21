@@ -62,13 +62,13 @@ public class Startmenu2 extends JFrame {
 		championsPan.add(new JLabel("Enter name"));
 		championsPan.add(new JLabel("Enter name"));
 		
-		name1 = new JTextField("Player 1");
+		name1 = new JTextField();
 		championsPan.add(name1);
-		name2 = new JTextField("Player 2");
+		name2 = new JTextField();
 		championsPan.add(name2);
-		name3 = new JTextField("Player 3");
+		name3 = new JTextField();
 		championsPan.add(name3);
-		name4 = new JTextField("Player 4");
+		name4 = new JTextField();
 		championsPan.add(name4);
 		
 		Champions1 = new ButtonGroup();
@@ -141,8 +141,8 @@ public class Startmenu2 extends JFrame {
 		
 		//setContentPane(new JLabel(new ImageIcon("C:\\Users\\youssef\\Desktop\\guc\\Semester 4\\Computer Programming\\harry-potter\\harrypotter\\src\\startm.jpg")));
 		//setForeground(new ImageIcon("C:\\Users\\youssef\\Desktop\\guc\\Semester 4\\Computer Programming\\harry-potter\\harrypotter\\src\\startm.jpg"));
-//		startPan.setBackground(Color.black);
-//		championsPan.setBackground(Color.black);
+		//startPan.setBackground(Color.GREEN);
+		//championsPan.setBackground(Color.GREEN);
 		
 		//setVisible(true);
 	}

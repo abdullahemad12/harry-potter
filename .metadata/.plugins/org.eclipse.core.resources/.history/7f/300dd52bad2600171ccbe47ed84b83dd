@@ -141,8 +141,8 @@ public class Startmenu2 extends JFrame {
 		
 		//setContentPane(new JLabel(new ImageIcon("C:\\Users\\youssef\\Desktop\\guc\\Semester 4\\Computer Programming\\harry-potter\\harrypotter\\src\\startm.jpg")));
 		//setForeground(new ImageIcon("C:\\Users\\youssef\\Desktop\\guc\\Semester 4\\Computer Programming\\harry-potter\\harrypotter\\src\\startm.jpg"));
-//		startPan.setBackground(Color.black);
-//		championsPan.setBackground(Color.black);
+		startPan.setBackground(Color.GREEN);
+		championsPan.setBackground(Color.GREEN);
 		
 		//setVisible(true);
 	}
