@@ -48,6 +48,10 @@ public class StartMenuView extends JFrame{
 		
 		
 		middle = new JPanel();
+		name = new JTextField();
+		middle.add(name);
+		middle.setBackground(Color.BLUE);
+		middle.setPreferredSize(new Dimension(400,600));
 		name = new JTextField("Enter Your Name", 10);
 		middle.setBackground(Color.BLUE);
 		middle.setPreferredSize(new Dimension(400,600));
@@ -66,6 +70,9 @@ public class StartMenuView extends JFrame{
 	{
 		spell.add(cb);
 		right.add(cb);
+		//middle.add(cb);
+		//left.add(cb);
+		
 	}
 
 	/*public static void main(String[] args)

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="321" key="DIALOG_X_ORIGIN"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
-	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="526" key="dialogHeight"/>
 		<item value="1025" key="dialogWidth"/>
@@ -27,8 +23,6 @@
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
-	</section>
-	<section name="ZipFileImportWizard">
 	</section>
 	<section name="ZipFileExportWizard">
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>

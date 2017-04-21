@@ -1,0 +1,37 @@
+package harrypotter.controller;
+
+import java.awt.Checkbox;
+import java.util.ArrayList;
+
+import javax.swing.JCheckBox;
+
+import harrypotter.model.magic.Spell;
+import harrypotter.model.tournament.*;
+import harrypotter.view.StartMenuView;
+import harrypotter.view.Startmenu2;
+
+public class HarrypotterGUI {
+	private Tournament tournament; 
+	private Startmenu2 startmenu2;
+	public HarrypotterGUI() throws Exception
+	{
+		tournament = new Tournament();
+		startmenu2 = new Startmenu2();
+		
+		ArrayList<Spell> spells = tournament.getSpells();
+		
+		for(Spell spell : spells)
+		{
+			String name = spell.getName();
+			JCheckBox cspell = new JCheckBox(name);
+			startmenu2.addSpell(cspell);
+			
+		}
+		
+		startmenu2.setVisible(true);
+	}
+	public static void main(String[] args) throws Exception
+	{
+		new HarrypotterGUI();
+	}
+}
