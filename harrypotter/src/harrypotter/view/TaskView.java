@@ -7,12 +7,19 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+
+import codeproject.jimagecomponent.javax.swing.JImageComponent;
+import codeproject.jimagecomponent.javax.swing.JImagePanel;
 
 abstract public class TaskView  extends JFrame{
 	/**
@@ -21,7 +28,7 @@ abstract public class TaskView  extends JFrame{
 	private static final long serialVersionUID = 5369493443035581134L;
 	private JPanel leftUpPan;//champs panel
 	private JPanel leftDownPan;// controls panel
-	private JPanel rightPan;// map panel "Main Pannel right"
+	private JImagePanel rightPan;// map panel "Main Pannel right"
 	private JPanel leftPan;// panel containing left up and down "Main Pannel Left"
 	
 	private JButton Up;
@@ -41,11 +48,16 @@ abstract public class TaskView  extends JFrame{
 	private JLabel traitactivated; // trait activated flag of the current champion
 	private JLabel remainingmoves; // remaining moves of the current champion
 	private JLabel spellName; // the name of the selected spell 
-	private JLabel spellCost; // the cost of the selected spell
+	private JLabel spellCost; // tbtnTest.setIcon(new ImageIcon("IMAGE PATH"));he cost of the selected spell
 	private JLabel spellcooldown; // the cooldown of the selected spell
 	private JLabel spelltype; // the type of the selected spell (Healing, damaging)
 	
+	private JImageComponent[][] map; // 
 	
+	public JImageComponent[][] getMap()
+	{
+		return map;
+	}
 	public JComboBox<Spell> getSpells()
 	{
 		return spells;
@@ -110,15 +122,17 @@ abstract public class TaskView  extends JFrame{
 		// creating instances of the pannels 
 		leftUpPan = new JPanel();
 		leftDownPan = new JPanel();
-		rightPan = new JPanel();
+		rightPan = new JImagePanel("img/background.jpg",getWidth()-405, getHeight());
 		leftPan = new JPanel();
 		spells=new JComboBox<Spell>();
 		//setting panels size
-		rightPan.setPreferredSize(new Dimension(getWidth()-300, getHeight()));
 		leftPan.setPreferredSize(new Dimension(400, getHeight()));	
 		leftPan.setLayout(new GridLayout(0,1));
 		leftUpPan.setLayout(new GridLayout(0,3));
-		leftDownPan.setLayout(new GridLayout(0,3));	
+		leftDownPan.setLayout(new GridLayout(0,3));
+		
+		// map will be a grid 10x10
+		rightPan.setLayout(new GridLayout(10,10));
 		//adding the panel
 		add(leftPan, BorderLayout.WEST);
 		add(rightPan, BorderLayout.EAST);
@@ -129,7 +143,7 @@ abstract public class TaskView  extends JFrame{
 		// setting the backgroung
 		leftUpPan.setBackground(Color.RED);
 		leftDownPan.setBackground(Color.BLUE);
-		rightPan.setBackground(Color.GREEN);
+
 		
 		// Setting the buttons 
 		Up = new JButton("UP");
@@ -212,8 +226,25 @@ abstract public class TaskView  extends JFrame{
 		addtextLU();
 		addtextLU(spelltype);
 		
+		setMap();
 		
+	}
+	
+	
+	// initializes and sets all the image components
+	protected void setMap()
+	{
+		map = new JImageComponent[10][10];
 		
+		for(int i = 0; i < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				map[i][j] = new JImageComponent();
+				rightPan.add(map[i][j]);
+			}
+			
+		}
 	}
 	
 	/*
