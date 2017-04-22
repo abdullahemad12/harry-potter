@@ -13,14 +13,22 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
 <fullyQualifiedTypeName name="harrypotter.view.StartMenuView"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="harrypotter.controller.HarrypotterGUI"/>
 <fullyQualifiedTypeName name="java.awt.Checkbox"/>
 <fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicBorders.RadioButtonBorder"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="javax.swing.AbstractButton"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 </qualifiedTypeNameHistroy>
