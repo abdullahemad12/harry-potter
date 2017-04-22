@@ -20,6 +20,7 @@
 <fullyQualifiedTypeName name="harrypotter.controller.HarrypotterGUI"/>
 <fullyQualifiedTypeName name="java.awt.Checkbox"/>
 <fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
 <fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicBorders.RadioButtonBorder"/>
@@ -31,4 +32,14 @@
 <fullyQualifiedTypeName name="javax.swing.AbstractButton"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.Tournament"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+=======
+<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.RelocatingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.view.Task1view"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+>>>>>>> d430b84903593708fd17dacc0eb1712319563dcd
 </qualifiedTypeNameHistroy>

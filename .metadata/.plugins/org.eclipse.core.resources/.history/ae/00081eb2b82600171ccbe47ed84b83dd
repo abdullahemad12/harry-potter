@@ -1,0 +1,51 @@
+package harrypotter.view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Task1view  extends JFrame {
+	
+	private JPanel leftUpPan;
+	private JPanel leftDownPan;
+	private JPanel rightPan;
+	private JPanel leftPan;
+	
+	public Task1view(){
+		
+		this.setTitle("HarryPotter");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(50,50,1200,600);
+		
+		leftUpPan = new JPanel();
+		leftDownPan = new JPanel();
+		rightPan = new JPanel();
+		leftPan = new JPanel();
+		rightPan.setPreferredSize(new Dimension(getWidth()-300, getHeight()));
+		leftPan.setPreferredSize(new Dimension(300, getHeight()));
+		
+		leftPan.setLayout(new GridLayout(0,1));
+		
+		add(leftPan, BorderLayout.WEST);
+		add(rightPan, BorderLayout.EAST);
+		
+		leftPan.add(leftUpPan);
+		leftPan.add(leftDownPan);
+		
+		leftUpPan.setBackground(Color.RED);
+		leftDownPan.setBackground(Color.BLUE);
+		rightPan.setBackground(Color.GREEN);
+		
+		setVisible(true);
+	}
+	
+	public static void main(String[] args)
+	{
+		 new Task1view();
+	}
+
+}

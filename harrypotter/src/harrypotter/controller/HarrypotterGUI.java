@@ -3,6 +3,7 @@ package harrypotter.controller;
 import java.awt.Checkbox;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
@@ -79,7 +80,7 @@ public class HarrypotterGUI implements ActionListener {
 		startmenu2.setVisible(true);
 	}
 	
-	public void actionPerformed(ActionEvent e)
+	public void actionPerformed(ActionEvent e) 
 	{
 		// names of the four champions 
 		String name1 = startmenu2.getName1();
@@ -119,6 +120,12 @@ public class HarrypotterGUI implements ActionListener {
 		}
 		
 		startmenu2.setVisible(false);
+		try {
+			tournament.beginTournament();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		new Task1GUI(this.tournament);
 		
 	}

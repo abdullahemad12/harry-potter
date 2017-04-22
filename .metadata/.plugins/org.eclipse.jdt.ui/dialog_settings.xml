@@ -7,6 +7,7 @@
 		<item value="1" key="rootMode"/>
 		<item value="false" key="linkWithEditor"/>
 	</section>
+<<<<<<< HEAD
 	<section name="SourceActionDialog.methods">
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="true" key="Comments"/>
@@ -16,6 +17,10 @@
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
 		<item value="false" key="create_main"/>
+=======
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+>>>>>>> d430b84903593708fd17dacc0eb1712319563dcd
 		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
