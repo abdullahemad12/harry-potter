@@ -1,0 +1,110 @@
+package harrypotter.view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+abstract public class TaskView  extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5369493443035581134L;
+	private JPanel leftUpPan;//champs panel
+	private JPanel leftDownPan;// controls panel
+	private JPanel rightPan;// map panel "Main Pannel right"
+	private JPanel leftPan;// panel containing left up and down "Main Pannel Left"
+	
+	private JButton Up;
+	private JButton Down;
+	private JButton Left;
+	private JButton Right;
+	private JButton UseTrait;
+	private JButton UseSpell;
+	private JLabel SpellTitle; // title will be basically 'spell'
+	private JLabel spellName; // the name of the selected spell 
+	private JLabel spellCost; // the cost of the selected spell
+	private JLabel spellcooldown; // the cooldown of the selected spell
+	
+	public void setSpellName(String spellName) {
+		this.spellName.setText(spellName);
+	}
+
+
+	public void setSpellCost(int spellCost) {
+		this.spellName.setText(spellName);
+
+	}
+
+
+	public void setSpellcooldown(JLabel spellcooldown) {
+		this.spellcooldown = spellcooldown;
+	}
+
+	private JComboBox<Spell> spells;
+	
+	public TaskView(String title)
+	{
+		//creating the window
+		this.setTitle(title);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(50,50,1200,600);
+		setResizable(false);
+
+		// creating instances of the pannels 
+		leftUpPan = new JPanel();
+		leftDownPan = new JPanel();
+		rightPan = new JPanel();
+		leftPan = new JPanel();
+		spells=new JComboBox<String>();
+		//setting panels size
+		rightPan.setPreferredSize(new Dimension(getWidth()-300, getHeight()));
+		leftPan.setPreferredSize(new Dimension(400, getHeight()));	
+		leftPan.setLayout(new GridLayout(0,1));
+		leftUpPan.setLayout(new GridLayout(0,3));
+		leftDownPan.setLayout(new GridLayout(0,3));	
+		//adding the panel
+		add(leftPan, BorderLayout.WEST);
+		add(rightPan, BorderLayout.EAST);
+		
+		leftPan.add(leftUpPan);
+		leftPan.add(leftDownPan);
+		
+		// setting the backgroung
+		leftUpPan.setBackground(Color.RED);
+		leftDownPan.setBackground(Color.BLUE);
+		rightPan.setBackground(Color.GREEN);
+		
+		// Setting the buttons 
+		Up = new JButton("UP");
+		Down = new JButton("Down");
+		Left = new JButton("Left");
+		Right = new JButton("Right");
+		UseTrait = new JButton("Use Trait");
+		UseSpell = new JButton("Use Spell");
+		
+		leftDownPan.add(new JLabel(""));
+		leftDownPan.add(Up);
+		leftDownPan.add(new JLabel(""));
+		leftDownPan.add(Left);
+		leftDownPan.add(Down);
+		leftDownPan.add(Right);
+		leftDownPan.add(UseSpell);
+		leftDownPan.add(spells);
+		leftDownPan.add(UseTrait);
+		
+	}
+	
+	protected void setLeftUpPan(Component o)
+	{
+		leftUpPan.add(o);
+	}
+	
+}

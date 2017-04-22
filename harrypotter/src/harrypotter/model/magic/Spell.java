@@ -38,5 +38,9 @@ public abstract class Spell {
 	{
 		return this.name;
 	}
-
+	
+	public String SpellType()
+	{
+		return "Damaging Spell";
+	}
 }

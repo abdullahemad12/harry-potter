@@ -13,5 +13,9 @@ public class RelocatingSpell extends Spell {
 	public int getRange(){
 		return range;
 	}
-
+	
+	public String SpellType()
+	{
+		return "Relocating Spell";
+	}
 }

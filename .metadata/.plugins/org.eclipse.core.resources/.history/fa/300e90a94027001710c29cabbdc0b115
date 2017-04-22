@@ -1,0 +1,38 @@
+package harrypotter.view;
+
+
+
+
+import javax.swing.*;
+
+
+public class Task1view extends TaskView {
+	
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Task1view(){
+		
+		
+		super("Harry Potter - Task1");
+		
+		
+	}
+	
+	/*
+	 * Adds Labels to the upper left pannel
+	 */
+	public void addtextLU(String x){
+		setLeftUpPan(new JLabel(x));
+	}
+	
+	public static void main(String[] args)
+	{
+		 new Task1view();
+	}
+
+}

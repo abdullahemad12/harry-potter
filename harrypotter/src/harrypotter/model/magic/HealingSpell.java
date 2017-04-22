@@ -14,5 +14,10 @@ public class HealingSpell extends Spell {
 	public int getHealingAmount(){
 		return healingAmount;
 	}
+	
+	public String SpellType()
+	{
+		return "Healing Spell";
+	}
 
 }

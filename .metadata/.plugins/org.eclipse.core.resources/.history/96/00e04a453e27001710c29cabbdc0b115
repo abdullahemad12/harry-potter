@@ -1,0 +1,39 @@
+package harrypotter.view;
+
+import harrypotter.model.magic.*;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+
+public class Task1view extends TaskView {
+	
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Task1view(){
+		
+		
+		super("Harry Potter - Task1");
+		
+		
+	}
+	
+	public void addtextLU(String x){
+		setLeftUpPan(new JLabel(x));
+	}
+	
+	public static void main(String[] args)
+	{
+		 new Task1view();
+	}
+
+}

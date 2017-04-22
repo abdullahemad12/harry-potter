@@ -15,4 +15,8 @@ public class DamagingSpell extends Spell {
 		return damageAmount;
 	}
 
+	public String SpellType()
+	{
+		return "Damaging Spell";
+	}
 }

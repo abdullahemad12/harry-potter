@@ -1,0 +1,82 @@
+package harrypotter.controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import harrypotter.model.character.GryffindorWizard;
+import harrypotter.model.character.HufflepuffWizard;
+import harrypotter.model.character.RavenclawWizard;
+import harrypotter.model.character.Wizard;
+import harrypotter.model.magic.*;
+import harrypotter.model.tournament.Task;
+import harrypotter.model.tournament.Tournament;
+import harrypotter.view.*;
+
+public class Task1GUI implements ActionListener {
+	
+	private Tournament tournament;
+	private TaskView taskview;
+	
+	public Task1GUI(Tournament tournament)
+	{
+		this.tournament = tournament;
+		taskview = new Task1view();
+	}
+
+	public void UpdateCurrentChamp(Task task)
+	{
+		// sets all the champions information 
+		
+		Wizard currentChamp = (Wizard)task.getCurrentChamp();
+		
+		
+		taskview.setChampName(currentChamp.getName());
+		// sets the Wizard class
+		if(currentChamp instanceof GryffindorWizard)
+		{
+			taskview.setWizClass("Gryffindor Wizard");
+		}
+		else if(currentChamp instanceof HufflepuffWizard)
+		{
+			taskview.setWizClass("Hufflepuff Wizard");
+		}
+		else  if(currentChamp instanceof RavenclawWizard)
+		{
+			taskview.setWizClass("Ravenclaw Wizard");
+		}
+		else
+		{
+			taskview.setWizClass("Slytherin Wizard");
+		}
+		
+		//sets ip, hp, traitactivated, remaining moves
+		taskview.setIp(currentChamp.getIp());
+		taskview.setHp(currentChamp.getHp());
+		taskview.setTraitActivated(task.isTraitActivated());	
+		taskview.setRemainingMoves(task.getAllowedMoves());
+		
+		// sets the combobox of the spells 
+		ArrayList<Spell> spells = currentChamp.getSpells();
+		for(Spell spell : spells)
+		{
+			taskview.addspell(spell);
+		}
+		
+		// sets the selectedspell info
+		Spell selected  = spells.get(0);
+		taskview.setSpellName(selected.getName());
+		taskview.setSpellCost(selected.getCost())l
+		
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}
