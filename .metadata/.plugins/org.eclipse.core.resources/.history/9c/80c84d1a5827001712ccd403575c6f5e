@@ -1,0 +1,5 @@
+package codeproject.jimagecomponent.javax.swing;
+
+public class JImagePanel {
+
+}
