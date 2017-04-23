@@ -176,8 +176,6 @@ abstract public class TaskGUI implements ActionListener {
 					    e1.getMessage(),
 					    "Inane error",
 					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-
 			}
 			//taskview.revalidate();
 		}
@@ -195,8 +193,6 @@ abstract public class TaskGUI implements ActionListener {
 					    e1.getMessage(),
 					    "Inane error",
 					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-
 			}
 		}
 		
