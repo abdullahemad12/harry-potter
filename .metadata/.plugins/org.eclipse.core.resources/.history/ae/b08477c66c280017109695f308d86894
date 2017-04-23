@@ -296,8 +296,8 @@ abstract public class TaskGUI implements ActionListener {
 	{
 		JImageComponent[][] map = getTaskview().getMap();
 		
-		JImageComponent newcell = map[target.x][target.y];
-		JImageComponent oldcell = map[old.x][old.y];
+		JImageComponent newcell = taskview.getMap()[target.x][target.y];
+		JImageComponent oldcell = taskview.getMap()[old.x][old.y];
 		newcell.setImage(oldcell.getIcon());
 		oldcell.unsetImage();
 	}

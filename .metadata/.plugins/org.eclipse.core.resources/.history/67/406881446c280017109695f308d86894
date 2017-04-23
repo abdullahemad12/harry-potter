@@ -1,0 +1,16 @@
+package harrypotter.view;
+
+import javax.swing.JFrame;
+
+public class loadingView extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+	
+	public loadingView()
+	{
+		setVisible(true);
+	}
+	
+	
+
+}

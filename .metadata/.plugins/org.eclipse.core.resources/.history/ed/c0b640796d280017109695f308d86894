@@ -17,16 +17,11 @@ public class Task1GUI extends TaskGUI{
 
 	public Task1GUI(Tournament tournament) {
 		super(tournament);
-		/*
-		 * shows the loading window while the game is still setting the images
-		 */
 		loadingView loading = new loadingView();
 		loading.setVisibility(true);
-		
+		loading.dispatchEvent(new WindowEvent(loading, WindowEvent.WINDOW_CLOSING));
 		UpdateCurrentChamp(tournament.getFirstTask());
 		initializeMap();
-		// closes the window after the game is successfully loaded
-		new WindowEvent(loading, WindowEvent.WINDOW_CLOSING);
 		setVisibility(true);
 	}
 	

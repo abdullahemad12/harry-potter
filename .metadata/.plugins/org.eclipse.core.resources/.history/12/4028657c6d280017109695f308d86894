@@ -22,11 +22,10 @@ public class Task1GUI extends TaskGUI{
 		 */
 		loadingView loading = new loadingView();
 		loading.setVisibility(true);
+		loading.dispatchEvent(new WindowEvent(loading, WindowEvent.WINDOW_CLOSING));
 		
 		UpdateCurrentChamp(tournament.getFirstTask());
 		initializeMap();
-		// closes the window after the game is successfully loaded
-		new WindowEvent(loading, WindowEvent.WINDOW_CLOSING);
 		setVisibility(true);
 	}
 	

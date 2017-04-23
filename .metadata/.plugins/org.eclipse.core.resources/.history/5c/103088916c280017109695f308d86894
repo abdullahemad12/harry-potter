@@ -8,9 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 	public class JImagePanel extends JPanel {
-
-	private static final long serialVersionUID = 8310114982628580478L;
-	private Image img;
+	
+	  private Image img;
 	
 	  public JImagePanel(String img, int width, int height) {
 	    this(new ImageIcon(img).getImage(), width,height);

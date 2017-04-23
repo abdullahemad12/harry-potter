@@ -1,32 +1,26 @@
 package harrypotter.controller;
 
-import java.awt.*;
-import java.awt.event.WindowEvent;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Point;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 
+import harrypotter.model.character.Wizard;
 import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
 import harrypotter.model.world.EmptyCell;
-import harrypotter.view.loadingView;
 
 public class Task1GUI extends TaskGUI{
 
 	public Task1GUI(Tournament tournament) {
 		super(tournament);
-		/*
-		 * shows the loading window while the game is still setting the images
-		 */
-		loadingView loading = new loadingView();
-		loading.setVisibility(true);
-		
 		UpdateCurrentChamp(tournament.getFirstTask());
 		initializeMap();
-		// closes the window after the game is successfully loaded
-		new WindowEvent(loading, WindowEvent.WINDOW_CLOSING);
 		setVisibility(true);
 	}
 	

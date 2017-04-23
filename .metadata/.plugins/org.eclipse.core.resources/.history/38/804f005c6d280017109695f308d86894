@@ -1,7 +1,6 @@
 package harrypotter.controller;
 
 import java.awt.*;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -17,16 +16,10 @@ public class Task1GUI extends TaskGUI{
 
 	public Task1GUI(Tournament tournament) {
 		super(tournament);
-		/*
-		 * shows the loading window while the game is still setting the images
-		 */
 		loadingView loading = new loadingView();
 		loading.setVisibility(true);
-		
 		UpdateCurrentChamp(tournament.getFirstTask());
 		initializeMap();
-		// closes the window after the game is successfully loaded
-		new WindowEvent(loading, WindowEvent.WINDOW_CLOSING);
 		setVisibility(true);
 	}
 	
