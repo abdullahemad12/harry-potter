@@ -279,4 +279,29 @@ abstract public class TaskView  extends JFrame{
 	protected void addtextLU(JLabel label){
 		setLeftUpPan(label);
 	}
+	public JButton getUp() {
+		return Up;
+	}
+	public JButton getDown() {
+		return Down;
+	}
+	public JButton getLeft() {
+		return Left;
+	}
+	public JButton getRight() {
+		return Right;
+	}
+	public JButton getUseTrait() {
+		return UseTrait;
+	}
+	public JButton getUseSpell() {
+		return UseSpell;
+	}
+	public JLabel getTraitactivated() {
+		return traitactivated;
+	}
+	public Spell getSelectedSpell()
+	{
+		return (Spell) spells.getSelectedItem();
+	}
 }

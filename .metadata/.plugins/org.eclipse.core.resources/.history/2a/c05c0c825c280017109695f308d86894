@@ -1,0 +1,108 @@
+package harrypotter.controller;
+
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+
+import codeproject.jimagecomponent.javax.swing.JImageComponent;
+
+import harrypotter.exceptions.InvalidTargetCellException;
+import harrypotter.exceptions.OutOfBordersException;
+import harrypotter.model.tournament.Tournament;
+import harrypotter.model.world.Cell;
+import harrypotter.model.world.EmptyCell;
+import harrypotter.view.Task1view;
+
+public class Task1GUI extends TaskGUI{
+
+	public Task1GUI(Tournament tournament) {
+		super(tournament);
+		UpdateCurrentChamp(tournament.getFirstTask());
+		initializeMap();
+		setVisibility(true);
+	}
+	
+	
+	void initializeMap() 
+	{
+		Cell[][] cells = getTournament().getFirstTask().getMap();
+		JImageComponent[][] map = getTaskview().getMap();
+		
+		for(int i = 0; i  < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				if(!(cells[i][j] instanceof EmptyCell))
+				{
+					try 
+					{
+						 inferCell(i,j);
+						
+						//adds the image to the map
+					} 
+					catch (IOException e)
+					{
+						
+						e.printStackTrace();
+					}	
+				}
+			}
+		}
+	
+		this.getTaskview().revalidate();
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() == getTaskview().getUp()){
+				try {
+					getTournament().getFirstTask().moveForward();
+
+					getTaskview().revalidate();
+				} catch (InvalidTargetCellException | OutOfBordersException
+						| IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//taskview.revalidate();
+			}
+			else if(e.getSource() == taskview.getDown()){
+				try {
+					tournament.getTask().moveBackward();
+					taskview = new Task1view();
+					taskview.revalidate();
+				} catch (InvalidTargetCellException | OutOfBordersException
+						| IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//taskview.revalidate();
+			}
+			else if(e.getSource() == taskview.getLeft()){
+				try {
+					tournament.getTask().moveLeft();
+					taskview = new Task1view();
+					taskview.revalidate();
+				} catch (InvalidTargetCellException | OutOfBordersException
+						| IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//taskview.revalidate();
+			}
+			else if(e.getSource() == taskview.getRight()){
+				try {
+					tournament.getTask().moveRight();
+					taskview = new Task1view();
+					taskview.revalidate();
+				} catch (InvalidTargetCellException | OutOfBordersException
+						| IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+	}
+}

@@ -113,6 +113,14 @@ public class Tournament  implements TaskListener {
 		return spells;
 				
 	}
+	public Task getTask(){
+		if (thirdTask != null)
+			return thirdTask;
+		else if(secondTask != null)
+			return secondTask;
+			else
+				return firstTask;
+	}
 	
 	
 	

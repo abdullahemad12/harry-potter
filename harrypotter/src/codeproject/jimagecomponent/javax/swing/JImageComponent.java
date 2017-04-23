@@ -44,7 +44,7 @@ public class JImageComponent extends JComponent {
 	
 	/** Holds the BufferedImage for the image. */
 	private BufferedImage bufferedImage = null;
-	
+	private ImageIcon icon = null;
 	/** Holds the <code>Graphics</code> for the image. */
 	private Graphics imageGraphics = null;
 	
@@ -91,11 +91,16 @@ public class JImageComponent extends JComponent {
 	
 	public void setImage(ImageIcon imageIcon)
 	{
+		this.icon = imageIcon;
 		this.bufferedImage = new BufferedImage(imageIcon.getIconWidth(), imageIcon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
 		this.imageGraphics = this.bufferedImage.createGraphics();
 		this.imageGraphics.drawImage(imageIcon.getImage(), 0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight(), null);
 	}
 	
+	public ImageIcon getIcon()
+	{
+		return this.icon;
+	}
 	/**
 	 * Constructs a new JImageComponent object.
 	 * 
@@ -410,5 +415,9 @@ public class JImageComponent extends JComponent {
 			this.imageGraphics = this.bufferedImage.createGraphics();
 			this.setBounds(0, 0, this.bufferedImage.getWidth(), this.bufferedImage.getHeight());
 		}
+	}
+	public void unsetImage()
+	{
+		this.bufferedImage = null;
 	}
 }

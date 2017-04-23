@@ -381,10 +381,10 @@ public abstract class Task implements WizardListener  {
 	public abstract void generateMap() throws IOException;
 	
 
-	public abstract void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException ;
-	public abstract void moveBackward() throws IOException,InvalidTargetCellException , OutOfBordersException;
-	public abstract void moveLeft() throws IOException, InvalidTargetCellException , OutOfBordersException;
-	public abstract void moveRight() throws IOException, InvalidTargetCellException , OutOfBordersException;
+	public abstract Point moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException ;
+	public abstract Point moveBackward() throws IOException,InvalidTargetCellException , OutOfBordersException;
+	public abstract Point moveLeft() throws IOException, InvalidTargetCellException , OutOfBordersException;
+	public abstract Point moveRight() throws IOException, InvalidTargetCellException , OutOfBordersException;
 	
 	
 	public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
@@ -791,6 +791,7 @@ public abstract class Task implements WizardListener  {
 		((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
 		
 	}*/
+	
 }
 
 

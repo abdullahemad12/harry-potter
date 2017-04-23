@@ -173,7 +173,7 @@ public class SecondTask extends Task {
 	}
 	
 	//moving the currentChamp one cell up
-		public void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+		public Point moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 			//getting old point
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
@@ -210,7 +210,8 @@ public class SecondTask extends Task {
 						((Wizard)getCurrentChamp()).setLocation(p);
 					}
 					
-				finalizeAction();		
+				finalizeAction();	
+				return p;
 				}
 				else
 				{
@@ -222,7 +223,7 @@ public class SecondTask extends Task {
 		}
 		
 		//moving the currentChamp one cell down
-		public void moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+		public Point moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(1, 0);
@@ -255,6 +256,7 @@ public class SecondTask extends Task {
 					}
 					
 				finalizeAction();		
+				return p;
 				}
 				else
 				{
@@ -267,7 +269,7 @@ public class SecondTask extends Task {
 		}
 		
 		//moving the currentChamp one cell left
-		public void moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
+		public Point moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(0, -1);
@@ -299,7 +301,8 @@ public class SecondTask extends Task {
 						((Wizard)getCurrentChamp()).setLocation(p);
 					}
 					
-				finalizeAction();		
+				finalizeAction();
+				return p;
 				}
 				else
 				{
@@ -311,7 +314,7 @@ public class SecondTask extends Task {
 		}
 		
 		//moving the currentChamp one cell right
-		public void moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
+		public Point moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
 			Point pp= ((Wizard)getCurrentChamp()).getLocation();
 			Point p=new Point(pp);
 			p.translate(0, 1);
@@ -343,7 +346,8 @@ public class SecondTask extends Task {
 						((Wizard)getCurrentChamp()).setLocation(p);
 					}
 					
-				finalizeAction();		
+				finalizeAction();
+				return p;
 				}
 				else
 				{

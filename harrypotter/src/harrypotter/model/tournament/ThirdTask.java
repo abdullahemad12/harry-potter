@@ -107,7 +107,7 @@ public class ThirdTask extends Task {
 	
 	}
 	//moving the currentChamp one cell up
-	public void moveForward()  throws IOException, InvalidTargetCellException, OutOfBordersException {
+	public Point moveForward()  throws IOException, InvalidTargetCellException, OutOfBordersException {
 		//getting old point
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
@@ -130,12 +130,14 @@ public class ThirdTask extends Task {
 				//changing champs location
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			}
 			//calling the listener 
 			else if (getMap()[p.x][p.y] instanceof CupCell){
 				getMap()[pp.x][pp.y]= new EmptyCell();
 				if (getListener() != null)
 					getListener().onFinishingThirdTask(getCurrentChamp());
+				return p;
 				
 			}
 			else
@@ -149,7 +151,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell down
-	public void moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	public Point moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(1, 0);
@@ -166,11 +168,13 @@ public class ThirdTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p ;
 			} 
 			else if (getMap()[p.x][p.y] instanceof CupCell){
 				getMap()[pp.x][pp.y]= new EmptyCell();
 				if (getListener() != null)
 					getListener().onFinishingThirdTask(getCurrentChamp());
+				return p;
 				
 			}
 			else
@@ -183,7 +187,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell left
-	public void moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	public Point moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(0, -1);
@@ -200,11 +204,13 @@ public class ThirdTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			} 
 			else if (getMap()[p.x][p.y] instanceof CupCell){
 				getMap()[pp.x][pp.y]= new EmptyCell();
 				if (getListener() != null)
 					getListener().onFinishingThirdTask(getCurrentChamp());
+				return p;
 				
 			}
 			else
@@ -217,7 +223,7 @@ public class ThirdTask extends Task {
 	}
 	
 	//moving the currentChamp one cell right
-	public void moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	public Point moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		p.translate(0, 1);
@@ -234,12 +240,13 @@ public class ThirdTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			} 
 			else if (getMap()[p.x][p.y] instanceof CupCell){
 				getMap()[pp.x][pp.y]= new EmptyCell();
 				if (getListener() != null)
 					getListener().onFinishingThirdTask(getCurrentChamp());
-				
+				return p;
 			}
 			else
 			{

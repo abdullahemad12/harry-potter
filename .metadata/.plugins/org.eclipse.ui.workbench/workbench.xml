@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="21" version="2.0">
 <workbenchAdvisor/>
-<window height="738" maximized="true" width="680" x="0" y="0">
+<window height="741" maximized="true" width="684" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -38,8 +38,6 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
-<part id="7"/>
-<part id="8"/>
 </presentation>
 </folder>
 </info>
@@ -47,6 +45,10 @@
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HarrypotterGUI.java" partName="HarrypotterGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/HarrypotterGUI.java" title="HarrypotterGUI.java" tooltip="harrypotter/src/harrypotter/controller/HarrypotterGUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4194" selectionTopPixel="1939"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Startmenu2.java" partName="Startmenu2.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Startmenu2.java" title="Startmenu2.java" tooltip="harrypotter/src/harrypotter/view/Startmenu2.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Startmenu2.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7768" selectionTopPixel="3686"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Spell.java" partName="Spell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/magic/Spell.java" title="Spell.java" tooltip="harrypotter/src/harrypotter/model/magic/Spell.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
@@ -56,29 +58,17 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3424" selectionTopPixel="1278"/>
 </editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="316" selectionTopPixel="19"/>
+</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" partName="Tournament.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Tournament.java" title="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1910"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" partName="Task1view.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Task1view.java" title="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="34"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" partName="TaskView.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/TaskView.java" title="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5720" selectionTopPixel="3413"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3104" selectionTopPixel="1960"/>
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5025" selectionTopPixel="2419"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="834" selectionTopPixel="335"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImageComponent.java" partName="JImageComponent.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java" title="JImageComponent.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2655" selectionTopPixel="910"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1095" selectionTopPixel="1290"/>
 </editor>
 </editors>
 <views>
@@ -114,6 +104,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (26 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1473"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -306,7 +299,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.19409594" ratioLeft="263" ratioRight="1092" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.300369" ratioLeft="407" ratioRight="948" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74864864" ratioLeft="554" ratioRight="186" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -406,7 +399,7 @@
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.44591612" ratioLeft="202" ratioRight="251" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info part="org.eclipse.ui.editorss" ratio="0.081677705" ratioLeft="37" ratioRight="416" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
 <info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.698893" ratioLeft="947" ratioRight="408" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -429,161 +422,162 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Startmenu2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketGUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
 </editors>
-<item historyLabel="TaskView.java" index="2">
+<item historyLabel="SupermarketGUI.java" index="2">
+<position info="not_deleted" x="2056" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8150" y="8"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
 <position/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="837" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="837" y="0"/>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8407" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="930" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2787" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3438" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2758" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="8407" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2785" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6296" y="2"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
 <position/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3235" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="930" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3235" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
+<item historyLabel="Startmenu2.java" index="1">
 <position/>
 </item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="981" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3235" y="0"/>
-</item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="981" y="0"/>
-</item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="560" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
+<item historyLabel="Startmenu2.java" index="1">
 <position/>
 </item>
-<item historyLabel="Task1view.java" index="3">
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6295" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6293" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6259" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6517" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6596" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2785" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="6596" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2785" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="7768" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="2785" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="1">
+<position info="not_deleted" x="7768" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="4737" y="21"/>
+</item>
+<item historyLabel="Task1GUI.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="5511" y="0"/>
+<item historyLabel="Task1GUI.java" index="3">
+<position info="not_deleted" x="316" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="2984" y="0"/>
+<item historyLabel="SupermarketGUI.java" index="2">
+<position info="not_deleted" x="507" y="47"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="560" y="0"/>
+<item historyLabel="Task1GUI.java" index="3">
+<position info="not_deleted" x="316" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
+<item historyLabel="SupermarketGUI.java" index="2">
+<position info="not_deleted" x="507" y="47"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
+<item historyLabel="Task1GUI.java" index="3">
+<position info="not_deleted" x="316" y="0"/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="5523" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="413" y="14"/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position/>
+<item historyLabel="Task1GUI.java" index="3">
+<position info="not_deleted" x="316" y="0"/>
 </item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="413" y="14"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="4194" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
+<item historyLabel="HarrypotterGUI.java" index="0">
+<position info="not_deleted" x="4194" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
+<item historyLabel="Tournament.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="880" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="5720" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="823" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3425" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="583" y="40"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3425" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3366" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3369" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3408" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3417" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="5002" y="0"/>
-</item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="583" y="40"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="5002" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="4707" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="834" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position/>
-</item>
-<item historyLabel="JImageComponent.java" index="4">
-<position info="not_deleted" x="2655" y="0"/>
-</item>
-<item active="true" historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="5021" y="0"/>
+<item active="true" historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -602,50 +596,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImageComponent.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java">
-<persistable path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
 </file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="BufferedImage.class" tooltip="java.awt.image.BufferedImage">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GUILabSol/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.awt.image(BufferedImage.class"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="DirectColorModel.class" tooltip="java.awt.image.DirectColorModel">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GUILabSol/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.awt.image(DirectColorModel.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WallCell.java" tooltip="harrypotter/src/harrypotter/model/world/WallCell.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/WallCell.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Obstacle.java" tooltip="harrypotter/src/harrypotter/model/world/Obstacle.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/Obstacle.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Merperson.java" tooltip="harrypotter/src/harrypotter/model/world/Merperson.java">
-<persistable path="/harrypotter/src/harrypotter/model/world/Merperson.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java">
+<persistable path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java">
 <persistable path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java">
-<persistable path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SupermarketGUI.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketGUI.java">
+<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketGUI.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImagePanel.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java">
-<persistable path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Wizard.java" tooltip="harrypotter/src/harrypotter/model/character/Wizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/Wizard.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M1PublicTests.java" tooltip="harrypotter/src/harrypotter/tests/M1PublicTests.java">
-<persistable path="/harrypotter/src/harrypotter/tests/M1PublicTests.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GryffindorWizard.java" tooltip="harrypotter/src/harrypotter/model/character/GryffindorWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/GryffindorWizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HufflepuffWizard.java" tooltip="harrypotter/src/harrypotter/model/character/HufflepuffWizard.java">
+<persistable path="/harrypotter/src/harrypotter/model/character/HufflepuffWizard.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Spell.java" tooltip="harrypotter/src/harrypotter/model/magic/Spell.java">
+<persistable path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Startmenu2.java" tooltip="harrypotter/src/harrypotter/view/Startmenu2.java">
+<persistable path="/harrypotter/src/harrypotter/view/Startmenu2.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HarrypotterGUI.java" tooltip="harrypotter/src/harrypotter/controller/HarrypotterGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SupermarketConsole.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketConsole.java">
+<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketConsole.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Supermarket.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/model/supermarket/Supermarket.java">
+<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/model/supermarket/Supermarket.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SupermarketView.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/view/SupermarketView.java">
+<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/view/SupermarketView.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java">
 <persistable path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImageComponent.java" tooltip="harrypotter/src/components/image/JImageComponent.java">
-<persistable path="/harrypotter/src/components/image/JImageComponent.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java">
-<persistable path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java">
-<persistable path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/FirstTask.java">
+<persistable path="/harrypotter/src/harrypotter/model/tournament/FirstTask.java"/>
 </file>
 </mruList>
 </workbench>

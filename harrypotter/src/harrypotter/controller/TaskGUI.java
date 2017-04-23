@@ -1,6 +1,7 @@
 package harrypotter.controller;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -8,12 +9,12 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
-
+import harrypotter.exceptions.InvalidTargetCellException;
+import harrypotter.exceptions.OutOfBordersException;
 import harrypotter.model.world.*;
-
-import harrypotter.model.character.Champion;
 import harrypotter.model.character.GryffindorWizard;
 import harrypotter.model.character.HufflepuffWizard;
 import harrypotter.model.character.RavenclawWizard;
@@ -39,6 +40,10 @@ abstract public class TaskGUI implements ActionListener {
 		this.setTournament(tournament);
 		taskview = new Task1view();
 		taskview.getSpells().addActionListener(this);
+		taskview.getUp().addActionListener(this);
+		taskview.getDown().addActionListener(this);
+		taskview.getLeft().addActionListener(this);
+		taskview.getRight().addActionListener(this);
 	}
 
 	/*
@@ -103,12 +108,89 @@ abstract public class TaskGUI implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		// the old location of the champ 
+		Wizard CurrentChamp =  (Wizard)(tournament.getTask().getCurrentChamp());
+		Point oldLocation = CurrentChamp.getLocation();
 		//if the event was selecting a new spell from the comboBox
 		JComboBox<Spell> spells = taskview.getSpells();
 		if(e.getSource() == spells)
 		{
-			UpdateSpells((Spell) spells.getSelectedItem());
+			UpdateSpells(taskview.getSelectedSpell());
 			taskview.revalidate();
+		}
+		
+		// moves forward
+		else if(e.getSource() == taskview.getUp())
+		{
+			
+			try 
+			{
+				Point p =  tournament.getTask().moveForward();
+				UpdateCurrentChamp(tournament.getTask());
+				UpdateMap(oldLocation, p);
+				taskview.revalidate();
+				taskview.repaint();
+				
+				
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+			}
+			//taskview.revalidate();
+		}
+		else if(e.getSource() == taskview.getDown()){
+			try {
+				Point p = tournament.getTask().moveBackward();
+				UpdateCurrentChamp(tournament.getTask());
+				UpdateMap(oldLocation, p);
+				taskview.revalidate();
+				taskview.repaint();
+
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				;
+			}
+			//taskview.revalidate();
+		}
+		else if(e.getSource() == taskview.getLeft()){
+			try {
+				Point p = tournament.getTask().moveLeft();
+				UpdateMap(oldLocation, p);
+				UpdateCurrentChamp(tournament.getTask());
+				taskview.revalidate();
+				taskview.repaint();
+
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+			}
+			//taskview.revalidate();
+		}
+		else if(e.getSource() == taskview.getRight()){
+			try {
+				Point p = tournament.getTask().moveRight();
+				UpdateCurrentChamp(tournament.getTask());
+				UpdateMap(oldLocation,p);
+				taskview.revalidate();
+				taskview.repaint();
+
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+			}
 		}
 		
 	}
@@ -157,7 +239,6 @@ abstract public class TaskGUI implements ActionListener {
 			{
 				location = "img/ravenclawWizard.png";
 			}
-
 		}
 		// the cell contains the Cup
 		else if(cell instanceof CupCell)
@@ -187,12 +268,13 @@ abstract public class TaskGUI implements ActionListener {
 		{
 			location = "img/Collectible.png";
 		}
-		// returns an empty Image component
-		if(location.equals(""))
+		// Sets the image components to null removing any existing picture
+		else if(cell instanceof EmptyCell)
 		{
-			return new JImageComponent();
+			map.unsetImage();
+			System.out.print("Image was removed");
+			return null;
 		}
-
 		// creates a new image and resizes it
 		ImageIcon icon = new ImageIcon(location) ;
 		Image img = icon.getImage();
@@ -204,5 +286,21 @@ abstract public class TaskGUI implements ActionListener {
 	}
 	
 	
+	
+	/*
+	 * updates the current map
+	 * takes the old and new point of the character, sets the new point to the image of the oldpoint 
+	 * Clears the image of the old point 
+	 */
+	void UpdateMap(Point old, Point target) 
+	{
+		Cell[][] cells = getTournament().getFirstTask().getMap();
+		JImageComponent[][] map = getTaskview().getMap();
+		
+		JImageComponent newcell = taskview.getMap()[target.x][target.y];
+		JImageComponent oldcell = taskview.getMap()[old.x][old.y];
+		newcell.setImage(oldcell.getIcon());
+		oldcell.unsetImage();
+	}
 
 }

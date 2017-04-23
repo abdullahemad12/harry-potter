@@ -146,8 +146,8 @@ public class FirstTask extends Task {
 			
 	}	
 	
-	//moving the currentChamp one cell up
-	public void moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	//moving the currentChamp one cell up return the new point
+	public Point moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		//getting old point
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		if (pp.x>0){
@@ -170,6 +170,7 @@ public class FirstTask extends Task {
 				//changing champs location
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			}
 			else
 			{
@@ -181,8 +182,8 @@ public class FirstTask extends Task {
 			throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
 	}
 	
-	//moving the currentChamp one cell down
-	public void moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	//moving the currentChamp one cell down returns the new point
+	public Point moveBackward() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		if (pp.x<9){
@@ -199,6 +200,7 @@ public class FirstTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			}
 			else
 			{
@@ -210,8 +212,8 @@ public class FirstTask extends Task {
 		
 	}
 	
-	//moving the currentChamp one cell left
-	public void moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	//moving the currentChamp one cell left return the new point
+	public Point moveLeft() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		if (pp.y>0){
@@ -228,6 +230,7 @@ public class FirstTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			}
 			else
 			{
@@ -239,7 +242,7 @@ public class FirstTask extends Task {
 	}
 	
 	//moving the currentChamp one cell right
-	public void moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
+	public Point moveRight() throws IOException, InvalidTargetCellException, OutOfBordersException {
 		Point pp= ((Wizard)getCurrentChamp()).getLocation();
 		Point p=new Point(pp);
 		if (pp.y<9){
@@ -256,6 +259,7 @@ public class FirstTask extends Task {
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
 				((Wizard)getCurrentChamp()).setLocation(p);
 				finalizeAction();
+				return p;
 			}
 			else
 			{
