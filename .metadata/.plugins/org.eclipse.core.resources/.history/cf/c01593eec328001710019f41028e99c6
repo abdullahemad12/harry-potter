@@ -122,10 +122,7 @@ abstract public class TaskGUI implements ActionListener {
 		JComboBox<Spell> spells = taskview.getSpells();
 		if(e.getSource() == spells)
 		{
-			if(getTaskview().getSpells().getItemCount() != 0)
-			{
-				UpdateSpells(taskview.getSelectedSpell());
-			}
+			UpdateSpells(taskview.getSelectedSpell());
 			taskview.revalidate();
 		}
 		

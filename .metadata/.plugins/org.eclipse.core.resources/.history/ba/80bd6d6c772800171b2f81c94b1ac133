@@ -299,6 +299,6 @@ abstract public class TaskView  extends JFrame{
 	public void Emptyspells()
 	{
 		spells.removeAllItems();
-
+		spells = new JComboBox<Spell>();
 	}
 }

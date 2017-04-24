@@ -96,7 +96,7 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		
 		// sets the selectedspell info
-		UpdateSpells(spells.get(0));
+		//UpdateSpells(spells.get(0));
 		
 	}
 	

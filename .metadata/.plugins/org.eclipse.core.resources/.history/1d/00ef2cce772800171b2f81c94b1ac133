@@ -298,7 +298,10 @@ abstract public class TaskView  extends JFrame{
 	 */
 	public void Emptyspells()
 	{
-		spells.removeAllItems();
+			spells.removeItemAt(0);
+			spells.removeItemAt(1);
+			spells.removeItemAt(2);
 
+		
 	}
 }

@@ -292,13 +292,4 @@ abstract public class TaskView  extends JFrame{
 	{
 		return (Spell) spells.getSelectedItem();
 	}
-	
-	/*
-	 * Empties the combobox from all the previos Items
-	 */
-	public void Emptyspells()
-	{
-		spells.removeAllItems();
-
-	}
 }

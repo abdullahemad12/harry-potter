@@ -89,14 +89,14 @@ abstract public class TaskGUI implements ActionListener {
 		}
 
 		// sets the combobox of the spells 
-		ArrayList<Spell> spells = currentChamp.getSpells();
+		/*ArrayList<Spell> spells = currentChamp.getSpells();
 		for(Spell spell : spells)
 		{
 			taskview.addspell(spell);
 		}
 		
 		// sets the selectedspell info
-		UpdateSpells(spells.get(0));
+		UpdateSpells(spells.get(0));*/
 		
 	}
 	
@@ -122,10 +122,7 @@ abstract public class TaskGUI implements ActionListener {
 		JComboBox<Spell> spells = taskview.getSpells();
 		if(e.getSource() == spells)
 		{
-			if(getTaskview().getSpells().getItemCount() != 0)
-			{
-				UpdateSpells(taskview.getSelectedSpell());
-			}
+			UpdateSpells(taskview.getSelectedSpell());
 			taskview.revalidate();
 		}
 		

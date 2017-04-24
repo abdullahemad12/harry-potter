@@ -83,11 +83,8 @@ abstract public class TaskGUI implements ActionListener {
 		
 		
 		// Makes sure the spells ComboBox is empty before adding any spells
-		if(taskview.getSpells().getItemCount() != 0)
-		{
-			taskview.Emptyspells();
-		}
-
+		taskview.Emptyspells();
+		taskview.getSpells().addActionListener(this);
 		// sets the combobox of the spells 
 		ArrayList<Spell> spells = currentChamp.getSpells();
 		for(Spell spell : spells)
@@ -122,10 +119,7 @@ abstract public class TaskGUI implements ActionListener {
 		JComboBox<Spell> spells = taskview.getSpells();
 		if(e.getSource() == spells)
 		{
-			if(getTaskview().getSpells().getItemCount() != 0)
-			{
-				UpdateSpells(taskview.getSelectedSpell());
-			}
+			UpdateSpells(taskview.getSelectedSpell());
 			taskview.revalidate();
 		}
 		

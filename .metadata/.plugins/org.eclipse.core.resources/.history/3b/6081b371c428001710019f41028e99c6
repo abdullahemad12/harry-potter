@@ -96,7 +96,7 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		
 		// sets the selectedspell info
-		UpdateSpells(spells.get(0));
+		//UpdateSpells(spells.get(0));
 		
 	}
 	
@@ -123,9 +123,7 @@ abstract public class TaskGUI implements ActionListener {
 		if(e.getSource() == spells)
 		{
 			if(getTaskview().getSpells().getItemCount() != 0)
-			{
-				UpdateSpells(taskview.getSelectedSpell());
-			}
+			UpdateSpells(taskview.getSelectedSpell());
 			taskview.revalidate();
 		}
 		

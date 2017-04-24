@@ -35,13 +35,8 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="5"/>
 <part id="4"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -50,45 +45,25 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1226" selectionTopPixel="450"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Startmenu2.java" partName="Startmenu2.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Startmenu2.java" title="Startmenu2.java" tooltip="harrypotter/src/harrypotter/view/Startmenu2.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Startmenu2.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7768" selectionTopPixel="3686"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Spell.java" partName="Spell.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/magic/Spell.java" title="Spell.java" tooltip="harrypotter/src/harrypotter/model/magic/Spell.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="948" selectionTopPixel="616"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="948" selectionTopPixel="334"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="769" selectionTopPixel="235"/>
+<editorState selectionHorizontalPixel="0" selectionLength="482" selectionOffset="490" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tournament.java" partName="Tournament.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Tournament.java" title="Tournament.java" tooltip="harrypotter/src/harrypotter/model/tournament/Tournament.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3255" selectionTopPixel="1414"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1245" selectionTopPixel="567"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" partName="Task1view.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Task1view.java" title="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="loadingView.java" partName="loadingView.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/loadingView.java" title="loadingView.java" tooltip="harrypotter/src/harrypotter/view/loadingView.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/loadingView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="373" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImageComponent.java" partName="JImageComponent.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java" title="JImageComponent.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5" selectionTopPixel="103"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImagePanel.java" partName="JImagePanel.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java" title="JImagePanel.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="230" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2838" selectionTopPixel="884"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" partName="TaskView.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/TaskView.java" title="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="87" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6859" selectionTopPixel="4099"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" partName="Task.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/model/tournament/Task.java" title="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="24163" selectionTopPixel="11352"/>
 </editor>
 </editors>
 <views>
@@ -126,7 +101,7 @@
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Warnings (3 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1473"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -394,61 +369,45 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7945946" ratioLeft="588" ratioRight="152" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7945946" ratioLeft="588" ratioRight="152" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.5033113" ratioLeft="228" ratioRight="225" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.698893" ratioLeft="947" ratioRight="408" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.698893" ratioLeft="947" ratioRight="408" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="1"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="1"/>
 <part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -459,164 +418,169 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/loadingView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/Tournament.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/StartMenuView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Startmenu2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
 </editors>
-<item historyLabel="Task1GUI.java" index="1">
-<position/>
+<item historyLabel="JImagePanel.java" index="2">
+<position info="not_deleted" x="230" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1651" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3948" y="25"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1648" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3948" y="25"/>
-</item>
-<item historyLabel="Task1view.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3948" y="25"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3101" y="160"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1648" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="7560" y="277"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3948" y="25"/>
-</item>
-<item historyLabel="Task1view.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1648" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1628" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1631" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1497" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1534" y="0"/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="169" y="0"/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position/>
-</item>
-<item historyLabel="Task1view.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3078" y="119"/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position/>
-</item>
-<item historyLabel="Task1view.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1534" y="0"/>
-</item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="3078" y="119"/>
-</item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="1534" y="0"/>
-</item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="324" y="0"/>
-</item>
-<item historyLabel="JImageComponent.java" index="5">
+<item historyLabel="JImageComponent.java" index="3">
 <position info="not_deleted" x="5" y="0"/>
 </item>
-<item historyLabel="JImagePanel.java" index="6">
-<position info="not_deleted" x="230" y="0"/>
+<item historyLabel="Task1view.java" index="4">
+<position/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="50" y="0"/>
+<item historyLabel="Tournament.java" index="1">
+<position info="not_deleted" x="3255" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="8258" y="0"/>
+<item historyLabel="TaskView.java" index="0">
+<position/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="87" y="0"/>
+<item historyLabel="Tournament.java" index="1">
+<position info="not_deleted" x="3255" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1245" y="0"/>
+<item historyLabel="Task1view.java" index="4">
+<position/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="50" y="0"/>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2868" y="2"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="640" y="0"/>
+<item historyLabel="Task1view.java" index="4">
+<position/>
 </item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="304" y="0"/>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2868" y="2"/>
 </item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="373" y="0"/>
+<item historyLabel="Spell.java" index="6">
+<position info="not_deleted" x="948" y="0"/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="87" y="0"/>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2777" y="8"/>
 </item>
-<item historyLabel="JImagePanel.java" index="6">
-<position info="not_deleted" x="230" y="0"/>
+<item historyLabel="StartMenuView.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="loadingView.java" index="4">
-<position info="not_deleted" x="373" y="0"/>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2777" y="8"/>
 </item>
-<item historyLabel="TaskView.java" index="2">
-<position info="not_deleted" x="87" y="0"/>
+<item historyLabel="Spell.java" index="6">
+<position info="not_deleted" x="948" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="640" y="0"/>
+<item historyLabel="TaskView.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="825" y="0"/>
+<item historyLabel="Startmenu2.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1245" y="0"/>
+<item historyLabel="Spell.java" index="6">
+<position info="not_deleted" x="948" y="0"/>
 </item>
-<item historyLabel="HarrypotterGUI.java" index="7">
+<item historyLabel="Task1GUI.java" index="9">
+<position info="not_deleted" x="490" y="482"/>
+</item>
+<item historyLabel="Tournament.java" index="1">
+<position info="not_deleted" x="3255" y="0"/>
+</item>
+<item historyLabel="TaskView.java" index="0">
+<position info="not_deleted" x="5784" y="22"/>
+</item>
+<item historyLabel="Task1GUI.java" index="9">
+<position info="not_deleted" x="490" y="482"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2791" y="0"/>
+</item>
+<item historyLabel="Task1GUI.java" index="9">
+<position info="not_deleted" x="490" y="482"/>
+</item>
+<item historyLabel="Spell.java" index="6">
+<position info="not_deleted" x="948" y="0"/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="10">
 <position info="not_deleted" x="1226" y="0"/>
 </item>
-<item active="true" historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="825" y="0"/>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2791" y="0"/>
+</item>
+<item historyLabel="Task1GUI.java" index="9">
+<position info="not_deleted" x="490" y="482"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2791" y="0"/>
+</item>
+<item historyLabel="Startmenu2.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2791" y="0"/>
+</item>
+<item historyLabel="Task1view.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2791" y="0"/>
+</item>
+<item historyLabel="TaskView.java" index="11">
+<position/>
+</item>
+<item historyLabel="HarrypotterGUI.java" index="10">
+<position info="not_deleted" x="1226" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2838" y="0"/>
+</item>
+<item historyLabel="TaskView.java" index="11">
+<position info="not_deleted" x="6859" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2994" y="44"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3633" y="48"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2994" y="44"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3633" y="48"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2838" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="2994" y="44"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3633" y="48"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3626" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3603" y="0"/>
+</item>
+<item historyLabel="Task.java" index="12">
+<position/>
+</item>
+<item historyLabel="TaskView.java" index="11">
+<position info="not_deleted" x="6859" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3603" y="0"/>
+</item>
+<item active="true" historyLabel="TaskGUI.java" index="5">
+<position info="not_deleted" x="3593" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -642,8 +606,23 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task.java" tooltip="harrypotter/src/harrypotter/model/tournament/Task.java">
+<persistable path="/harrypotter/src/harrypotter/model/tournament/Task.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java">
 <persistable path="/harrypotter/src/harrypotter/view/TaskView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java">
+<persistable path="/harrypotter/src/harrypotter/view/Task1view.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartMenuView.java" tooltip="harrypotter/src/harrypotter/view/StartMenuView.java">
+<persistable path="/harrypotter/src/harrypotter/view/StartMenuView.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="JComboBox.class" tooltip="javax.swing.JComboBox">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=GUILabSol/\/usr\/lib\/jvm\/java-8-openjdk-amd64\/jre\/lib\/rt.jar&lt;javax.swing(JComboBox.class"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JImagePanel.java" tooltip="harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java">
 <persistable path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImagePanel.java"/>
@@ -653,9 +632,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="loadingView.java" tooltip="harrypotter/src/harrypotter/view/loadingView.java">
 <persistable path="/harrypotter/src/harrypotter/view/loadingView.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java">
-<persistable path="/harrypotter/src/harrypotter/view/Task1view.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SupermarketConsole.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketConsole.java">
 <persistable path="/GUILabSol/src/eg/edu/guc/supermarket/controller/SupermarketConsole.java"/>
@@ -674,18 +650,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SugarLevel.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/model/product/SugarLevel.java">
 <persistable path="/GUILabSol/src/eg/edu/guc/supermarket/model/product/SugarLevel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Beverage.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/model/product/Beverage.java">
-<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/model/product/Beverage.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DairyProduct.java" tooltip="GUILabSol/src/eg/edu/guc/supermarket/model/product/DairyProduct.java">
-<persistable path="/GUILabSol/src/eg/edu/guc/supermarket/model/product/DairyProduct.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThirdTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/ThirdTask.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/ThirdTask.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTask.java" tooltip="harrypotter/src/harrypotter/model/tournament/SecondTask.java">
-<persistable path="/harrypotter/src/harrypotter/model/tournament/SecondTask.java"/>
 </file>
 </mruList>
 </workbench>

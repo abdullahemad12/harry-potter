@@ -26,7 +26,7 @@ public class Task1GUI extends TaskGUI{
 		UpdateCurrentChamp(tournament.getFirstTask());
 		initializeMap();
 		// closes the window after the game is successfully loaded
-		loading.setVisibility(false);
+		new WindowEvent(loading, WindowEvent.WINDOW_CLOSING);
 		setVisibility(true);
 	}
 	
