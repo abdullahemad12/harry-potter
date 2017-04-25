@@ -1,0 +1,6 @@
+package harrypotter.model.world;
+
+public class EmptyCell extends Cell{
+
+	public final int id = -1;
+}

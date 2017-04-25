@@ -9,6 +9,7 @@ public class CollectibleCell extends Cell {
 	
 	private Collectible collectible;
 	
+	
 	/*
 	 *	creates object of CollectibleCell
 	 */

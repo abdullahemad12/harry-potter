@@ -1,0 +1,13 @@
+package harrypotter.controller;
+
+import harrypotter.model.tournament.Tournament;
+
+public class ThirdTaskGUI extends TaskGUI{
+	
+	private Imag
+	public ThirdTaskGUI(Tournament tournament)
+	{
+		super(tournament);
+	}
+
+}

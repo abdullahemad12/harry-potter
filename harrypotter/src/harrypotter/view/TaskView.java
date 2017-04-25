@@ -228,7 +228,7 @@ abstract public class TaskView  extends JFrame{
 		{
 			for(int j = 0; j < 10; j++)
 			{
-				map[i][j] = new JImageComponent();
+				map[i][j] = new JImageComponent(-1);
 				rightPan.add(map[i][j]);
 			}
 			

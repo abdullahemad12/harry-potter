@@ -44,14 +44,39 @@ public class JImageComponent extends JComponent {
 	
 	/** Holds the BufferedImage for the image. */
 	private BufferedImage bufferedImage = null;
-	private ImageIcon icon = null;
+
 	/** Holds the <code>Graphics</code> for the image. */
 	private Graphics imageGraphics = null;
+	
+	private boolean set;
+	
+	private int id; // the ID of the Cell
+	
+	
+	public void setID(int id)
+	{
+		this.id = id;
+	}
+	public int getID()
+	{
+		return id;
+	}
+	
+	
+	public boolean Isset()
+	{
+		return set;
+	}
+	
 	
 	/**
 	 * Constructs a new JImageComponent object.
 	 */
 	public JImageComponent() {
+	}
+	
+	public JImageComponent(int id) {
+		this.id = id;
 	}
 	
 	/**
@@ -89,18 +114,19 @@ public class JImageComponent extends JComponent {
 		this.imageGraphics.drawImage(imageIcon.getImage(), 0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight(), null);
 	}
 	
+	public void setImageGraphics(Graphics imageGraphics) {
+		this.imageGraphics = imageGraphics;
+	}
+
+
 	public void setImage(ImageIcon imageIcon)
 	{
-		this.icon = imageIcon;
 		this.bufferedImage = new BufferedImage(imageIcon.getIconWidth(), imageIcon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
 		this.imageGraphics = this.bufferedImage.createGraphics();
 		this.imageGraphics.drawImage(imageIcon.getImage(), 0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight(), null);
+		this.set = true;
 	}
 	
-	public ImageIcon getIcon()
-	{
-		return this.icon;
-	}
 	/**
 	 * Constructs a new JImageComponent object.
 	 * 
@@ -419,5 +445,6 @@ public class JImageComponent extends JComponent {
 	public void unsetImage()
 	{
 		this.bufferedImage = null;
+		this.set = false;
 	}
 }

@@ -1,0 +1,6 @@
+package harrypotter.model.world;
+
+public class CupCell extends Cell {
+	public final int id = 2;
+
+}

@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
+import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 import harrypotter.exceptions.InvalidTargetCellException;
 import harrypotter.exceptions.OutOfBordersException;
@@ -26,26 +27,84 @@ import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
 import harrypotter.view.*;
 
+
+/*
+ * Cells id
+ * Champion id = X0 where x = 1 ,2, 3 ,4 Gryffindor, HufflePuff, Slytherin, Ravenclaw respectively
+ * Empty = -1
+ * Obstacle = 2
+ * Wall = 3
+ */
+
+
 abstract public class TaskGUI implements ActionListener {
 	
 	private Tournament tournament;
 	private TaskView taskview;
+	private ImageBuffer gryff; // The icon of the Gryffindor id: 10
+	private ImageBuffer huff; // the icon of the hufflepuf Wizard id:20 
+	private ImageBuffer slyn; // the icon the slyntherin Wizard id: 30
+	private ImageBuffer raven; // the icon of the ravenClaw Wizard id: 40
+	private ImageBuffer obst; // the icon of the Obstacle in the task id: 2
+	private ImageBuffer Wall; // wall cells id: 3
+
 	
-	public TaskView getTaskview()
+	private final int width; // the width of the icon
+	private final int height; // the height of the icon
+	
+	
+	protected loadingView loading;
+	// note: the Obst icon has to be set in each task independently depending on the obstacle in this task
+	
+	/*
+	 * constructor
+	 */
+	public TaskGUI(Tournament tournament)
+	{
+		loading = new loadingView();
+		loading.setVisibility(true);
+		
+		// sets the tournament and creates new view
+		this.setTournament(tournament);
+		taskview = new Task1view();
+		
+		// sets the height and the width of the Icons
+		width = (taskview.getWidth()-405)/ 10;
+		height = taskview.getHeight()/10;
+		// add the Action Listeners
+		taskview.getSpells().addActionListener(this);
+
+		
+		// prepares the image buffer for each icon
+		gryff = new ImageBuffer("img/gryffindorWizard.png", width, height, 10);
+		huff = new ImageBuffer("img/hufflepuffWizard.png", width, height, 20);
+		slyn = new ImageBuffer("img/slytherinWizard.png", width, height, 30);
+		raven = new ImageBuffer("img/ravenclawWizard.png", width, height, 40);
+		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
+	}
+
+	public int getWidth()
+	{
+		return width;
+	}
+	public int getHeight()
+	{
+		return height;
+	}
+	public void setObst(String location)
+	{
+		this.obst = new ImageBuffer(location, width, height, 2);
+	}
+	
+	
+	public void setTaskview(TaskView taskview) {
+		this.taskview = taskview;
+	}
+	TaskView getTaskview()
 	{
 		return taskview;
 	}
-	public TaskGUI(Tournament tournament)
-	{
-		this.setTournament(tournament);
-		taskview = new Task1view();
-		taskview.getSpells().addActionListener(this);
-		taskview.getUp().addActionListener(this);
-		taskview.getDown().addActionListener(this);
-		taskview.getLeft().addActionListener(this);
-		taskview.getRight().addActionListener(this);
-	}
-
+	
 	/*
 	 * updates all the current champion information for all tasks
 	 */
@@ -135,13 +194,8 @@ abstract public class TaskGUI implements ActionListener {
 			
 			try 
 			{
-				Point p =  tournament.getTask().moveForward();
-				UpdateCurrentChamp(tournament.getTask());
-				UpdateMap(oldLocation, p);
-				taskview.revalidate();
-				taskview.repaint();
-				
-				
+				tournament.getTask().moveForward();
+								
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
 				JOptionPane.showMessageDialog(taskview,
@@ -150,15 +204,10 @@ abstract public class TaskGUI implements ActionListener {
 					    JOptionPane.ERROR_MESSAGE);
 				System.out.println(e1.getMessage());
 			}
-			//taskview.revalidate();
 		}
 		else if(e.getSource() == taskview.getDown()){
 			try {
-				Point p = tournament.getTask().moveBackward();
-				UpdateCurrentChamp(tournament.getTask());
-				UpdateMap(oldLocation, p);
-				taskview.revalidate();
-				taskview.repaint();
+				tournament.getTask().moveBackward();				
 
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
@@ -174,12 +223,8 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getLeft()){
 			try {
-				Point p = tournament.getTask().moveLeft();
-				UpdateMap(oldLocation, p);
-				UpdateCurrentChamp(tournament.getTask());
-				taskview.revalidate();
-				taskview.repaint();
-
+				tournament.getTask().moveLeft();
+				
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
 				JOptionPane.showMessageDialog(taskview,
@@ -193,12 +238,8 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getRight()){
 			try {
-				Point p = tournament.getTask().moveRight();
-				UpdateCurrentChamp(tournament.getTask());
-				UpdateMap(oldLocation,p);
-				taskview.revalidate();
-				taskview.repaint();
-
+					tournament.getTask().moveRight();
+				
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
 				JOptionPane.showMessageDialog(taskview,
@@ -228,13 +269,11 @@ abstract public class TaskGUI implements ActionListener {
 	}
 	
 	/*
-	 * infers the type of cell and returns the appropriate image relatively
+	 * infers the type of cell and sets the icon of the Object
 	 */
-	public JImageComponent inferCell(int i, int j) throws IOException
+	public void inferCell(Cell cell, JImageComponent img)
 	{
-		Cell cell = getTournament().getFirstTask().getMap()[i][j];
-		JImageComponent map = getTaskview().getMap()[i][j];
-		String location = "";
+	
 		
 		// the cell contains a champion 
 		if(cell instanceof ChampionCell)
@@ -242,64 +281,34 @@ abstract public class TaskGUI implements ActionListener {
 			Wizard champ = (Wizard)((ChampionCell)cell).getChamp();
 			if(champ instanceof GryffindorWizard)
 			{
-				location = "img/gryffindorWizard.png";
+				gryff.setImageComponent(img);
 			}
 			else if(champ instanceof HufflepuffWizard)
 			{
-				location = "img/hufflepuffWizard.png";
+				huff.setImageComponent(img);
 			}
 			else if(champ instanceof SlytherinWizard)
 			{
-				location = "img/slytherinWizard.png";
+				slyn.setImageComponent(img);
 			}
 			else
 			{
-				location = "img/ravenclawWizard.png";
+				raven.setImageComponent(img);
 			}
-		}
-		// the cell contains the Cup
-		else if(cell instanceof CupCell)
-		{
-			location = "img/cupCell.png";
-		}
-		// the cell contains a treasure
-		else if(cell instanceof TreasureCell)
-		{
-			location = "img/treasureCell.png";
 		}
 		// the cell instance of obstacle
 		else if(cell instanceof ObstacleCell)
 		{
-			Obstacle obstacle = ((ObstacleCell)cell).getObstacle();
-			if(obstacle instanceof Merperson)
-			{
-				location = "img/merperson.png";
-			}
-			else if(obstacle instanceof PhysicalObstacle)
-			{
-				location = "img/physicalobstacle.png";
-			}
+			obst.setImageComponent(img);
 		}
-		// a collectible Cell
-		else if(cell instanceof CollectibleCell)
+		else if(cell instanceof WallCell)
 		{
-			location = "img/Collectible.png";
+			Wall.setImageComponent(img);
 		}
-		// Sets the image components to null removing any existing picture
 		else if(cell instanceof EmptyCell)
 		{
-			map.unsetImage();
-			System.out.print("Image was removed");
-			return null;
+			img.unsetImage();
 		}
-		// creates a new image and resizes it
-		ImageIcon icon = new ImageIcon(location) ;
-		Image img = icon.getImage();
-		Image newimg = ((Image) img).getScaledInstance(((taskview.getWidth()-405)/ 10), taskview.getHeight()/10,  java.awt.Image.SCALE_SMOOTH ) ;  
-		icon = new ImageIcon(newimg);
-		
-		map.setImage(icon);
-		return new JImageComponent(icon);
 	}
 	
 	
@@ -309,14 +318,71 @@ abstract public class TaskGUI implements ActionListener {
 	 * takes the old and new point of the character, sets the new point to the image of the oldpoint 
 	 * Clears the image of the old point 
 	 */
-	void UpdateMap(Point old, Point target) 
+	void UpdateMap() 
 	{
-		JImageComponent[][] map = getTaskview().getMap();
+		Cell[][] cells = getTournament().getFirstTask().getMap();
+		JImageComponent[][] map = getTaskview().getMap(); 
+		for(int i = 0; i < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				
+				inferCell(cells[i][j], map[i][j]);
+				if(cells[i][j] instanceof EmptyCell)
+				{
+					map[i][j].unsetImage();
+				}
+				
+			}
+		}
 		
-		JImageComponent newcell = map[target.x][target.y];
-		JImageComponent oldcell = map[old.x][old.y];
-		newcell.setImage(oldcell.getIcon());
-		oldcell.unsetImage();
+		UpdateCurrentChamp(tournament.getTask());
+		
+	}
+	
+	/*
+	 * Cells id
+	 * Champion id = X0 where x = 1 ,2, 3 ,4 Gryffindor, HufflePuff, Slytherin, Ravenclaw respectively
+	 * Collectible = 1
+	 * Cup = 2
+	 * Empty = -1
+	 * Obstacle = 3
+	 * Treasure = 4
+	 * Wall = 5
+	 */
+	
+	public int CellID(Cell cell)
+	{
+		if(cell instanceof ChampionCell)
+		{
+			Wizard champ = (Wizard)((ChampionCell) cell).getChamp();
+			if(champ instanceof GryffindorWizard)
+			{
+				return 10;
+			}
+			else if(champ instanceof HufflepuffWizard)
+			{
+				return 20;
+			}
+			else if(champ instanceof SlytherinWizard)
+			{
+				return 30;
+			}
+			else
+			{
+				return 40;
+			}
+		}
+		else if(cell instanceof ObstacleCell)
+		{
+			return 3;
+		}
+		else
+		{
+			return -1;
+		}
+		
+		
 	}
 
 }

@@ -1,0 +1,71 @@
+package harrypotter.controller;
+
+import java.awt.*;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+
+import codeproject.jimagecomponent.javax.swing.ImageBuffer;
+import codeproject.jimagecomponent.javax.swing.JImageComponent;
+
+import harrypotter.model.tournament.Tournament;
+import harrypotter.model.world.Cell;
+import harrypotter.model.world.EmptyCell;
+import harrypotter.view.loadingView;
+
+public class Task1GUI extends TaskGUI{
+
+	private ImageBuffer eggs;
+	
+	public Task1GUI(Tournament tournament) {
+		super(tournament);
+		
+		// sets the custom icons for this task
+		eggs = new ImageBuffer("img/egg.png", getWidth(), getHeight());
+		setObst("img/physicalobstacle.png");
+		
+		
+		/*
+		 * shows the loading window while the game is still setting the images
+		 */
+		loadingView loading = new loadingView();
+		loading.setVisibility(true);
+		
+		UpdateCurrentChamp(tournament.getFirstTask());
+		initializeMap();
+		// closes the window after the game is successfully loaded
+		loading.setVisibility(false);
+		setVisibility(true);
+	}
+	
+	
+	void initializeMap() 
+	{
+		Cell[][] cells = getTournament().getFirstTask().getMap();
+		JImageComponent[][] map = getTaskview().getMap();
+		
+		for(int i = 0; i  < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				if(!(cells[i][j] instanceof EmptyCell))
+				{
+					inferCell(i,j);	
+				}
+			}
+		}
+	
+		
+		// sets the center of the map to an egg picture
+		ImageIcon icon = new ImageIcon("img/egg.png") ;
+		Image img = icon.getImage();
+		Image newimg = ((Image) img).getScaledInstance(((getTaskview().getWidth()-405)/ 10), getTaskview().getHeight()/10,  java.awt.Image.SCALE_SMOOTH ) ;  
+		icon = new ImageIcon(newimg);
+		
+		map[4][4].setImage(icon);
+		
+	}
+	
+	
+	
+}
