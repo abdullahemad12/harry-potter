@@ -40,6 +40,7 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		initializeMap();
 		// closes the window after the game is successfully loaded
 		setVisibility(true);
+		loading.setVisibility(false);
 	}
 	
 	void UpdateMap()
@@ -67,10 +68,8 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		if(e.getSource() instanceof JButton)
 		{
 			JImageComponent[][] map = getTaskview().getMap();
-<<<<<<< HEAD
 			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
-=======
->>>>>>> bd7172892a3e3779bffd762b30b46231ca48248f
+
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
 			if (super.isFireFlag()){
