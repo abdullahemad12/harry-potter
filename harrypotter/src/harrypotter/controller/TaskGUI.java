@@ -83,6 +83,7 @@ abstract public class TaskGUI implements ActionListener {
 		taskview.getDown().addActionListener(this);
 		taskview.getLeft().addActionListener(this);
 		taskview.getRight().addActionListener(this);
+		taskview.getUseTrait().addActionListener(this);
 
 		
 		// prepares the image buffer for each icon
@@ -202,6 +203,8 @@ abstract public class TaskGUI implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		
 		
 		// the old location of the champ 
 		//if the event was selecting a new spell from the comboBox
@@ -379,6 +382,49 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getUsePotion()){
 			tournament.getTask().usePotion(taskview.getSelectedPotion());
+		}
+		else if (e.getSource() == taskview.getUseTrait()){
+			Wizard champ = (Wizard) tournament.getTask().getCurrentChamp();
+			if (champ instanceof GryffindorWizard || champ instanceof HufflepuffWizard ){
+				try {
+					champ.useTrait();
+				} catch (InCooldownException | OutOfBordersException
+						| InvalidTargetCellException | IOException e1) {
+					JOptionPane.showMessageDialog(taskview,
+						    e1.getMessage(),
+						    "Inane error",
+						    JOptionPane.ERROR_MESSAGE);
+					System.out.println(e1.getMessage());
+				}
+			}
+			else if(champ instanceof SlytherinWizard){
+				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+				Direction d = (Direction)JOptionPane.showInputDialog(
+									taskview,
+				                    "Please choose trait direction",
+				                    "A plain message",
+				                    JOptionPane.PLAIN_MESSAGE,
+				                     null, possibilities, Direction.FORWARD
+				                   );
+				((SlytherinWizard) champ).setTraitDirection(d);
+				try {
+					champ.useTrait();
+					if(tournament.getTask() instanceof FirstTask){
+						FireFlag = true;
+					}
+				} catch (InCooldownException | OutOfBordersException
+						| InvalidTargetCellException | IOException e1) {
+					JOptionPane.showMessageDialog(taskview,
+						    e1.getMessage(),
+						    "Inane error",
+						    JOptionPane.ERROR_MESSAGE);
+					System.out.println(e1.getMessage());
+				}
+			}
+			else{
+				//TODO ravenclaw trait!!
+			}
+			
 		}
 		
 	}
