@@ -13,8 +13,11 @@ import javax.swing.JOptionPane;
 
 import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
+import harrypotter.exceptions.InCooldownException;
 import harrypotter.exceptions.InvalidTargetCellException;
+import harrypotter.exceptions.NotEnoughIPException;
 import harrypotter.exceptions.OutOfBordersException;
+import harrypotter.exceptions.OutOfRangeException;
 import harrypotter.model.world.*;
 import harrypotter.model.character.GryffindorWizard;
 import harrypotter.model.character.HufflepuffWizard;
@@ -22,6 +25,7 @@ import harrypotter.model.character.RavenclawWizard;
 import harrypotter.model.character.SlytherinWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.*;
+import harrypotter.model.tournament.FirstTask;
 import harrypotter.model.tournament.Task;
 import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
@@ -47,6 +51,8 @@ abstract public class TaskGUI implements ActionListener {
 	private ImageBuffer raven; // the icon of the ravenClaw Wizard id: 40
 	private ImageBuffer obst; // the icon of the Obstacle in the task id: 2
 	private ImageBuffer Wall; // wall cells id: 3
+	
+	private boolean FireFlag; 
 
 	
 	private final int width; // the width of the icon
@@ -73,6 +79,12 @@ abstract public class TaskGUI implements ActionListener {
 		height = taskview.getHeight()/10;
 		// add the Action Listeners
 		taskview.getSpells().addActionListener(this);
+		taskview.getUseSpell().addActionListener(this);
+		taskview.getUsePotion().addActionListener(this);
+		taskview.getUp().addActionListener(this);
+		taskview.getDown().addActionListener(this);
+		taskview.getLeft().addActionListener(this);
+		taskview.getRight().addActionListener(this);
 
 		
 		// prepares the image buffer for each icon
@@ -81,6 +93,14 @@ abstract public class TaskGUI implements ActionListener {
 		slyn = new ImageBuffer("img/slytherinWizard.png", width, height, 30);
 		raven = new ImageBuffer("img/ravenclawWizard.png", width, height, 40);
 		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
+	}
+
+	public boolean isFireFlag() {
+		return FireFlag;
+	}
+
+	public void setFireFlag(boolean fireFlag) {
+		FireFlag = fireFlag;
 	}
 
 	public int getWidth()
@@ -157,6 +177,17 @@ abstract public class TaskGUI implements ActionListener {
 		// sets the selectedspell info
 		UpdateSpells(spells.get(0));
 		
+		taskview.Emptypotions();
+		if (currentChamp.getInventory().isEmpty()){
+			taskview.disableUsePotion();
+		}
+		else{
+			taskview.enableUsePotion();
+			for (int i=0; i<currentChamp.getInventory().size();i++){
+				taskview.addpotion((Potion) currentChamp.getInventory().get(i));
+			}
+		}
+		
 	}
 	
 	/*
@@ -194,7 +225,11 @@ abstract public class TaskGUI implements ActionListener {
 			
 			try 
 			{
+				
 				tournament.getTask().moveForward();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
 								
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
@@ -207,7 +242,11 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getDown()){
 			try {
-				tournament.getTask().moveBackward();				
+				
+				tournament.getTask().moveBackward();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
 
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
@@ -223,7 +262,11 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getLeft()){
 			try {
+				
 				tournament.getTask().moveLeft();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
 				
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
@@ -238,7 +281,11 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		else if(e.getSource() == taskview.getRight()){
 			try {
+				
 					tournament.getTask().moveRight();
+					if(tournament.getTask() instanceof FirstTask){
+						FireFlag = true;
+					}
 				
 			} catch (InvalidTargetCellException | OutOfBordersException
 					| IOException e1) {
@@ -249,6 +296,93 @@ abstract public class TaskGUI implements ActionListener {
 				System.out.println(e1.getMessage());
 
 			}
+		}
+		else if(e.getSource() == taskview.getUseSpell()){
+			Spell spell = taskview.getSelectedSpell();
+			if(spell instanceof HealingSpell){
+				try {
+					tournament.getTask().castHealingSpell((HealingSpell) spell);
+					if(tournament.getTask() instanceof FirstTask){
+						FireFlag = true;
+					}
+				} catch (InCooldownException | NotEnoughIPException
+						| IOException e1) {
+					JOptionPane.showMessageDialog(taskview,
+						    e1.getMessage(),
+						    "Inane error",
+						    JOptionPane.ERROR_MESSAGE);
+					System.out.println(e1.getMessage());
+
+				}
+			}
+			else if(spell instanceof DamagingSpell){
+				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+				Direction s = (Direction)JOptionPane.showInputDialog(
+									taskview,
+				                    "Please choose spell direction",
+				                    "A plain message",
+				                    JOptionPane.PLAIN_MESSAGE,
+				                     null, possibilities, Direction.FORWARD
+				                   );
+				//if (s.equals("up"))
+					try {
+						tournament.getTask().castDamagingSpell((DamagingSpell) spell, s);
+						if(tournament.getTask() instanceof FirstTask){
+							FireFlag = true;
+						}
+					} catch (InCooldownException | NotEnoughIPException
+							| InvalidTargetCellException
+							| OutOfBordersException | IOException e1) {
+						JOptionPane.showMessageDialog(taskview,
+							    e1.getMessage(),
+							    "Inane error",
+							    JOptionPane.ERROR_MESSAGE);
+						System.out.println(e1.getMessage());
+					}
+				
+			}
+			else{
+				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+				Direction d = (Direction)JOptionPane.showInputDialog(
+									taskview,
+				                    "Please choose Old direction",
+				                    "A plain message",
+				                    JOptionPane.PLAIN_MESSAGE,
+				                     null, possibilities, Direction.FORWARD
+				                   );
+				Direction t = (Direction)JOptionPane.showInputDialog(
+						taskview,
+	                    "Please choose new direction",
+	                    "A plain message",
+	                    JOptionPane.PLAIN_MESSAGE,
+	                     null, possibilities, Direction.FORWARD
+	                   );
+				Object[] range = {1,2,3,4,5,6,7,8,9};
+				int r = (int)JOptionPane.showInputDialog(
+						taskview,
+	                    "Please choose spell range",
+	                    "A plain message",
+	                    JOptionPane.PLAIN_MESSAGE,
+	                     null, range, 1
+	                   );
+				try {
+					tournament.getTask().castRelocatingSpell((RelocatingSpell) spell, d, t, r);
+					if(tournament.getTask() instanceof FirstTask){
+						FireFlag = true;
+					}
+				} catch (InCooldownException | NotEnoughIPException
+						| InvalidTargetCellException | OutOfRangeException
+						| OutOfBordersException | IOException e1) {
+					JOptionPane.showMessageDialog(taskview,
+						    e1.getMessage(),
+						    "Inane error",
+						    JOptionPane.ERROR_MESSAGE);
+					System.out.println(e1.getMessage());
+				}
+			}
+		}
+		else if(e.getSource() == taskview.getUsePotion()){
+			tournament.getTask().usePotion(taskview.getSelectedPotion());
 		}
 		
 	}

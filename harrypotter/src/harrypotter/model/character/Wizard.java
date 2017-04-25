@@ -145,7 +145,9 @@ abstract public class Wizard implements Champion  {
 	 * @param spells the spells to set
 	 */
 	public void setSpells(ArrayList<Spell> spells) {
-		this.spells = spells;
+		for (int i=0; i< spells.size();i++){
+			this.spells.add(spells.get(i));
+		}
 	}
 	
 	

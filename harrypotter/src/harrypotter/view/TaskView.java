@@ -1,10 +1,11 @@
 package harrypotter.view;
 
+import harrypotter.model.magic.Potion;
 import harrypotter.model.magic.Spell;
 
 import java.awt.*;
-import javax.swing.*;
 
+import javax.swing.*;
 
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 import codeproject.jimagecomponent.javax.swing.JImagePanel;
@@ -25,7 +26,9 @@ abstract public class TaskView  extends JFrame{
 	private JButton Right;
 	private JButton UseTrait;
 	private JButton UseSpell;
+	private JButton UsePotion;
 	private JComboBox<Spell> spells;
+	private JComboBox<Potion> potions;
 	
 	//Attributes related to the left upper pannel
 	
@@ -112,6 +115,7 @@ abstract public class TaskView  extends JFrame{
 		leftDownPan = new JPanel();
 		rightPan = new JImagePanel("img/background.jpg",getWidth()-405, getHeight());
 		leftPan = new JPanel();
+		potions = new JComboBox<Potion>();
 		spells=new JComboBox<Spell>();
 		//setting panels size
 		leftPan.setPreferredSize(new Dimension(400, getHeight()));	
@@ -140,10 +144,12 @@ abstract public class TaskView  extends JFrame{
 		Right = new JButton("Right");
 		UseTrait = new JButton("Use Trait");
 		UseSpell = new JButton("Use Spell");
+		UsePotion= new JButton("Use Potion");
+		UsePotion.setEnabled(false);
 		
-		leftDownPan.add(new JLabel(""));
+		leftDownPan.add(UsePotion);
 		leftDownPan.add(Up);
-		leftDownPan.add(new JLabel(""));
+		leftDownPan.add(potions);
 		leftDownPan.add(Left);
 		leftDownPan.add(Down);
 		leftDownPan.add(Right);
@@ -242,6 +248,10 @@ abstract public class TaskView  extends JFrame{
 	{
 		spells.addItem(spell);
 	}
+	public void addpotion(Potion potion)
+	{
+		potions.addItem(potion);
+	}
 	protected void setLeftUpPan(Component o)
 	{
 		leftUpPan.add(o);
@@ -285,6 +295,9 @@ abstract public class TaskView  extends JFrame{
 	public JButton getUseSpell() {
 		return UseSpell;
 	}
+	public JButton getUsePotion() {
+		return UsePotion;
+	}
 	public JLabel getTraitactivated() {
 		return traitactivated;
 	}
@@ -293,12 +306,28 @@ abstract public class TaskView  extends JFrame{
 		return (Spell) spells.getSelectedItem();
 	}
 	
+	public Potion getSelectedPotion()
+	{
+		return (Potion) potions.getSelectedItem();
+	}
+	public void enableUsePotion(){
+		UsePotion.setEnabled(true);
+	}
+	public void disableUsePotion(){
+		UsePotion.setEnabled(false);
+	}
+	
 	/*
 	 * Empties the combobox from all the previos Items
 	 */
 	public void Emptyspells()
 	{
 		spells.removeAllItems();
+
+	}
+	public void Emptypotions()
+	{
+		potions.removeAllItems();
 
 	}
 }

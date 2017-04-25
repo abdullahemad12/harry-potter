@@ -185,9 +185,9 @@ public class SecondTask extends Task {
 					{
 					//changing ip after collecting the collectible
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
-						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-						((Wizard)getCurrentChamp()).setIp(newIp);
+//						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+//						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+//						((Wizard)getCurrentChamp()).setIp(newIp);
 						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 					}
 					//declaring winning champ as winner 
@@ -231,9 +231,9 @@ public class SecondTask extends Task {
 				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
-						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-						((Wizard)getCurrentChamp()).setIp(newIp);
+//						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+//						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+//						((Wizard)getCurrentChamp()).setIp(newIp);
 						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 					} 
 					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
@@ -277,9 +277,9 @@ public class SecondTask extends Task {
 				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
-						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-						((Wizard)getCurrentChamp()).setIp(newIp);
+//						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+//						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+//						((Wizard)getCurrentChamp()).setIp(newIp);
 						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 					} 
 					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){
@@ -322,9 +322,9 @@ public class SecondTask extends Task {
 				if (getMap()[p.x][p.y] instanceof EmptyCell||getMap()[p.x][p.y] instanceof CollectibleCell ||((getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
 					{
 					if (getMap()[p.x][p.y] instanceof CollectibleCell){
-						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-						((Wizard)getCurrentChamp()).setIp(newIp);
+//						int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+//						int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+//						((Wizard)getCurrentChamp()).setIp(newIp);
 						((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 					} 
 					if (getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp())){

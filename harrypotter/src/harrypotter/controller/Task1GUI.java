@@ -34,10 +34,7 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		fire = new ImageBuffer("img/fire.png", getWidth(), getHeight(), -1);
 
 		
-		getTaskview().getUp().addActionListener(this);
-		getTaskview().getDown().addActionListener(this);
-		getTaskview().getLeft().addActionListener(this);
-		getTaskview().getRight().addActionListener(this);
+		
 		
 		/*
 		 * shows the loading window while the game is still setting the images
@@ -89,13 +86,16 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		if(e.getSource() instanceof JButton)
 		{
 			JImageComponent[][] map = getTaskview().getMap();
-			
+			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
-			try {
-				fire();
-			} catch (InterruptedException e1) {
-				e1.printStackTrace();
+			if (super.isFireFlag()){
+				try {
+					fire(targetCells);
+					super.setFireFlag(false);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 			}
 			 int delay = 1000; //milliseconds
 			  ActionListener taskPerformer = new ActionListener() {
@@ -109,9 +109,8 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		}
 	}
 	
-	public void fire() throws InterruptedException
+	public void fire(ArrayList<Point> targetCells ) throws InterruptedException
 	{
-		ArrayList<Point> targetCells = getTournament().getFirstTask().getMarkedCells();
   		JImageComponent[][] map = getTaskview().getMap();
     	for(Point p : targetCells)
   		{
