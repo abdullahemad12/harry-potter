@@ -3,6 +3,7 @@ package harrypotter.controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -10,8 +11,7 @@ import javax.swing.Timer;
 
 import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
-import harrypotter.model.character.HufflepuffWizard;
-import harrypotter.model.character.Wizard;
+
 import harrypotter.model.tournament.Tournament;
 
 public class Task1GUI extends TaskGUI implements ActionListener{
@@ -72,14 +72,7 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
-			if (super.isFireFlag() && !(((Wizard) getTournament().getTask().getCurrentChamp() instanceof HufflepuffWizard)&& getTournament().getTask().isTraitActivated())){
-				try {
-					fire(targetCells);
-					super.setFireFlag(false);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-			}
+			
 			 int delay = 1000; //milliseconds
 			  ActionListener taskPerformer = new ActionListener() {
 			      public void actionPerformed(ActionEvent evt) 
@@ -88,6 +81,15 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 			      }
 			  };
 			  new Timer(delay, taskPerformer).start();
+			  
+			  if (super.isFireFlag()){
+					try {
+						fire(targetCells);
+						super.setFireFlag(false);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+				}
 			
 		}
 	}

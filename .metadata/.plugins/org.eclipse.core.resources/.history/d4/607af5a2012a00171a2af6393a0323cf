@@ -3,6 +3,7 @@ package harrypotter.controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -10,8 +11,7 @@ import javax.swing.Timer;
 
 import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
-import harrypotter.model.character.HufflepuffWizard;
-import harrypotter.model.character.Wizard;
+
 import harrypotter.model.tournament.Tournament;
 
 public class Task1GUI extends TaskGUI implements ActionListener{
@@ -67,12 +67,13 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		if(e.getSource() instanceof JButton)
 		{
 			JImageComponent[][] map = getTaskview().getMap();
-
+<<<<<<< HEAD
 			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
-
+=======
+>>>>>>> bd7172892a3e3779bffd762b30b46231ca48248f
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
-			if (super.isFireFlag() && !(((Wizard) getTournament().getTask().getCurrentChamp() instanceof HufflepuffWizard)&& getTournament().getTask().isTraitActivated())){
+			if (super.isFireFlag()){
 				try {
 					fire(targetCells);
 					super.setFireFlag(false);
