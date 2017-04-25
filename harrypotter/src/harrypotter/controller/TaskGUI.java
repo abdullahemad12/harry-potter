@@ -1,13 +1,11 @@
 package harrypotter.controller;
 
-import java.awt.Image;
-import java.awt.Point;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -175,8 +173,6 @@ abstract public class TaskGUI implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		// the old location of the champ 
-		Wizard CurrentChamp =  (Wizard)(tournament.getTask().getCurrentChamp());
-		Point oldLocation = CurrentChamp.getLocation();
 		//if the event was selecting a new spell from the comboBox
 		JComboBox<Spell> spells = taskview.getSpells();
 		if(e.getSource() == spells)
@@ -253,7 +249,25 @@ abstract public class TaskGUI implements ActionListener {
 		
 	}
 	
-	
+	/*
+	 * initializes the Map
+	 */
+	void initializeMap() 
+	{
+		Cell[][] cells = getTournament().getFirstTask().getMap();
+		JImageComponent[][] map = getTaskview().getMap();
+		
+		for(int i = 0; i  < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
+				if(!(cells[i][j] instanceof EmptyCell))
+				{
+					inferCell(cells[i][j], map[i][j]);	
+				}
+			}
+		}
+	}
 
 	public Tournament getTournament() {
 		return tournament;
