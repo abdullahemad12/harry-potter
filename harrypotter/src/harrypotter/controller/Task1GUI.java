@@ -3,11 +3,9 @@ package harrypotter.controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.Timer;
 
@@ -15,9 +13,6 @@ import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 
 import harrypotter.model.tournament.Tournament;
-import harrypotter.model.world.Cell;
-import harrypotter.model.world.EmptyCell;
-import harrypotter.view.loadingView;
 
 public class Task1GUI extends TaskGUI implements ActionListener{
 	
@@ -57,23 +52,9 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 	}
 	void initializeMap() 
 	{
-		Cell[][] cells = getTournament().getFirstTask().getMap();
-		JImageComponent[][] map = getTaskview().getMap();
-		
-		for(int i = 0; i  < 10; i++)
-		{
-			for(int j = 0; j < 10; j++)
-			{
-				if(!(cells[i][j] instanceof EmptyCell))
-				{
-					inferCell(cells[i][j], map[i][j]);	
-				}
-			}
-		}
-	
-		
+		super.initializeMap();
 		// sets the center of the map to an egg picture
-		eggs.setImageComponent(map[4][4]);
+		eggs.setImageComponent(getTaskview().getMap()[4][4]);
 		
 	}
 	
@@ -86,7 +67,10 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		if(e.getSource() instanceof JButton)
 		{
 			JImageComponent[][] map = getTaskview().getMap();
+<<<<<<< HEAD
 			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
+=======
+>>>>>>> bd7172892a3e3779bffd762b30b46231ca48248f
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
 			if (super.isFireFlag()){
