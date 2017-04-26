@@ -1,6 +1,7 @@
 package harrypotter.controller;
 
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -24,6 +25,7 @@ import harrypotter.model.character.SlytherinWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.*;
 import harrypotter.model.tournament.FirstTask;
+import harrypotter.model.tournament.SecondTask;
 import harrypotter.model.tournament.Task;
 import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
@@ -422,7 +424,22 @@ abstract public class TaskGUI implements ActionListener {
 				}
 			}
 			else{
-				//TODO ravenclaw trait!!
+				
+				if (tournament.getTask() instanceof FirstTask){
+					Point[] raven = (Point[]) tournament.getTask().onRavenclawTrait(); 
+					//TODO ravenclaw first task trait
+				}
+				else if (tournament.getTask() instanceof SecondTask){
+					@SuppressWarnings("unchecked")
+					ArrayList<Direction> raven = (ArrayList<Direction>) tournament.getTask().onRavenclawTrait();
+					JOptionPane.showMessageDialog(taskview, "To reach your treasure you need to go: " + raven.get(0)+" and " + raven.get(1));
+					
+				}
+				else{
+					@SuppressWarnings("unchecked")
+					ArrayList<Direction> raven = (ArrayList<Direction>) tournament.getTask().onRavenclawTrait();
+					JOptionPane.showMessageDialog(taskview, "To reach the cup you need to go: " + raven.get(0)+" and " + raven.get(1));
+				}
 			}
 			
 		}

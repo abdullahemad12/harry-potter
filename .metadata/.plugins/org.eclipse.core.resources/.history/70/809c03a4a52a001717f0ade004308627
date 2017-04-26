@@ -11,12 +11,12 @@ public class HufflepuffWizard extends Wizard implements Champion{
 		
 	}
 	 public void useTrait()throws InCooldownException{
-		 int temp= ((Wizard)this).getTraitCooldown();
+		 int temp;
 		if (getListener() != null)
 		{
 			 if(!(getListener() instanceof ThirdTask))
 			 {
-				if(temp != 0 )
+				if((temp = ((Wizard)this).getTraitCooldown()) != 0 )
 				{
 					throw new InCooldownException(temp);
 				}

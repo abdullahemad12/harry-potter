@@ -428,9 +428,9 @@ public abstract class Task implements WizardListener  {
 			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
 				//changing ip after collecting the collectible
 				if (getMap()[p.x][p.y] instanceof CollectibleCell){
-//					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
-//					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
-//					((Wizard)getCurrentChamp()).setIp(newIp);
+					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+					((Wizard)getCurrentChamp()).setIp(newIp);
 					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
 				}
 				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
@@ -453,10 +453,8 @@ public abstract class Task implements WizardListener  {
 			}
 		}
 		
-		if (((Wizard) this.currentChamp).getTraitCooldown()>0)	
 			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
-			
-		// the location of the current champion
+			// the location of the current champion
 			Point p = ((Wizard) this.currentChamp).getLocation();
 			Wizard temp =(Wizard) currentChamp;
 			//Cell current = map[p.x][p.y];
