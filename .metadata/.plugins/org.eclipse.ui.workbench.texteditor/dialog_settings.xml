@@ -6,12 +6,17 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
 		<item value="" key="selection"/>
+=======
+		<item value="fin" key="selection"/>
+>>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="isFire"/>
 			<item value="addspell"/>
 			<item value="add spell "/>
@@ -20,16 +25,33 @@
 			<item value="current"/>
 			<item value="update"/>
 			<item value="moveright"/>
+=======
+			<item value="tournament.getTask() instanceof FirstTask"/>
+			<item value="fin"/>
+			<item value="UpdateMap"/>
+			<item value="inferCell"/>
+			<item value="initializeMap"/>
+			<item value="usep"/>
+			<item value="castr"/>
+			<item value="setSpells"/>
+>>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
 		</list>
 		<list key="replacehistory">
+			<item value="tournament.getTask() instanceof FirstTask &amp;&amp; tournament.getTask.getAllowedMoves"/>
 			<item value=""/>
 			<item value="right"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+<<<<<<< HEAD
 		<item value="300" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="428" key="DIALOG_HEIGHT"/>
+=======
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+>>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
 		<item value="1026" key="DIALOG_X_ORIGIN"/>
 		<item value="313" key="DIALOG_Y_ORIGIN"/>
 	</section>

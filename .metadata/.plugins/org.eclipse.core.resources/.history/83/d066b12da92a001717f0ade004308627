@@ -40,7 +40,6 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		initializeMap();
 		// closes the window after the game is successfully loaded
 		setVisibility(true);
-		loading.setVisibility(false);
 	}
 	
 	void UpdateMap()
@@ -72,11 +71,10 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
 			boolean wiz = ((Wizard) getTournament().getTask().getCurrentChamp() instanceof HufflepuffWizard);
 			boolean trac = getTournament().getTask().isTraitActivated();
-			boolean allmov = getTournament().getTask().getAllowedMoves()==1;
 
 			super.actionPerformed(e);
 			eggs.setImageComponent(map[4][4]);
-			if (super.isFireFlag() && !(wiz && trac) && allmov){
+			if (super.isFireFlag() && !(wiz && trac )){
 				try {
 					fire(targetCells);
 					super.setFireFlag(false);
