@@ -142,7 +142,7 @@ public class HarrypotterGUI implements ActionListener {
 		}
 		else if(champ.equals("Ravenclaw Wizard"))
 		{
-			return new HufflepuffWizard(name);
+			return new RavenclawWizard(name);
 		}
 		else
 		{
