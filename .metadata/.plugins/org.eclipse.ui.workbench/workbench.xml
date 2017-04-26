@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="741" maximized="true" width="684" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -44,13 +44,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="780" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1GUI.java" partName="Task1GUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/Task1GUI.java" title="Task1GUI.java" tooltip="harrypotter/src/harrypotter/controller/Task1GUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1078" selectionTopPixel="1032"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2238" selectionTopPixel="947"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2600" selectionTopPixel="6091"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThirdTaskGUI.java" partName="ThirdTaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java" title="ThirdTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/ThirdTaskGUI.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java"/>
@@ -94,6 +94,10 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (12 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1473"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -411,7 +415,6 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/codeproject/jimagecomponent/javax/swing/JImageComponent.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
@@ -423,17 +426,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Task1GUI.java"/>
 </editors>
-<item historyLabel="Task1GUI.java" index="1">
-<position info="not_deleted" x="2297" y="0"/>
-</item>
-<item historyLabel="Spell.java" index="2">
-<position info="not_deleted" x="780" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="6664" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="3">
+<item historyLabel="ThirdTaskGUI.java" index="2">
 <position info="not_deleted" x="727" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
@@ -466,7 +461,7 @@
 <item historyLabel="TaskGUI.java" index="0">
 <position info="not_deleted" x="4975" y="0"/>
 </item>
-<item historyLabel="JImageComponent.java" index="4">
+<item historyLabel="JImageComponent.java" index="3">
 <position info="not_deleted" x="1884" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
@@ -484,7 +479,7 @@
 <item historyLabel="Task1GUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="6921" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
@@ -493,58 +488,58 @@
 <item historyLabel="Task1GUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="Spell.java" index="6">
+<item historyLabel="Spell.java" index="5">
 <position info="not_deleted" x="780" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="7046" y="22"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="172" y="0"/>
 </item>
-<item historyLabel="ImageBuffer.java" index="7">
+<item historyLabel="ImageBuffer.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="172" y="0"/>
 </item>
-<item historyLabel="JImageComponent.java" index="8">
+<item historyLabel="JImageComponent.java" index="7">
 <position info="not_deleted" x="5" y="0"/>
 </item>
-<item historyLabel="JImageComponent.java" index="8">
+<item historyLabel="JImageComponent.java" index="7">
 <position info="not_deleted" x="1884" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="172" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
 <position info="not_deleted" x="1742" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="2600" y="0"/>
 </item>
-<item historyLabel="Spell.java" index="6">
+<item historyLabel="Spell.java" index="5">
 <position info="not_deleted" x="780" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
 <position info="not_deleted" x="1775" y="29"/>
 </item>
-<item historyLabel="Spell.java" index="6">
+<item historyLabel="Spell.java" index="5">
 <position info="not_deleted" x="780" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
 <position info="not_deleted" x="1845" y="167"/>
 </item>
-<item historyLabel="Spell.java" index="6">
+<item historyLabel="Spell.java" index="5">
 <position info="not_deleted" x="780" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
 <position info="not_deleted" x="1845" y="167"/>
 </item>
-<item historyLabel="TaskGUI.java" index="5">
+<item historyLabel="TaskGUI.java" index="4">
 <position info="not_deleted" x="2600" y="0"/>
 </item>
 <item historyLabel="Task1GUI.java" index="1">
@@ -553,26 +548,35 @@
 <item historyLabel="Task1GUI.java" index="1">
 <position info="not_deleted" x="1078" y="0"/>
 </item>
-<item historyLabel="StartMenuView.java" index="9">
+<item historyLabel="StartMenuView.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="HarrypotterGUI.java" index="10">
+<item historyLabel="HarrypotterGUI.java" index="9">
 <position info="not_deleted" x="3454" y="0"/>
 </item>
-<item historyLabel="StartMenuView.java" index="9">
+<item historyLabel="StartMenuView.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Task1GUI.java" index="11">
+<item historyLabel="Task1GUI.java" index="10">
 <position info="not_deleted" x="1078" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="12">
+<item historyLabel="TaskGUI.java" index="11">
 <position info="not_deleted" x="2600" y="0"/>
 </item>
-<item historyLabel="ThirdTaskGUI.java" index="13">
+<item historyLabel="ThirdTaskGUI.java" index="12">
 <position info="not_deleted" x="727" y="0"/>
 </item>
-<item active="true" historyLabel="TaskGUI.java" index="12">
+<item historyLabel="TaskGUI.java" index="11">
 <position info="not_deleted" x="2600" y="0"/>
+</item>
+<item historyLabel="TaskGUI.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Task1GUI.java" index="13">
+<position info="not_deleted" x="2808" y="0"/>
+</item>
+<item active="true" historyLabel="Task1GUI.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

@@ -3,10 +3,11 @@
 	<section name="FatJarPackageWizard">
 		<item value="/home/abdullah/Documents/projects/harry-potter" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="HarrypotterGUI - harrypotter" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/home/abdullah/Desktop/harrypotter.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="harrypotter/harrypotter.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
-		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<item value="2" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="harrypotter/harrypotter.jar"/>
 			<item value="/home/abdullah/Desktop/harrypotter.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">

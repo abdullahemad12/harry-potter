@@ -68,7 +68,10 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		if(e.getSource() instanceof JButton)
 		{
 			JImageComponent[][] map = getTaskview().getMap();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 256b0966862b32f579a138cd55c523a35a4e1315
 			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
 
 			super.actionPerformed(e);
