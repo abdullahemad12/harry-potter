@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="fin" key="selection"/>
+		<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)"/>
+			<item value="end"/>
+			<item value="onr"/>
+			<item value="on"/>
 			<item value="tournament.getTask() instanceof FirstTask"/>
 			<item value="fin"/>
 			<item value="UpdateMap"/>
 			<item value="inferCell"/>
-			<item value="initializeMap"/>
-			<item value="usep"/>
-			<item value="castr"/>
-			<item value="setSpells"/>
 		</list>
 		<list key="replacehistory">
 			<item value="tournament.getTask() instanceof FirstTask &amp;&amp; tournament.getTask.getAllowedMoves"/>

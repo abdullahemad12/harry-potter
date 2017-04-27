@@ -14,12 +14,10 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
 <fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="harrypotter.view.loadingView"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.controller.Task1GUI"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
@@ -27,10 +25,13 @@
 <fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
 </qualifiedTypeNameHistroy>
