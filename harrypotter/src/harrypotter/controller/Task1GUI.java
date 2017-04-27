@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 import harrypotter.model.character.HufflepuffWizard;
+import harrypotter.model.character.RavenclawWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.tournament.Tournament;
 
@@ -40,6 +41,7 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 		initializeMap();
 		// closes the window after the game is successfully loaded
 		setVisibility(true);
+		loading.setVisibility(false);
 	}
 	
 	void UpdateMap()
@@ -66,36 +68,62 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 	{
 		if(e.getSource() instanceof JButton)
 		{
-			JImageComponent[][] map = getTaskview().getMap();
-
-			ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
-			boolean wiz = ((Wizard) getTournament().getTask().getCurrentChamp() instanceof HufflepuffWizard);
-			boolean trac = getTournament().getTask().isTraitActivated();
-			boolean allmov = getTournament().getTask().getAllowedMoves()==1;
-
-			super.actionPerformed(e);
-			eggs.setImageComponent(map[4][4]);
-			if (super.isFireFlag() && !(wiz && trac) && allmov){
-				try {
+			
+			
+			// The ravenClaw trait for the first task 
+			if(e.getSource() == getTaskview().getUseTrait())
+			{
+				if(getTournament().getTask().getCurrentChamp() instanceof RavenclawWizard)
+				{
+					@SuppressWarnings("unchecked")
+					ArrayList<Point> targetCells = (ArrayList<Point>) getTournament().getTask().onRavenclawTrait(); 
 					fire(targetCells);
-					super.setFireFlag(false);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
 				}
 			}
-			 int delay = 1000; //milliseconds
-			  ActionListener taskPerformer = new ActionListener() {
-			      public void actionPerformed(ActionEvent evt) 
-			      {
-			    	  UpdateMap();
-			      }
-			  };
-			  new Timer(delay, taskPerformer).start();
 			
+			
+			// shows the fired cells when After the user moves right, left, up or dowm
+			else if(e.getSource() == getTaskview().getRight() || e.getSource() == getTaskview().getLeft() ||
+					e.getSource() == getTaskview().getUp() || e.getSource() == getTaskview().getDown())
+			{
+				JImageComponent[][] map = getTaskview().getMap();
+				// targeted Cells
+				ArrayList<Point> targetCells = new ArrayList<Point>( getTournament().getFirstTask().getMarkedCells()) ;
+				
+				
+				
+				boolean wiz = ((Wizard) getTournament().getTask().getCurrentChamp() instanceof HufflepuffWizard);
+				boolean trac = getTournament().getTask().isTraitActivated();
+				boolean allmov = getTournament().getTask().getAllowedMoves()==1;
+	
+				super.actionPerformed(e);
+				eggs.setImageComponent(map[4][4]);
+				
+				// fires when needed
+				if (super.isFireFlag() && !(wiz && trac) && allmov){
+						fire(targetCells);
+						super.setFireFlag(false);
+				}
+				
+				// removes the fire image after two seconds
+				 int delay = 2000; //milliseconds
+				  ActionListener taskPerformer = new ActionListener() {
+				      public void actionPerformed(ActionEvent evt) 
+				      {
+				    	  UpdateMap();
+				      }
+				  };
+				  new Timer(delay, taskPerformer).start();
+			}
+			else
+			{
+				super.actionPerformed(e);
+			}
+				
 		}
 	}
 	
-	public void fire(ArrayList<Point> targetCells ) throws InterruptedException
+	public void fire(ArrayList<Point> targetCells )
 	{
   		JImageComponent[][] map = getTaskview().getMap();
     	for(Point p : targetCells)

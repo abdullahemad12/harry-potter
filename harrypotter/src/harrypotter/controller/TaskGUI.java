@@ -1,7 +1,6 @@
 package harrypotter.controller;
 
 
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -25,7 +24,6 @@ import harrypotter.model.character.SlytherinWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.*;
 import harrypotter.model.tournament.FirstTask;
-import harrypotter.model.tournament.SecondTask;
 import harrypotter.model.tournament.Task;
 import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
@@ -51,16 +49,17 @@ abstract public class TaskGUI implements ActionListener {
 	private ImageBuffer raven; // the icon of the ravenClaw Wizard id: 40
 	private ImageBuffer obst; // the icon of the Obstacle in the task id: 2
 	private ImageBuffer Wall; // wall cells id: 3
-	
-	private boolean FireFlag; 
 
-	
+	private boolean FireFlag; 	
 	private final int width; // the width of the icon
 	private final int height; // the height of the icon
 	
-	
 	protected loadingView loading;
+	
+	
 	// note: the Obst icon has to be set in each task independently depending on the obstacle in this task
+	
+	
 	
 	/*
 	 * constructor
@@ -96,6 +95,10 @@ abstract public class TaskGUI implements ActionListener {
 		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
 	}
 
+	
+	/*
+	 *  All the setters and getters
+	 */
 	public boolean isFireFlag() {
 		return FireFlag;
 	}
@@ -126,8 +129,24 @@ abstract public class TaskGUI implements ActionListener {
 		return taskview;
 	}
 	
+	
+	public Tournament getTournament() {
+		return tournament;
+	}
+
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+	
+	public void setVisibility(boolean visible)
+	{
+		taskview.setVisible(visible);
+	}
+	
+	
+	
 	/*
-	 * updates all the current champion information for all tasks
+	 * updates all the current champion information for all tasks left right panels 
 	 */
 	public void UpdateCurrentChamp(Task task)
 	{
@@ -203,6 +222,9 @@ abstract public class TaskGUI implements ActionListener {
 		
 	}
 	
+	/*
+	 * Action Listener for all the common buttons and GUI components
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -220,228 +242,40 @@ abstract public class TaskGUI implements ActionListener {
 			taskview.revalidate();
 		}
 		
-		// moves forward
+		// moving forward
 		else if(e.getSource() == taskview.getUp())
 		{
 			
-			try 
-			{
-				
-				tournament.getTask().moveForward();
-				if(tournament.getTask() instanceof FirstTask){
-					FireFlag = true;
-				}
-								
-			} catch (InvalidTargetCellException | OutOfBordersException
-					| IOException e1) {
-				JOptionPane.showMessageDialog(taskview,
-					    e1.getMessage(),
-					    "Inane error",
-					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-			}
+			move(Direction.FORWARD);
 		}
+		//moving backward
 		else if(e.getSource() == taskview.getDown()){
-			try {
-				
-				tournament.getTask().moveBackward();
-				if(tournament.getTask() instanceof FirstTask){
-					FireFlag = true;
-				}
+			move(Direction.BACKWARD);
 
-			} catch (InvalidTargetCellException | OutOfBordersException
-					| IOException e1) {
-				JOptionPane.showMessageDialog(taskview,
-					    e1.getMessage(),
-					    "Inane error",
-					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-
-				;
-			}
-			//taskview.revalidate();
 		}
+		// moving left
 		else if(e.getSource() == taskview.getLeft()){
-			try {
-				
-				tournament.getTask().moveLeft();
-				if(tournament.getTask() instanceof FirstTask){
-					FireFlag = true;
-				}
-				
-			} catch (InvalidTargetCellException | OutOfBordersException
-					| IOException e1) {
-				JOptionPane.showMessageDialog(taskview,
-					    e1.getMessage(),
-					    "Inane error",
-					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-
-			}
-			//taskview.revalidate();
+			move(Direction.LEFT);
 		}
+		// moving right
 		else if(e.getSource() == taskview.getRight()){
-			try {
-				
-					tournament.getTask().moveRight();
-					if(tournament.getTask() instanceof FirstTask){
-						FireFlag = true;
-					}
-				
-			} catch (InvalidTargetCellException | OutOfBordersException
-					| IOException e1) {
-				JOptionPane.showMessageDialog(taskview,
-					    e1.getMessage(),
-					    "Inane error",
-					    JOptionPane.ERROR_MESSAGE);
-				System.out.println(e1.getMessage());
-
-			}
+			move(Direction.RIGHT);
 		}
+		// the user is trying to use a spell 
 		else if(e.getSource() == taskview.getUseSpell()){
-			Spell spell = taskview.getSelectedSpell();
-			if(spell instanceof HealingSpell){
-				try {
-					tournament.getTask().castHealingSpell((HealingSpell) spell);
-					if(tournament.getTask() instanceof FirstTask){
-						FireFlag = true;
-					}
-				} catch (InCooldownException | NotEnoughIPException
-						| IOException e1) {
-					JOptionPane.showMessageDialog(taskview,
-						    e1.getMessage(),
-						    "Inane error",
-						    JOptionPane.ERROR_MESSAGE);
-					System.out.println(e1.getMessage());
-
-				}
-			}
-			else if(spell instanceof DamagingSpell){
-				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
-				Direction s = (Direction)JOptionPane.showInputDialog(
-									taskview,
-				                    "Please choose spell direction",
-				                    "A plain message",
-				                    JOptionPane.PLAIN_MESSAGE,
-				                     null, possibilities, Direction.FORWARD
-				                   );
-				//if (s.equals("up"))
-					try {
-						tournament.getTask().castDamagingSpell((DamagingSpell) spell, s);
-						if(tournament.getTask() instanceof FirstTask){
-							FireFlag = true;
-						}
-					} catch (InCooldownException | NotEnoughIPException
-							| InvalidTargetCellException
-							| OutOfBordersException | IOException e1) {
-						JOptionPane.showMessageDialog(taskview,
-							    e1.getMessage(),
-							    "Inane error",
-							    JOptionPane.ERROR_MESSAGE);
-						System.out.println(e1.getMessage());
-					}
-				
-			}
-			else{
-				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
-				Direction d = (Direction)JOptionPane.showInputDialog(
-									taskview,
-				                    "Please choose Old direction",
-				                    "A plain message",
-				                    JOptionPane.PLAIN_MESSAGE,
-				                     null, possibilities, Direction.FORWARD
-				                   );
-				Direction t = (Direction)JOptionPane.showInputDialog(
-						taskview,
-	                    "Please choose new direction",
-	                    "A plain message",
-	                    JOptionPane.PLAIN_MESSAGE,
-	                     null, possibilities, Direction.FORWARD
-	                   );
-				Object[] range = {1,2,3,4,5,6,7,8,9};
-				int r = (int)JOptionPane.showInputDialog(
-						taskview,
-	                    "Please choose spell range",
-	                    "A plain message",
-	                    JOptionPane.PLAIN_MESSAGE,
-	                     null, range, 1
-	                   );
-				try {
-					tournament.getTask().castRelocatingSpell((RelocatingSpell) spell, d, t, r);
-					if(tournament.getTask() instanceof FirstTask){
-						FireFlag = true;
-					}
-				} catch (InCooldownException | NotEnoughIPException
-						| InvalidTargetCellException | OutOfRangeException
-						| OutOfBordersException | IOException e1) {
-					JOptionPane.showMessageDialog(taskview,
-						    e1.getMessage(),
-						    "Inane error",
-						    JOptionPane.ERROR_MESSAGE);
-					System.out.println(e1.getMessage());
-				}
-			}
+			castSpell();
+			
 		}
+		
+		// user tries to use his potions
 		else if(e.getSource() == taskview.getUsePotion()){
 			tournament.getTask().usePotion(taskview.getSelectedPotion());
 		}
+		
+		// user trying to use traits
 		else if (e.getSource() == taskview.getUseTrait()){
-			Wizard champ = (Wizard) tournament.getTask().getCurrentChamp();
-			if (champ instanceof GryffindorWizard || champ instanceof HufflepuffWizard ){
-				try {
-					champ.useTrait();
-				} catch (InCooldownException | OutOfBordersException
-						| InvalidTargetCellException | IOException e1) {
-					JOptionPane.showMessageDialog(taskview,
-						    e1.getMessage(),
-						    "Inane error",
-						    JOptionPane.ERROR_MESSAGE);
-					System.out.println(e1.getMessage());
-				}
-			}
-			else if(champ instanceof SlytherinWizard){
-				Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
-				Direction d = (Direction)JOptionPane.showInputDialog(
-									taskview,
-				                    "Please choose trait direction",
-				                    "A plain message",
-				                    JOptionPane.PLAIN_MESSAGE,
-				                     null, possibilities, Direction.FORWARD
-				                   );
-				((SlytherinWizard) champ).setTraitDirection(d);
-				try {
-					champ.useTrait();
-					if(tournament.getTask() instanceof FirstTask){
-						FireFlag = true;
-					}
-				} catch (InCooldownException | OutOfBordersException
-						| InvalidTargetCellException | IOException e1) {
-					JOptionPane.showMessageDialog(taskview,
-						    e1.getMessage(),
-						    "Inane error",
-						    JOptionPane.ERROR_MESSAGE);
-					System.out.println(e1.getMessage());
-				}
-			}
-			else{
-				
-				if (tournament.getTask() instanceof FirstTask){
-					Point[] raven = (Point[]) tournament.getTask().onRavenclawTrait(); 
-					//TODO ravenclaw first task trait
-				}
-				else if (tournament.getTask() instanceof SecondTask){
-					@SuppressWarnings("unchecked")
-					ArrayList<Direction> raven = (ArrayList<Direction>) tournament.getTask().onRavenclawTrait();
-					JOptionPane.showMessageDialog(taskview, "To reach your treasure you need to go: " + raven.get(0)+" and " + raven.get(1));
-					
-				}
-				else{
-					@SuppressWarnings("unchecked")
-					ArrayList<Direction> raven = (ArrayList<Direction>) tournament.getTask().onRavenclawTrait();
-					JOptionPane.showMessageDialog(taskview, "To reach the cup you need to go: " + raven.get(0)+" and " + raven.get(1));
-				}
-			}
 			
+			useTrait();
 		}
 		
 	}
@@ -466,18 +300,7 @@ abstract public class TaskGUI implements ActionListener {
 		}
 	}
 
-	public Tournament getTournament() {
-		return tournament;
-	}
 
-	public void setTournament(Tournament tournament) {
-		this.tournament = tournament;
-	}
-	
-	public void setVisibility(boolean visible)
-	{
-		taskview.setVisible(visible);
-	}
 	
 	/*
 	 * infers the type of cell and sets the icon of the Object
@@ -594,6 +417,233 @@ abstract public class TaskGUI implements ActionListener {
 		}
 		
 		
+	}
+	
+	
+	/*
+	 * cast a spell when the UseSpell button is pressed 
+	 * Cast the selected spell in the JComboBox
+	 */
+	public void castSpell()
+	{
+		Spell spell = taskview.getSelectedSpell();
+		// trying to cast a healing spell
+		if(spell instanceof HealingSpell){
+			try {
+				tournament.getTask().castHealingSpell((HealingSpell) spell);
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+			} catch (InCooldownException | NotEnoughIPException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+
+			}
+		}
+		
+		else if(spell instanceof DamagingSpell){
+			Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+			
+			// popout
+			Direction s = (Direction)JOptionPane.showInputDialog(
+								taskview,
+			                    "Please choose spell direction",
+			                    "A plain message",
+			                    JOptionPane.PLAIN_MESSAGE,
+			                     null, possibilities, Direction.FORWARD
+			                   );
+				
+				try {
+					tournament.getTask().castDamagingSpell((DamagingSpell) spell, s);
+					if(tournament.getTask() instanceof FirstTask){
+						FireFlag = true;
+					}
+				} catch (InCooldownException | NotEnoughIPException
+						| InvalidTargetCellException
+						| OutOfBordersException | IOException e1) {
+					JOptionPane.showMessageDialog(taskview,
+						    e1.getMessage(),
+						    "Inane error",
+						    JOptionPane.ERROR_MESSAGE);
+					System.out.println(e1.getMessage());
+				}
+			
+		}
+		else{
+			Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+			Direction d = (Direction)JOptionPane.showInputDialog(
+								taskview,
+			                    "Please choose Old direction",
+			                    "A plain message",
+			                    JOptionPane.PLAIN_MESSAGE,
+			                     null, possibilities, Direction.FORWARD
+			                   );
+			Direction t = (Direction)JOptionPane.showInputDialog(
+					taskview,
+                    "Please choose new direction",
+                    "A plain message",
+                    JOptionPane.PLAIN_MESSAGE,
+                     null, possibilities, Direction.FORWARD
+                   );
+			Object[] range = {1,2,3,4,5,6,7,8,9};
+			int r = (int)JOptionPane.showInputDialog(
+					taskview,
+                    "Please choose spell range",
+                    "A plain message",
+                    JOptionPane.PLAIN_MESSAGE,
+                     null, range, 1
+                   );
+			try {
+				tournament.getTask().castRelocatingSpell((RelocatingSpell) spell, d, t, r);
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+			} catch (InCooldownException | NotEnoughIPException
+					| InvalidTargetCellException | OutOfRangeException
+					| OutOfBordersException | IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+			}
+		}
+	}
+	
+	/*
+	 * uses the trait of the champion According to the task and the class of the current champion
+	 */
+	public void useTrait()
+	{
+		Wizard champ = (Wizard) tournament.getTask().getCurrentChamp();
+		if (champ instanceof GryffindorWizard || champ instanceof HufflepuffWizard ){
+			try {
+				champ.useTrait();
+			} catch (InCooldownException | OutOfBordersException
+					| InvalidTargetCellException | IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+			}
+		}
+		else if(champ instanceof SlytherinWizard){
+			Direction[] possibilities = {Direction.FORWARD, Direction.BACKWARD, Direction.RIGHT, Direction.LEFT};
+			Direction d = (Direction)JOptionPane.showInputDialog(
+								taskview,
+			                    "Please choose trait direction",
+			                    "A plain message",
+			                    JOptionPane.PLAIN_MESSAGE,
+			                     null, possibilities, Direction.FORWARD
+			                   );
+			((SlytherinWizard) champ).setTraitDirection(d);
+			try {
+				champ.useTrait();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+			} catch (InCooldownException | OutOfBordersException
+					| InvalidTargetCellException | IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+			}
+		}
+	}
+	
+	/*
+	 * Takes a direction and attempts to move the Current champion in the given direction
+	 * pops out a message in case of failure
+	 */
+	public void move(Direction d)
+	{
+		// moving backward
+		if (d == Direction.BACKWARD)
+		{
+			try {	
+				tournament.getTask().moveBackward();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+
+				;
+			}
+		}
+		// moving forward
+		else if(d == Direction.FORWARD)
+		{
+			try 
+			{
+				
+				tournament.getTask().moveForward();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+								
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+			}
+		}
+		
+		// trying to move left
+		else if(d == Direction.LEFT)
+		{
+			try {	
+				tournament.getTask().moveLeft();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+				
+			} catch (InvalidTargetCellException | OutOfBordersException
+					| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+
+			}
+		}
+		// moving to the right 
+		else
+		{
+			try {
+				
+				tournament.getTask().moveRight();
+				if(tournament.getTask() instanceof FirstTask){
+					FireFlag = true;
+				}
+			
+		} catch (InvalidTargetCellException | OutOfBordersException
+				| IOException e1) {
+				JOptionPane.showMessageDialog(taskview,
+					    e1.getMessage(),
+					    "Inane error",
+					    JOptionPane.ERROR_MESSAGE);
+				System.out.println(e1.getMessage());
+	
+			}
+		}
 	}
 
 }

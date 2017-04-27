@@ -2,9 +2,17 @@ package harrypotter.controller;
 
 
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
+import harrypotter.model.character.RavenclawWizard;
 import harrypotter.model.tournament.Tournament;
 import harrypotter.model.world.Cell;
+import harrypotter.model.world.Direction;
 import harrypotter.model.world.EmptyCell;
 
 public class ThirdTaskGUI extends TaskGUI{
@@ -38,6 +46,30 @@ public class ThirdTaskGUI extends TaskGUI{
 	
 		
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see harrypotter.controller.TaskGUI#actionPerformed(java.awt.event.ActionEvent)
+	 */
+	public void actionPerformed(ActionEvent e) 
+	{
+		super.actionPerformed(e);
+		if(e.getSource() instanceof JButton)
+		{
+			if(e.getSource() == getTaskview().getUseTrait())
+			{
+				if(getTournament().getTask().getCurrentChamp() instanceof RavenclawWizard)
+				{
+					@SuppressWarnings("unchecked")
+					ArrayList<Direction> raven = (ArrayList<Direction>) getTournament().getTask().onRavenclawTrait();
+					JOptionPane.showMessageDialog(getTaskview(), "To reach the cup you need to go: " + raven.get(0)+" and " + raven.get(1));
+					
+				}
+			}
+		}
+		
+	}
+
 	
 
 
