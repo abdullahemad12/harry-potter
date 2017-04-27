@@ -22,7 +22,6 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 	private ImageBuffer fire;
 	private TaskListener listener;
 	
-	private Timer time; 
 	
 	
 	
@@ -123,24 +122,20 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 				}
 				
 				// removes the fire image after two seconds
-
-				 int delay = 1000; //milliseconds
+				 int delay = 2000; //milliseconds
 				  ActionListener taskPerformer = new ActionListener() {
 				      public void actionPerformed(ActionEvent evt) 
 				      {
 				    	  UpdateMap();
-				    	  ((Timer) evt.getSource()).stop();
 				      }
 				  };
-				  time = new Timer(delay, taskPerformer);
-				  time.start();
-
+				  new Timer(delay, taskPerformer).start();
 			}
+//			else
+//			{
+//				super.actionPerformed(e);
+//			}
 				
-		}
-		else
-		{
-			super.actionPerformed(e);
 		}
 	}
 	

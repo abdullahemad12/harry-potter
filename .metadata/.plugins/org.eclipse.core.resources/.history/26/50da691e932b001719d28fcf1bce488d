@@ -47,6 +47,7 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 		initializeMap();
 		// closes the window after the game is successfully loaded
 		setVisibility(true);
+		listener.onFinishingSecondTask();
 	}
 	
 	public void setTaskListener(TaskListener listener)

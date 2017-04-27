@@ -82,6 +82,10 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e) 
 	{
+		if(time != null)
+		{
+			time.stop();
+		}
 		if(e.getSource() instanceof JButton)
 		{
 			

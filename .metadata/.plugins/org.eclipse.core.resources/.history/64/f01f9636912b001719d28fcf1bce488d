@@ -22,7 +22,7 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 	private ImageBuffer fire;
 	private TaskListener listener;
 	
-	private Timer time; 
+	private timer; 
 	
 	
 	
@@ -129,11 +129,11 @@ public class FirstTaskGUI extends TaskGUI implements ActionListener{
 				      public void actionPerformed(ActionEvent evt) 
 				      {
 				    	  UpdateMap();
-				    	  ((Timer) evt.getSource()).stop();
 				      }
 				  };
-				  time = new Timer(delay, taskPerformer);
+				  Timer time = new Timer(delay, taskPerformer);
 				  time.start();
+				  time.stop();
 
 			}
 				
