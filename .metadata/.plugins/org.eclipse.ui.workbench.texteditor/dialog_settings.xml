@@ -2,14 +2,58 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
 		<item value="UseTra" key="selection"/>
+=======
+<<<<<<< HEAD
+		<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)" key="selection"/>
+=======
+<<<<<<< HEAD
+		<item value="" key="selection"/>
+=======
+		<item value="fin" key="selection"/>
+>>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
+>>>>>>> c077ab4e2dd695e6d70e907b0f422f57428dac21
+>>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="useTra"/>
 			<item value="raven"/>
+=======
+<<<<<<< HEAD
+			<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)"/>
+			<item value="end"/>
+			<item value="onr"/>
+			<item value="on"/>
+=======
+<<<<<<< HEAD
+			<item value="isFire"/>
+			<item value="addspell"/>
+			<item value="add spell "/>
+			<item value="empty"/>
+			<item value="spells"/>
+			<item value="current"/>
+			<item value="update"/>
+			<item value="moveright"/>
+=======
+>>>>>>> c077ab4e2dd695e6d70e907b0f422f57428dac21
+			<item value="tournament.getTask() instanceof FirstTask"/>
+			<item value="fin"/>
+			<item value="UpdateMap"/>
+			<item value="inferCell"/>
+<<<<<<< HEAD
+=======
+			<item value="initializeMap"/>
+			<item value="usep"/>
+			<item value="castr"/>
+			<item value="setSpells"/>
+>>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
+>>>>>>> c077ab4e2dd695e6d70e907b0f422f57428dac21
+>>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
 		</list>
 		<list key="replacehistory">
 		</list>
