@@ -7,32 +7,57 @@ import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 
+
 import harrypotter.model.character.*;
 import harrypotter.model.magic.Spell;
 import harrypotter.model.tournament.*;
 import harrypotter.view.StartMenuView;
 
-public class HarrypotterGUI implements ActionListener {
+/*
+ * The Main class that controls all the other Controllers
+ */
+public class HarrypotterGUI implements ActionListener, TaskListener{
 	private Tournament tournament; 
 	private StartMenuView startmenu2;
 	
+	
+	
+	
+	// spells for player 1
 	private JComboBox<Spell> spells1A;
 	private JComboBox<Spell> spells1B;
 	private JComboBox<Spell> spells1C;
+	
+	// spells for player 2
 	private JComboBox<Spell> spells2A;
 	private JComboBox<Spell> spells2B;
 	private JComboBox<Spell> spells2C;
+	
+	// spells for player 3
 	private JComboBox<Spell> spells3A;
 	private JComboBox<Spell> spells3B;
 	private JComboBox<Spell> spells3C;
+	
+	// spells for player 4
 	private JComboBox<Spell> spells4A;
 	private JComboBox<Spell> spells4B;
 	private JComboBox<Spell> spells4C;
+	
+	// Controllers
+	
+	// Makes them disposable to free the memory and enhance the performance
+	FirstTaskGUI task1;  
+	SecondTaskGUI task2;
+	ThirdTaskGUI task3;
 	
 	public HarrypotterGUI() throws Exception
 	{
 		tournament = new Tournament();
 		startmenu2 = new StartMenuView();
+		
+		
+	
+		
 		
 		ArrayList<Spell> spells = tournament.getSpells();
 		
@@ -63,9 +88,6 @@ public class HarrypotterGUI implements ActionListener {
 			spells4A.addItem(spell);
 			spells4B.addItem(spell);
 			spells4C.addItem(spell);
-			
-			//JCheckBox cspell = new JCheckBox(name);
-			//startmenu2.addSpell(cspell);
 		}
 		startmenu2.championsPan.add(spells1A); startmenu2.championsPan.add(spells2A);startmenu2.championsPan.add(spells3A);startmenu2.championsPan.add(spells4A);
 		startmenu2.championsPan.add(spells1B); startmenu2.championsPan.add(spells2B);startmenu2.championsPan.add(spells3B);startmenu2.championsPan.add(spells4B);
@@ -116,16 +138,26 @@ public class HarrypotterGUI implements ActionListener {
 			tournament.addChampion(player[i]);
 		}
 		
-		startmenu2.setVisible(false);
 		try {
 			tournament.beginTournament();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		new Task1GUI(this.tournament);
+		
+		// sets the Graphics
+		task1 = new FirstTaskGUI(this.tournament);
+		
+		task1.setTaskListener(this);
+		
+		
+		// gets rid of the start menu to free memory
+		startmenu2.dispose();
+		startmenu2 = null;
+		
 		
 	}
+	
 	
 	/*
 	 * Return new Champion according to the type passed in to the parameters
@@ -150,8 +182,49 @@ public class HarrypotterGUI implements ActionListener {
 		}
 	}
 	
+	
 	public static void main(String[] args) throws Exception
 	{
 		new HarrypotterGUI();
+	}
+
+	/*
+	 * After Finishing the First Task it initializes a new instance of the secondTask GUI 
+	 */
+	@Override
+	public void onFinishingFirstTask() {
+		
+		// makes a new instance of Task2
+		task2 = new SecondTaskGUI(tournament);
+		// removes the old instance of task 1
+		task2.setTaskListener(this);
+		
+		
+		task1.DisposeView();
+		task1 = null; // makes it easier for the garbage collector
+		
+	}
+
+	/*
+	 * After Finishing the First Task it initializes a new instance of the secondTask GUI 
+	 */
+	@Override
+	public void onFinishingSecondTask() {
+		task3 = new ThirdTaskGUI(tournament);
+		task3.setTaskListener(this);
+		
+		// gets rid of task 2
+		task2.DisposeView();
+		task2 = null;
+		
+	}
+
+	/*
+	 * After Finishing the Third it initializes a new instance of the Winners and passes the Winners  
+	 */
+	@Override
+	public void onFinishingThirdTask(ArrayList<Champion> Winners) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -29,9 +29,14 @@
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
+<<<<<<< HEAD
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.RavenclawWizard"/>
+=======
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+>>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
 </qualifiedTypeNameHistroy>

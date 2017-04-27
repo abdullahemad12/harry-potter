@@ -1,0 +1,10 @@
+el First task movements mmken tet3emel bel sequence duh:
+
+1) user chooses to move up, back, right or left (using buttons or keyboard keys or however you chose to do it) 
+2) The controller takes the input from the user and according to the input, it calls the moveright(), moveLeft() ,etc ... function from the Tournament Class. 
+3) Assuming the input is in a valid direction and no exception was thrown, The map marks the fired cells with a color or a picture(I would settle down for changing the color since time is limited).
+4) Freeze the program for 1 second for instance. 
+5) iterate over all the cells of the Map and update them according to the to Map ArrayList from class tournament. EmptyCells in the arrayList are changed to empty cells in the class , cells that contains the characters are changed as well, so that their positions get updated, and any other cell of any other type or element. (This will update the positions of the characters and will restore the cells that were colored due to firing after 1 or 2 seconds)) 
+
+
+

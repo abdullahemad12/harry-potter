@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
-		<item value="447" key="DIALOG_X_ORIGIN"/>
-		<item value="228" key="DIALOG_Y_ORIGIN"/>
-	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
+		<item value="UseTra" key="selection"/>
+=======
 <<<<<<< HEAD
 		<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)" key="selection"/>
 =======
@@ -15,11 +14,16 @@
 		<item value="fin" key="selection"/>
 >>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
 >>>>>>> c077ab4e2dd695e6d70e907b0f422f57428dac21
+>>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
+			<item value="useTra"/>
+			<item value="raven"/>
+=======
 <<<<<<< HEAD
 			<item value="(getMap()[p.x][p.y] instanceof CollectibleCell)"/>
 			<item value="end"/>
@@ -49,24 +53,16 @@
 			<item value="setSpells"/>
 >>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
 >>>>>>> c077ab4e2dd695e6d70e907b0f422f57428dac21
+>>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
 		</list>
 		<list key="replacehistory">
-			<item value="tournament.getTask() instanceof FirstTask &amp;&amp; tournament.getTask.getAllowedMoves"/>
-			<item value=""/>
-			<item value="right"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-<<<<<<< HEAD
-		<item value="300" key="DIALOG_WIDTH"/>
+		<item value="294" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="428" key="DIALOG_HEIGHT"/>
-=======
-		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="380" key="DIALOG_HEIGHT"/>
->>>>>>> c5d8541e0800ac7407c7aeaab0231d0b1a3e08b3
-		<item value="1026" key="DIALOG_X_ORIGIN"/>
-		<item value="313" key="DIALOG_Y_ORIGIN"/>
+		<item value="948" key="DIALOG_X_ORIGIN"/>
+		<item value="226" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
