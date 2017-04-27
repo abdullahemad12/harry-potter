@@ -27,10 +27,11 @@
 <fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
 <fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.RavenclawWizard"/>
 </qualifiedTypeNameHistroy>

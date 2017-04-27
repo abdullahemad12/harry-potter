@@ -73,7 +73,6 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 			// The ravenClaw trait for the first task 
 			if(e.getSource() == getTaskview().getUseTrait())
 			{
-				super.actionPerformed(e);
 				if(getTournament().getTask().getCurrentChamp() instanceof RavenclawWizard)
 				{
 					@SuppressWarnings("unchecked")
