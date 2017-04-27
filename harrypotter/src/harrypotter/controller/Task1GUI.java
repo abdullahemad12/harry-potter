@@ -71,7 +71,7 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 			
 			
 			// The ravenClaw trait for the first task 
-			if(e.getSource() == getTaskview().getUseTrait())
+			if(e.getSource() == getTaskview().getUseTrait() && getTournament().getTask().getCurrentChamp() instanceof RavenclawWizard)
 			{
 				if(getTournament().getTask().getCurrentChamp() instanceof RavenclawWizard)
 				{
@@ -83,8 +83,8 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 			
 			
 			// shows the fired cells when After the user moves right, left, up or dowm
-			else if(e.getSource() == getTaskview().getRight() || e.getSource() == getTaskview().getLeft() ||
-					e.getSource() == getTaskview().getUp() || e.getSource() == getTaskview().getDown())
+			else /*if(e.getSource() == getTaskview().getRight() || e.getSource() == getTaskview().getLeft() ||
+					e.getSource() == getTaskview().getUp() || e.getSource() == getTaskview().getDown())*/
 			{
 				JImageComponent[][] map = getTaskview().getMap();
 				// targeted Cells
@@ -115,10 +115,10 @@ public class Task1GUI extends TaskGUI implements ActionListener{
 				  };
 				  new Timer(delay, taskPerformer).start();
 			}
-			else
-			{
-				super.actionPerformed(e);
-			}
+//			else
+//			{
+//				super.actionPerformed(e);
+//			}
 				
 		}
 	}

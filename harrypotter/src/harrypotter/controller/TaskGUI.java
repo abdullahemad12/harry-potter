@@ -124,7 +124,7 @@ abstract public class TaskGUI implements ActionListener {
 	public void setTaskview(TaskView taskview) {
 		this.taskview = taskview;
 	}
-	TaskView getTaskview()
+	public TaskView getTaskview()
 	{
 		return taskview;
 	}
