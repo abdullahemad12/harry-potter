@@ -43,6 +43,8 @@ abstract public class TaskGUI implements ActionListener {
 	
 	private Tournament tournament;
 	private TaskView taskview;
+	
+	
 	private ImageBuffer gryff; // The icon of the Gryffindor id: 10
 	private ImageBuffer huff; // the icon of the hufflepuf Wizard id:20 
 	private ImageBuffer slyn; // the icon the slyntherin Wizard id: 30
@@ -54,7 +56,6 @@ abstract public class TaskGUI implements ActionListener {
 	private final int width; // the width of the icon
 	private final int height; // the height of the icon
 	
-	protected loadingView loading;
 	
 	
 	// note: the Obst icon has to be set in each task independently depending on the obstacle in this task
@@ -66,8 +67,6 @@ abstract public class TaskGUI implements ActionListener {
 	 */
 	public TaskGUI(Tournament tournament)
 	{
-		loading = new loadingView();
-		loading.setVisibility(true);
 		
 		// sets the tournament and creates new view
 		this.setTournament(tournament);
@@ -76,6 +75,11 @@ abstract public class TaskGUI implements ActionListener {
 		// sets the height and the width of the Icons
 		width = (taskview.getWidth()-405)/ 10;
 		height = taskview.getHeight()/10;
+		gryff = new ImageBuffer("img/gryffindorWizard.png", width, height, 10);
+		huff = new ImageBuffer("img/hufflepuffWizard.png", width, height, 20);
+		slyn = new ImageBuffer("img/slytherinWizard.png", width, height, 30);
+		raven = new ImageBuffer("img/ravenclawWizard.png", width, height, 40);
+		
 		// add the Action Listeners
 		taskview.getSpells().addActionListener(this);
 		taskview.getUseSpell().addActionListener(this);
@@ -88,11 +92,7 @@ abstract public class TaskGUI implements ActionListener {
 
 		
 		// prepares the image buffer for each icon
-		gryff = new ImageBuffer("img/gryffindorWizard.png", width, height, 10);
-		huff = new ImageBuffer("img/hufflepuffWizard.png", width, height, 20);
-		slyn = new ImageBuffer("img/slytherinWizard.png", width, height, 30);
-		raven = new ImageBuffer("img/ravenclawWizard.png", width, height, 40);
-		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
+	
 	}
 
 	
@@ -142,7 +142,29 @@ abstract public class TaskGUI implements ActionListener {
 	{
 		taskview.setVisible(visible);
 	}
-	
+	public void setGryff(ImageBuffer gryff) {
+		this.gryff = gryff;
+	}
+
+
+	public void setHuff(ImageBuffer huff) {
+		this.huff = huff;
+	}
+
+
+	public void setSlyn(ImageBuffer slyn) {
+		this.slyn = slyn;
+	}
+
+
+	public void setRaven(ImageBuffer raven) {
+		this.raven = raven;
+	}
+
+
+	public void setObst(ImageBuffer obst) {
+		this.obst = obst;
+	}
 	
 	
 	/*
@@ -356,6 +378,7 @@ abstract public class TaskGUI implements ActionListener {
 	{
 		Cell[][] cells = getTournament().getFirstTask().getMap();
 		JImageComponent[][] map = getTaskview().getMap(); 
+		// TODO 
 		for(int i = 0; i < 10; i++)
 		{
 			for(int j = 0; j < 10; j++)
@@ -644,6 +667,16 @@ abstract public class TaskGUI implements ActionListener {
 	
 			}
 		}
+	}
+	
+	/*
+	 * this functions disposes the view
+	 */
+	void DisposeView()
+	{
+		// gets rid of the view
+		this.taskview.dispose();
+		taskview = null;
 	}
 
 }

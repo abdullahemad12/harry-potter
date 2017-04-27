@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import codeproject.jimagecomponent.javax.swing.ImageBuffer;
 import codeproject.jimagecomponent.javax.swing.JImageComponent;
 import harrypotter.model.character.RavenclawWizard;
 import harrypotter.model.tournament.Tournament;
@@ -18,9 +19,14 @@ import harrypotter.model.world.EmptyCell;
 public class ThirdTaskGUI extends TaskGUI{
 	
 	
+	private TaskListener listener;
+	private ImageBuffer Wall; // wall cells id: 3
+	
+	
 	public ThirdTaskGUI(Tournament tournament)
 	{
 		super(tournament);
+		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
 		initializeMap();
 		
 	}
@@ -46,6 +52,11 @@ public class ThirdTaskGUI extends TaskGUI{
 	
 		
 	}
+	public void setTaskListener(TaskListener listener) 
+	{
+		this.listener = listener;
+		
+	}
 	
 	/*
 	 * (non-Javadoc)
@@ -69,6 +80,10 @@ public class ThirdTaskGUI extends TaskGUI{
 		}
 		
 	}
+	
+
+	
+
 
 	
 
