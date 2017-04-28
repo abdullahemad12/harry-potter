@@ -26,7 +26,6 @@ public class ThirdTaskGUI extends TaskGUI{
 	public ThirdTaskGUI(Tournament tournament)
 	{
 		super(tournament);
-		setObst("img/physicalobstacle.png");
 		Wall = new ImageBuffer("img/wallCell.png", getWidth(), getHeight(), 3);
 		initializeMap();
 		
