@@ -1,21 +1,17 @@
 package harrypotter.model.character;
-import harrypotter.exceptions.*;
+
+import harrypotter.exceptions.InCooldownException;
+
 public class GryffindorWizard extends Wizard implements Champion {
-	
-	public GryffindorWizard(String name)
-	{	
-		super(name);
-		
-	}
-    public void useTrait()throws InCooldownException{
-    	int temp;
-		if((temp = ((Wizard)this).getTraitCooldown()) != 0)
-		{
-			throw new InCooldownException(temp);
-		}
-		else
-	    	if (getListener() != null)
-	    		getListener().onGryffindorTrait();
+
+	public GryffindorWizard(String name) {
+		super(name, 900, 500);
 	}
 
+	public void useTrait() throws InCooldownException {
+
+		if (getListener() != null)
+			getListener().onGryffindorTrait();
+
+	}
 }

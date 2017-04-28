@@ -1,7 +1,5 @@
 package harrypotter.model.world;
 
 public enum Direction {
-	
-	FORWARD, BACKWARD, LEFT, RIGHT
-
+	FORWARD, BACKWARD, RIGHT, LEFT;
 }

@@ -1,35 +1,33 @@
 package harrypotter.model.character;
+
 import java.io.IOException;
 
-import harrypotter.exceptions.*;
-import harrypotter.model.world.*;
+import harrypotter.exceptions.InCooldownException;
+import harrypotter.exceptions.InvalidTargetCellException;
+import harrypotter.exceptions.OutOfBordersException;
+import harrypotter.model.world.Direction;
 
-public class SlytherinWizard extends Wizard implements Champion{
-	
-	// used from the package world
-	private Direction traitDirection; //represents the direction of the move resulting from activating their trait.
-	
+public class SlytherinWizard extends Wizard implements Champion {
+	private Direction traitDirection;
+
 	public SlytherinWizard(String name) {
-		super(name);
+		super(name, 850, 550);
 	}
-	
-	public Direction getTraitDirection(){
+
+	public void useTrait() throws IOException, InCooldownException,
+			OutOfBordersException, InvalidTargetCellException {
+
+		if (getListener() != null)
+			getListener().onSlytherinTrait(traitDirection);
+
+	}
+
+	public Direction getTraitDirection() {
 		return traitDirection;
 	}
-	
-	public void setTraitDirection(Direction traitDirection){ //throws InvalidTargetCellException{
-		this.traitDirection=traitDirection;
-	}
-	 public void useTrait()throws InCooldownException, IOException, OutOfBordersException, InvalidTargetCellException {
-    	int temp;
-		if((temp = ((Wizard)this).getTraitCooldown()) != 0)
-		{
-			throw new InCooldownException(temp);
-		}
-		else
-			if (getListener() != null)
-				getListener().onSlytherinTrait(traitDirection);
-	}
 
+	public void setTraitDirection(Direction traitDirection) {
+		this.traitDirection = traitDirection;
+	}
 
 }

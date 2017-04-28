@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.JSeparator"/>
-<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="java.awt.Dimension"/>
-<fullyQualifiedTypeName name="java.awt.Graphics"/>
-<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-<fullyQualifiedTypeName name="codeproject.jimagecomponent.javax.swing.JImagePanel"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.Cell"/>
-<fullyQualifiedTypeName name="codeproject.jimagecomponent.javax.swing.JImageComponent"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.EmptyCell"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="harrypotter.view.loadingView"/>
-<fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
-<fullyQualifiedTypeName name="harrypotter.controller.Task1GUI"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-<fullyQualifiedTypeName name="javax.swing.JButton"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
-<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.RavenclawWizard"/>
-=======
-<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
-<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
-<fullyQualifiedTypeName name="java.awt.Point"/>
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
->>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
+<fullyQualifiedTypeName name="harrypotter.controller.TaskListener"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
 </qualifiedTypeNameHistroy>
