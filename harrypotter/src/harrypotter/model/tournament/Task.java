@@ -353,7 +353,7 @@ public abstract class Task implements WizardListener  {
 		else {
 			if (this instanceof SecondTask && champions.isEmpty()){
 				if (getListener() != null){
-					listener.onFinishingFirstTask(((SecondTask) this).getWinners());
+					listener.onFinishingSecondTask(((SecondTask) this).getWinners());
 				}
 			}
 			else{
@@ -469,18 +469,18 @@ public abstract class Task implements WizardListener  {
 					// removes the Champ from the cell and adds him to the winners list
 					map[4][4] = new EmptyCell();
 					ArrayList<Champion> win = ((FirstTask)this).getWinners();
-					win.add(temp);
-					((FirstTask)this).setWinners(win);
+					((FirstTask)this).getWinners().add(currentChamp);
+					//((FirstTask)this).setWinners(win);
 					champions.remove(currentChamp);
 					if (((Wizard) currentChamp) instanceof GryffindorWizard && allowedMoves>0 )
 						endTurn();
 				}
 				// if all the players were removed than they must have wined or died
-				if(champions.isEmpty())
-				{ 	if (getListener() != null){
-							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
-					}
-				}
+//				if(champions.isEmpty())
+//				{ 	if (getListener() != null){
+//							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+//					}
+//				}
 
 				
 					//does not fire a hifflepuffWizard whose trait has been activated
@@ -489,11 +489,11 @@ public abstract class Task implements WizardListener  {
 					((FirstTask)this).fire();
 				}
 				
-				if(champions.isEmpty())
-				{ 	if (getListener() != null){
-							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
-					}
-				}
+//				if(champions.isEmpty())
+//				{ 	if (getListener() != null){
+//							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+//					}
+//				}
 				
 				/*if (((FirstTask)this).getChampions().size()==0){
 					if(((FirstTask)this).getWinners().size()==0){
@@ -550,7 +550,7 @@ public abstract class Task implements WizardListener  {
 				
 			}
 			traitActivated = false;
-			if (allowedMoves==0)
+			if (allowedMoves==0 || champions.isEmpty())
 				endTurn();
 	}
 	

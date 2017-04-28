@@ -48,6 +48,7 @@ public class SecondTaskGUI  extends TaskGUI implements ActionListener {
 				}
 			}
 		}
+		UpdateMap();
 		
 	}
 

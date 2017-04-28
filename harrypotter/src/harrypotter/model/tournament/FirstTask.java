@@ -134,12 +134,12 @@ public class FirstTask extends Task {
 					((Wizard)((ChampionCell)getMap() [markedCells.get(i).x][markedCells.get(i).y]).getChamp()).setHp(0);
 					getMap() [markedCells.get(i).x][markedCells.get(i).y] = new EmptyCell();
 					getChampions().remove(w);
-					if(getChampions().isEmpty())
-					{ 	if (getListener() != null){
-								getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
-								return;
-						}
-					}
+//					if(getChampions().isEmpty())
+//					{ 	if (getListener() != null){
+//								getListener().onFinishingFirstTask(((FirstTask) this).getWinners());
+//								return;
+//						}
+//					}
 				}
 			}
 		}

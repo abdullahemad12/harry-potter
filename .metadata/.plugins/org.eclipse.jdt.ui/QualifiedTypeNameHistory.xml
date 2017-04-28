@@ -18,7 +18,6 @@
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="harrypotter.view.loadingView"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
-<fullyQualifiedTypeName name="harrypotter.controller.Task1GUI"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
@@ -29,14 +28,11 @@
 <fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
-<fullyQualifiedTypeName name="harrypotter.model.character.RavenclawWizard"/>
-=======
-<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
 <fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
->>>>>>> 970292a25edecb1203fd49524118bf02f4f68f5c
+<fullyQualifiedTypeName name="harrypotter.controller.Task2GUI"/>
+<fullyQualifiedTypeName name="harrypotter.controller.Task1GUI"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
 </qualifiedTypeNameHistroy>

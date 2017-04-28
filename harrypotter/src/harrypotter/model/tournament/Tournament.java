@@ -1,6 +1,7 @@
 package harrypotter.model.tournament;
 
 import harrypotter.model.character.Champion;
+import harrypotter.model.character.Wizard;
 import harrypotter.model.magic.DamagingSpell;
 import harrypotter.model.magic.HealingSpell;
 import harrypotter.model.magic.RelocatingSpell;
@@ -59,7 +60,9 @@ public class Tournament  implements TaskListener {
 	public void onFinishingFirstTask(ArrayList<Champion> winners) throws IOException
 	{
 		if (winners.size()>0){
+			System.out.println((((Wizard) winners.get(0)).getName()));
 			this.secondTask = new SecondTask(winners);
+			System.out.println(secondTask.getMap()[9][0].getClass());
 			secondTask.getListener();
 			secondTask.setListener(this);
 		}	

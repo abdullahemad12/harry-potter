@@ -78,7 +78,7 @@ public class ThirdTaskGUI extends TaskGUI{
 				}
 			}
 		}
-		
+		UpdateMap();
 	}
 	
 

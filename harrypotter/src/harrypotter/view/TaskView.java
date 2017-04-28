@@ -133,8 +133,8 @@ abstract public class TaskView  extends JFrame{
 		leftPan.add(leftDownPan);
 		
 		// setting the backgroung
-		leftUpPan.setBackground(Color.RED);
-		leftDownPan.setBackground(Color.BLUE);
+		//leftUpPan.setBackground(Color.RED);
+		//leftDownPan.setBackground(Color.BLUE);
 
 		
 		// Setting the buttons 
