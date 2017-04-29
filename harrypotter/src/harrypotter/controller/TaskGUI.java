@@ -307,9 +307,8 @@ abstract public class TaskGUI implements ActionListener {
 	 */
 	void initializeMap() 
 	{
-		Cell[][] cells = getTournament().getFirstTask().getMap();
+		Cell[][] cells = getTournament().getTask().getMap();
 		JImageComponent[][] map = getTaskview().getMap();
-		
 		for(int i = 0; i  < 10; i++)
 		{
 			for(int j = 0; j < 10; j++)

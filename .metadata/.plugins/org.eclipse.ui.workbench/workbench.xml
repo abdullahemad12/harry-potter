@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="741" maximized="true" width="684" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -35,45 +35,25 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9535" selectionTopPixel="2673"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTaskGUI.java" partName="FirstTaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/FirstTaskGUI.java" title="FirstTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/FirstTaskGUI.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="1308" selectionTopPixel="436"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HarrypotterGUI.java" partName="HarrypotterGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/HarrypotterGUI.java" title="HarrypotterGUI.java" tooltip="harrypotter/src/harrypotter/controller/HarrypotterGUI.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="44" selectionOffset="4601" selectionTopPixel="1716"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTaskGUI.java" partName="SecondTaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/SecondTaskGUI.java" title="SecondTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/SecondTaskGUI.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1306" selectionTopPixel="302"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" partName="TaskView.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/TaskView.java" title="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="4487"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task2view.java" partName="Task2view.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Task2view.java" title="Task2view.java" tooltip="harrypotter/src/harrypotter/view/Task2view.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Task2view.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="201" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Task1view.java" partName="Task1view.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/view/Task1view.java" title="Task1view.java" tooltip="harrypotter/src/harrypotter/view/Task1view.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskListener.java" partName="TaskListener.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskListener.java" title="TaskListener.java" tooltip="harrypotter/src/harrypotter/controller/TaskListener.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskListener.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTaskGUI.java" partName="SecondTaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/SecondTaskGUI.java" title="SecondTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/SecondTaskGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="628" selectionTopPixel="302"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" partName="TaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/TaskGUI.java" title="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7803" selectionTopPixel="4581"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTaskGUI.java" partName="FirstTaskGUI.java" path="/home/abdullah/Documents/projects/harry-potter/harrypotter/src/harrypotter/controller/FirstTaskGUI.java" title="FirstTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/FirstTaskGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1513" selectionTopPixel="1309"/>
 </editor>
 </editors>
 <views>
@@ -109,6 +89,10 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (5 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="105" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1473"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -378,7 +362,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7945946" ratioLeft="588" ratioRight="152" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.93914473" ratioLeft="571" ratioRight="37" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
@@ -392,7 +376,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.5033113" ratioLeft="228" ratioRight="225" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.698893" ratioLeft="947" ratioRight="408" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.54391146" ratioLeft="737" ratioRight="618" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="1"/>
@@ -414,170 +398,85 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/Harrypotter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/model/magic/Spell.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/TaskView.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task2view.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task2view.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/view/Task1view.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
 </editors>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="618" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3231" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="2">
-<position info="not_deleted" x="704" y="73"/>
-</item>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="618" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3231" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="2">
-<position info="not_deleted" x="586" y="45"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="3231" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="2">
-<position info="not_deleted" x="586" y="45"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1871" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="2">
-<position info="not_deleted" x="799" y="0"/>
-</item>
-<item historyLabel="Harrypotter.java" index="1">
-<position info="not_deleted" x="194" y="0"/>
-</item>
-<item historyLabel="ThirdTaskGUI.java" index="2">
-<position info="not_deleted" x="799" y="0"/>
-</item>
-<item historyLabel="Harrypotter.java" index="1">
-<position info="not_deleted" x="194" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1938" y="0"/>
-</item>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="618" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1938" y="0"/>
-</item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="1688" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="0">
-<position info="not_deleted" x="1938" y="0"/>
-</item>
-<item historyLabel="Spell.java" index="5">
-<position info="not_deleted" x="780" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="6">
+<item historyLabel="TaskListener.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3924" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="6">
+<item historyLabel="SecondTaskGUI.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3924" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TaskGUI.java" index="6">
-<position info="not_deleted" x="9161" y="11"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="7947" y="0"/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3713" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="6">
-<position info="not_deleted" x="9535" y="0"/>
-</item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3713" y="0"/>
-</item>
-<item historyLabel="TaskGUI.java" index="6">
-<position info="not_deleted" x="9535" y="0"/>
-</item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3713" y="0"/>
-</item>
-<item historyLabel="FirstTaskGUI.java" index="4">
+<item historyLabel="TaskGUI.java" index="2">
 <position/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
+<item historyLabel="TaskGUI.java" index="2">
 <position/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="3780" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="1308" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position/>
 </item>
-<item historyLabel="HarrypotterGUI.java" index="7">
-<position info="not_deleted" x="4601" y="44"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="7956" y="0"/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="1308" y="2"/>
+<item historyLabel="SecondTaskGUI.java" index="1">
+<position info="not_deleted" x="660" y="0"/>
 </item>
-<item historyLabel="SecondTaskGUI.java" index="3">
+<item historyLabel="TaskListener.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FirstTaskGUI.java" index="4">
-<position info="not_deleted" x="1308" y="2"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="7402" y="0"/>
 </item>
-<item historyLabel="TaskView.java" index="8">
+<item historyLabel="FirstTaskGUI.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Task2view.java" index="9">
-<position info="not_deleted" x="201" y="0"/>
-</item>
-<item historyLabel="Task1view.java" index="10">
+<item historyLabel="TaskListener.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Task2view.java" index="9">
-<position info="not_deleted" x="201" y="0"/>
+<item historyLabel="SecondTaskGUI.java" index="1">
+<position info="not_deleted" x="888" y="0"/>
 </item>
-<item historyLabel="TaskView.java" index="8">
+<item historyLabel="TaskListener.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TaskListener.java" index="11">
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="9285" y="12"/>
+</item>
+<item historyLabel="SecondTaskGUI.java" index="1">
+<position info="not_deleted" x="628" y="0"/>
+</item>
+<item historyLabel="TaskListener.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="FirstTaskGUI.java" index="3">
+<position info="not_deleted" x="1513" y="0"/>
 </item>
-<item historyLabel="Task2view.java" index="12">
-<position info="not_deleted" x="201" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="9285" y="12"/>
 </item>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="631" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="7803" y="0"/>
 </item>
-<item historyLabel="Task1view.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="FirstTaskGUI.java" index="3">
+<position info="not_deleted" x="1513" y="0"/>
 </item>
-<item historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="631" y="0"/>
+<item historyLabel="TaskGUI.java" index="2">
+<position info="not_deleted" x="7803" y="0"/>
 </item>
-<item historyLabel="Task2view.java" index="12">
-<position info="not_deleted" x="201" y="0"/>
-</item>
-<item active="true" historyLabel="SecondTaskGUI.java" index="3">
-<position info="not_deleted" x="631" y="0"/>
+<item active="true" historyLabel="SecondTaskGUI.java" index="1">
+<position info="not_deleted" x="628" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -596,6 +495,15 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/FirstTaskGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/SecondTaskGUI.java">
+<persistable path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskListener.java" tooltip="harrypotter/src/harrypotter/controller/TaskListener.java">
 <persistable path="/harrypotter/src/harrypotter/controller/TaskListener.java"/>
 </file>
@@ -608,17 +516,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskView.java" tooltip="harrypotter/src/harrypotter/view/TaskView.java">
 <persistable path="/harrypotter/src/harrypotter/view/TaskView.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecondTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/SecondTaskGUI.java">
-<persistable path="/harrypotter/src/harrypotter/controller/SecondTaskGUI.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HarrypotterGUI.java" tooltip="harrypotter/src/harrypotter/controller/HarrypotterGUI.java">
 <persistable path="/harrypotter/src/harrypotter/controller/HarrypotterGUI.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FirstTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/FirstTaskGUI.java">
-<persistable path="/harrypotter/src/harrypotter/controller/FirstTaskGUI.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/TaskGUI.java">
-<persistable path="/harrypotter/src/harrypotter/controller/TaskGUI.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThirdTaskGUI.java" tooltip="harrypotter/src/harrypotter/controller/ThirdTaskGUI.java">
 <persistable path="/harrypotter/src/harrypotter/controller/ThirdTaskGUI.java"/>

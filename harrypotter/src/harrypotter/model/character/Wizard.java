@@ -1,114 +1,170 @@
 package harrypotter.model.character;
-
 import harrypotter.model.magic.Collectible;
 import harrypotter.model.magic.Spell;
 
-import java.awt.Point;
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class Wizard {
-
-	private WizardListener listener;
-	private String name;
-	private int defaultHp;
-	private int defaultIp;
-	private int hp;
-	private int ip;
-	private ArrayList<Spell> spells;
-	private ArrayList<Collectible> inventory;
-	private Point location;
-	private int traitCooldown;
-
-	public Wizard(String name) {
-
-		this.name = name;
-		spells = new ArrayList<Spell>();
+import harrypotter.exceptions.*;
+/*
+ * A class representing a wizard character
+ */
+abstract public class Wizard implements Champion  {
+	private String name; //The wizards name
+	
+	private int defaultHp; // The default health points of the wizard
+	
+	private int defaultIp; // The default intelligence points of the wizard
+	
+	private int hp; // the actual health points of the wizard
+	
+	private int ip; // Intelligence points of the wizard
+	
+	private ArrayList<Spell> spells; // the list of the Wizard's currently chosen spells
+	
+	private ArrayList<Collectible> inventory; // The list of the wizard’s belongings that he gathers
+	
+	private Point location; //A point representing the wizard’s location in the map.
+	
+	private int traitCooldown; //The amount of turns the champion needs to wait before activating his house trait again.
+	
+	private WizardListener listener; //This attribute represents the instance of the WizardListener added to the class.
+	/*
+	 * default constructor
+	 */
+	public Wizard()
+	{
+		this.name = "unknow";
+		hp = defaultHp;
+		ip = defaultIp;
 		inventory = new ArrayList<Collectible>();
-
-	}
-
-	public Wizard(String name, int dhp, int dip) {
-
-		this.name = name;
-		this.defaultHp = dhp;
-		this.hp = dhp;
-		this.defaultIp = dip;
-		this.ip = dip;
 		spells = new ArrayList<Spell>();
-		inventory = new ArrayList<Collectible>();
-
 	}
+	/*
+	 * Constructor that initializes a Wizard object.
+	 */
+		public Wizard(String name){
+		
+		// checks for which type of wizard is this and assigns the correct default HP and IP
+		if(this instanceof GryffindorWizard)
+		{
+			this.defaultHp = 900;
+			this.defaultIp = 500;
+		}
+		else if(this instanceof HufflepuffWizard)
+		{
+			this.defaultHp = 1000;
+			this.defaultIp = 450;
+		}
+		else  if(this instanceof RavenclawWizard)
+		{
+			this.defaultHp = 750;
+			this.defaultIp = 700;
+		}
+		else
+		{
+			this.defaultHp = 850;
+			this.defaultIp = 550;
+		}
+		this.name = name;
+		// sets hp and ip to default initially
+		hp = defaultHp;
+		ip = defaultIp;
+		this.traitCooldown = 0;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
+	}
+	
+	public Wizard(String name, int defaultHp, int defaultIp)
+	{
+		this.defaultIp = defaultIp;
+		this .defaultHp = defaultHp;
+		hp = defaultHp;
+		ip = defaultIp;
+		this.traitCooldown = 0;
+		inventory = new ArrayList<Collectible>();
+		spells = new ArrayList<Spell>();
+		this.name = name;
 
-	public String getName() {
+		
+	}
+	
+	
+	public String getName(){
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	
+	public void setName(String name){
+		this.name=name;
 	}
-
-	public int getDefaultHp() {
+	public int getDefaultHp(){
 		return defaultHp;
 	}
-
-	public void setDefaultHp(int defaultHp) {
-		this.defaultHp = defaultHp;
+	public void setDefaultHp(int defaultHp){
+		this.defaultHp=defaultHp;
 	}
-
-	public int getHp() {
-		return hp;
-	}
-
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-
-	public int getIp() {
-		return ip;
-	}
-
-	public void setIp(int ip) {
-		this.ip = ip;
-	}
-
-	public Point getLocation() {
-		return location;
-	}
-
-	public void setLocation(Point location) {
-		this.location = location;
-	}
-
-	public ArrayList<Spell> getSpells() {
-		return spells;
-	}
-
-	public ArrayList<Collectible> getInventory() {
-		return inventory;
-	}
-
-	public int getTraitCooldown() {
-		return traitCooldown;
-	}
-
-	public void setTraitCooldown(int traitCooldown) {
-		this.traitCooldown = traitCooldown;
-	}
-
-	public int getDefaultIp() {
+	public int getDefaultIp(){
 		return defaultIp;
 	}
-
-	public void setDefaultIp(int defaultIp) {
-		this.defaultIp = defaultIp;
+	public void setDefaultIp(int defaultIp){
+		this.defaultIp=defaultIp;
 	}
-
+	public int getHp(){
+		return hp;
+	}
+	public void setHp(int hp){
+		this.hp=hp;
+	}
+	public int getIp(){
+		return ip;
+	}
+	public void setIp(int ip){
+		this.ip=ip;
+	}
+	public ArrayList<Spell> getSpells(){
+		return spells;
+	}
+	public ArrayList<Collectible> getInventory(){
+		return inventory;
+	}
+	public Point getLocation(){
+		return location;
+	}
+	public void setLocation(Point location){
+		this.location=location;
+	}
+	public int getTraitCooldown(){
+		return traitCooldown;
+	}
+	public void setTraitCooldown(int traitCooldown){
+		this.traitCooldown=traitCooldown;
+	}
+	
+	/**
+	 * @param spells the spells to set
+	 */
+	public void setSpells(ArrayList<Spell> spells) {
+		for (int i=0; i< spells.size();i++){
+			this.spells.add(spells.get(i));
+		}
+	}
+	
+	
+	/*
+	 * @return the listener
+	 */
 	public WizardListener getListener() {
 		return listener;
 	}
-
+	/*
+	 * @param listener the listener to set
+	 */
 	public void setListener(WizardListener listener) {
 		this.listener = listener;
+	}
+	public void useTrait() throws IOException, InCooldownException , OutOfBordersException, InvalidTargetCellException {
+	
 	}
 
 }

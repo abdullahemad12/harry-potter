@@ -1,6 +1,0 @@
-package harrypotter.controller;
-
-import java.util.EventListener;
-public interface TaskListener extends EventListener {
-
-}

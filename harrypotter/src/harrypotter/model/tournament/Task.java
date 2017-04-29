@@ -1,642 +1,799 @@
 package harrypotter.model.tournament;
 
-import harrypotter.exceptions.InCooldownException;
-import harrypotter.exceptions.InvalidTargetCellException;
-import harrypotter.exceptions.NotEnoughIPException;
-import harrypotter.exceptions.OutOfBordersException;
-import harrypotter.exceptions.OutOfRangeException;
+
 import harrypotter.model.character.Champion;
-import harrypotter.model.character.HufflepuffWizard;
 import harrypotter.model.character.Wizard;
 import harrypotter.model.character.WizardListener;
-import harrypotter.model.magic.DamagingSpell;
-import harrypotter.model.magic.HealingSpell;
-import harrypotter.model.magic.Potion;
-import harrypotter.model.magic.RelocatingSpell;
-import harrypotter.model.magic.Spell;
-import harrypotter.model.world.Cell;
-import harrypotter.model.world.ChampionCell;
-import harrypotter.model.world.CollectibleCell;
-import harrypotter.model.world.Direction;
-import harrypotter.model.world.EmptyCell;
-import harrypotter.model.world.Obstacle;
-import harrypotter.model.world.ObstacleCell;
-import harrypotter.model.world.WallCell;
+import harrypotter.exceptions.*;
+import harrypotter.model.world.*;
+import harrypotter.model.character.*;
+import harrypotter.model.magic.*;
 
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
-public abstract class Task implements WizardListener {
 
-	private TaskListener listener;
+//import javafx.scene.control.Cell;
+
+
+
+//A class representing a tournament task. 
+
+public abstract class Task implements WizardListener  {
+	private Random randomGenerator;
+	
 	private ArrayList<Champion> champions;
-	private Cell[][] map;
+	//Represents the champions competing in this task.
+	
 	private Champion currentChamp;
+	//Represents the champion whose turn it currently is in this task.
+	
+	private Cell[][] map;
+	//A 2D array representing the map that the task is taking place in.
+	
 	private int allowedMoves;
+	//Indicates the number of moves allowed for the currentchamp in the current turn.
+	
 	private boolean traitActivated;
+	//Indicates whether the currentchamp's trait is activated in the current turn or not.
+	
 	private ArrayList<Potion> potions;
-
-	public Task(ArrayList<Champion> champions) throws IOException {
-
-		this.champions = champions;
+	//List of potions available to be distributed in the maps of the three tasks.
+	
+	private TaskListener listener;
+	//This attribute represents the instance of the TaskListener added to the class.
+	
+	public Task(ArrayList<Champion> champions)  throws IOException{
+		this.champions=champions;
+		allowedMoves=1;
+		traitActivated= false;
 		map = new Cell[10][10];
-		potions = new ArrayList<Potion>();
+		this.potions = new ArrayList <Potion>();
 		loadPotions("Potions.csv");
-		allowedMoves = 1;
-		traitActivated = false;
-
-		for (int i = 0; i < champions.size(); i++) {
-
-			Wizard current = (Wizard) champions.get(i);
-			current.setListener(this);
-			current.setHp(current.getDefaultHp());
-			current.setIp(current.getDefaultIp());
-			current.setTraitCooldown(0);
-
-			for (int j = 0; j < current.getSpells().size(); j++) {
-				current.getSpells().get(j).setCoolDown(0);
+		generateMap();
+		
+		// resets the health points, intelligence points, traitcooldown, spells for the next Task
+		for(Champion champion: this.champions)
+		{
+			((Wizard)champion).setHp(((Wizard)champion).getDefaultHp());
+			((Wizard)champion).setIp(((Wizard)champion).getDefaultIp());
+			((Wizard)champion).setTraitCooldown(0);
+			ArrayList<Spell> spells = ((Wizard)champion).getSpells();
+			// sets all the spells for the champion
+			for(Spell spell : spells)
+			{
+				spell.setCoolDown(0);
 			}
 
 		}
-
-	}
-
-	public abstract void generateMap() throws IOException;
-
-	private void loadPotions(String filePath) throws IOException {
-
-		BufferedReader br = new BufferedReader(new FileReader(filePath));
-		String line = br.readLine();
-
-		while (line != null) {
-
-			String[] content = line.split(",");
-			potions.add(new Potion(content[0], Integer.parseInt(content[1])));
-			line = br.readLine();
-
-		}
-
-		br.close();
-
-	}
-
-	public void initializeAllEmpty() {
-
-		for (int i = 0; i < map.length; i++) {
-			for (int j = 0; j < map[i].length; j++) {
-				map[i][j] = new EmptyCell();
-			}
-		}
-
-	}
-
-	public void allocateChampions() {
-
-		for (int i = 0; i < champions.size(); i++) {
-
-			Champion champ = champions.get(i);
-			if (i == 0) {
-				map[9][0] = new ChampionCell(champ);
-				((Wizard) champ).setLocation(new Point(9, 0));
-			} else if (i == 1) {
-				map[9][9] = new ChampionCell(champ);
-				((Wizard) champ).setLocation(new Point(9, 9));
-			} else if (i == 2) {
-				map[0][9] = new ChampionCell(champ);
-				((Wizard) champ).setLocation(new Point(0, 9));
-			} else {
-				map[0][0] = new ChampionCell(champ);
-				((Wizard) champ).setLocation(new Point(0, 0));
-			}
-		}
-	}
-
-	public void allocatePotions() {
-
-		int i = 0;
-
-		while (i < 10) {
-
-			int randomX = (int) (Math.random() * 10);
-			int randomY = (int) (Math.random() * 10);
-			if (map[randomX][randomY] instanceof EmptyCell) {
-				int r = (int) (Math.random() * potions.size());
-				map[randomX][randomY] = new CollectibleCell(potions.get(r));
-				i++;
-			}
-
-		}
-	}
-
-	public void moveForward() throws IOException, OutOfBordersException,
-			InvalidTargetCellException {
-
-		Wizard current = (Wizard) currentChamp;
-		Point location = current.getLocation();
-
-		Point newLocation = new Point(location.x - 1, location.y);
-		if (newLocation.x < 0) {
-			throw new OutOfBordersException(
-					"Cannot move beyond the front border.");
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof ChampionCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof WallCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof ObstacleCell) {
-			throw new InvalidTargetCellException("Cannot move to "
-					+ getMap()[newLocation.x][newLocation.y].getClass()
-							.getSimpleName());
-
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof CollectibleCell)
-			current.getInventory().add(
-					((CollectibleCell) getMap()[newLocation.x][newLocation.y])
-							.getCollectible());
-
-		getMap()[location.x][location.y] = new EmptyCell();
-		getMap()[newLocation.x][newLocation.y] = new ChampionCell(currentChamp);
-		current.setLocation(newLocation);
-
-		finalizeAction();
-
-	}
-
-	public void moveBackward() throws IOException, OutOfBordersException,
-			InvalidTargetCellException {
-
-		Wizard current = (Wizard) currentChamp;
-		Point location = current.getLocation();
-
-		Point newLocation = new Point(location.x + 1, location.y);
-		if (newLocation.x > 9) {
-			throw new OutOfBordersException(
-					"Cannot move beyond the back border.");
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof ChampionCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof WallCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof ObstacleCell) {
-			throw new InvalidTargetCellException("Cannot move to "
-					+ getMap()[newLocation.x][newLocation.y].getClass()
-							.getSimpleName());
-
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof CollectibleCell)
-			current.getInventory().add(
-					((CollectibleCell) getMap()[newLocation.x][newLocation.y])
-							.getCollectible());
-
-		getMap()[location.x][location.y] = new EmptyCell();
-		getMap()[newLocation.x][newLocation.y] = new ChampionCell(currentChamp);
-		current.setLocation(newLocation);
-
-		finalizeAction();
-
-	}
-
-	public void moveLeft() throws IOException, OutOfBordersException,
-			InvalidTargetCellException {
-
-		Wizard current = (Wizard) currentChamp;
-		Point location = current.getLocation();
-
-		Point newLocation = new Point(location.x, location.y - 1);
-		if (newLocation.y < 0) {
-			throw new OutOfBordersException(
-					"Cannot move beyond the left border.");
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof ChampionCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof WallCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof ObstacleCell) {
-			throw new InvalidTargetCellException("Cannot move to "
-					+ getMap()[newLocation.x][newLocation.y].getClass()
-							.getSimpleName());
-
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof CollectibleCell)
-			current.getInventory().add(
-					((CollectibleCell) getMap()[newLocation.x][newLocation.y])
-							.getCollectible());
-
-		getMap()[location.x][location.y] = new EmptyCell();
-		getMap()[newLocation.x][newLocation.y] = new ChampionCell(currentChamp);
-		current.setLocation(newLocation);
-
-		finalizeAction();
-
-	}
-
-	public void moveRight() throws IOException, OutOfBordersException,
-			InvalidTargetCellException {
-
-		Wizard current = (Wizard) currentChamp;
-		Point location = current.getLocation();
-
-		Point newLocation = new Point(location.x, location.y + 1);
-		if (newLocation.y > 9) {
-			throw new OutOfBordersException(
-					"Cannot move beyond the right border.");
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof ChampionCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof WallCell
-				|| getMap()[newLocation.x][newLocation.y] instanceof ObstacleCell) {
-			throw new InvalidTargetCellException("Cannot move to "
-					+ getMap()[newLocation.x][newLocation.y].getClass()
-							.getSimpleName());
-
-		}
-
-		if (getMap()[newLocation.x][newLocation.y] instanceof CollectibleCell)
-			current.getInventory().add(
-					((CollectibleCell) getMap()[newLocation.x][newLocation.y])
-							.getCollectible());
-
-		getMap()[location.x][location.y] = new EmptyCell();
-		getMap()[newLocation.x][newLocation.y] = new ChampionCell(currentChamp);
-		current.setLocation(newLocation);
-
-		finalizeAction();
-
-	}
-
-	public Point getTargetPoint(Direction d) {
-
-		Point target = null;
-		Point currentLocation = ((Wizard) currentChamp).getLocation();
-
-		if (d == Direction.FORWARD)
-			target = new Point(currentLocation.x - 1, currentLocation.y);
-		else if (d == Direction.BACKWARD)
-			target = new Point(currentLocation.x + 1, currentLocation.y);
-		else if (d == Direction.LEFT)
-			target = new Point(currentLocation.x, currentLocation.y - 1);
-		else if (d == Direction.RIGHT)
-			target = new Point(currentLocation.x, currentLocation.y + 1);
-
-		return target;
-
-	}
-
-	public void castDamagingSpell(DamagingSpell spell, Direction d)
-			throws IOException, OutOfBordersException,
-			InvalidTargetCellException, InCooldownException,
-			NotEnoughIPException {
-
-		if (spell.getCoolDown() > 0) {
-			throw new InCooldownException(spell.getCoolDown());
-		}
-
-		if (spell.getCost() > ((Wizard) currentChamp).getIp()) {
-			throw new NotEnoughIPException(spell.getCost(), spell.getCost()
-					- ((Wizard) currentChamp).getIp());
-		}
-
-		Point target = getTargetPoint(d);
-
-		if (target.x < 0 || target.x > 9 || target.y < 0 || target.y > 9) {
-			throw new OutOfBordersException(
-					"Cannot cast a damaging spell on a target beyond the borders.");
-		}
-
-		if (map[target.x][target.y] instanceof ObstacleCell) {
-
-			Obstacle obstacle = ((ObstacleCell) map[target.x][target.y])
-					.getObstacle();
-			int newHp = obstacle.getHp() - spell.getDamageAmount();
-
-			if (newHp <= 0) {
-				map[target.x][target.y] = new EmptyCell();
-			} else {
-				obstacle.setHp(newHp);
-			}
-
-		} else if (map[target.x][target.y] instanceof ChampionCell) {
-
-			Wizard opponent = (Wizard) (((ChampionCell) map[target.x][target.y])
-					.getChamp());
-			int newHp = 0;
-
-			if (this instanceof ThirdTask
-					&& opponent instanceof HufflepuffWizard) {
-				newHp = opponent.getHp() - (spell.getDamageAmount() / 2);
-			} else {
-				newHp = opponent.getHp() - spell.getDamageAmount();
-			}
-
-			if (newHp <= 0) {
-				opponent.setHp(0);
-				map[target.x][target.y] = new EmptyCell();
-				champions.remove((Champion) opponent);
-			} else {
-				opponent.setHp(newHp);
-			}
-		} else {
-
-			throw new InvalidTargetCellException(
-					"Cannot cast a damaging spell on "
-							+ map[target.x][target.y].getClass()
-									.getSimpleName());
-
-		}
-
-		useSpell(spell);
-
-		finalizeAction();
-	}
-
-	public void castRelocatingSpell(RelocatingSpell spell, Direction d,
-			Direction t, int range) throws IOException, OutOfBordersException,
-			InvalidTargetCellException, InCooldownException,
-			NotEnoughIPException, OutOfRangeException {
-
-		if (spell.getCoolDown() > 0) {
-			throw new InCooldownException(spell.getCoolDown());
-		}
-
-		if (spell.getCost() > ((Wizard) currentChamp).getIp()) {
-			throw new NotEnoughIPException(spell.getCost(), spell.getCost()
-					- ((Wizard) currentChamp).getIp());
-		}
-
-		if (spell.getRange() < range) {
-			throw new OutOfRangeException(spell.getRange());
-		}
-
-		Point target = getTargetPoint(d);
-
-		if (target.x < 0 || target.x > 9 || target.y < 0 || target.y > 9) {
-			throw new OutOfBordersException(
-					"Cannot cast a relocating spell on a target beyond the borders.");
-		}
-
-		int newX = ((Wizard) currentChamp).getLocation().x;
-		int newY = ((Wizard) currentChamp).getLocation().y;
-
-		if (t == Direction.FORWARD)
-			newX = newX - range;
-		else if (t == Direction.BACKWARD)
-			newX = newX + range;
-		else if (t == Direction.LEFT)
-			newY = newY - range;
-		else if (t == Direction.RIGHT)
-			newY = newY + range;
-
-		if (newX < 0 || newX > 9 || newY < 0 || newY > 9) {
-			throw new OutOfBordersException(
-					"Cannot cast a relocating spell with a destination beyond the borders.");
-		}
-
-		if (!(map[newX][newY] instanceof EmptyCell)) {
-
-			throw new InvalidTargetCellException(
-					"Cannot cast a relocating spell with destination "
-							+ map[newX][newY].getClass().getSimpleName());
-
-		}
-
-		if (map[target.x][target.y] instanceof ObstacleCell) {
-
-			Obstacle obstacle = ((ObstacleCell) map[target.x][target.y])
-					.getObstacle();
-			map[newX][newY] = new ObstacleCell(obstacle);
-
-		} else if (map[target.x][target.y] instanceof ChampionCell) {
-
-			Champion opponent = ((ChampionCell) map[target.x][target.y])
-					.getChamp();
-			map[newX][newY] = new ChampionCell(opponent);
-			((Wizard) opponent).setLocation(new Point(newX, newY));
-
-		} else {
-
-			throw new InvalidTargetCellException(
-					"Cannot cast a relocating spell on target "
-							+ map[target.x][target.y].getClass()
-									.getSimpleName());
-
-		}
-
-		map[target.x][target.y] = new EmptyCell();
-
-		useSpell(spell);
-
-		finalizeAction();
-
-	}
-
-	public void castHealingSpell(HealingSpell spell) throws IOException,
-			InCooldownException, NotEnoughIPException {
-
-		if (spell.getCoolDown() > 0) {
-			throw new InCooldownException(spell.getCoolDown());
-		}
-
-		if (spell.getCost() > ((Wizard) currentChamp).getIp()) {
-			throw new NotEnoughIPException(spell.getCost(), spell.getCost()
-					- ((Wizard) currentChamp).getIp());
-		}
-
-		Wizard current = (Wizard) currentChamp;
-		int newHp = current.getHp() + spell.getHealingAmount();
-
-		if (newHp > current.getDefaultHp())
-			newHp = current.getDefaultHp();
-
-		current.setHp(newHp);
-
-		useSpell(spell);
-
-		finalizeAction();
-
-	}
-
-	public void useSpell(Spell spell) {
-
-		spell.setCoolDown(spell.getDefaultCooldown());
-
-		((Wizard) currentChamp).setIp(((Wizard) currentChamp).getIp()
-				- spell.getCost());
-
-		if (((Wizard) currentChamp).getIp() <= 0)
-			((Wizard) currentChamp).setIp(0);
-
-	}
-
-	public void finalizeAction() throws IOException {
-
-		allowedMoves--;
-		if (allowedMoves == 0)
-			endTurn();
-
-	}
-
-	public void endTurn() throws IOException {
-
-		if (champions.contains(currentChamp))
-			champions.add(champions.remove(0));
-
-		allowedMoves = 1;
-
 		currentChamp = champions.get(0);
+		for (int i= 0; i< champions.size(); i++)
+			((Wizard)champions.get(i)).setListener(this);
+		
 
-		traitActivated = false;
-
-		coolDown();
-
+			
 	}
-
-	public void coolDown() {
-
-		Wizard current = (Wizard) currentChamp;
-
-		for (int i = 0; i < current.getSpells().size(); i++) {
-
-			Spell currentSpell = current.getSpells().get(i);
-			if (currentSpell.getCoolDown() > 0)
-				currentSpell.setCoolDown(currentSpell.getCoolDown() - 1);
-
-		}
-
-		if (current.getTraitCooldown() > 0)
-			current.setTraitCooldown(current.getTraitCooldown() - 1);
-
-	}
-
-	public void usePotion(Potion p) {
-
-		Wizard current = ((Wizard) currentChamp);
-		current.setIp(current.getIp() + p.getAmount());
-		current.getInventory().remove(p);
-
-	}
-
-	public void onGryffindorTrait() throws InCooldownException {
-
-		Wizard current = (Wizard) currentChamp;
-
-		if (current.getTraitCooldown() > 0) {
-			throw new InCooldownException(current.getTraitCooldown());
-		}
-
-		allowedMoves = 2;
-		current.setTraitCooldown(4);
-		traitActivated = true;
-
-	}
-
-	public void onSlytherinTrait(Direction d) throws IOException,
-			OutOfBordersException, InvalidTargetCellException,
-			InCooldownException {
-
-		Wizard current = (Wizard) currentChamp;
-
-		if (current.getTraitCooldown() > 0) {
-			throw new InCooldownException(current.getTraitCooldown());
-		}
-
-		Point location = current.getLocation();
-
-		int newX = location.x;
-		int newY = location.y;
-
-		if (d == Direction.FORWARD)
-			newX -= 2;
-		else if (d == Direction.BACKWARD)
-			newX += 2;
-		else if (d == Direction.LEFT)
-			newY -= 2;
-		else if (d == Direction.RIGHT)
-			newY += 2;
-
-		if (newX < 0 || newX > 9 || newY < 0 || newY > 9) {
-
-			throw new OutOfBordersException(
-					"Cannot use the Slytherin trait to move beyond the borders.");
-
-		}
-
-		if (!(map[newX][newY] instanceof EmptyCell)) {
-
-			throw new InvalidTargetCellException(
-					"Cannot use the Slytherin trait to move to "
-							+ map[newX][newY].getClass().getSimpleName());
-
-		}
-
-		map[location.x][location.y] = new EmptyCell();
-		map[newX][newY] = new ChampionCell(currentChamp);
-		current.setLocation(new Point(newX, newY));
-
-		traitActivated = true;
-
-		finalizeAction();
-
-	}
-
-	public void onHufflepuffTrait() throws InCooldownException {
-
-		Wizard current = (Wizard) currentChamp;
-
-		if (current.getTraitCooldown() > 0) {
-			throw new InCooldownException(current.getTraitCooldown());
-		}
-
-		traitActivated = true;
-
-	}
-
-	public abstract Object onRavenclawTrait() throws InCooldownException;
-
-	public ArrayList<Champion> getChampions() {
-		return champions;
-	}
-
-	public Cell[][] getMap() {
-		return map;
-	}
-
-	public Champion getCurrentChamp() {
-		return currentChamp;
-	}
-
-	public ArrayList<Potion> getPotions() {
-		return potions;
-	}
-
-	public int getAllowedMoves() {
-		return allowedMoves;
-	}
-
-	public void setAllowedMoves(int allowedMoves) {
-		this.allowedMoves = allowedMoves;
-	}
-
-	public boolean isTraitActivated() {
-		return traitActivated;
-	}
-
 	public TaskListener getListener() {
 		return listener;
 	}
-
 	public void setListener(TaskListener listener) {
 		this.listener = listener;
 	}
+	public ArrayList<Champion> getChampions(){
+		return champions;
+	}
+	
+	public Champion getCurrentChamp(){
+		return currentChamp;
+	}
+	
+	public void setCurrentChamp(Champion currentChamp){
+		this.currentChamp=currentChamp;
+	}
+	
+	public Cell[][] getMap(){
+		return map;
+	}
+	
+	public int getAllowedMoves(){
+		return allowedMoves;
+	}
+	
+	public void setAllowedMoves(int allowedMoves){
+		this.allowedMoves=allowedMoves;
+	}
+	
+	public boolean isTraitActivated(){
+		return traitActivated;
+	}
+	
+	public void setTraitActivated(boolean traitActivated){
+		this.traitActivated=traitActivated;
+	}
+	
+	public ArrayList<Potion> getPotions(){
+		return potions;
+	}
+	
+	//loading the potions from the csv file.
+	private void loadPotions(String filePath) throws IOException{
+		String currentLine = "";
+		FileReader fileReader= new FileReader(filePath);
+		BufferedReader br = new BufferedReader(fileReader);
+		while ((currentLine = br.readLine()) != null) {
+			String [] potion= currentLine.split(",");
+			potions.add(new Potion(potion[0],Integer.parseInt(potion[1])));
+		}
+		br.close();
 
-	public void setCurrentChamp(Champion currentChamp) {
-		this.currentChamp = currentChamp;
+	}
+	
+
+	// adding players.
+	void addplayers(){
+		if (champions.size()>0){
+			map[9][0]= new ChampionCell(this.champions.get(0));
+			((Wizard) champions.get(0)).setLocation(new Point(9, 0));}
+		if (champions.size()>1){
+			map[9][9]= new ChampionCell(this.champions.get(1));
+			((Wizard) champions.get(1)).setLocation(new Point(9, 9));}
+		if (champions.size()>2){
+			map[0][9]= new ChampionCell(this.champions.get(2));
+			((Wizard) champions.get(2)).setLocation(new Point(0, 9));}
+		if (champions.size()>3){
+			map[0][0]= new ChampionCell(this.champions.get(3));
+			((Wizard) champions.get(3)).setLocation(new Point(0, 0));}
+		
+	}	
+
+	//adding potions method.
+	void addingpotions(){
+		for (int i=0; i<10;i++){
+			randomGenerator = new Random();
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null)
+				i--;
+			else{
+				int index =randomGenerator.nextInt(potions.size());
+				map[x][y]= new CollectibleCell(potions.get(index));
+			}
+		
+		}
+	}
+	
+	//properties of task 1.
+	void task1(){
+		randomGenerator = new Random();
+		
+		for (int i=0; i<40;i++){
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			this.map[4][4]=new EmptyCell();
+			if (this.map[x][y]!=null||(x==4&&y==4))
+				i--;
+			else{
+				map[x][y]= new ObstacleCell(new PhysicalObstacle(randomGenerator.nextInt(101)+200));
+			}
+		
+		}
+		for (int i=0; i<10;i++){
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null||(x==4&&y==4))
+				i--;
+			else{
+				int index =randomGenerator.nextInt(potions.size());
+				map[x][y]= new CollectibleCell(potions.get(index));
+			}
+		
+		}
+		for (int i = 0; i < 10; i++)
+		   {
+			for (int j = 0; j < 10; j++)
+		      { if (map[i][j]==null)
+		    	  map[i][j]=new EmptyCell();
+				
+		      }
+		   }	
+	
+	}
+	
+	//properties of task 2.
+	void task2(){
+
+		
+		for (int i=0;i<champions.size();i++){
+			randomGenerator = new Random();
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null)
+				i--;
+			else{
+				map[x][y]= new TreasureCell(champions.get(i));
+			}
+		}
+		for (int i=0; i<40;i++){
+			randomGenerator = new Random();
+			int x=randomGenerator.nextInt(10);
+			int y=randomGenerator.nextInt(10);
+			if (this.map[x][y]!=null)
+				i--;
+			else{
+				map[x][y]=new ObstacleCell( new Merperson(randomGenerator.nextInt(101)+200, randomGenerator.nextInt(201)+100));
+			}
+		
+		}
+		for (int i = 0; i < 10; i++)
+		   {
+			for (int j = 0; j < 10; j++)
+		      { if (map[i][j]==null)
+		    	  map[i][j]=new EmptyCell();
+				
+		      }
+		   }	
+	
+		
+	}
+	
+	//This method is responsible for finalizing the action of casting a spell.
+	// This method should be called at the end of any spell casting method.
+	public void useSpell(Spell s){
+		s.setCoolDown(s.getDefaultCooldown());
+		int newIp = ((Wizard)getCurrentChamp()).getIp()-s.getCost();
+		((Wizard)getCurrentChamp()).setIp(newIp);
+	}
+	
+	public void castRelocatingSpell(RelocatingSpell s,Direction d,Direction t,int r) throws IOException, InCooldownException, InvalidTargetCellException, NotEnoughIPException, OutOfRangeException, OutOfBordersException{
+		int temp;
+		if (r> s.getRange()){
+			throw new OutOfRangeException(s.getRange());
+		}
+
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
+		}
+		if((temp = s.getCoolDown()) != 0)
+		{
+			throw new InCooldownException(temp);
+		}
+		// getting old location
+		Point ObsLoc= new Point(((Wizard)getCurrentChamp()).getLocation());
+		if (d==Direction.FORWARD && ObsLoc.x>0)
+				ObsLoc.translate(-1, 0);
+		else if (d==Direction.BACKWARD && ObsLoc.x<9)
+				ObsLoc.translate(1, 0);
+		else if (d==Direction.RIGHT  && ObsLoc.y<9)
+				ObsLoc.translate(0, 1);
+		else if (d==Direction.LEFT && ObsLoc.y>0)
+				ObsLoc.translate(0, -1);
+		else 
+			throw new OutOfBordersException("You are moving an obstacle that is out of the map borders");
+		
+		//getting new location
+		Point newloc= new Point(((Wizard)getCurrentChamp()).getLocation());
+		if (t==Direction.FORWARD && newloc.x>=r)
+			newloc.translate(-r, 0);
+		else if (t==Direction.BACKWARD && newloc.x<9-r)
+				newloc.translate(r, 0);
+		else if (t==Direction.RIGHT && newloc.y<9-r)
+				newloc.translate(0, r);
+		else if (t==Direction.LEFT && newloc.y>=r)
+				newloc.translate(0, -r);
+		else 
+			throw new OutOfBordersException("You are moving the obstacle out of the map borders");
+		
+		if(!(getMap()[newloc.x][newloc.y] instanceof EmptyCell))
+		{
+			throw new InvalidTargetCellException("You are Trying to Move to an Object to an Invalid Target Cell");
+		}
+		//swapping cells
+		if (getMap()[ObsLoc.x][ObsLoc.y] instanceof ObstacleCell){
+			getMap()[newloc.x][newloc.y]=new ObstacleCell(((ObstacleCell)getMap()[ObsLoc.x][ObsLoc.y]).getObstacle());
+		}
+		else{
+			if(getMap()[ObsLoc.x][ObsLoc.y] instanceof ChampionCell){
+				if (getMap()[newloc.x][newloc.y] instanceof CollectibleCell){
+					int amount =((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()).getAmount();
+					int newIp= amount + ((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getIp();
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setIp(newIp);
+					((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[newloc.x][newloc.y]).getCollectible()));
+				}
+				else{
+					if (this instanceof FirstTask && newloc.x==4 && newloc.y==4){
+						((FirstTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+					}
+					else{
+						if (this instanceof SecondTask && (getMap()[newloc.x][newloc.y] instanceof TreasureCell && ((TreasureCell)getMap()[newloc.x][newloc.y]).getOwner().equals(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()))){
+							((SecondTask)this).getWinners().add(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+							champions.remove(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+						}
+						else{
+							if ( this instanceof ThirdTask && getMap()[newloc.x][newloc.y] instanceof CupCell){
+								if (getListener() != null)
+									getListener().onFinishingThirdTask(getCurrentChamp());
+							}
+						}
+					}
+				}	
+				getMap()[newloc.x][newloc.y]=new ChampionCell(((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp());
+				((Wizard)((ChampionCell)getMap()[ObsLoc.x][ObsLoc.y]).getChamp()).setLocation(newloc);
+				if (this instanceof FirstTask && newloc.x == 4 && newloc.y==4)
+					getMap()[newloc.x][newloc.y] = new EmptyCell();
+				}
+			else{
+				throw new InvalidTargetCellException("You are trying to move an empty cell");
+				//getMap()[newloc.x][newloc.y]=new EmptyCell();
+				}
+			}
+		
+		
+		getMap()[ObsLoc.x][ObsLoc.y]= new EmptyCell();
+		useSpell(s);
+		finalizeAction();
+	}
+	
+	//This method is responsible for ending the turn of the currentChamp.
+	public void endTurn()throws IOException{
+		//changing currentChamp.
+		boolean flag =champions.remove(currentChamp);
+		if (flag)
+			champions.add(champions.size(), currentChamp);
+		if(this instanceof FirstTask && champions.isEmpty()){
+			if (getListener() != null){
+				listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+			}
+		}
+		else {
+			if (this instanceof SecondTask && champions.isEmpty()){
+				if (getListener() != null){
+					listener.onFinishingFirstTask(((SecondTask) this).getWinners());
+				}
+			}
+			else{
+				currentChamp= champions.get(0);
+				allowedMoves=1;
+			}
+		}
+		if ( this instanceof FirstTask){
+			((FirstTask)this).markCells();
+		}
+			
+		
+	}
+	
+	//This method is responsible for increasing the currentChamp's ip
+	//based on the value gained from the potion p.
+	public void usePotion(Potion p){
+		// getting new ip
+		int newIp= p.getAmount() + ((Wizard)currentChamp).getIp();
+		// setting new ip.
+		((Wizard)currentChamp).setIp(newIp);	
+		((Wizard)currentChamp).getInventory().remove(p);
+	}
+	
+	public abstract void generateMap() throws IOException;
+	
+
+	public abstract Point moveForward() throws IOException, InvalidTargetCellException, OutOfBordersException ;
+	public abstract Point moveBackward() throws IOException,InvalidTargetCellException , OutOfBordersException;
+	public abstract Point moveLeft() throws IOException, InvalidTargetCellException , OutOfBordersException;
+	public abstract Point moveRight() throws IOException, InvalidTargetCellException , OutOfBordersException;
+	
+	
+	public void onSlytherinTrait(Direction d) throws IOException, OutOfBordersException, InvalidTargetCellException {
+		//((SlytherinWizard)getCurrentChamp()).setTraitDirection(d);
+		if (!traitActivated){
+			traitActivated = true;
+			Point p= new Point(((Wizard)getCurrentChamp()).getLocation());
+			getMap()[p.x][p.y]= new EmptyCell();
+			if(p.x <= 1 || p.x >=8 || p.y <= 1 || p.y >= 8 )
+			{
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+
+			}
+			if (d==Direction.FORWARD && p.x>1)
+				p.translate(-2, 0);
+			else if (d==Direction.BACKWARD && p.x<8)
+			{
+				p.translate(2, 0);
+			}
+			else if (d==Direction.RIGHT && p.y<8)
+				p.translate(0, 2);
+			else if (d==Direction.LEFT && p.y>1)
+				p.translate(0, -2);
+			else
+				throw new OutOfBordersException("You are Trying to Move to an Invalid Direction");
+			//if (!(getMap()[p.x][p.y] instanceof EmptyCell)&& !(getMap()[p.x][p.y] instanceof CollectibleCell) && !(this instanceof SecondTask && getMap()[p.x][p.y] instanceof TreasureCell && ((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))&&!( this instanceof ThirdTask && getMap()[p.x][p.y] instanceof CupCell)) 
+				//throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			if(!(getMap()[p.x][p.y] instanceof EmptyCell))
+			{
+				
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+
+			}
+			if( getMap()[p.x][p.y] instanceof WallCell)
+			{
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			}
+			if (getMap()[p.x][p.y] instanceof ChampionCell || ((getMap()[p.x][p.y] instanceof TreasureCell && !((TreasureCell)getMap()[p.x][p.y]).getOwner().equals(getCurrentChamp()))))
+				throw new InvalidTargetCellException("The trait is activated on an invalid target cell type");
+			((Wizard)currentChamp).setLocation(p);
+			if (getMap()[p.x][p.y] instanceof EmptyCell || getMap()[p.x][p.y] instanceof CollectibleCell){
+				//changing ip after collecting the collectible
+				if (getMap()[p.x][p.y] instanceof CollectibleCell){
+//					int amount =((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()).getAmount();
+//					int newIp= amount + ((Wizard)getCurrentChamp()).getIp();
+//					((Wizard)getCurrentChamp()).setIp(newIp);
+					((Wizard)getCurrentChamp()).getInventory().add(((Potion)((CollectibleCell)getMap()[p.x][p.y]).getCollectible()));
+				}
+				getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+			}	
+			//getMap()[p.x][p.y]= new ChampionCell(getCurrentChamp());
+		}	
 	}
 
-	public void setTraitActivated(boolean traitActivated) {
-		this.traitActivated = traitActivated;
-	}
+	/*
+	 * performs the steps needed for finalizing any action i.e. move performed by the currentChamp.
+	 */
+	public void finalizeAction()throws IOException
+	{
+		allowedMoves--;
+		if (allowedMoves==0){
+			for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+				Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+				if (s.getCoolDown()>0)
+					s.setCoolDown(s.getCoolDown()-1);
+			}
+		}
+		
+		if (((Wizard) this.currentChamp).getTraitCooldown()>0)	
+			((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
+			
+		// the location of the current champion
+			Point p = ((Wizard) this.currentChamp).getLocation();
+			Wizard temp =(Wizard) currentChamp;
+			//Cell current = map[p.x][p.y];
+			
+			if(this instanceof FirstTask)
+			{
+				// we have a winner
+				if(p.x == 4 && p.y == 4)
+				{
+					// removes the Champ from the cell and adds him to the winners list
+					map[4][4] = new EmptyCell();
+					ArrayList<Champion> win = ((FirstTask)this).getWinners();
+					win.add(temp);
+					((FirstTask)this).setWinners(win);
+					champions.remove(currentChamp);
+					if (((Wizard) currentChamp) instanceof GryffindorWizard && allowedMoves>0 )
+						endTurn();
+				}
+				// if all the players were removed than they must have wined or died
+				if(champions.isEmpty())
+				{ 	if (getListener() != null){
+							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+				}
 
+				
+					//does not fire a hifflepuffWizard whose trait has been activated
+				if(!(temp instanceof HufflepuffWizard && traitActivated))
+				{
+					((FirstTask)this).fire();
+				}
+				
+				if(champions.isEmpty())
+				{ 	if (getListener() != null){
+							listener.onFinishingFirstTask(((FirstTask) this).getWinners());
+					}
+				}
+				
+				/*if (((FirstTask)this).getChampions().size()==0){
+					if(((FirstTask)this).getWinners().size()==0){
+						
+					}
+					else{
+					getListener().onFinishingFirstTask(((FirstTask)this).getWinners());
+					//setListener(this);
+					}
+	
+				}*/
+				
+			}
+			else if(this instanceof SecondTask)
+			{
+				
+				// collects treasure
+				/*if(current instanceof TreasureCell)
+				{
+					// gets the owner to check whether the treasure belongs to the champion or not
+					Wizard owner =(Wizard) ((TreasureCell) current).getOwner();
+					// winner
+					if(owner == currentChamp)
+					{
+						// adds his to the list of winners 
+						ArrayList<Champion> win = ((SecondTask)this).getWinners();
+						win.add(temp);
+						((SecondTask)this).setWinners(win);
+						// removes him from champions
+						champions.remove(temp);
+						
+						
+						
+					}
+				}*/
+						
+						// Task ends if the list is empty
+						
+					if(champions.isEmpty())
+					{
+						if (getListener() != null)
+							listener.onFinishingSecondTask(((SecondTask)this).getWinners());
+					}			
+					
+					
+					//does not fire a hifflepuffWizard whose trait has been activated
+					if(allowedMoves==0 && (!(temp instanceof HufflepuffWizard &&traitActivated)))
+					{
+						((SecondTask)this).encounterMerPerson();
+					}
+					
+						
+					
+				
+			}
+			traitActivated = false;
+			if (allowedMoves==0)
+				endTurn();
+	}
+	
+	/*
+	 * This method is responsible for returning the Point of the cell adjacent to the currentChamp’s location in the targeted direction d.
+	 */
+	public Point getTargetPoint(Direction d)
+	{
+		// the location of the current champ
+		Point p =new Point(((Wizard)this.currentChamp).getLocation());
+		
+		// adds 1 to the Y-coord
+		if(d == Direction.FORWARD)
+		{
+			p.x = (int) (p.getX() - 1) ;
+			return p;
+		}
+		// removes 1 from the Y-coord
+		else if(d == Direction.BACKWARD)
+		{
+			p.x = (int) (p.getX() +1) ; 
+			return p;
+		}
+		// adds 1 to the X-coord
+		else if(d == Direction.RIGHT)
+		{
+			p.y = (int) (p.getY() + 1) ; 
+			return p;
+		}
+		// removes 1 from the X-coord
+		else if(d == Direction.LEFT)
+		{
+			p.y = (int) (p.getY() - 1) ;
+			return p;
+		}
+		else
+		{
+			return p;
+		}
+			
+	}
+	
+	/*
+	 * method is responsible for casting a DamagingSpell to the currentChamp’s adjacent cell in the target direction d
+	 */
+	public void castDamagingSpell(DamagingSpell s, Direction d) throws IOException, InCooldownException,NotEnoughIPException, InvalidTargetCellException, OutOfBordersException
+	{
+		
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
+		}
+		int temp;
+		if((temp = s.getCoolDown()) != 0)
+		{
+			throw new InCooldownException(temp);
+		}
+		// gets the target of the damaging spell 
+		Point p = getTargetPoint(d);
+		if (p.x<0||p.x>9||p.y<0||p.y>9)
+			throw new OutOfBordersException("You are casting the spell out of the map borderd");
+		
+		// the cell at which the attack was made
+		Cell targetedCell = map[p.x][p.y];
+		 
+		// a player was standing in the attacked cell
+		if(targetedCell instanceof ChampionCell)
+		{
+			Champion target = ((ChampionCell) targetedCell).getChamp();
+			// the Champion was a HufflepuffWizard in the third task
+			if((this instanceof ThirdTask) && (target instanceof HufflepuffWizard))
+			{
+				if (((Wizard) target).getHp()-(s.getDamageAmount()/2)>0)
+					((Wizard) target).setHp(((Wizard) target).getHp() - (s.getDamageAmount()/2));
+				else{
+					((Wizard) target).setHp(0);
+					champions.remove(target);
+					map[p.x][p.y] =new EmptyCell();
+				}
+			}
+			else
+			{
+				// otherwise
+				if (((Wizard) target).getHp()-s.getDamageAmount()>0)
+					((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				else{
+					((Wizard) target).setHp(0);
+					champions.remove(target);
+					map[p.x][p.y] =new EmptyCell();
+				}
+			}
+		}
+		// an obstacle
+		else if(targetedCell instanceof ObstacleCell)
+			{
+				//Obs target = ((ChampionCell) targetedCell).getChamp();
+				
+				//((Wizard) target).setHp(((Wizard) target).getHp() - s.getDamageAmount());
+				/*if(this instanceof FirstTask || this instanceof ThirdTask)
+				{
+					PhysicalObstacle target = (PhysicalObstacle) ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount()>0)
+						 target.setHp(((PhysicalObstacle) target).getHp() - s.getDamageAmount());
+					else{
+						 target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
+					}
+				}
+				else{ 
+					if(this instanceof SecondTask)
+					{
+						Merperson target = (Merperson) ((ObstacleCell) targetedCell).getObstacle();
+						if ( target.getHp()-s.getDamageAmount() >0)
+							target.setHp( target.getHp() - s.getDamageAmount());
+						else{
+							 target.setHp(0);
+							map[p.x][p.y] =new EmptyCell();
+						}
+					}
+				}*/
+				Obstacle  target = ((ObstacleCell) targetedCell).getObstacle();
+					if ( target.getHp()-s.getDamageAmount() >0)
+						target.setHp( target.getHp() - s.getDamageAmount());
+					else{
+						target.setHp(0);
+						map[p.x][p.y] =new EmptyCell();
+				}
+			}
+		else
+		{
+			throw new InvalidTargetCellException("You are trying to target an invalid Cell");
+		}
+		useSpell(s);
+		finalizeAction();
+		
+	}
+	
+	/*
+	 * This is responsible for casting a HealingSpell to restore the hp of the currentChamp with the healing amount of the spell.
+	 */
+	public void castHealingSpell(HealingSpell s) throws IOException, InCooldownException, NotEnoughIPException
+	{
+
+		if (s.getCost() > ((Wizard)currentChamp).getIp())
+		{
+			throw new NotEnoughIPException(s.getCost(), s.getCost()-((Wizard)currentChamp).getIp());
+		}
+		if(s.getCoolDown() != 0)
+		{
+			throw new InCooldownException(s.getCoolDown());
+		}
+		// values
+		int hp = ((Wizard)this.currentChamp).getHp();
+		int defaulthp = ((Wizard)this.currentChamp).getDefaultHp();
+		int heal = s.getHealingAmount();
+		// The healing amount was less or equal to the defualthp
+		if(defaulthp >= hp + heal)
+		{
+			((Wizard)this.currentChamp).setHp(hp+heal);
+		}
+		else
+		{
+			((Wizard)this.currentChamp).setHp(defaulthp);
+		}
+		useSpell(s);
+		finalizeAction();
+	}
+	/*
+	 * responsible for activating the Gryffindor trait.
+	 */
+	public void onGryffindorTrait()
+	{	if (!traitActivated){
+			Wizard currentchamp = (Wizard) this.currentChamp;
+			
+			// makes sure the current Champion is a Hufflepuf Wizard
+			if(!(currentchamp instanceof GryffindorWizard))
+			{
+				return;
+			}
+			
+			// activates trait
+			traitActivated = true;
+	
+			// sets the cool down according to the task
+			
+			currentchamp.setTraitCooldown(4);
+			 allowedMoves = 2;
+		}
+		/*for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+		Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			useSpell(s);
+	}*/
+		
+		
+	}
+	
+	/*
+	 * responsible for activating the Hufflepuff trait.
+	 */
+	public void onHufflepuffTrait()
+	{	
+		if (!traitActivated){
+			Wizard currentchamp = (Wizard) this.currentChamp;
+			
+			// makes sure the current Champion is a Hufflepuf Wizard
+			if(!(currentchamp instanceof HufflepuffWizard))
+			{
+				return;
+			}
+			
+			// activates trait
+			traitActivated = true;
+	
+			// sets the cool down according to the task
+			
+			if(this instanceof FirstTask)
+			{
+				currentchamp.setTraitCooldown(3);
+			}
+			else if(this instanceof SecondTask)
+			{
+				currentchamp.setTraitCooldown(6);
+			}
+			
+			// no cool down for the third task
+	
+		
+			/*
+			 * not sure if I should use it in any other function
+			 */
+		}
+	}
+	/*public void finalizeAction()throws IOException{
+		allowedMoves--;
+		for (int i=0; i<((Wizard) this.currentChamp).getSpells().size();i++){
+			Spell s = ((Wizard) this.currentChamp).getSpells().get(i);
+			if (s.getCoolDown()>0)
+				s.setCoolDown(s.getCoolDown()-1);
+		}
+		((Wizard) this.currentChamp).setTraitCooldown(((Wizard) this.currentChamp).getTraitCooldown()-1);
+		
+	}*/
+	
 }
+
+
