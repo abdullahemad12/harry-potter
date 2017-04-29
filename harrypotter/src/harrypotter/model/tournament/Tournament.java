@@ -30,6 +30,13 @@ public class Tournament  implements TaskListener {
 	
 	private ThirdTask thirdTask;
 	
+	private Champion Winner;
+	
+	
+	public Champion getWinner()
+	{
+		return Winner;
+	}
 	//The third task of the tournament.
 	public Tournament() throws Exception{
 		champions =new ArrayList<Champion>();
@@ -75,7 +82,7 @@ public class Tournament  implements TaskListener {
 	
 	public void onFinishingThirdTask(Champion winner)
 	{
-		
+		Winner = winner;
 
 	}
 	private void loadSpells(String filePath) throws IOException{

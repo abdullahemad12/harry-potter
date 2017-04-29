@@ -165,6 +165,9 @@ abstract public class TaskGUI implements ActionListener {
 	public void setObst(ImageBuffer obst) {
 		this.obst = obst;
 	}
+	public void setWall(ImageBuffer wall) {
+		this.Wall = wall;
+	}
 	
 	
 	/*
@@ -375,7 +378,7 @@ abstract public class TaskGUI implements ActionListener {
 	 */
 	void UpdateMap() 
 	{
-		Cell[][] cells = getTournament().getFirstTask().getMap();
+		Cell[][] cells = getTournament().getTask().getMap();
 		JImageComponent[][] map = getTaskview().getMap(); 
 		// TODO 
 		for(int i = 0; i < 10; i++)
@@ -677,5 +680,7 @@ abstract public class TaskGUI implements ActionListener {
 		this.taskview.dispose();
 		taskview = null;
 	}
+	
+	
 
 }

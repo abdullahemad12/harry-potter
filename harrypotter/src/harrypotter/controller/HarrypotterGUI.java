@@ -2,16 +2,19 @@ package harrypotter.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 
 import harrypotter.model.character.*;
 import harrypotter.model.magic.Spell;
 import harrypotter.model.tournament.*;
 import harrypotter.view.StartMenuView;
+import harrypotter.view.TaskView;
 
 /*
  * The Main class that controls all the other Controllers
@@ -141,7 +144,6 @@ public class HarrypotterGUI implements ActionListener, TaskListener{
 		try {
 			tournament.beginTournament();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -223,8 +225,14 @@ public class HarrypotterGUI implements ActionListener, TaskListener{
 	 * After Finishing the Third it initializes a new instance of the Winners and passes the Winners  
 	 */
 	@Override
-	public void onFinishingThirdTask(ArrayList<Champion> Winners) {
-		// TODO Auto-generated method stub
+	public void onFinishingThirdTask(Champion Winner) {
+		Wizard winner = (Wizard) Winner;
+		TaskView frame = task3.getTaskview();
+		JOptionPane.showMessageDialog(frame,
+			    "The Winner is: " + winner.getName() + " Thank You for putting up to this very boring game till the End <3" ,
+			    "Congrats",
+			    JOptionPane.INFORMATION_MESSAGE);
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 		
 	}
 }
