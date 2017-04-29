@@ -10,7 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 
-import javax.swing.JOptionPane;
 
 import harrypotter.model.character.*;
 import harrypotter.model.magic.Spell;
@@ -235,13 +234,4 @@ public class HarrypotterGUI implements ActionListener, TaskListener{
 		
 	}
 
-	/*
-	 * After Finishing the Third it initializes a new instance of the Winners and passes the Winners  
-	 */
-	//@Override
-//	public void onFinishingThirdTask(ArrayList<Champion> Winners) {
-//		// TODO Auto-generated method stub
-//		JOptionPane.showMessageDialog(getTaskview(), "The winner is: " + task3.getTournament().getThirdTask().get);
-//		
-//	}
 }
