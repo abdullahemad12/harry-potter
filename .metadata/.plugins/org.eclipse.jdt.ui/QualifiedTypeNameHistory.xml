@@ -3,4 +3,5 @@
 <fullyQualifiedTypeName name="harrypotter.view.loadingView"/>
 <fullyQualifiedTypeName name="harrypotter.controller.TaskListener"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
 </qualifiedTypeNameHistroy>
