@@ -54,11 +54,11 @@ public class SecondTask extends Task {
 				cell[x][y] = new EmptyCell();
 				((Wizard)getCurrentChamp()).setHp(0);
 				this.getChampions().remove(getCurrentChamp());
-				if(getChampions().isEmpty())
-				{
-					if (getListener() != null)
-						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-				}
+//				if(getChampions().isEmpty())
+//				{
+//					if (getListener() != null)
+//						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//				}
 				endTurn();
 			}
 			// does damage do the wizard
@@ -79,11 +79,11 @@ public class SecondTask extends Task {
 				cell[x][y] = new EmptyCell();
 				((Wizard)getCurrentChamp()).setHp(0);
 				this.getChampions().remove(getCurrentChamp());
-				if(getChampions().isEmpty())
-				{
-					if (getListener() != null)
-						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-				}
+//				if(getChampions().isEmpty())
+//				{
+//					if (getListener() != null)
+//						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//				}
 				endTurn();
 			}
 			else
@@ -103,11 +103,11 @@ public class SecondTask extends Task {
 				cell[x][y] = new EmptyCell();
 				((Wizard)getCurrentChamp()).setHp(0);
 				this.getChampions().remove(getCurrentChamp());
-				if(getChampions().isEmpty())
-				{
-					if (getListener() != null)
-						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-				}
+//				if(getChampions().isEmpty())
+//				{
+//					if (getListener() != null)
+//						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//				}
 				endTurn();
 			}
 			else
@@ -127,11 +127,11 @@ public class SecondTask extends Task {
 				cell[x][y] = new EmptyCell();
 				((Wizard)getCurrentChamp()).setHp(0);
 				this.getChampions().remove(getCurrentChamp());
-				if(getChampions().isEmpty())
-				{
-					if (getListener() != null)
-						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-				}
+//				if(getChampions().isEmpty())
+//				{
+//					if (getListener() != null)
+//						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//				}
 				endTurn();
 			}
 			else
@@ -196,11 +196,11 @@ public class SecondTask extends Task {
 						getChampions().remove(getCurrentChamp());
 						getMap()[p.x][p.y]= new EmptyCell();
 						getMap()[pp.x][pp.y]= new EmptyCell();
-						if(getChampions().isEmpty())
-						{
-							if (getListener() != null)
-								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-						}	
+//						if(getChampions().isEmpty())
+//						{
+//							if (getListener() != null)
+//								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//						}	
 						endTurn();
 					}
 					if (getMap()[p.x][p.y] instanceof EmptyCell){
@@ -241,11 +241,11 @@ public class SecondTask extends Task {
 						getChampions().remove(getCurrentChamp());
 						getMap()[p.x][p.y]= new EmptyCell();
 						getMap()[pp.x][pp.y]= new EmptyCell();
-						if(getChampions().isEmpty())
-						{
-							if (getListener() != null)
-								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-						}	
+//						if(getChampions().isEmpty())
+//						{
+//							if (getListener() != null)
+//								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//						}	
 						endTurn();
 					}
 					if (getMap()[p.x][p.y] instanceof EmptyCell){
@@ -287,11 +287,11 @@ public class SecondTask extends Task {
 						getChampions().remove(getCurrentChamp());
 						getMap()[p.x][p.y]= new EmptyCell();
 						getMap()[pp.x][pp.y]= new EmptyCell();
-						if(getChampions().isEmpty())
-						{
-							if (getListener() != null)
-								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-						}	
+//						if(getChampions().isEmpty())
+//						{
+//							if (getListener() != null)
+//								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//						}	
 						endTurn();
 					}
 					if (getMap()[p.x][p.y] instanceof EmptyCell){
@@ -332,11 +332,11 @@ public class SecondTask extends Task {
 						getChampions().remove(getCurrentChamp());
 						getMap()[p.x][p.y]= new EmptyCell();
 						getMap()[pp.x][pp.y]= new EmptyCell();
-						if(getChampions().isEmpty())
-						{
-							if (getListener() != null)
-								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-						}	
+//						if(getChampions().isEmpty())
+//						{
+//							if (getListener() != null)
+//								getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//						}	
 						endTurn();
 					}
 					if (getMap()[p.x][p.y] instanceof EmptyCell){
@@ -375,11 +375,11 @@ public class SecondTask extends Task {
 				getChampions().remove(getCurrentChamp());
 				getMap()[p.x][p.y]= new EmptyCell();
 				//getMap()[pp.x][pp.y]= new EmptyCell();
-				if(getChampions().isEmpty())
-				{
-					if (getListener() != null)
-						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
-				}	
+//				if(getChampions().isEmpty())
+//				{
+//					if (getListener() != null)
+//						getListener().onFinishingSecondTask(((SecondTask)this).getWinners());
+//				}	
 				endTurn();
 			}
 			else{

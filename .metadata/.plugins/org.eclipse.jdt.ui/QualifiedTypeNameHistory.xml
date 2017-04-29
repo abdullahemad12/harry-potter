@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="harrypotter.view.loadingView"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="harrypotter.controller.TaskListener"/>
 <fullyQualifiedTypeName name="harrypotter.model.character.Champion"/>
 <fullyQualifiedTypeName name="harrypotter.model.tournament.ThirdTask"/>
+=======
+<fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Potion"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.HealingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.DamagingSpell"/>
+<fullyQualifiedTypeName name="harrypotter.model.magic.Spell"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.GryffindorWizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.SlytherinWizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.HufflepuffWizard"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.FirstTask"/>
+<fullyQualifiedTypeName name="harrypotter.model.tournament.SecondTask"/>
+<fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="harrypotter.model.world.Direction"/>
+<fullyQualifiedTypeName name="harrypotter.controller.Task2GUI"/>
+<fullyQualifiedTypeName name="harrypotter.controller.Task1GUI"/>
+<fullyQualifiedTypeName name="harrypotter.model.character.Wizard"/>
+>>>>>>> 8dd4d6dec14f75b7497e5b9c384736e1262416c1
 </qualifiedTypeNameHistroy>
