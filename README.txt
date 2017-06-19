@@ -1,7 +1,3 @@
-This is all harry potter books uploaded to the server. Have Fun! :)
+Harry potter 2-D Game 
 
-Y: 4-5
-
-A: 2.3, 6-8
-
-dl: 22-3
+This is a basic harry potter 2D game implemented by Abdullah Emad and Youssef Ashraf
